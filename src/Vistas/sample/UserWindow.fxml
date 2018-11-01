@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
+    <left>
+        <VBox fx:id="profileBox">
+            <VBox prefHeight="17.0" prefWidth="115.0" BorderPane.alignment="CENTER">
+                <children>
+                    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="132.0">
+                        <children>
+                            <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../iconos/profile.png" />
+                                </image>
+                            </ImageView>
+                            <ComboBox prefHeight="0.0" prefWidth="87.0" promptText="Perfil" />
+                        </children>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                        <padding>
+                            <Insets bottom="12.0" />
+                        </padding>
+                    </HBox>
+                </children>
+            </VBox>
+            <VBox fx:id="listasBox">
+                <children>
+                    <HBox alignment="CENTER" prefHeight="28.0" prefWidth="115.0">
+                        <children>
+                            <ImageView fitHeight="21.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../iconos/listaRep.png" />
+                                </image>
+                            </ImageView>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LISTAS" textAlignment="CENTER" wrappingWidth="77.21875">
+                                <font>
+                                    <Font name="Arial Bold" size="13.0" />
+                                </font>
+                            </Text>
+                        </children>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                        <padding>
+                            <Insets bottom="8.0" />
+                        </padding>
+                    </HBox>
+                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" />
+                    <VBox fx:id="userListsVox">
+
+                    </VBox>
+                    <HBox alignment="CENTER" prefHeight="31.0" prefWidth="100.0">
+                        <children>
+                            <ImageView fitHeight="18.0" fitWidth="25.0" style="-fx-cursor: hand" onMouseClicked="#anadirLista" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../iconos/anadir.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                        <opaqueInsets>
+                            <Insets top="12.0" />
+                        </opaqueInsets>
+                    </HBox>
+                </children>
+            </VBox>
+        </VBox>
+    </left>
+    <top>
+        <VBox prefHeight="75.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar fx:id="topMenuBar" prefHeight="79.0" prefWidth="600.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox fx:id="topHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label fx:id="userLabel" prefHeight="22.0" prefWidth="95.0" text="Username" textAlignment="CENTER">
+                            <font>
+                                <Font name="Menlo Regular" size="13.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <VBox prefHeight="80.0" prefWidth="595.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="97.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar título" wrappingWidth="85.98306465148926" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="200.0">
+                     <children>
+                        <TextField alignment="CENTER" prefHeight="30.0" prefWidth="200.0" />
+                     </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="114.0">
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Buscar" />
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </bottom>
+    <right>
+        <VBox prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="23.0" prefWidth="133.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas disponibles" textAlignment="CENTER" wrappingWidth="153.90756225585938" />
+                    </children>
+                </HBox>
+                <VBox prefHeight="161.0" prefWidth="142.0" />
+            </children>
+        </VBox>
+    </right>
+</BorderPane>

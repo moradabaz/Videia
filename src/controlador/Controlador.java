@@ -235,7 +235,7 @@ public class Controlador {
     /**
      * Modificar los datos de usuario actual
      * @param email
-     * @param password
+     * @param
      */
     public void modificarDatosUsuario(String nombre, String apellidos, Date fecha, String email) {
         if (logeado) {

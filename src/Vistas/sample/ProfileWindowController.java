@@ -1,20 +1,26 @@
 package Vistas.sample;
 
 import controlador.Controlador;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import javafx.stage.Stage;
 import modelo.dominio.Usuario;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -320,5 +326,30 @@ public class ProfileWindowController {
         }
         controlador.modificarDatosUsuario(nombre, apellidos, fechaNac, email);
         Notificacion.changeSuccess(Notificacion.FIELDS);
+    }
+
+    public void volveraUserView(MouseEvent mouseEvent) throws IOException {
+        /*FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("UserWindow.fxml"));
+        BorderPane UserView = loader.load();
+        Scene userViewScene = new Scene(UserView);
+        UserWindowController userController = loader.getController();
+        userController.inicializar(controlador);
+        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setScene(userViewScene);
+        window.setFullScreen(true);
+        window.show();*/
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("UserWindow.fxml"));
+        BorderPane bpUserView = loader.load();
+        Scene userScene = new Scene(bpUserView);
+        UserWindowController userController = loader.getController();
+        userController.inicializar(this.controlador);
+        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setScene(userScene);
+        window.setResizable(true);
+       // window.setFullScreen(true);
+        window.show();
     }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,7 +16,14 @@
          <children>
               <VBox fx:id="VBoxListas" prefHeight="400.0" prefWidth="308.0">
                   <children>
-                      <Accordion />
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="308.0">
+                     <children>
+                        <ImageView fx:id="imgVolver" fitHeight="36.0" fitWidth="44.0" onMouseClicked="#volveraUserView" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand">
+                            <Image url="@../../../iconos/previous.png" />
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volver" />
+                     </children>
+                  </HBox>
                       <VBox alignment="CENTER" prefHeight="31.0" prefWidth="308.0">
                           <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Listas de Usuario" textAlignment="CENTER" />

@@ -16,6 +16,13 @@ import static modelo.dominio.persistencia.AdaptadorUsuarioDAO.pool;
 
 public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
+    // Propiedades para el Video
+
+    private static final String TITULO = "titulo";
+    private static final String ETIQUETAS = "etiquetas";
+    private static final String RUTA_FICHERO = "rutaFichero";
+    private static final String NUM_REPRODUCCIONES = "numReproducciones";
+
     private static ServicioPersistencia servPersistencia;
     private static AdaptadorVideoDAO unicaInstancia = null;
 
@@ -35,7 +42,7 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
     @Override
     public void registrarVideo(Video Video) {
         Entidad eVideo = null;
-        // Si la entidad est� registrada no la registra de nuevo
+        // Si la entidad esta registrada no la registra de nuevo
         boolean existe = true;
         try {
             eVideo = servPersistencia.recuperarEntidad(Video.getCodigo());
@@ -70,7 +77,6 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
     @Override
     public void borrarVideo(Video Video) {
-        // No se comprueba integridad con lineas de venta
         Entidad eVideo = servPersistencia.recuperarEntidad(Video.getCodigo());
         servPersistencia.borrarEntidad(eVideo);
     }
@@ -78,16 +84,16 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
     @Override
     public void modificarVideo(Video Video) {
         Entidad eVideo = servPersistencia.recuperarEntidad(Video.getCodigo());
-        servPersistencia.eliminarPropiedadEntidad(eVideo, "titulo");
-        servPersistencia.anadirPropiedadEntidad(eVideo, "titulo", Video.getTitulo());
-        servPersistencia.eliminarPropiedadEntidad(eVideo, "etiquetas");
-        servPersistencia.anadirPropiedadEntidad(eVideo, "etiquetas", Video.getEtiquetasString());
-        servPersistencia.eliminarPropiedadEntidad(eVideo, "rutaFichero");
-        servPersistencia.anadirPropiedadEntidad(eVideo, "rutaFichero", Video.getRutaFichero());
-        servPersistencia.eliminarPropiedadEntidad(eVideo, "numReproducciones");
+        servPersistencia.eliminarPropiedadEntidad(eVideo, TITULO);
+        servPersistencia.anadirPropiedadEntidad(eVideo, TITULO, Video.getTitulo());
+        servPersistencia.eliminarPropiedadEntidad(eVideo, ETIQUETAS);
+        servPersistencia.anadirPropiedadEntidad(eVideo, ETIQUETAS, Video.getEtiquetasString());
+        servPersistencia.eliminarPropiedadEntidad(eVideo, RUTA_FICHERO);
+        servPersistencia.anadirPropiedadEntidad(eVideo, RUTA_FICHERO, Video.getRutaFichero());
+        servPersistencia.eliminarPropiedadEntidad(eVideo, NUM_REPRODUCCIONES);
         String numRep = String.valueOf(Video.getNumReproducciones());
         System.out.println("Numero de reproducciones " + numRep);
-        servPersistencia.anadirPropiedadEntidad(eVideo, "numReproducciones", String.valueOf(Video.getNumReproducciones()));
+        servPersistencia.anadirPropiedadEntidad(eVideo, NUM_REPRODUCCIONES, String.valueOf(Video.getNumReproducciones()));
     }
 
     @Override
@@ -95,27 +101,23 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
         Entidad eVideo;
         String titulo;
         String rutaFichero;
-        String interpreteString;
-        String estiloMusicalString;
         String reproString;
+        String etiquetasString;
         int numReproducciones = 0;
         try {
             eVideo = servPersistencia.recuperarEntidad(codigo);
         }catch (NullPointerException e) {
             return null;
         }
-        titulo = servPersistencia.recuperarPropiedadEntidad(eVideo, "nombre");
-        rutaFichero = servPersistencia.recuperarPropiedadEntidad(eVideo, "rutaFichero");
-        interpreteString = servPersistencia.recuperarPropiedadEntidad(eVideo, "interprete");
-        estiloMusicalString = servPersistencia.recuperarPropiedadEntidad(eVideo, "estiloMusical");
-        reproString = servPersistencia.recuperarPropiedadEntidad(eVideo, "numReproducciones"); // Error
-
+        titulo = servPersistencia.recuperarPropiedadEntidad(eVideo, TITULO);
+        rutaFichero = servPersistencia.recuperarPropiedadEntidad(eVideo, RUTA_FICHERO);
+        reproString = servPersistencia.recuperarPropiedadEntidad(eVideo, NUM_REPRODUCCIONES); // Error
+        etiquetasString = servPersistencia.recuperarPropiedadEntidad(eVideo, ETIQUETAS);
         Video Video = new Video(titulo, rutaFichero);
         //System.out.println(reproString);
         numReproducciones = Integer.parseInt(reproString);
         Video.setNumReproducciones(numReproducciones);
         Video.setCodigo(codigo);
-
         PoolDAO.getUnicaInstancia().addObjeto(codigo, Video);
         return Video;
     }

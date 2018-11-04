@@ -1,5 +1,6 @@
 package modelo.dominio;
 
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,8 +21,7 @@ public class Usuario {
     private boolean premium;
     private List<VideoList> myVideoLists;
     private List<Video> videosRecientes;
-   // private LinkedList<VideoList> VideoList;
-   // private LinkedList<Video> VideoesRecientes;
+
 
 
     public Usuario(String username, String password, String nombre, String apellidos, Date fechaNac, String email) {
@@ -229,8 +229,13 @@ public class Usuario {
     }
 
     public void anadirVideoList(List<VideoList> list) {
+        /*for (VideoList vL : list) {
+            if (!myVideoLists.contains(vL)) {
+                myVideoLists.add(vL);
+            }
+        }*/
         list.stream().filter(VideoList -> !myVideoLists.contains(VideoList))
-                      .forEach(list::add);
+                      .forEach(myVideoLists::add);
     }
 
     public void anadirVideoReciente(Video Video) {
@@ -269,6 +274,7 @@ public class Usuario {
     }
 
     public boolean contieneVideoList(String nombreLista) {
+        if (myVideoLists.isEmpty() || myVideoLists == null ) return false;
         for (VideoList pl : myVideoLists) {
             if (pl.tieneMismoNombre(nombreLista)) {
                 return true;

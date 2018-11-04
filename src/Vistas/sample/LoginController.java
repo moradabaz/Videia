@@ -155,14 +155,13 @@ public class LoginController implements Initializable {
     public void gotoUserWindow(ActionEvent event, Usuario usuario) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
-        Parent UserView = loader.load();
+        BorderPane UserView = loader.load();
         Scene userViewScene = new Scene(UserView);
-
         UserWindowController userWindowController = loader.getController();
-        userWindowController.inicializar(usuario);
-
+        userWindowController.inicializar(controlador);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(userViewScene);
+        window.setFullScreen(true);
         window.show();
         /*Parent UserView = FXMLLoader.load(getClass().getResource("UserWindow.fxml"));
         Scene userViewScene = new Scene(UserView);

@@ -12,8 +12,22 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * Esta clase implementa los metodos de la Interfaz de abajo
+ * Se encarga de la persistencia de los objetos de la clase Uusuario
+ */
 public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
+    private static final String USERNAME = "username";
+    private static final String PASSWORD = "password";
+    private static final String NOMBRE = "nombre";
+    private static final String APELLIDOS = "apellidos";
+    private static final String FECHA = "fecha";
+    private static final String EMAIL = "email";
+    private static final String PREMIUM = "premium";
+    private static final String LISTA_VIDEOS = "listaVideos";
+    private static final String VIDEOS_RECIENTES = "videosRecientes";
+    private static final String DESCUENTO = "descuento";
 
     private static ServicioPersistencia servPersistencia;
     public static AdaptadorUsuarioDAO unicaInstancia;
@@ -22,6 +36,10 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
     private static AdaptadorVideoDAO adaptadorVideo = AdaptadorVideoDAO.getUnicaInstancia();
 
 
+    /**
+     *
+     * @return
+     */
     public static  AdaptadorUsuarioDAO getUnicaInstancia() {
         if (unicaInstancia == null) {
             return new AdaptadorUsuarioDAO();
@@ -60,16 +78,16 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         eUsuario.setNombre("Usuario");
         eUsuario.setPropiedades(new ArrayList<Propiedad>(
                 Arrays.asList(
-                        new Propiedad("username", usuario.getUsername()),
-                        new Propiedad("password", usuario.getPassword()),
-                        new Propiedad("nombre", usuario.getNombre()),
-                        new Propiedad("apellidos", usuario.getApellidos()),
-                        new Propiedad("fecha", usuario.getStringFecha()),
-                        new Propiedad("email", usuario.getEmail()),
-                        new Propiedad("premium", String.valueOf(usuario.isPremium())),
-                        new Propiedad("listasCanciones", usuario.getStringCodigosVideoList()),
-                        new Propiedad("cancionesRecientes", usuario.getStringCodigosVideoesRecientesString()),
-                        new Propiedad("descuento", String.valueOf(usuario.getDescuento()))
+                        new Propiedad(USERNAME, usuario.getUsername()),
+                        new Propiedad(PASSWORD, usuario.getPassword()),
+                        new Propiedad(NOMBRE, usuario.getNombre()),
+                        new Propiedad(APELLIDOS, usuario.getApellidos()),
+                        new Propiedad(FECHA, usuario.getStringFecha()),
+                        new Propiedad(EMAIL, usuario.getEmail()),
+                        new Propiedad(PREMIUM, String.valueOf(usuario.isPremium())),
+                        new Propiedad(LISTA_VIDEOS, usuario.getStringCodigosVideoList()),
+                        new Propiedad(VIDEOS_RECIENTES, usuario.getStringCodigosVideoesRecientesString()),
+                        new Propiedad(DESCUENTO, String.valueOf(usuario.getDescuento()))
                 )
         ));
         eUsuario = servPersistencia.registrarEntidad(eUsuario);
@@ -86,29 +104,29 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         Entidad eUsuario;
         eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
         if (eUsuario != null) {
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "username");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "password");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "nombre");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "apellidos");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "fecha");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "email");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "premium");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "VideoList");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "cancionesRecientes");
-            servPersistencia.eliminarPropiedadEntidad(eUsuario, "descuento");
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, USERNAME);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, PASSWORD);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, NOMBRE);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, APELLIDOS);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, FECHA);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, EMAIL);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, PREMIUM);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, LISTA_VIDEOS);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, VIDEOS_RECIENTES);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, DESCUENTO);
 
             // TODO: APLICAR DESCUENTOS
 
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "username", usuario.getUsername());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "password", usuario.getPassword());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "nombre", usuario.getNombre());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "apellidos", usuario.getApellidos());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "fecha", usuario.getStringFecha());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "email", usuario.getEmail());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "premium", String.valueOf(usuario.isPremium()));
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "VideoList", usuario.getStringCodigosVideoList());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "cancionesRecientes", usuario.getStringCodigosVideoesRecientesString());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, "descuento", String.valueOf(usuario.getDescuento()));
+            servPersistencia.anadirPropiedadEntidad(eUsuario, USERNAME, usuario.getUsername());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, PASSWORD, usuario.getPassword());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, NOMBRE, usuario.getNombre());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, APELLIDOS, usuario.getApellidos());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, FECHA, usuario.getStringFecha());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, EMAIL, usuario.getEmail());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, PREMIUM, String.valueOf(usuario.isPremium()));
+            servPersistencia.anadirPropiedadEntidad(eUsuario, LISTA_VIDEOS, usuario.getStringCodigosVideoList());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, VIDEOS_RECIENTES, usuario.getStringCodigosVideoesRecientesString());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, DESCUENTO, String.valueOf(usuario.getDescuento()));
         }
 
     }
@@ -144,11 +162,11 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         String recientesString;
 
 
-        username = servPersistencia.recuperarPropiedadEntidad(eUsuario, "username");
-        password = servPersistencia.recuperarPropiedadEntidad(eUsuario, "password");
-        nombre = servPersistencia.recuperarPropiedadEntidad(eUsuario, "nombre");
-        apellidos = servPersistencia.recuperarPropiedadEntidad(eUsuario, "apellidos");
-        fechaString = servPersistencia.recuperarPropiedadEntidad(eUsuario, "fecha");
+        username = servPersistencia.recuperarPropiedadEntidad(eUsuario, USERNAME);
+        password = servPersistencia.recuperarPropiedadEntidad(eUsuario, PASSWORD);
+        nombre = servPersistencia.recuperarPropiedadEntidad(eUsuario, NOMBRE);
+        apellidos = servPersistencia.recuperarPropiedadEntidad(eUsuario, APELLIDOS);
+        fechaString = servPersistencia.recuperarPropiedadEntidad(eUsuario, FECHA);
 
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
@@ -161,22 +179,22 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
             e.printStackTrace();
         }
 
-        email = servPersistencia.recuperarPropiedadEntidad(eUsuario, "email");
-        listasCancionesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, "listasCanciones");
+        email = servPersistencia.recuperarPropiedadEntidad(eUsuario, EMAIL);
+        listasCancionesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, LISTA_VIDEOS);
         LinkedList<VideoList> listasCancionesRecuperada = (LinkedList<VideoList>) getListasByIds(listasCancionesString); // ERROR
 
 
         LinkedList<VideoList> VideoList = new LinkedList<VideoList>();
         LinkedList<Video> recientes = new LinkedList<Video>();
 
-        recientesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, "cancionesRecientes");
+        recientesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, VIDEOS_RECIENTES);
         recientes = (LinkedList<Video>) getCancionesByIds(recientesString);
 
-        premium = Boolean.parseBoolean(servPersistencia.recuperarPropiedadEntidad(eUsuario, "premium"));
+        premium = Boolean.parseBoolean(servPersistencia.recuperarPropiedadEntidad(eUsuario, PREMIUM));
         Usuario usuario = new Usuario(username, password, nombre, apellidos, fecha, email);
         usuario.setCodigo(codigo);
         PoolDAO.getUnicaInstancia().addObjeto(codigo, usuario);
-        usuario.anadirVideoList(listasCancionesRecuperada);
+        usuario.anadirVideoList(listasCancionesRecuperada); // TODO -> AQUI SE ROMPE
         usuario.setVideoesRecientes(recientes);
         return usuario;
 
@@ -190,16 +208,15 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
     private String getCodidosDeListas(List<VideoList> listasCanciones) {
         String lineas = "";
         for (VideoList l: listasCanciones) {
-            lineas += l.getCodigo() + " ";
+            lineas += l.getCodigo() + ":";
         }
         return lineas.trim();
 
     }
 
     private List<VideoList> getListasByIds(String lineas) {
-
         List<VideoList> playlists = new LinkedList<VideoList>();
-        StringTokenizer strTok = new StringTokenizer(lineas, " ");
+        StringTokenizer strTok = new StringTokenizer(lineas, ":");
         while (strTok.hasMoreTokens()) {
             playlists.add(adaptadorVideoList.recuperarVideoList(Integer.valueOf((String) strTok.nextElement())));
         }
@@ -209,7 +226,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
     private String getCodigoVideosRecientes(List<Video> videosRecientes) {
         String lineas = "";
         for (Video v: videosRecientes) {
-            lineas += v.getCodigo() + " ";
+            lineas += v.getCodigo() + ":";
         }
         return lineas.trim();
 
@@ -217,7 +234,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
     private List<Video> getCancionesByIds(String lineas) {
         List<Video> cancionesRecientes = new LinkedList<Video>();
-        StringTokenizer strTok = new StringTokenizer(lineas, " ");
+        StringTokenizer strTok = new StringTokenizer(lineas, ":");
         while (strTok.hasMoreTokens()) {
             Video video = adaptadorVideo.recuperarVideo(Integer.valueOf((String) strTok.nextElement()));
             cancionesRecientes.add(video);
@@ -228,8 +245,6 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
 
 /*
-
-
 package modelo.dominio.persistencia;
 
 import modelo.dominio.VideoList;

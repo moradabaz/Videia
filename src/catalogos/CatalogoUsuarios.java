@@ -8,14 +8,20 @@ import modelo.dominio.persistencia.IAdaptadorUsuarioDAO;
 import java.util.*;
 
 public class CatalogoUsuarios {
+    /**
+     * El catalgo de usuarios utiliza el patron Singleton y es una clase única
+     * El Catalog esta compuesto por dos HashMaps que contienen a los usuarios
+     */
+    private Map<String, Usuario> usuarios;                           // username -> Usuario
+    private Map<Integer, Usuario> usuariosBBDD;                      // codigoBBDD -> Usuario
+    private static CatalogoUsuarios unicaInstancia;                  // Catal
 
-    private Map<String, Usuario> usuarios;          // username -> Usuario
-    private Map<Integer, Usuario> usuariosBBDD;
-    private static CatalogoUsuarios unicaInstancia;
+    private FactoriaDAO dao;                                         // Factoría DAO (Data Access Objecto)
+    private IAdaptadorUsuarioDAO adaptadorUsuario;                   // Interfaz del Adaptador de Usuario
 
-    private FactoriaDAO dao;
-    private IAdaptadorUsuarioDAO adaptadorUsuario;
-
+    /**
+     * @return Getter de la unica instancia
+     */
     public static CatalogoUsuarios getUnicaInstancia() {
         if (unicaInstancia == null) {
             return new CatalogoUsuarios();
@@ -23,6 +29,11 @@ public class CatalogoUsuarios {
         return unicaInstancia;
     }
 
+    /**
+     * Constructor del Catalogo de usuarios
+     * - Inicializa la Factoria Abstacata (DAO)
+     * - Inicializa los mapas y las factorias
+     */
     public CatalogoUsuarios() {
         try{
             dao = FactoriaDAO.getUnicaInstancia(FactoriaDAO.DAO_TDS);
@@ -35,8 +46,10 @@ public class CatalogoUsuarios {
         }
     }
 
-
-
+    /**
+     * Cargar los catalogos
+     * - Recupera todos los usuarios de la BBDD y los inserta en los mapas
+     */
     private void cargarCatalogo() {
         List<Usuario> usuariosBD = adaptadorUsuario.recuperarTodosUsuarios();
         if (!usuariosBD.isEmpty()) {
@@ -47,6 +60,10 @@ public class CatalogoUsuarios {
         }
     }
 
+    /**
+     *
+     * @return Devuelve una lista con todos los usuarios de la base de datos
+     */
     public List<Usuario> getAllUsuarios() {
         ArrayList<Usuario> list = new ArrayList<Usuario>();
         for (Usuario usuario : usuariosBBDD.values()) {
@@ -56,20 +73,35 @@ public class CatalogoUsuarios {
         return list;
     }
 
+    /**
+     * @return Devuelve un conuntos de todos los nombres de usuario de los objetos Usuario de la BBDD
+     */
     public Set<String> getAllusernames() {
         return Collections.unmodifiableSet(usuarios.keySet());
     }
 
+    /**
+     *
+     * @param username Nombre de usuarioa  verificar
+     * @return Verifica si el nombre de usuario esta contenido dentro los usuarios de la BBDD
+     */
     public boolean contieneUserName(String username) {
         return getAllusernames().contains(username);
     }
 
+    /**
+     *
+     * @param userName
+     * @return Comprueba que el usuario que se le pasa como parametro existe y en tal caso lo retorna
+     * En caso de no existir retorna NULL
+     */
     public Usuario getUsuario(String userName) {
         return usuarios.get(userName);
     }
 
-
-
+    /**
+     * @return Devuelve una LinkedList todos los usuarios que sean premium
+     */
     public List<Usuario> getUsuariosPremium() {
         List<Usuario> lista = new LinkedList<>();
         for (Usuario usuario: usuarios.values()) {
@@ -80,6 +112,10 @@ public class CatalogoUsuarios {
         return lista;
     }
 
+    /**
+     * Esta funcion actualiza los datos de un usuario que si este se encuentra dentro de los catalogos
+     * @param usuario
+     */
     public void actualizarUsuario(Usuario usuario) {
         if (usuarios.containsKey(usuario.getUsername())) {
             //Usuario u = usuarios.get(usuario.getUsername());
@@ -88,16 +124,30 @@ public class CatalogoUsuarios {
         }
     }
 
+    /**
+     * Esta funcion añade un objeto usuario a los catalogos
+     * @param usuario
+     */
     public void addUsuario(Usuario usuario) {
         usuarios.put(usuario.getUsername(), usuario);
         usuariosBBDD.put(usuario.getCodigo(), usuario);
     }
 
+    /**
+     * Este metodo elimina un usuario del catalogo, en caso de que exista en estos.
+     * @param usuario
+     */
     public void removeUsuario(Usuario usuario) {
         usuarios.remove(usuario.getUsername());
         usuariosBBDD.remove(usuario.getCodigo());
     }
 
+    /**
+     * Este metodo devuelve el codigo o Id de un usuario, en caso de exista dentro de los catalogos
+     * FRAN MARICÓN
+     * @param usuario
+     * @return Devuelve -1 en caso de que no exista
+     */
     public int getCodigoUsuario(Usuario usuario) {
         Set<Integer> listaIds = usuariosBBDD.keySet();
         for (int id : listaIds) {

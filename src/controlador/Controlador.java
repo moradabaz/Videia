@@ -237,10 +237,12 @@ public class Controlador {
      * @param email
      * @param password
      */
-    public void modificarDatosUsuario(String email, String password) {
+    public void modificarDatosUsuario(String nombre, String apellidos, Date fecha, String email) {
         if (logeado) {
+            usuarioActual.setNombre(nombre);
+            usuarioActual.setApellidos(apellidos);
+            usuarioActual.setFechaNac(fecha);
             usuarioActual.setEmail(email);
-            usuarioActual.setPassword(password);
             adaptadorUsuario.modificarUsuario(usuarioActual);
             catalogoUsuarios.addUsuario(usuarioActual);
         }
@@ -250,9 +252,9 @@ public class Controlador {
 
     // TODO PARTE RELACIONADA CON REGISTRO DE VIDEOS
 
- /*   public void registrarVideo(String titulo, String rutaFichero, Interprete interprete, EstiloMusical estilo) {
+    public void registrarVideo(String titulo, String rutaFichero) {
         // No se controla que existan dnis duplicados
-        Video Video = new Video(titulo,rutaFichero,interprete,estilo);
+        Video Video = new Video(titulo,rutaFichero);
         if (!existeVideo(Video)) {
             adaptadorVideo.registrarVideo(Video);
             catalogoVideos.addVideo(Video);
@@ -298,14 +300,14 @@ public class Controlador {
      *
      * @return
      */
- /*   public void registrarVideoList(String nombre, List<String> listaTitulos) {
+    public void registrarVideoList(String nombre, List<String> listaTitulos) {
         if (logeado) {
             if (usuarioActual.contieneVideoList(nombre)) {                     // TODO: Fallo El usuario actual es nulo
                 System.err.println("Mensaje Controlador: El nombre no puede coincidir con el de una lista ya creada");
             } else {
                 List<Video> Videoes = new LinkedList<Video>();
                 for (String titulo : listaTitulos) {
-                    Video c = buscarVideo(titulo);
+                    Video c = new Video("video", "");
                     if (c != null) {
                         Videoes.add(c);
                     } else {
@@ -313,8 +315,8 @@ public class Controlador {
                     }
                 }
                 VideoList l = new VideoList(nombre, Videoes);
-                usuarioActual.anadirListasVideoes(l);
-                adaptadorVideoList.registrarListaVideo(l);
+                usuarioActual.anadirVideoList(l);
+                adaptadorVideoList.registrarVideoList(l);
                 adaptadorUsuario.modificarUsuario(usuarioActual);
                 catalogoUsuarios.actualizarUsuario(usuarioActual);
             }
@@ -335,11 +337,12 @@ public class Controlador {
 
 
     public List<Video> getVideoes() {
-        return catalogoVideos.getVideoes();
+        return catalogoVideos.getVideos();
     }
 
-    public LinkedList<Video> busqueda(String nombre, String nombreEstilo, String nombreInterprete) {
-        return catalogoVideos.buscarPorFiltros(nombre, nombreEstilo, nombreInterprete);
+
+    public LinkedList<Video> busqueda(String nombre, String ... etiquetas) {
+        return catalogoVideos.buscarVideoPorFiltros(nombre, etiquetas);
     }
 
     public Video buscarVideo(String nombre) {
@@ -351,12 +354,12 @@ public class Controlador {
      * @param nombre
      * @return
      */
- /*   public VideoList obtenerVideoList(String nombre) {
+    public VideoList obtenerVideoList(String nombre) {
         return usuarioActual.getListaVideo(nombre);
     }
 
     public LinkedList<VideoList> obtenerTodasListasVideoes() {
-        return (LinkedList<VideoList>) usuarioActual.getListasVideoes();
+        return (LinkedList<VideoList>) usuarioActual.getMyVideoLists();
     }
 
     public void actualizarVideoesEnLista(String nombre, LinkedList<String> titulosVideo) {
@@ -379,7 +382,7 @@ public class Controlador {
 
     public LinkedList<Video> getVideoesRecientesUser() {
         int tamRecientes = usuarioActual.TAM_RECIENTES;
-        LinkedList<Video> recientes = usuarioActual.getVideoesRecientes(); // TODO: PROVISIONAL
+        LinkedList<Video> recientes = usuarioActual.getVideosRecientes(); // TODO: PROVISIONAL
         if (recientes == null) return new LinkedList<Video>();
         if (recientes.size() > tamRecientes) {
             LinkedList<Video> resultado = new LinkedList<Video>();
@@ -400,7 +403,7 @@ public class Controlador {
     }
 
     public void incrementarReproduccion(Video Video) {
-        Video.incrementarReps();
+        Video.incrementarReproducciones();
         adaptadorVideo.modificarVideo(Video);
     }
 
@@ -425,7 +428,7 @@ public class Controlador {
     }
 
     public void mostrarVideoesRegistradas() {
-        List<Video> lista = catalogoVideos.getVideoes();
+        List<Video> lista = catalogoVideos.getVideos();
         if (lista == null) {
             System.err.println("La lista esta vacía");
         } else {
@@ -433,8 +436,7 @@ public class Controlador {
             for (Video u : lista) {
                 System.out.println(u.getCodigo());
                 System.out.println(u.getTitulo());
-                System.out.println(u.getEstiloMusicalNombre());
-                System.out.println(u.getNombreInterprete());
+                System.out.println(u.getEtiquetasString());
                 System.out.println(u.getNumReproducciones());
                 System.out.println(u.getRutaFichero());
             }
@@ -442,10 +444,10 @@ public class Controlador {
     }
 
     public void mostrarVideoesUser() {
-        List<VideoList> lista = usuarioActual.getListasVideoes();
+        List<VideoList> lista = usuarioActual.getMyVideoLists();
         for (VideoList l : lista) {
-            for (Video c	 : l.getVideoes()) {
-                System.out.println("Titulo " + c.getTitulo() +  "-Interprete " + c.getInterprete().getNombre());
+            for (Video c	 : l.getVideos()) {
+                System.out.println("Titulo " + c.getTitulo());
             }
         }
     }
@@ -457,12 +459,17 @@ public class Controlador {
     public void mostrarListasRegistradas() {
         List<VideoList> listas = adaptadorVideoList.recuperarTodasVideoList();
         for (VideoList l : listas) {
-            System.out.println(l.getNombre() + " - " + l.getVideoes().size());
+            System.out.println(l.getNombre() + " - " + l.getVideos().size());
         }
     }
 
+    public void changePassword(String password) {
+        this.usuarioActual.setPassword(password);
+        this.adaptadorUsuario.modificarUsuario(usuarioActual);
+        this.catalogoUsuarios.actualizarUsuario(usuarioActual);
+    }
 
-
+/*
     // APARTADO PARA REPRODUCCION DE VideoES
 
     // REPRODUCIR Video

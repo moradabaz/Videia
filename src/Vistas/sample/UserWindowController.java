@@ -1,10 +1,11 @@
 package Vistas.sample;
 
+import com.sun.tools.corba.se.idl.constExpr.BooleanNot;
+import com.sun.tools.javac.comp.Flow;
 import controlador.Controlador;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -12,68 +13,100 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
 
 import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.Iterator;
 
 public class UserWindowController {
     public VBox listasBox;
     public VBox userListsVox;
     public BorderPane mainBorderPane;
+    public Button comboBoxProfile;
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
     public Label userLabel;
     public MenuBar topMenuBar;
     public HBox topHBox;
     public HashMap<String, VideoList> listasUsuario;
+    public HashMap<Boolean, VideoList> listasVisibles;
 
-    public void inicializar(Usuario usuario) {
-        usuarioActual = usuario;
-        controlador = Controlador.getInstanciaUnica();
+
+    public void inicializar(Controlador controlador) {
+        this.controlador = controlador;                     // TODO: Cambio efectuado :S
+        usuarioActual = controlador.getUsuarioActual();
         listasUsuario = new HashMap<String, VideoList>();
-        boolean login = controlador.login(usuarioActual.getUsername(), usuario.getPassword());
+        listasVisibles = new HashMap<Boolean, VideoList>();
+        boolean login = controlador.login(usuarioActual.getUsername(), usuarioActual.getPassword());
         if (login) {
             userLabel.setText(usuarioActual.getUsername());
         }
+
+        String perfil = "Ver Perfil";
+        String cerrarSession = "Logout";
+
+
         if (!usuarioActual.getMyVideoLists().isEmpty()) {
             ListView<String> listView = new ListView<>();
             for (VideoList lista : usuarioActual.getMyVideoLists()) {
                 listasUsuario.put(lista.getNombre(), lista);
-                Text texto = new Text(lista.getNombre());
-                texto.setOnMouseClicked(ActionEvent -> {
-                    mostrarLista(texto.getText());
+                Button botonLista = new Button(lista.getNombre());
+                botonLista.setPrefWidth(115);
+                botonLista.setStyle("-fx-cursor: hand");
+                botonLista.setOnMouseClicked(ActionEvent -> {
+                    mostrarLista(botonLista.getText());
                 });
-                userListsVox.getChildren().add(texto);
+                userListsVox.getChildren().add(botonLista);
             }
         }
     }
 
+
+
     private void mostrarLista(String videoListNombre) {
         if (!usuarioActual.contieneVideoList(videoListNombre)) {
-            showListNotFoundError(videoListNombre);
+            Notificacion.listNotFoundError(videoListNombre);
         } else {
 
         }
     }
 
     public void anadirLista(MouseEvent mouseEvent) throws IOException {
-        FlowPane nuevaLista = FXMLLoader.load(getClass().getResource("nuevaLista.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("nuevaLista.fxml"));
+        FlowPane nuevaLista = loader.load();
+        nuevaListaController nuevaListaController = loader.getController();
+        nuevaListaController.inicializar(controlador, this);
         mainBorderPane.setCenter(nuevaLista);
+        mainBorderPane.requestLayout();
     }
 
-    private void showListNotFoundError(String listaNombre) {
-        String mensajeError = "Error, no se ha encontrado la lista" + listaNombre;
-        Alert alert = new Alert(Alert.AlertType.ERROR, mensajeError, ButtonType.OK);
-        alert.showAndWait();
-        if (alert.getResult() == ButtonType.OK) {
-            alert.close();
-        }
+    public void actualizarVistaListas(VideoList videoList) {
+        Button botonLista = new Button(videoList.getNombre());
+        botonLista.setStyle("-fx-cursor: hand");
+        botonLista.setPrefWidth(115);
+        botonLista.setOnMouseClicked(ActionEvent -> {
+            mostrarLista(botonLista.getText());
+        });
+        userListsVox.getChildren().add(botonLista);
+        mainBorderPane.requestLayout();
+    }
+
+    public void gotoProfileWindow(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ProfileWindow.fxml"));
+        FlowPane profilePane = loader.load();
+        ProfileWindowController profileController = loader.getController();
+        profileController.inicializar(controlador);
+        Scene profileScene = new Scene(profilePane);
+        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setScene(profileScene);
+        window.setResizable(false);
+        window.show();
     }
 }

@@ -16,6 +16,9 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
 
     // TODO: Aplicar patron GRASP en Usuario para acceder a las Videoes de las listas de Videoes
 
+    private static final String VIDEOS= "Videoes";
+    private static final String NOMBRE = "nombre";
+
     private static ServicioPersistencia servPersistencia;
     private static AdaptadorVideoListDAO unicaInstancia;
     private static AdaptadorVideoDAO adaptadorVideoTDS = AdaptadorVideoDAO.getUnicaInstancia();
@@ -58,8 +61,8 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
         eVideoList.setPropiedades(
                 new ArrayList<Propiedad>(
                         Arrays.asList(
-                                new Propiedad("Videoes", VideoList.getIDVideosString()),
-                                new Propiedad("nombre", VideoList.getNombre())
+                                new Propiedad(VIDEOS, VideoList.getIDVideosString()),
+                                new Propiedad(NOMBRE, VideoList.getNombre())
                         )
                 ));
 
@@ -85,28 +88,16 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
 
         eVideoList = servPersistencia.recuperarEntidad(VideoList.getCodigo());
 
-        servPersistencia.eliminarPropiedadEntidad(eVideoList, "Videoes");
-        servPersistencia.anadirPropiedadEntidad(eVideoList, "Videoes", VideoList.getIDVideosString());
-        servPersistencia.eliminarPropiedadEntidad(eVideoList, "nombre");
-        servPersistencia.anadirPropiedadEntidad(eVideoList, "nombre", VideoList.getNombre());
+        servPersistencia.eliminarPropiedadEntidad(eVideoList, VIDEOS);
+        servPersistencia.anadirPropiedadEntidad(eVideoList, VIDEOS, VideoList.getIDVideosString());
+        servPersistencia.eliminarPropiedadEntidad(eVideoList, NOMBRE);
+        servPersistencia.anadirPropiedadEntidad(eVideoList, NOMBRE, VideoList.getNombre());
     }
 
     // registrar primero los atributos que son objetos
 
     @Override
     public VideoList recuperarVideoList(int codigo) {
-       /* Entidad eVideoList;
-        LinkedList<Video> lista = new LinkedList<Video>();
-        eVideoList = servPersistencia.recuperarEntidad(codigo);
-        String nombre;
-        String lineaVideoes;
-        nombre = servPersistencia.recuperarPropiedadEntidad(eVideoList, "nombre");
-        lineaVideoes = servPersistencia.recuperarPropiedadEntidad(eVideoList, "Videoes");
-        lista = new LinkedList<>(adaptadorVideoTDS.getVideos(lineaVideoes));
-        VideoList VideoList = new VideoList(nombre);
-        VideoList.addVideos(lista);
-        return VideoList;*/
-
         if (PoolDAO.getUnicaInstancia().contiene(codigo)) {
             return (VideoList) pool.getObjeto(codigo);
         }
@@ -117,8 +108,8 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
         String nombre;
         String lineaVideoes;
 
-        nombre = servPersistencia.recuperarPropiedadEntidad(eVideoList, "nombre");
-        lineaVideoes = servPersistencia.recuperarPropiedadEntidad(eVideoList, "Videoes");	// revisar
+        nombre = servPersistencia.recuperarPropiedadEntidad(eVideoList, NOMBRE);
+        lineaVideoes = servPersistencia.recuperarPropiedadEntidad(eVideoList, VIDEOS);	// revisar
         VideoList LC = new VideoList(nombre);
         LC.setCodigo(codigo);
 

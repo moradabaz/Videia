@@ -370,7 +370,7 @@ public class ProfileWindowController {
                         if (eliminado) {
                             Notificacion.notificar("El usuario " + username + " ha sido eliminado");
                             try {
-                                volverALogin();
+                                volverALogin(mouseEvent);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -383,22 +383,22 @@ public class ProfileWindowController {
                 }
                 return false;
             });
-            dialog.showAndWait();
+            dialog.show();
             if (dialog.getResult() != null) {
                 dialog.close();
             }
         }
     }
 
-    private void volverALogin() throws IOException {
+    private void volverALogin(MouseEvent mouseEvent) throws IOException {
         BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
         FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
         root.setCenter(login);
-        Stage primaryStage = new Stage();
+        Stage primaryStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         primaryStage.setTitle("Registration Form FXML Application");
         Scene scene = new Scene(root);
-        primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
         primaryStage.show();
     }
 

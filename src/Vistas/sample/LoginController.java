@@ -159,15 +159,11 @@ public class LoginController implements Initializable {
         Scene userViewScene = new Scene(UserView);
         UserWindowController userWindowController = loader.getController();
         userWindowController.inicializar(controlador);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage window = new Stage (); // (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(userViewScene);
         window.setFullScreen(true);
         window.show();
-        /*Parent UserView = FXMLLoader.load(getClass().getResource("UserWindow.fxml"));
-        Scene userViewScene = new Scene(UserView);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(userViewScene);
-        window.show();*/
+
     }
 
     public void logout() {

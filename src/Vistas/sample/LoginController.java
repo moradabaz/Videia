@@ -137,7 +137,7 @@ public class LoginController implements Initializable {
                 System.err.println("El usuario " +  user + " ha podido ser recogido");
             } else {
                 try {
-                    gotoUserWindow(event, controlador.getUsuarioActual());
+                    gotoUserWindow(event, this.controlador);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -152,7 +152,7 @@ public class LoginController implements Initializable {
         bp.setCenter(registro);
     }
 
-    public void gotoUserWindow(ActionEvent event, Usuario usuario) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
+    public void gotoUserWindow(ActionEvent event, Controlador controlador) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane UserView = loader.load();

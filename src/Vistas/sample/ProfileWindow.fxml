@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<FlowPane fx:id="panelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.ProfileWindowController">
+<FlowPane fx:id="panelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.ProfileWindowController">
     <children>
       <HBox prefHeight="403.0" prefWidth="601.0">
          <children>
@@ -22,6 +23,8 @@
                             <Image url="@../../../iconos/previous.png" />
                         </ImageView>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volver" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="35.0" prefWidth="21.0" />
+                        <Button onMouseClicked="#eliminarCuenta" style="-fx-cursor: hand" mnemonicParsing="false" text="Eliminar Cuenta" />
                      </children>
                   </HBox>
                       <VBox alignment="CENTER" prefHeight="31.0" prefWidth="308.0">

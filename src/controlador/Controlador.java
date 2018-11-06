@@ -109,7 +109,7 @@ public class Controlador {
                     logeado = true;
                     int id = catalogoUsuarios.getCodigoUsuario(usuario);
                     usuarioActual = usuario;
-                    if (id >= 0 ){
+                    if (id >= 0){
                         usuarioActual.setCodigo(id);
                     }
                     System.out.println("Usuario logeado con exito");
@@ -222,14 +222,19 @@ public class Controlador {
     }
 
 
-    public void eliminarUsuario() {
+    public boolean eliminarUsuario() {
         if (logeado) {
             for (VideoList l : usuarioActual.getMyVideoLists()) {
                 adaptadorVideoList.borrarVideoList(l);
             }
-            adaptadorUsuario.borrarUsuario(usuarioActual);
+            boolean borradoDeLaBBDD = adaptadorUsuario.borrarUsuario(usuarioActual);
             catalogoUsuarios.removeUsuario(usuarioActual);
+            this.usuarioActual.getMyVideoLists().clear();
+            this.usuarioActual.getVideosRecientes().clear();
+            this.logout();
+            return borradoDeLaBBDD;
         }
+        return false;
     }
 
     /**

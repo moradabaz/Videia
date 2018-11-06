@@ -138,8 +138,8 @@ public class CatalogoUsuarios {
      * @param usuario
      */
     public void removeUsuario(Usuario usuario) {
-        usuarios.remove(usuario.getUsername());
-        usuariosBBDD.remove(usuario.getCodigo());
+        usuarios.remove(usuario.getUsername(), usuario);
+        usuariosBBDD.remove(usuario.getCodigo(), usuario);
     }
 
     /**

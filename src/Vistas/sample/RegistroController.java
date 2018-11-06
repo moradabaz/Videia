@@ -4,14 +4,19 @@ import controlador.Controlador;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import modelo.dominio.Usuario;
 
 public class RegistroController implements Initializable {
 
@@ -54,11 +59,11 @@ public class RegistroController implements Initializable {
 
 
 
-    public void registrarUsuario(ActionEvent actionEvent) {
+    public void registrarUsuario(ActionEvent mouseEvent) throws IOException {
         boolean registrado = false;
+        String user = idTxtFldUsuario.getText();
+        String passwd = idPasswdField.getText();
         if (checkedValues()) {
-            String user = idTxtFldUsuario.getText();
-            String passwd = idPasswdField.getText();
             String repassword = idPasswdFieldRepeat.getText();
             String nombre = idNombre.getText();
             String fecha = FechaNac.getValue().toString();
@@ -67,7 +72,8 @@ public class RegistroController implements Initializable {
             registrado = controlador.registrarUsuario(user, passwd, nombre, apellidos, fecha, email);
         }
         if (registrado) {
-
+            this.controlador.login(user, passwd);
+            gotoUserWindow(mouseEvent, controlador.getUsuarioActual());
         }
     }
 
@@ -99,6 +105,20 @@ public class RegistroController implements Initializable {
            }
        }
         return true;
+    }
+
+
+    public void gotoUserWindow(ActionEvent event, Usuario usuario) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("UserWindow.fxml"));
+        BorderPane UView = loader.load();
+        Scene UViewScene = new Scene(UView);
+        UserWindowController uControler = loader.getController();
+        uControler.inicializar(controlador);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(UViewScene);
+        window.setFullScreen(true);
+        window.show();
     }
 
 }

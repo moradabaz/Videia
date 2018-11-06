@@ -1,7 +1,10 @@
 package Vistas.sample;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
+import javafx.scene.text.*;
 
 public class Notificacion {
 
@@ -73,6 +76,29 @@ public class Notificacion {
                 break;
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, mensaje, ButtonType.OK);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.OK) {
+            alert.close();
+        }
+    }
+
+    public static boolean deleteAcountQuestion() {
+        String mensajeError = "¿Quiere eliminar su cuenta?";
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, mensajeError, ButtonType.NO, ButtonType.YES);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            // TODO: Eliminar Cuenta
+            alert.close();
+            return true;
+        } else if (alert.getResult() == ButtonType.NO){
+            alert.close();
+            return false;
+        }
+        return false;
+    }
+
+    public static void notificar(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, mensaje, ButtonType.OK);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.OK) {
             alert.close();

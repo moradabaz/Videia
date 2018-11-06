@@ -28,6 +28,10 @@ public class UserWindowController {
     public VBox userListsVox;
     public BorderPane mainBorderPane;
     public Button comboBoxProfile;
+
+    public MenuItem logoutItem;
+    public MenuItem closeItem;
+
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
     public Label userLabel;
@@ -48,8 +52,14 @@ public class UserWindowController {
         }
 
         String perfil = "Ver Perfil";
-        String cerrarSession = "Logout";
 
+        logoutItem.setOnAction(event -> {
+            logout();
+        });
+
+        closeItem.setOnAction(event -> {
+            close();
+        });
 
         if (!usuarioActual.getMyVideoLists().isEmpty()) {
             ListView<String> listView = new ListView<>();
@@ -109,4 +119,33 @@ public class UserWindowController {
         window.setResizable(false);
         window.show();
     }
+
+
+    public void logout() {
+        controlador.logout();
+        try {
+            volverALogin();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void volverALogin() throws IOException {
+       // Stage primaryStage = (Stage) ((Node) this.getClass().getClassLoader().getParent().getSource()).getScene().getWindow();
+        BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
+        FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
+        root.setCenter(login);
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("Registration Form FXML Application");
+        Scene scene = new Scene(root);
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void close() {
+        logout();
+        System.exit(0);
+    }
+
 }

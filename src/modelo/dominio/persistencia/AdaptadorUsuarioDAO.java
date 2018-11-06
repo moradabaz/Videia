@@ -95,9 +95,15 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         usuario.setCodigo(id);
     }
 
-    public void borrarUsuario(Usuario usuario) {
-        Entidad eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
-        servPersistencia.borrarEntidad(eUsuario);
+    public boolean borrarUsuario(Usuario usuario) {
+        try {
+            Entidad eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
+            return servPersistencia.borrarEntidad(eUsuario);
+        } catch (NullPointerException n) {
+            return true;
+        }
+
+
     }
 
     public void modificarUsuario(Usuario usuario) {

@@ -19,7 +19,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.text.TextFlow?>
-<BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
+<BorderPane style="-fx-background-color: white" fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
     <left>
         <VBox fx:id="profileBox">
             <VBox prefHeight="17.0" prefWidth="115.0" BorderPane.alignment="CENTER">
@@ -95,7 +95,8 @@
                     <menus>
                         <Menu mnemonicParsing="false" text="File">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Close" />
+                                <MenuItem fx:id="closeItem" text="Close" />
+                                <MenuItem fx:id="logoutItem" text="Logout" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
@@ -155,7 +156,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas disponibles" textAlignment="CENTER" wrappingWidth="153.90756225585938" />
                     </children>
                 </HBox>
-                <VBox prefHeight="161.0" prefWidth="142.0" />
+                <VBox fx:id="cajaEtiquetas" style="-fx-background-color: gainsboro" prefHeight="161.0" prefWidth="142.0" />
             </children>
         </VBox>
     </right>

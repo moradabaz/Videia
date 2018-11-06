@@ -6,10 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -18,13 +15,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
+import javafx.util.Pair;
 import modelo.dominio.Usuario;
+import modelo.dominio.Video;
+import modelo.dominio.VideoList;
+import sun.security.util.Password;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import javafx.scene.control.ButtonBar.ButtonData;
 public class ProfileWindowController {
 
     public Controlador controlador;
@@ -52,6 +53,8 @@ public class ProfileWindowController {
             refrescarInfo(user);
         }
         onEdit = false;
+        for (VideoList VL : controlador.getUsuarioActual().getMyVideoLists()) {
+        }
     }
 
     private void setEditStatus(boolean status) {
@@ -329,17 +332,6 @@ public class ProfileWindowController {
     }
 
     public void volveraUserView(MouseEvent mouseEvent) throws IOException {
-        /*FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("UserWindow.fxml"));
-        BorderPane UserView = loader.load();
-        Scene userViewScene = new Scene(UserView);
-        UserWindowController userController = loader.getController();
-        userController.inicializar(controlador);
-        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        window.setScene(userViewScene);
-        window.setFullScreen(true);
-        window.show();*/
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane bpUserView = loader.load();
@@ -349,7 +341,66 @@ public class ProfileWindowController {
         Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         window.setScene(userScene);
         window.setResizable(true);
-       // window.setFullScreen(true);
         window.show();
     }
+
+    public void eliminarCuenta(MouseEvent mouseEvent) {
+        Usuario usuario = controlador.getUsuarioActual();
+        boolean delete = Notificacion.deleteAcountQuestion();
+        if (delete) {
+            VBox box = new VBox();
+            Text text = new Text("Escriba su contraseña otra vez");
+            PasswordField passwordField = new PasswordField();
+            box.getChildren().addAll(text, passwordField);
+            Dialog dialog = new Dialog();
+            ButtonType acceptDelete = new ButtonType("Eliminar", ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(acceptDelete, ButtonType.CANCEL);
+            dialog.getDialogPane().setContent(box);
+            dialog.setResultConverter(dialogButton -> {
+                if (dialogButton == acceptDelete) {
+                    dialog.close();
+                    System.out.println(passwordField.getText());
+                    String password = passwordField.getText();
+                    if (!password.equals(usuario.getPassword())) {
+                        Notificacion.passwdMatchError();
+                        return false;
+                    } else {
+                        String username = usuario.getUsername();
+                        boolean eliminado = controlador.eliminarUsuario();
+                        if (eliminado) {
+                            Notificacion.notificar("El usuario " + username + " ha sido eliminado");
+                            try {
+                                volverALogin();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else  {
+                            System.err.println("No se ha eliminado el usuario");
+                        }
+
+                    }
+                    return true;
+                }
+                return false;
+            });
+            dialog.showAndWait();
+            if (dialog.getResult() != null) {
+                dialog.close();
+            }
+        }
+    }
+
+    private void volverALogin() throws IOException {
+        BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
+        FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
+        root.setCenter(login);
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("Registration Form FXML Application");
+        Scene scene = new Scene(root);
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
 }

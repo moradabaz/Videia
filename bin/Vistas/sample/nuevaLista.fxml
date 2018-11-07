@@ -56,7 +56,7 @@
                <children>
                   <Button fx:id="acceptButton" mnemonicParsing="false" text="Aceptar" onAction="#crearLista"/>
                   <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-                  <Button mnemonicParsing="false" text="Cancelar" />
+                  <Button mnemonicParsing="false" text="Cancelar" onAction="#cancelar" />
                </children>
             </HBox>
          </children>

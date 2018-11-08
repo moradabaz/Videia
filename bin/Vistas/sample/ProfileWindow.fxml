@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,12 +20,12 @@
                   <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="308.0">
                      <children>
-                        <ImageView fx:id="imgVolver" fitHeight="36.0" fitWidth="44.0" onMouseClicked="#volveraUserView" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand">
+                        <ImageView fx:id="imgVolver" fitHeight="24.0" fitWidth="36.0" onMouseClicked="#volveraUserView" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand">
                             <Image url="@../../../iconos/previous.png" />
                         </ImageView>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volver" />
                         <Separator opacity="0.0" orientation="VERTICAL" prefHeight="35.0" prefWidth="21.0" />
-                        <Button onMouseClicked="#eliminarCuenta" style="-fx-cursor: hand" mnemonicParsing="false" text="Eliminar Cuenta" />
+                        <Button mnemonicParsing="false" onMouseClicked="#eliminarCuenta" style="-fx-cursor: hand" text="Eliminar Cuenta" />
                      </children>
                   </HBox>
                       <VBox alignment="CENTER" prefHeight="31.0" prefWidth="308.0">
@@ -32,6 +33,16 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Listas de Usuario" textAlignment="CENTER" />
                           </children>
                       </VBox>
+                  <ScrollPane opacity="0.78" prefHeight="152.0" prefWidth="280.0">
+                     <content>
+                        <VBox prefHeight="153.0" prefWidth="287.0" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="176.0" prefWidth="277.0">
+                     <content>
+                        <VBox fx:id="vboxListas" prefHeight="174.0" prefWidth="306.0" />
+                     </content>
+                  </ScrollPane>
                   </children>
               </VBox>
               <VBox fx:id="VBoxProfile" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="66.0">

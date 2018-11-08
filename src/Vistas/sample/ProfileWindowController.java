@@ -3,10 +3,14 @@ package Vistas.sample;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.geometry.VerticalDirection;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -21,11 +25,14 @@ import modelo.dominio.Video;
 import modelo.dominio.VideoList;
 import sun.security.util.Password;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javafx.scene.control.ButtonBar.ButtonData;
+
+
 public class ProfileWindowController {
 
     public Controlador controlador;
@@ -42,6 +49,7 @@ public class ProfileWindowController {
     public VBox vboxEdit;
     public VBox vboxInfo;
     public boolean onEdit;
+    public VBox vboxListas;
 
     public void inicializar(Controlador controlador) {
         auxiliar = new VBox();
@@ -53,8 +61,7 @@ public class ProfileWindowController {
             refrescarInfo(user);
         }
         onEdit = false;
-        for (VideoList VL : controlador.getUsuarioActual().getMyVideoLists()) {
-        }
+        mostrarListasDisponibles();
     }
 
     private void setEditStatus(boolean status) {
@@ -63,16 +70,12 @@ public class ProfileWindowController {
 
     private void refrescarInfo(Usuario user) {
         nombreUserName.setText(user.getUsername());
-
         Text nombreText = new Text(user.getNombre());
         nombreBox.getChildren().add(nombreText);
-
         Text apellidosText = new Text(user.getApellidos());
         ApellidosBox.getChildren().add(apellidosText);
-
         Text birtdayText = new Text(user.getStringFecha());
         birthdayBox.getChildren().add(birtdayText);
-
         Text emailText = new Text(user.getEmail());
         emailBox.getChildren().add(emailText);
     }
@@ -402,5 +405,59 @@ public class ProfileWindowController {
         primaryStage.show();
     }
 
+    public HBox crearCelda(String nombreLista) {
+        HBox hbox = new HBox();
+        hbox.setId(nombreLista);
+        hbox.setAlignment(Pos.CENTER_LEFT);
+        hbox.prefHeight(30);
+        hbox.prefWidth(30);
+        Text listName = new Text(nombreLista);
+        listName.setWrappingWidth(124.21875);
+        Separator separator1 = new Separator();
+        separator1.setOpacity(0);
+        separator1.setOrientation(Orientation.VERTICAL);
+
+       // Image imgEdit = new javafx.scene.image.Image(getClass().getResource("file:/../../../iconos/editar.png").toExternalForm());
+        ImageView imgViewEdit = new ImageView(new Image(new File("../../../iconos/editar.png").toURI().toString()));
+        imgViewEdit.setFitHeight(25);
+        imgViewEdit.setFitWidth(22);
+        imgViewEdit.setStyle("-fx-cursor: hand");
+        imgViewEdit.setOnMouseClicked(MouseEvent -> {
+            editarLista(nombreLista);
+        });
+
+        Separator separator2 = new Separator();
+        separator2.setOrientation(Orientation.VERTICAL);
+        separator2.prefHeight(200);
+
+       // Image imgDelete = new javafx.scene.image.Image(getClass().getResource("file:/../../../iconos/eliminar.png").toExternalForm());
+        ImageView imgViewDelete =new ImageView(new Image(new File("../../../iconos/eliminar.png").toURI().toString()));
+        imgViewDelete.setFitHeight(22);
+        imgViewDelete.setFitWidth(22);
+        imgViewDelete.setStyle("-fx-cursor: hand");
+        imgViewDelete.setOnMouseClicked(MouseEvent -> {
+            eliminarLista(nombreLista);
+        });
+        hbox.getChildren().addAll(listName, separator1, imgViewEdit, separator2, imgViewDelete);
+        hbox.setPadding(new Insets(3, 10, 10, 3));
+        return hbox;
+    }
+
+    private void eliminarLista(String nombreLista) {
+
+    }
+
+    private void editarLista(String nombreLista) {
+
+    }
+
+    private void mostrarListasDisponibles() {
+        Usuario user = controlador.getUsuarioActual();
+        for (VideoList vl : user.getMyVideoLists()) {
+            String nombreLista = vl.getNombre();
+            HBox box = crearCelda(nombreLista);
+            vboxListas.getChildren().add(box);
+        }
+    }
 
 }

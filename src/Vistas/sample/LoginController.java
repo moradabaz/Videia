@@ -159,10 +159,11 @@ public class LoginController implements Initializable {
         Scene userViewScene = new Scene(UserView);
         UserWindowController userWindowController = loader.getController();
         userWindowController.inicializar(controlador);
-        Stage window = new Stage (); // (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage window =  new Stage();
         window.setScene(userViewScene);
         window.setFullScreen(true);
         window.show();
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
 
     }
 

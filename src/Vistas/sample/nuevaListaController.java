@@ -28,7 +28,9 @@ public class nuevaListaController {
 
     public void inicializar(Controlador controlador, UserWindowController userWindowController) {
         this.controlador = controlador;
-        this.borderPaneParent = (BorderPane) flowpaneNuevaLista.getParent();
+        if (userWindowController.getMainBorderPane() != null)
+            setBorderPaneParent(userWindowController.getMainBorderPane());
+        else System.err.println("FlowNuevaLista no tiene padre");
         this.userWindowController = userWindowController;
     }
 
@@ -50,10 +52,26 @@ public class nuevaListaController {
 
             }
         }
+        volver();
+    }
 
+    public BorderPane getBorderPaneParent() {
+        return borderPaneParent;
+    }
+
+    public void setBorderPaneParent(BorderPane borderPaneParent) {
+        this.borderPaneParent = borderPaneParent;
     }
 
     public void cancelar(ActionEvent mouseEvent) throws IOException {
+        volver();
+    }
 
+    private void volver() {
+        if (borderPaneParent != null) {
+            borderPaneParent.setCenter(new FlowPane());
+        } else {
+            System.err.println("BorderPane es nulo");
+        }
     }
 }

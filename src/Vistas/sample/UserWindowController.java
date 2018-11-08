@@ -31,6 +31,7 @@ public class UserWindowController {
 
     public MenuItem logoutItem;
     public MenuItem closeItem;
+    public FlowPane flowPaneCenter;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -76,6 +77,9 @@ public class UserWindowController {
         }
     }
 
+    public BorderPane getMainBorderPane() {
+        return mainBorderPane;
+    }
 
 
     private void mostrarLista(String videoListNombre) {
@@ -144,7 +148,6 @@ public class UserWindowController {
     }
 
     private void close() {
-        logout();
         System.exit(0);
     }
 

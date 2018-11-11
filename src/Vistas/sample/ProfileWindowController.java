@@ -12,10 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
@@ -26,11 +24,17 @@ import modelo.dominio.VideoList;
 import sun.security.util.Password;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+
 import javafx.scene.control.ButtonBar.ButtonData;
+
+import static javafx.scene.paint.Color.*;
 
 
 public class ProfileWindowController {
@@ -407,6 +411,9 @@ public class ProfileWindowController {
 
     public HBox crearCelda(String nombreLista) {
         HBox hbox = new HBox();
+        hbox.setPrefWidth(vboxListas.getPrefWidth());
+        hbox.setMaxWidth(vboxListas.getMaxWidth());
+        hbox.setMinWidth(vboxListas.getMinWidth());
         hbox.setId(nombreLista);
         hbox.setAlignment(Pos.CENTER_LEFT);
         hbox.prefHeight(30);
@@ -417,35 +424,83 @@ public class ProfileWindowController {
         separator1.setOpacity(0);
         separator1.setOrientation(Orientation.VERTICAL);
 
-       // Image imgEdit = new javafx.scene.image.Image(getClass().getResource("file:/../../../iconos/editar.png").toExternalForm());
-        ImageView imgViewEdit = new ImageView(new Image(new File("../../../iconos/editar.png").toURI().toString()));
+        ImageView imgViewEdit = null;
+        try {
+            imgViewEdit = new ImageView(new Image(new FileInputStream("/Users/morad/Desktop/TDS/workspace/AppVideo/iconos/editar.png")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
         imgViewEdit.setFitHeight(25);
         imgViewEdit.setFitWidth(22);
         imgViewEdit.setStyle("-fx-cursor: hand");
         imgViewEdit.setOnMouseClicked(MouseEvent -> {
-            editarLista(nombreLista);
+            editarLista(listName.getText());
         });
 
         Separator separator2 = new Separator();
         separator2.setOrientation(Orientation.VERTICAL);
         separator2.prefHeight(200);
 
-       // Image imgDelete = new javafx.scene.image.Image(getClass().getResource("file:/../../../iconos/eliminar.png").toExternalForm());
-        ImageView imgViewDelete =new ImageView(new Image(new File("../../../iconos/eliminar.png").toURI().toString()));
+        ImageView imgViewDelete = null;
+        try {
+            imgViewDelete =  new ImageView(new Image(new FileInputStream("/Users/morad/Desktop/TDS/workspace/AppVideo/iconos/eliminar.png")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         imgViewDelete.setFitHeight(22);
         imgViewDelete.setFitWidth(22);
         imgViewDelete.setStyle("-fx-cursor: hand");
         imgViewDelete.setOnMouseClicked(MouseEvent -> {
-            eliminarLista(nombreLista);
+            boolean confimacion = Notificacion.confirmationQuestion("¿Esta seguro que quiere eliminar esta lista?");
+            if (confimacion)
+                eliminarLista(listName.getText());
         });
         hbox.getChildren().addAll(listName, separator1, imgViewEdit, separator2, imgViewDelete);
         hbox.setPadding(new Insets(3, 10, 10, 3));
         return hbox;
     }
 
-    private void eliminarLista(String nombreLista) {
+    private VBox ventanaEdicionLista(String nombreLista) {
+        VBox vox = new VBox();
 
+
+        HBox hboxNombre = new HBox();
+        hboxNombre.setAlignment(Pos.CENTER);
+        hboxNombre.setPrefHeight(47);
+        hboxNombre.setPrefWidth(305);
+        Text textoNombre = new Text("Nombre");
+        Separator separador = new Separator();
+        separador.setOrientation(Orientation.VERTICAL);
+        separador.setPrefHeight(44);
+        separador.setPrefWidth(8);
+        TextField textFieldNombre = new TextField(nombreLista);
+        hboxNombre.getChildren().addAll(textFieldNombre, separador, textFieldNombre);
+        hboxNombre.setPadding(new Insets(0, 10, 0, 0));
+
+        HBox hboxVideos = new HBox();
+        hboxVideos.setPrefHeight(146);
+        hboxVideos.setPrefWidth(305);
+        
+        // TODO: NOS QUEDAMOS POR AQUÍ
+        return vox;
     }
+
+    private void eliminarLista(String nombreLista) {
+        Iterator<Node> iter = vboxListas.getChildren().iterator();
+        while (iter.hasNext()) {
+            Node node = iter.next();
+            if (node instanceof HBox) {
+                if (node.getId().equals(nombreLista)) {
+                    iter.remove();
+                }
+            }
+        }
+        controlador.eliminarVideoList(nombreLista);
+        panelPrincipal.requestLayout();
+    }
+
+
 
     private void editarLista(String nombreLista) {
 

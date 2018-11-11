@@ -104,4 +104,17 @@ public class Notificacion {
             alert.close();
         }
     }
+
+    public static boolean confirmationQuestion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, mensaje, ButtonType.NO, ButtonType.YES);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            alert.close();
+            return true;
+        } else if (alert.getResult() == ButtonType.NO){
+            alert.close();
+            return false;
+        }
+        return false;
+    }
 }

@@ -340,16 +340,29 @@ public class Controlador {
         }
     }
 
-
+    /**
+     *
+     * @return Retorna una lista con todos los videos del catalogo de videos
+     */
     public List<Video> getVideoes() {
         return catalogoVideos.getVideos();
     }
 
-
+    /**
+     *
+     * @param nombre titulo del video
+     * @param etiquetas Etiquetas
+     * @return Retorna una lista de videos dado el nombre y las etiquetas
+     */
     public LinkedList<Video> busqueda(String nombre, String ... etiquetas) {
         return catalogoVideos.buscarVideoPorFiltros(nombre, etiquetas);
     }
 
+    /**
+     *
+     * @param nombre
+     * @return Retorna un videos dado el nombre del video
+     */
     public Video buscarVideo(String nombre) {
         return catalogoVideos.buscarVideo(nombre);
     }
@@ -468,6 +481,10 @@ public class Controlador {
         }
     }
 
+    /**
+     * Funcion utilizada para cambiar la contraseña del usuairo actual
+     * @param password Contraseña nueva
+     */
     public void changePassword(String password) {
         this.usuarioActual.setPassword(password);
         this.adaptadorUsuario.modificarUsuario(usuarioActual);

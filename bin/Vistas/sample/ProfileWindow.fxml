@@ -16,7 +16,7 @@
     <children>
       <HBox prefHeight="403.0" prefWidth="601.0">
          <children>
-              <VBox fx:id="VBoxListas" prefHeight="400.0" prefWidth="308.0">
+              <VBox fx:id="VBoxListas" prefHeight="353.0" prefWidth="308.0">
                   <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="308.0">
                      <children>
@@ -25,7 +25,7 @@
                         </ImageView>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volver" />
                         <Separator opacity="0.0" orientation="VERTICAL" prefHeight="35.0" prefWidth="21.0" />
-                        <Button mnemonicParsing="false" onMouseClicked="#eliminarCuenta" style="-fx-cursor: hand" text="Eliminar Cuenta" />
+                        <Button mnemonicParsing="false" onMouseClicked="#eliminarCuenta" style="-fx-cursor: hand" text="Eliminar Cuenta" textAlignment="CENTER" />
                      </children>
                   </HBox>
                       <VBox alignment="CENTER" prefHeight="31.0" prefWidth="308.0">
@@ -33,14 +33,14 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Listas de Usuario" textAlignment="CENTER" />
                           </children>
                       </VBox>
-                  <ScrollPane opacity="0.78" prefHeight="152.0" prefWidth="280.0">
+                  <ScrollPane prefHeight="140.0" prefWidth="308.0">
                      <content>
-                        <VBox prefHeight="153.0" prefWidth="287.0" />
+                        <VBox fx:id="vboxListas" prefHeight="137.0" prefWidth="306.0" />
                      </content>
                   </ScrollPane>
-                  <ScrollPane prefHeight="176.0" prefWidth="277.0">
+                  <ScrollPane opacity="0.78" prefHeight="194.0" prefWidth="308.0">
                      <content>
-                        <VBox fx:id="vboxListas" prefHeight="174.0" prefWidth="306.0" />
+                        <VBox fx:id="vboxEditLista" prefHeight="190.0" prefWidth="305.0" />
                      </content>
                   </ScrollPane>
                   </children>

@@ -212,9 +212,15 @@ public class CatalogoVideos {
         return false;
     }
 
-    public Video buscarVideo(String nombre) {
+    /**
+     * Dado el titulo, busca en el catalogo si existe
+     * y lo retorna.
+     * @param titulo
+     * @return Si no encuentra el video, retorna valor NULL
+     */
+    public Video buscarVideo(String titulo) {
         for (Video v : videos.values()) {
-            if (v.getTitulo().equals(nombre))
+            if (v.getTitulo().equals(titulo))
                 return v;
         }
         return null;

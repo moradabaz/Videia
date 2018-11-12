@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<FlowPane fx:id="panelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.ProfileWindowController">
+    <children>
+      <HBox prefHeight="403.0" prefWidth="601.0">
+         <children>
+              <VBox fx:id="VBoxListas" prefHeight="353.0" prefWidth="308.0">
+                  <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="308.0">
+                     <children>
+                        <ImageView fx:id="imgVolver" fitHeight="24.0" fitWidth="36.0" onMouseClicked="#volveraUserView" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand">
+                            <Image url="@../../../../../../AppVideo/iconos/previous.png" />
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volver" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="35.0" prefWidth="21.0" />
+                        <Button mnemonicParsing="false" onMouseClicked="#eliminarCuenta" style="-fx-cursor: hand" text="Eliminar Cuenta" textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+                      <VBox alignment="CENTER" prefHeight="31.0" prefWidth="308.0">
+                          <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Listas de Usuario" textAlignment="CENTER" />
+                          </children>
+                      </VBox>
+                      <ScrollPane prefHeight="140.0" prefWidth="308.0">
+                        <content>
+                            <VBox fx:id="vboxListas" prefHeight="137.0" prefWidth="306.0" />
+                        </content>
+                      </ScrollPane>
+                      <ScrollPane opacity="0.78" prefHeight="194.0" prefWidth="308.0">
+                        <content>
+                            <VBox fx:id="vboxEditLista" prefHeight="190.0" prefWidth="305.0" />
+                        </content>
+                      </ScrollPane>
+                  </children>
+              </VBox>
+
+
+             <VBox fx:id="VBoxProfile" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="66.0">
+                  <children>
+                      <VBox prefHeight="200.0" prefWidth="100.0">
+                         <children>
+                             <AnchorPane prefHeight="38.0" prefWidth="293.0">
+                                 <children>
+                                     <ImageView fx:id="imagenPerfil" fitHeight="140.0" fitWidth="179.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="76.25" AnchorPane.rightAnchor="76.25" AnchorPane.topAnchor="14.0">
+                                         <image>
+                                             <Image url="@../../../../../../AppVideo/iconos/profile-img.png" />
+                                         </image>
+                                     </ImageView>
+                                     <Text fx:id="nombreUserName" layoutX="102.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;USERNAME&gt;" />
+                                 </children>
+                             </AnchorPane>
+                         </children>
+                      </VBox>
+                      <VBox fx:id="cajaInfoPrincipal" prefHeight="200.0" prefWidth="100.0">
+                          <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="293.0">
+                                  <children>
+                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                          <children>
+                                              <Text onMouseClicked="#cambiarPassword" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-cursor: hand;" text="Cambiar Contraseña" underline="true" />
+                                          </children>
+                                          <padding>
+                                              <Insets left="12.0" right="12.0" />
+                                          </padding>
+                                      </VBox>
+                              <Separator opacity="0.0" orientation="VERTICAL" prefHeight="15.0" prefWidth="0.0" />
+                              <ImageView fitHeight="19.0" fitWidth="25.0" onMouseClicked="#editarCampos" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand">
+                                <image>
+                                    <Image url="@../../../../../../AppVideo/iconos/editar.png" />
+                                </image>
+                                  <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Separator opacity="0.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="16.0" />
+                                      <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../AppVideo/iconos/premium.png" />
+                                 </image>
+                              </ImageView>
+                                      <ImageView fitHeight="38.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" />
+                                  </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="198.0" prefWidth="293.0">
+                                  <children>
+                                      <VBox prefHeight="161.0" prefWidth="116.0">
+                                          <children>
+                                              <VBox fx:id="vboxInfo" alignment="TOP_RIGHT" prefHeight="161.0" prefWidth="146.0">
+                                                  <children>
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                          </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos" />
+                                                          </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento" />
+                                                          </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                                                          </children>
+                                                      </VBox>
+                                                  </children>
+                                              </VBox>
+                                          </children>
+                                      </VBox>
+                                      <VBox fx:id="vboxEdit" alignment="TOP_CENTER" prefHeight="161.0" prefWidth="146.0">
+                                          <padding>
+                                              <Insets left="10" />
+                                          </padding>
+                                          <children>
+                                              <VBox fx:id="nombreBox" alignment="CENTER" prefHeight="29.0" prefWidth="146.0" />
+                                              <VBox fx:id="ApellidosBox" alignment="CENTER" prefHeight="25.0" prefWidth="197.0" />
+                                              <VBox fx:id="birthdayBox" alignment="CENTER" prefHeight="25.0" prefWidth="197.0" />
+                                              <VBox fx:id="emailBox" alignment="CENTER" prefHeight="25.0" prefWidth="197.0" />
+                                          </children>
+                                      </VBox>
+                                  </children>
+                              </HBox>
+                          </children>
+                      </VBox>
+                  </children>
+              </VBox>
+         </children>
+      </HBox>
+    </children>
+</FlowPane>

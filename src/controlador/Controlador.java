@@ -85,7 +85,7 @@ public class Controlador {
     /**
      * Inicializa los cat?logos
      */
-    public void inicializarCatalogos() {
+    private void inicializarCatalogos() {
         catalogoVideos = CatalogoVideos.getUnicaInstancia();
         catalogoUsuarios = CatalogoUsuarios.getUnicaInstancia();
     }
@@ -157,11 +157,11 @@ public class Controlador {
         return false;
     }
 
-    public LinkedList<Video> recuperarVideoesDeLista(String nombre) {
+    public LinkedList<Video> recuperarVideoesDeLista(String listName) {
         List<VideoList> lista = adaptadorVideoList.recuperarTodasVideoList();
         for (VideoList l : lista) {
             String nombreLista = l.getNombre();
-            if (nombre.equals(nombreLista)){
+            if (nombreLista.equals(nombreLista)){
                 return l.getVideos();
             }
         }
@@ -248,6 +248,7 @@ public class Controlador {
             usuarioActual.setApellidos(apellidos);
             usuarioActual.setFechaNac(fecha);
             usuarioActual.setEmail(email);
+
             adaptadorUsuario.modificarUsuario(usuarioActual);
             catalogoUsuarios.addUsuario(usuarioActual);
         }
@@ -283,6 +284,8 @@ public class Controlador {
 
     // TODO: Aparatado lista de Videoes
 
+    // TODO: NO HE COMPROBADO QUE FUNCIONEN AL 100%
+
     /**
      * Se comprueba que el usuario tiene una lista a?adida pasando su nombre
      * @param nombre
@@ -301,7 +304,6 @@ public class Controlador {
     /**
      * Este metodo se encarga de crear una lista aportando el nombre de la lista y una lista de
      * títulos de Videoes para el usuario actual
-     *
      *
      * @return
      */
@@ -327,6 +329,7 @@ public class Controlador {
             }
         } else {
             System.err.println("El usuario debe estar logeado");
+
         }
     }
 

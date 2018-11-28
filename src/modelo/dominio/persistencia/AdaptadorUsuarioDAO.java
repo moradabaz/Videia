@@ -148,6 +148,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
     }
 
     public Usuario recuperarUsuario(int codigo) {
+
         if (PoolDAO.getUnicaInstancia().contiene(codigo)){
             return (Usuario) pool.getObjeto(codigo);
         }
@@ -193,7 +194,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         LinkedList<Video> recientes = new LinkedList<Video>();
 
         recientesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, VIDEOS_RECIENTES);
-        recientes = (LinkedList<Video>) getCancionesByIds(recientesString);
+        recientes = (LinkedList<Video>) getVideosByIds(recientesString);
 
         premium = Boolean.parseBoolean(servPersistencia.recuperarPropiedadEntidad(eUsuario, PREMIUM));
         Usuario usuario = new Usuario(username, password, nombre, apellidos, fecha, email);
@@ -237,14 +238,14 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
     }
 
-    private List<Video> getCancionesByIds(String lineas) {
-        List<Video> cancionesRecientes = new LinkedList<Video>();
+    private List<Video> getVideosByIds(String lineas) {     // 1212213:312321:12312312:
+        List<Video> videosRecientes = new LinkedList<Video>();
         StringTokenizer strTok = new StringTokenizer(lineas, ":");
         while (strTok.hasMoreTokens()) {
             Video video = adaptadorVideo.recuperarVideo(Integer.valueOf((String) strTok.nextElement()));
-            cancionesRecientes.add(video);
+            videosRecientes.add(video);
         }
-        return cancionesRecientes;
+        return videosRecientes;
     }
 }
 

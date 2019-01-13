@@ -104,7 +104,7 @@ public class Controlador {
         if (usuario == null) {
             System.err.println("El usuario " + username + " no esta registrador");
         } else {
-            if (usuario.getUsername().equals(username)){
+            if (usuario.getUsername().equals(username)) {
                 if (usuario.getPassword().equals(password)) {
                     logeado = true;
                     int id = catalogoUsuarios.getCodigoUsuario(usuario);

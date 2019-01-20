@@ -1,27 +1,22 @@
 package Vistas.sample;
 
-import com.sun.tools.corba.se.idl.constExpr.BooleanNot;
-import com.sun.tools.javac.comp.Flow;
+
+import VideoWeb.VideoWeb;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
-
-import java.awt.event.ActionEvent;
-import java.beans.EventHandler;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.LinkedList;
+
 
 public class UserWindowController {
 
@@ -45,11 +40,13 @@ public class UserWindowController {
     private boolean editMode;
 
     public void inicializar(Controlador controlador) {
+
         this.editMode = false;
         this.controlador = controlador;                     // TODO: Cambio efectuado :S
         usuarioActual = controlador.getUsuarioActual();
         listasUsuario = new HashMap<String, VideoList>();
         listasVisibles = new HashMap<Boolean, VideoList>();
+        VideoWeb videoWeb = VideoWeb.getUnicaInstancia();
         boolean login = controlador.login(usuarioActual.getUsername(), usuarioActual.getPassword());
         if (login) {
             userLabel.setText(usuarioActual.getUsername());
@@ -78,6 +75,33 @@ public class UserWindowController {
                 userListsVox.getChildren().add(botonLista);
             }
         }
+
+        String urls[] = {"https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk",
+                "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk"};
+
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("GridPaneThum.fxml"));
+        GridPane gridPane = null;
+
+        try {
+            gridPane = loader.load();
+        } catch (IOException e) {}
+
+        ThumbGridController thumbGridController = loader.getController();
+        thumbGridController.inicializar(this.mainBorderPane);
+
+        if (gridPane != null) {
+            ScrollPane scrollPane = new ScrollPane(gridPane);
+            scrollPane.setMaxWidth(600);
+            scrollPane.setMinHeight(400);
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            mainBorderPane.setCenter(scrollPane);
+        }
+
+        thumbGridController.insertImages(new LinkedList<String>(Arrays.asList(urls)));
+
     }
 
     private void setEditMode(boolean editMode) {

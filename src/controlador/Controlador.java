@@ -43,7 +43,7 @@ public class Controlador {
      * - Inicializa los adaptadores
      * - Inicializa y carga los catalogos
      */
-    private Controlador(){
+    private Controlador() {
         usuarioActual = null;
         playing = false;
         try {
@@ -96,6 +96,7 @@ public class Controlador {
      * - Se carga el usuario registrado
      * - Se cargan las Videoes
      * - Se cargan las listas de Videoes
+     *
      * @param username
      * @param password
      */
@@ -109,7 +110,7 @@ public class Controlador {
                     logeado = true;
                     int id = catalogoUsuarios.getCodigoUsuario(usuario);
                     usuarioActual = usuario;
-                    if (id >= 0){
+                    if (id >= 0) {
                         usuarioActual.setCodigo(id);
                     }
                     System.out.println("Usuario logeado con exito");
@@ -129,6 +130,7 @@ public class Controlador {
 
     /**
      * Compureba que un usuario esta registrado
+     *
      * @param username
      * @return
      */
@@ -138,6 +140,7 @@ public class Controlador {
 
     /**
      * Comprueba que existe una Video
+     *
      * @param Video
      * @return
      */
@@ -150,7 +153,7 @@ public class Controlador {
         List<VideoList> lista = adaptadorVideoList.recuperarTodasVideoList();
         for (VideoList l : lista) {
             String nombreLista = l.getNombre();
-            if (nombre.equals(nombreLista)){
+            if (nombre.equals(nombreLista)) {
                 return true;
             }
         }
@@ -161,7 +164,7 @@ public class Controlador {
         List<VideoList> lista = adaptadorVideoList.recuperarTodasVideoList();
         for (VideoList l : lista) {
             String nombreLista = l.getNombre();
-            if (nombreLista.equals(nombreLista)){
+            if (nombreLista.equals(nombreLista)) {
                 return l.getVideos();
             }
         }
@@ -175,6 +178,7 @@ public class Controlador {
 
     /**
      * Registra un Usuario en la base de datos y en los catalogos
+     *
      * @param username
      * @param password
      * @param nombre
@@ -192,11 +196,12 @@ public class Controlador {
         } else {
             System.err.println("Mensaje Controlador: Ya existe un usuario con ese nombre");
         }
-        return  false;
+        return false;
     }
 
     /**
      * Registra un ususario - opcion 2
+     *
      * @param username
      * @param password
      * @param nombre
@@ -239,6 +244,7 @@ public class Controlador {
 
     /**
      * Modificar los datos de usuario actual
+     *
      * @param email
      * @param
      */
@@ -248,19 +254,17 @@ public class Controlador {
             usuarioActual.setApellidos(apellidos);
             usuarioActual.setFechaNac(fecha);
             usuarioActual.setEmail(email);
-
             adaptadorUsuario.modificarUsuario(usuarioActual);
             catalogoUsuarios.addUsuario(usuarioActual);
         }
     }
 
 
-
     // TODO PARTE RELACIONADA CON REGISTRO DE VIDEOS
 
     public void registrarVideo(String titulo, String rutaFichero) {
         // No se controla que existan dnis duplicados
-        Video Video = new Video(titulo,rutaFichero);
+        Video Video = new Video(titulo, rutaFichero);
         if (!existeVideo(Video)) {
             adaptadorVideo.registrarVideo(Video);
             catalogoVideos.addVideo(Video);
@@ -269,13 +273,13 @@ public class Controlador {
         }
     }
 
-    public void registrarVideo(Video ... Videos) {
+    public void registrarVideo(Video... Videos) {
         for (Video c : Videos) {
             if (!existeVideo(c)) {
                 adaptadorVideo.registrarVideo(c);
                 catalogoVideos.addVideo(c);
                 System.out.println("Video " + c.getTitulo() + " Insertada con Exito");
-            }else {
+            } else {
                 System.err.println("la Video (" + c.getTitulo() + ") ya existe");
             }
         }
@@ -288,6 +292,7 @@ public class Controlador {
 
     /**
      * Se comprueba que el usuario tiene una lista a?adida pasando su nombre
+     *
      * @param nombre
      * @return
      */
@@ -344,7 +349,6 @@ public class Controlador {
     }
 
     /**
-     *
      * @return Retorna una lista con todos los videos del catalogo de videos
      */
     public List<Video> getVideoes() {
@@ -352,17 +356,15 @@ public class Controlador {
     }
 
     /**
-     *
-     * @param nombre titulo del video
+     * @param nombre    titulo del video
      * @param etiquetas Etiquetas
      * @return Retorna una lista de videos dado el nombre y las etiquetas
      */
-    public LinkedList<Video> busqueda(String nombre, String ... etiquetas) {
+    public LinkedList<Video> busqueda(String nombre, String... etiquetas) {
         return catalogoVideos.buscarVideoPorFiltros(nombre, etiquetas);
     }
 
     /**
-     *
      * @param nombre
      * @return Retorna un videos dado el nombre del video
      */
@@ -371,7 +373,6 @@ public class Controlador {
     }
 
     /**
-     *
      * @param nombre
      * @return
      */
@@ -387,7 +388,7 @@ public class Controlador {
         if (usuarioActual.contieneVideoList(nombre)) {
             VideoList lc = usuarioActual.getListaVideo(nombre);
             if (lc != null) {
-                for (String titulo: titulosVideo) {
+                for (String titulo : titulosVideo) {
                     Video c = catalogoVideos.getVideo(titulo);
                     usuarioActual.anadirVideoALista(c, lc);
                     adaptadorVideoList.modificarVideoList(lc);
@@ -416,10 +417,23 @@ public class Controlador {
     }
 
 
-    public void ContratarPremium() {
-        if (!usuarioActual.isPremium()) {
-            usuarioActual.setPremium(true);
+    public void contratarPremium() {
+        if (logeado) {
+            if (!usuarioActual.isPremium()) {
+                usuarioActual.setPremium(true);
+                Usuario us = adaptadorUsuario.recuperarUsuario(usuarioActual.getCodigo());
+                System.out.println(us.getUsername() + " + Premium: " + us.isPremium());
+                adaptadorUsuario.modificarUsuario(usuarioActual);
+                catalogoUsuarios.actualizarUsuario(usuarioActual);
+            }
+        }
+    }
+
+    public void cancelarPremium() {
+        if (usuarioActual.isPremium()) {
+            usuarioActual.setPremium(false);
             adaptadorUsuario.modificarUsuario(usuarioActual);
+            catalogoUsuarios.actualizarUsuario(usuarioActual);
         }
     }
 
@@ -467,7 +481,7 @@ public class Controlador {
     public void mostrarVideoesUser() {
         List<VideoList> lista = usuarioActual.getMyVideoLists();
         for (VideoList l : lista) {
-            for (Video c	 : l.getVideos()) {
+            for (Video c : l.getVideos()) {
                 System.out.println("Titulo " + c.getTitulo());
             }
         }
@@ -486,6 +500,7 @@ public class Controlador {
 
     /**
      * Funcion utilizada para cambiar la contraseña del usuairo actual
+     *
      * @param password Contraseña nueva
      */
     public void changePassword(String password) {
@@ -494,111 +509,7 @@ public class Controlador {
         this.catalogoUsuarios.actualizarUsuario(usuarioActual);
     }
 
-/*
-    // APARTADO PARA REPRODUCCION DE VideoES
 
-    // REPRODUCIR Video
-    public void play(int idVideo) {
-        Video Video = null;
-
-        if (!playing) {
-            playing = true;
-            codVideoActual = idVideo;
-            try {
-                Video = catalogoVideos.getVideo(codVideoActual);
-                String rutaVideo = Video.getRutaFichero();
-                File f = new File(rutaVideo);
-                if (f.isFile()) {
-                    media = new javafx.scene.media.Media(f.toURI().toString());
-                    mediaPlayer = new MediaPlayer(media);
-                    mediaPlayer.play();
-                    incrementarReproduccion(Video);
-                    anadirVideoAReciente(Video);
-                } else {
-                    URL url = new URL(rutaVideo);
-                    mediaPlayer = new MediaPlayer(new Media(url.toString()));
-                    mediaPlayer.play();
-                }
-            } catch (MediaException e) {
-                System.err.println("Esta Video no funsionaaa");
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        } else if (codVideoActual != idVideo) {
-            mediaPlayer.stop();
-            codVideoActual = idVideo;
-            try {
-                Video = catalogoVideos.getVideo(codVideoActual);
-                String ruta = Video.getRutaFichero();
-                File f = new File(ruta);
-                media = new Media(f.toURI().toString());
-                mediaPlayer = new MediaPlayer(media);
-                mediaPlayer.play();
-                incrementarReproduccion(Video);
-                anadirVideoAReciente(Video);
-            } catch (MediaException e2) {
-                System.err.println("No FUNSIONA 2.0");
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-        } else {
-            mediaPlayer.play();
-        }
-    }
-
-    public void playReciente(int idVideo) {
-        Video Video = null;
-
-        if (!playing) {
-            playing = true;
-            codVideoActual = idVideo;
-            try {
-                Video = catalogoVideos.getVideo(codVideoActual);
-                String rutaVideo = Video.getRutaFichero();
-                File f = new File(rutaVideo);
-                if (f.isFile()) {
-                    media = new javafx.scene.media.Media(f.toURI().toString());
-                    mediaPlayer = new MediaPlayer(media);
-                    mediaPlayer.play();
-                } else {
-                    URL url = new URL(rutaVideo);
-                    mediaPlayer = new MediaPlayer(new Media(url.toString()));
-                    mediaPlayer.play();
-                }
-            } catch (MediaException e) {
-                System.err.println("Esta Video no funsionaaa");
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        } else if (codVideoActual != idVideo) {
-            mediaPlayer.stop();
-            codVideoActual = idVideo;
-            try {
-                Video = catalogoVideos.getVideo(codVideoActual);
-                String ruta = Video.getRutaFichero();
-                File f = new File(ruta);
-                media = new Media(f.toURI().toString());
-                mediaPlayer = new MediaPlayer(media);
-                mediaPlayer.play();
-            } catch (MediaException e2) {
-                System.err.println("No FUNSIONA 2.0");
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-        } else {
-            mediaPlayer.play();
-        }
-    }
-
-    public void pause() {
-        mediaPlayer.stop();
-    }
-
-    public void stop() {
-        mediaPlayer.stop();
-        playing = false;
-    }
-*/
 }
 
 

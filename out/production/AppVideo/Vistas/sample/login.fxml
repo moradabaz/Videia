@@ -58,6 +58,9 @@
                         </HBox>
                      </children>
                   </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="400.0">
+                        <Text textAlignment="CENTER" fx:id="textoPassword" ></Text>
+                  </HBox>
                   <HBox alignment="CENTER" prefHeight="38.0" prefWidth="306.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes usuario?">

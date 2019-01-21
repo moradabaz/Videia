@@ -3,6 +3,7 @@ package Vistas.sample;
 
 import VideoWeb.VideoWeb;
 import controlador.Controlador;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -10,12 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 
 public class UserWindowController {
@@ -46,16 +47,18 @@ public class UserWindowController {
         usuarioActual = controlador.getUsuarioActual();
         listasUsuario = new HashMap<String, VideoList>();
         listasVisibles = new HashMap<Boolean, VideoList>();
-        VideoWeb videoWeb = VideoWeb.getUnicaInstancia();
+
         boolean login = controlador.login(usuarioActual.getUsername(), usuarioActual.getPassword());
+
         if (login) {
             userLabel.setText(usuarioActual.getUsername());
         }
 
-        String perfil = "Ver Perfil";
 
         logoutItem.setOnAction(event -> {
             logout();
+            Window currentWindow =  mainBorderPane.getScene().getWindow();
+            currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));
         });
 
         closeItem.setOnAction(event -> {
@@ -76,12 +79,12 @@ public class UserWindowController {
             }
         }
 
-        String urls[] = {"https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk",
+    /*    String urls[] = {"https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk",
                 "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk"};
 
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("GridPaneThum.fxml"));
+        loader.setLocation(getClass().getResource("ThumGridWindow.fxml"));
         GridPane gridPane = null;
 
         try {
@@ -89,7 +92,7 @@ public class UserWindowController {
         } catch (IOException e) {}
 
         ThumbGridController thumbGridController = loader.getController();
-        thumbGridController.inicializar(this.mainBorderPane);
+        thumbGridController.inicializarPanelCentral(this.mainBorderPane);
 
         if (gridPane != null) {
             ScrollPane scrollPane = new ScrollPane(gridPane);
@@ -100,7 +103,7 @@ public class UserWindowController {
             mainBorderPane.setCenter(scrollPane);
         }
 
-        thumbGridController.insertImages(new LinkedList<String>(Arrays.asList(urls)));
+        thumbGridController.insertImages(new LinkedList<String>(Arrays.asList(urls))); */
 
     }
 
@@ -147,21 +150,37 @@ public class UserWindowController {
     }
 
     public void gotoProfileWindow(MouseEvent mouseEvent) throws IOException {
+
+
+
+        Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+
+
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileWindow.fxml"));
-        FlowPane profilePane = loader.load();
+        VBox profilePane = loader.load();
         ProfileWindowController profileController = loader.getController();
         profileController.inicializar(controlador);
+
+
         Scene profileScene = new Scene(profilePane);
-        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Stage window = new Stage();
+        window.setResizable(true);
         window.setScene(profileScene);
-        window.setResizable(false);
         window.show();
+
+        currentStage.close();
+        //profilePane.resize(currentScene.getWindow().getWidth(), currentWindow.getHeight());
+        //currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));
+
+        //((Node) mouseEvent.getSource()).getScene().getWindow().hide();
     }
 
 
     public void logout() {
         controlador.logout();
+
         try {
             volverALogin();
         } catch (IOException e) {
@@ -170,7 +189,8 @@ public class UserWindowController {
     }
 
     private void volverALogin() throws IOException {
-       // Stage primaryStage = (Stage) ((Node) this.getClass().getClassLoader().getParent().getSource()).getScene().getWindow();
+
+
         BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
         FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
         root.setCenter(login);

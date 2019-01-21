@@ -3,18 +3,8 @@ package Vistas.sample;
 import VideoWeb.VideoWeb;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.scene.web.WebView;
-import modelo.dominio.Video;
 
-import java.awt.event.MouseEvent;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class VisorController {
 
@@ -27,9 +17,7 @@ public class VisorController {
     public void inicializar(String url) {
 
         hBoxButtons.setAlignment(Pos.CENTER_LEFT);
-
         anadirBotones();
-
         borderPane = (BorderPane) mainBox.getParent();
         videoWeb = VideoWeb.getUnicaInstancia();
         videoWeb.setPanel(visorBox);

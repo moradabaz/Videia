@@ -119,8 +119,9 @@ public class CatalogoUsuarios {
     public void actualizarUsuario(Usuario usuario) {
         if (usuarios.containsKey(usuario.getUsername())) {
             //Usuario u = usuarios.get(usuario.getUsername());
-            usuarios.remove(usuario.getUsername());
-            usuarios.put(usuario.getUsername(), usuario);
+            usuarios.replace(usuario.getUsername(), usuario);
+            usuariosBBDD.replace(usuario.getCodigo(), usuario);
+
         }
     }
 

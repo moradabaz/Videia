@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
@@ -36,6 +37,7 @@ import static jdk.nashorn.internal.objects.Global.Infinity;
 public class LoginController implements Initializable {
 
     public static final int NUM_MENUS = 4;
+    public Text textoPassword;
 
     Controlador controlador = Controlador.getInstanciaUnica();
 
@@ -134,6 +136,7 @@ public class LoginController implements Initializable {
     public void login(ActionEvent event) {
         String user = userField.getText();
         String passwd = passwdField.getText();
+        textoPassword.setText("");
         boolean logeado = controlador.login(user, passwd);
         if (logeado) {
             System.out.println("El usuario " + user + "esta logeado");
@@ -147,8 +150,12 @@ public class LoginController implements Initializable {
                     e.printStackTrace();
                 }
             }
-        } else
-            Notificacion.alertError("Usuario o contrasena incorrectos");
+        } else {
+            textoPassword.setStyle("-fx-stroke: red;");
+            textoPassword.setText("Usuario o contraseña incorrectos");
+        }
+
+
     }
 
     public void gotoRegistro(ActionEvent actionEvent) throws IOException {

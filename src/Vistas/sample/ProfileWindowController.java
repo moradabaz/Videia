@@ -1,11 +1,12 @@
 package Vistas.sample;
 
 import controlador.Controlador;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.geometry.VerticalDirection;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -13,17 +14,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
-import javafx.util.Pair;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import modelo.dominio.Usuario;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
-import sun.security.util.Password;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,15 +33,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 
-import javafx.scene.control.ButtonBar.ButtonData;
-
-import static javafx.scene.paint.Color.*;
 
 
 public class ProfileWindowController {
 
     public Controlador controlador;
-    public FlowPane panelPrincipal;
+   // public FlowPane panelPrincipal;
+    public VBox panelPrincipal;
     public VBox VBoxProfile;
     public VBox VBoxListas;
     public VBox nombreBox;
@@ -57,21 +54,52 @@ public class ProfileWindowController {
     public boolean onEdit;
     public VBox vboxListas;
     public VBox vboxEditLista;
+    public HBox cajaSuperior;
+    public HBox cajon;
     private boolean isOnEdit;
     private boolean modeEditList;
+
+    Text nombreText;
+    Text apellidosText;
+    Text birtdayText;
+    Text emailText;
+    Text premiumText;
 
     public void inicializar(Controlador controlador) {
         auxiliar = new VBox();
         this.controlador = controlador;
         Usuario user = controlador.getUsuarioActual();
+
+       // cajon.resize(panelPrincipal.getWidth(), panelPrincipal.getHeight());
+       /* cajon.prefWidthProperty().bind(panelPrincipal.prefWidthProperty());
+        cajon.minWidthProperty().bind(panelPrincipal.minWidthProperty());
+        cajon.maxWidthProperty().bind(panelPrincipal.maxWidthProperty());
+        */
+
+
+
+
         if (user == null) {
             System.err.println(" > El usuario es nulo");
         } else {
+            System.out.println("Premium: " + controlador.getUsuarioActual().isPremium());
+            this.nombreText = new Text();
+            nombreBox.getChildren().add(nombreText);
+            this.apellidosText = new Text(user.getApellidos());
+            ApellidosBox.getChildren().add(apellidosText);
+            this.birtdayText = new Text(user.getStringFecha());
+            birthdayBox.getChildren().add(birtdayText);
+            this.emailText = new Text(user.getEmail());
+            emailBox.getChildren().add(emailText);
+            this.premiumText = new Text("");
+            cajaSuperior.getChildren().add(premiumText);
             refrescarInfo(user);
         }
         onEdit = false;
         modeEditList = false;
         mostrarListasDisponibles();
+
+
     }
 
     private void setEditStatus(boolean status) {
@@ -82,15 +110,16 @@ public class ProfileWindowController {
     }
 
     private void refrescarInfo(Usuario user) {
-        nombreUserName.setText(user.getUsername());
-        Text nombreText = new Text(user.getNombre());
-        nombreBox.getChildren().add(nombreText);
-        Text apellidosText = new Text(user.getApellidos());
-        ApellidosBox.getChildren().add(apellidosText);
-        Text birtdayText = new Text(user.getStringFecha());
-        birthdayBox.getChildren().add(birtdayText);
-        Text emailText = new Text(user.getEmail());
-        emailBox.getChildren().add(emailText);
+        this.nombreUserName.setText(user.getUsername());
+
+        this.nombreText.setText(user.getNombre());
+        this.apellidosText.setText(user.getApellidos());
+        this.birtdayText.setText(user.getFechaNac().toString());
+        this.emailText.setText(user.getEmail());
+
+        if (user.isPremium()) {
+           premiumText.setText("Eres Premium :D");
+        }
     }
 
     public void cambiarPassword(MouseEvent mouseEvent) {
@@ -345,6 +374,7 @@ public class ProfileWindowController {
         }
         controlador.modificarDatosUsuario(nombre, apellidos, fechaNac, email);
         Notificacion.changeSuccess(Notificacion.FIELDS);
+        refrescarInfo(controlador.getUsuarioActual());
     }
 
     public void volveraUserView(MouseEvent mouseEvent) throws IOException {
@@ -352,12 +382,20 @@ public class ProfileWindowController {
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane bpUserView = loader.load();
         Scene userScene = new Scene(bpUserView);
+
+       // ((Node) mouseEvent.getSource()).getScene().getWindow().hide();
+        //.fireEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST));
+
+
         UserWindowController userController = loader.getController();
         userController.inicializar(this.controlador);
-        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Stage window = new Stage();
         window.setScene(userScene);
         window.setResizable(true);
         window.show();
+        Window currentWindow =  ((Node)mouseEvent.getTarget()).getScene().getWindow();
+        currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));
+
     }
 
     public void eliminarCuenta(MouseEvent mouseEvent) {
@@ -582,4 +620,8 @@ public class ProfileWindowController {
         }
     }
 
+    public void convertirEnPremium(MouseEvent mouseEvent) {
+        controlador.contratarPremium();
+        refrescarInfo(controlador.getUsuarioActual());
+    }
 }

@@ -1,13 +1,13 @@
 package Vistas.sample;
 
 
-import VideoWeb.VideoWeb;
 import controlador.Controlador;
-import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -15,7 +15,11 @@ import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
+
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 
 
@@ -29,6 +33,8 @@ public class UserWindowController {
     public MenuItem logoutItem;
     public MenuItem closeItem;
     public FlowPane flowPaneCenter;
+    public HBox birthdayBox1;
+    public HBox birthdayBox2;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -64,6 +70,31 @@ public class UserWindowController {
         closeItem.setOnAction(event -> {
             close();
         });
+
+        if (usuarioActual.isPremium()) {
+            Button masVistos = new Button("Mas Vistos");
+            masVistos.setPrefWidth(115);
+            masVistos.setStyle("-fx-cursor: hand");
+            masVistos.setOnMouseClicked(ActionEvent -> {
+                //mostrarLista(masVistos.getText());
+            });
+            userListsVox.getChildren().add(masVistos);
+            
+            // Cumpleaños
+
+
+
+            if (usuarioActual.isBirthday()) {
+                Path pathQuit = Paths.get("iconos/birthday.png");
+                System.out.println(pathQuit.toAbsolutePath().toString());
+                Image imgCumple = new Image("file:" + pathQuit.toAbsolutePath().toString());
+                ImageView imgBirthday1 = new ImageView(imgCumple);
+                ImageView imgBirthday2 = new ImageView(imgCumple);
+                birthdayBox1.getChildren().add(imgBirthday1);
+                birthdayBox2.getChildren().add(imgBirthday2);
+                userLabel.setText("Feliz Cumpleaños " + usuarioActual.getNombre());
+            }
+        }
 
         if (!usuarioActual.getMyVideoLists().isEmpty()) {
             ListView<String> listView = new ListView<>();
@@ -118,7 +149,6 @@ public class UserWindowController {
     public BorderPane getMainBorderPane() {
         return mainBorderPane;
     }
-
 
     private void mostrarLista(String videoListNombre) {
         if (!usuarioActual.contieneVideoList(videoListNombre)) {

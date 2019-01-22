@@ -12,6 +12,7 @@ import javax.print.DocFlavor;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.*;
@@ -63,5 +64,10 @@ public class Controller implements Initializable {
         window.setScene(scene);
         window.setFullScreen(true);
         window.show();*/
+    }
+
+
+    public void close(ActionEvent actionEvent) {
+        System.exit(0);
     }
 }

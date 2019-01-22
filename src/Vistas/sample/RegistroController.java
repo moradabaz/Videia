@@ -12,14 +12,19 @@ import javafx.scene.control.*;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.dominio.Usuario;
 
 public class RegistroController implements Initializable {
 
+    public Text textoError;
     Controlador controlador = Controlador.getInstanciaUnica();
 
     @FXML
@@ -57,8 +62,6 @@ public class RegistroController implements Initializable {
         bp.setCenter(inicio);
     }
 
-
-
     public void registrarUsuario(ActionEvent mouseEvent) throws IOException {
         boolean registrado = false;
         String user = idTxtFldUsuario.getText();
@@ -66,7 +69,8 @@ public class RegistroController implements Initializable {
         if (checkedValues()) {
             String repassword = idPasswdFieldRepeat.getText();
             String nombre = idNombre.getText();
-            String fecha = FechaNac.getValue().toString();
+            String fecha = String.valueOf(FechaNac.getValue());
+            System.out.println("Fecha de registro: " + fecha);
             String apellidos = idApellidos.getText();
             String email = idTxtFldEmail.getText();
             registrado = controlador.registrarUsuario(user, passwd, nombre, apellidos, fecha, email);
@@ -86,11 +90,19 @@ public class RegistroController implements Initializable {
         String fecha = FechaNac.getValue().toString();
         System.out.println("FECHA: " + fecha);
         if (checkFields(user, passwd, repassword, nombre)) {
+
+            if (controlador.usuarioRegistrado(user)) {
+                textoError.setStyle("-fx-stroke: red;");
+                textoError.setText("El usuario " + user + " ya existe");
+                return false;
+            }
+
             if (!passwd.equals(repassword)) {
                 Notificacion.passwdMatchError();
                 System.out.println("Las contrasenas no coinciden");
                 return false;
             }
+
         } else {
             return  false;
         }
@@ -120,5 +132,8 @@ public class RegistroController implements Initializable {
         window.setFullScreen(true);
         window.show();
     }
+
+
+
 
 }

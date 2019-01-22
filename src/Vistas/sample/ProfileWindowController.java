@@ -1,8 +1,6 @@
 package Vistas.sample;
 
 import controlador.Controlador;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -87,7 +85,7 @@ public class ProfileWindowController {
             nombreBox.getChildren().add(nombreText);
             this.apellidosText = new Text(user.getApellidos());
             ApellidosBox.getChildren().add(apellidosText);
-            this.birtdayText = new Text(user.getStringFecha());
+            this.birtdayText = new Text(user.getFechaNacString());
             birthdayBox.getChildren().add(birtdayText);
             this.emailText = new Text(user.getEmail());
             emailBox.getChildren().add(emailText);
@@ -111,10 +109,9 @@ public class ProfileWindowController {
 
     private void refrescarInfo(Usuario user) {
         this.nombreUserName.setText(user.getUsername());
-
         this.nombreText.setText(user.getNombre());
         this.apellidosText.setText(user.getApellidos());
-        this.birtdayText.setText(user.getFechaNac().toString());
+        this.birtdayText.setText(user.getFechaNacString());
         this.emailText.setText(user.getEmail());
 
         if (user.isPremium()) {
@@ -299,12 +296,16 @@ public class ProfileWindowController {
             acceptButton.setOnMouseClicked(ActioEvent -> {
                 String nombre = nombreTextField.getText();
                 String apellidos = apellidosTextField.getText();
-                String fecha;
-                try {
-                    fecha = birthDate.getValue().toString();         // TODO: Aqui hay algo
-                } catch (NullPointerException n) {
-                    fecha = user.getStringFecha();
+                String fecha = user.getUsername();
+                if (birthDate.getValue() != null) {
+                    fecha = birthDate.getValue().toString();
                 }
+                /*try {
+                    fecha = birthDate.getValue();       // TODO: Aqui hay algofƒ
+                    System.out.println("Nueva Fecha nacimiento: " + fecha);
+                } catch (NullPointerException n) {
+                    fecha = user.getFechaNacString();
+                }*/
                 String email = emailTextField.getText();
                 actualizarCampos(nombre, apellidos, fecha, email);
                 vboxInfo.getChildren().remove(vboxAccept);
@@ -333,7 +334,6 @@ public class ProfileWindowController {
                 birthdayBox.getChildren().clear();
                 emailBox.getChildren().clear();
                 setEditStatus(false);
-                refrescarInfo(user);
             });
             vboxCancel.getChildren().add(cancelButton);
             vboxCancel.setPadding(new Insets(0, 12, 0, 0));
@@ -349,7 +349,7 @@ public class ProfileWindowController {
     }
 
     private void actualizarCampos(String nombre, String apellidos, String fecha, String email) {
-        Date fechaNac = null;
+
         Usuario user = controlador.getUsuarioActual();
         if (nombre.equals("")) {
             nombre = user.getNombre();
@@ -357,24 +357,19 @@ public class ProfileWindowController {
         if (apellidos.equals("")) {
             apellidos = user.getApellidos();
         }
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-        try {
-            fechaNac = formatter.parse(fecha);
-        } catch (ParseException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-        }
 
-        if (!fecha.equals("")) {
-            if (fechaNac == null)
-                fechaNac = user.getFechaNac();
-        }
         if (email.equals("")) {
             email = user.getEmail();
         }
-        controlador.modificarDatosUsuario(nombre, apellidos, fechaNac, email);
+
+        if (fecha.equals("") || fecha == null) {
+            fecha = user.getFechaNacString();
+        }
+
+        controlador.modificarDatosUsuario(nombre, apellidos, fecha , email);
         Notificacion.changeSuccess(Notificacion.FIELDS);
-        refrescarInfo(controlador.getUsuarioActual());
+        panelPrincipal.requestLayout();
+
     }
 
     public void volveraUserView(MouseEvent mouseEvent) throws IOException {

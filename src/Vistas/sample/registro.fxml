@@ -155,7 +155,11 @@
                   </HBox>
                </children>
             </HBox>
+             <HBox alignment="BOTTOM_CENTER">
+             <Text fx:id="textoError" textAlignment="CENTER" />
+             </HBox>
          </children>
+
       </VBox>
    </children>
 </FlowPane>

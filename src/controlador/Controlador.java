@@ -11,6 +11,7 @@ import javafx.scene.media.MediaPlayer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -211,7 +212,7 @@ public class Controlador {
      */
     public boolean registrarUsuario(String username, String password, String nombre, String apellidos, String fechaNac, String email) {
         boolean registrado = false;
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha = null;
         try {
             fecha = formatter.parse(fechaNac);
@@ -232,11 +233,12 @@ public class Controlador {
             for (VideoList l : usuarioActual.getMyVideoLists()) {
                 adaptadorVideoList.borrarVideoList(l);
             }
-            boolean borradoDeLaBBDD = adaptadorUsuario.borrarUsuario(usuarioActual);
-            catalogoUsuarios.removeUsuario(usuarioActual);
             this.usuarioActual.getMyVideoLists().clear();
             this.usuarioActual.getVideosRecientes().clear();
-            this.logout();
+            catalogoUsuarios.removeUsuario(usuarioActual);
+            boolean borradoDeLaBBDD = adaptadorUsuario.borrarUsuario(usuarioActual);
+            if (borradoDeLaBBDD)
+                this.logout();
             return borradoDeLaBBDD;
         }
         return false;
@@ -248,7 +250,7 @@ public class Controlador {
      * @param email
      * @param
      */
-    public void modificarDatosUsuario(String nombre, String apellidos, Date fecha, String email) {
+    public void modificarDatosUsuario(String nombre, String apellidos, String fecha, String email) {
         if (logeado) {
             usuarioActual.setNombre(nombre);
             usuarioActual.setApellidos(apellidos);
@@ -508,6 +510,7 @@ public class Controlador {
         this.adaptadorUsuario.modificarUsuario(usuarioActual);
         this.catalogoUsuarios.actualizarUsuario(usuarioActual);
     }
+
 
 
 }

@@ -4,6 +4,8 @@ package modelo.dominio;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 public class Usuario {
@@ -164,6 +166,16 @@ public class Usuario {
         this.fechaNac = fechaNac;
     }
 
+    public void setFechaNac(String fecha) {
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.fechaNac = formatter.parse(fecha);
+            System.out.println(this.fechaNac);
+        } catch (ParseException e) {
+            System.err.println("Fallo en el parseo de la fecha :S");
+        }
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -215,10 +227,12 @@ public class Usuario {
         return linea.trim();
     }
 
-    public String getStringFecha() {
+    /*public String getStringFecha() {
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         return formatter.format(fechaNac);
-    }
+    }*/
+
+
 
     /**
      * @return Retorna la edad
@@ -327,5 +341,33 @@ public class Usuario {
 
     public int getDescuento() {
         return 0;
+    }
+
+    public boolean isBirthday() {
+        Date hoy = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(hoy);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+
+        calendar.setTime(fechaNac);
+        int birthday = calendar.get(Calendar.DAY_OF_MONTH);
+        int birthmonth = calendar.get(Calendar.MONTH);
+
+        if (month == birthmonth) {
+            if (day == birthday)
+                return true;
+        }
+        return false;
+    }
+
+    public String getFechaNacString() { // TODO: Aqui esta el poblema con las fecha xD
+        /*DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        return df.format(fechaNac);*/
+        LocalDate localDate = fechaNac.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int year = localDate.getYear();
+        int month = localDate.getMonthValue();
+        int day = localDate.getDayOfMonth();
+        return day + "-" + month + "-" + year;
     }
 }

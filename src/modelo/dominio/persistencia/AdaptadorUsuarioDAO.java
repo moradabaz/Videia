@@ -81,7 +81,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
                         new Propiedad(PASSWORD, usuario.getPassword()),
                         new Propiedad(NOMBRE, usuario.getNombre()),
                         new Propiedad(APELLIDOS, usuario.getApellidos()),
-                        new Propiedad(FECHA, usuario.getStringFecha()),
+                        new Propiedad(FECHA, usuario.getFechaNacString()),
                         new Propiedad(EMAIL, usuario.getEmail()),
                         new Propiedad(PREMIUM, String.valueOf(usuario.isPremium())),
                         new Propiedad(LISTA_VIDEOS, usuario.getStringCodigosVideoList()),
@@ -99,7 +99,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
             Entidad eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
             return servPersistencia.borrarEntidad(eUsuario);
         } catch (NullPointerException n) {
-            return true;
+            return false;
         }
 
 
@@ -126,7 +126,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
             servPersistencia.anadirPropiedadEntidad(eUsuario, PASSWORD, usuario.getPassword());
             servPersistencia.anadirPropiedadEntidad(eUsuario, NOMBRE, usuario.getNombre());
             servPersistencia.anadirPropiedadEntidad(eUsuario, APELLIDOS, usuario.getApellidos());
-            servPersistencia.anadirPropiedadEntidad(eUsuario, FECHA, usuario.getStringFecha());
+            servPersistencia.anadirPropiedadEntidad(eUsuario, FECHA, usuario.getFechaNacString());
             servPersistencia.anadirPropiedadEntidad(eUsuario, EMAIL, usuario.getEmail());
             servPersistencia.anadirPropiedadEntidad(eUsuario, PREMIUM, String.valueOf(usuario.isPremium()));
             servPersistencia.anadirPropiedadEntidad(eUsuario, LISTA_VIDEOS, usuario.getStringCodigosVideoList());
@@ -199,6 +199,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         premium = Boolean.parseBoolean(servPersistencia.recuperarPropiedadEntidad(eUsuario, PREMIUM));
         Usuario usuario = new Usuario(username, password, nombre, apellidos, fecha, email);
         usuario.setCodigo(codigo);
+        usuario.setPremium(premium);
         PoolDAO.getUnicaInstancia().addObjeto(codigo, usuario);
         usuario.anadirVideoList(listasCancionesRecuperada); // TODO -> AQUI SE ROMPE
         usuario.setVideoesRecientes(recientes);

@@ -110,15 +110,27 @@
                         </Menu>
                     </menus>
                 </MenuBar>
+
                 <HBox fx:id="topHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label fx:id="userLabel" prefHeight="22.0" prefWidth="95.0" text="Username" textAlignment="CENTER">
+                        <HBox fx:id="birthdayBox1" alignment="CENTER">
+                            <children>
+
+                            </children>
+                        </HBox>
+                        <Label fx:id="userLabel" prefHeight="22.0" prefWidth="225.0" text="Username" textAlignment="CENTER" alignment="TOP_CENTER">
                             <font>
                                 <Font name="Menlo Regular" size="13.0" />
                             </font>
                         </Label>
                     </children>
+                    <HBox fx:id="birthdayBox2" alignment="CENTER">
+                        <children>
+
+                        </children>
+                    </HBox>
                 </HBox>
+
             </children>
         </VBox>
     </top>

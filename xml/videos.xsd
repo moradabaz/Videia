@@ -1,0 +1,26 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.videos.es/tds" xmlns="http://www.videos.es/tds"
+	elementFormDefault="qualified">
+	
+	<xs:element name="videos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="video" type="Video" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Video">
+		<xs:sequence>
+			<xs:element name="etiqueta" type="Etiqueta" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="titulo" type="xs:string" use="required" />
+		<xs:attribute name="url" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="Etiqueta">
+		<xs:attribute name="nombre" type="xs:string" use="required" />
+	</xs:complexType>
+
+</xs:schema>

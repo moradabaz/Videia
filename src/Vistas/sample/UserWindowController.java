@@ -1,7 +1,6 @@
 package Vistas.sample;
 
 
-import com.sun.glass.ui.CommonDialogs;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,14 +17,13 @@ import javafx.stage.WindowEvent;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
 import umu.tds.videos.IBuscadorVideos;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 
 public class UserWindowController implements IBuscadorVideos {
@@ -117,8 +115,8 @@ public class UserWindowController implements IBuscadorVideos {
             }
         }
 
-    /*    String urls[] = {"https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk",
-                "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk"};
+    //    String urls[] = {"https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk",
+     //           "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk"};
 
 
         FXMLLoader loader = new FXMLLoader();
@@ -130,7 +128,7 @@ public class UserWindowController implements IBuscadorVideos {
         } catch (IOException e) {}
 
         ThumbGridController thumbGridController = loader.getController();
-        thumbGridController.inicializarPanelCentral(this.mainBorderPane);
+        thumbGridController.inicializar(this.mainBorderPane);
 
         if (gridPane != null) {
             ScrollPane scrollPane = new ScrollPane(gridPane);
@@ -141,10 +139,7 @@ public class UserWindowController implements IBuscadorVideos {
             mainBorderPane.setCenter(scrollPane);
         }
 
-        thumbGridController.insertImages(new LinkedList<String>(Arrays.asList(urls))); */
-
-        
-
+        thumbGridController.insertImages(controlador.getVideoUrls());
     }
 
     private void setEditMode(boolean editMode) {
@@ -248,12 +243,15 @@ public class UserWindowController implements IBuscadorVideos {
       File fichero = fileChooser.showOpenDialog(mainBorderPane.getCenter().getScene().getWindow());
       if (fichero != null) {
             // BUSCAR VIDEOS CON LA RUTA DEL FICHERO XD
+            buscarVideos(fichero.getAbsolutePath());
+          System.out.println(fichero.getAbsolutePath());
       }
     }
 
 
     @Override
     public void buscarVideos(String rutaxml) {
-
+        // TODO: Implementar la busqueda de videos xD
+        controlador.buscarVideos(rutaxml);
     }
 }

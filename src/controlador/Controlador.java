@@ -1,6 +1,7 @@
 package controlador;
 
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
 import modelo.dominio.Etiqueta;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
@@ -9,14 +10,12 @@ import catalogos.CatalogoVideos;
 import catalogos.CatalogoUsuarios;
 import modelo.dominio.Usuario;
 import javafx.scene.media.MediaPlayer;
-import umu.tds.videos.ArchivoVideosEvent;
-import umu.tds.videos.IBuscadorVideos;
-import umu.tds.videos.Videos;
-import umu.tds.videos.VideosListener;
+import umu.tds.videos.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Controlador implements VideosListener, IBuscadorVideos{
@@ -32,13 +31,12 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     private AdaptadorVideoDAO adaptadorVideo;
     private Usuario usuarioActual;
     private boolean logeado;
+    private BuscadorVideos buscadorVideos;
 
 
     // atributos de reproducci?n
     private boolean playing;
-    private int codVideoActual;
-    private javafx.scene.media.Media media;
-    private MediaPlayer mediaPlayer;
+    private Map<String, ImageView> thumbMap;
 
     /**
      * Constructor del Controlador
@@ -50,11 +48,15 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         usuarioActual = null;
         playing = false;
         try {
+            thumbMap = new HashMap<>();
             factoriaDAO = FactoriaDAO.getUnicaInstancia();
             adaptadorVideoList = (AdaptadorVideoListDAO) factoriaDAO.getVideoListDAO();
             adaptadorUsuario = (AdaptadorUsuarioDAO) factoriaDAO.getUsuarioDAO();
             adaptadorVideo = (AdaptadorVideoDAO) factoriaDAO.getVideoDAO();
+            this.buscadorVideos = new BuscadorVideos();
+            this.buscadorVideos.anadirVideoListener(this);
             inicializarCatalogos();
+            cargarImagenes();
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -517,7 +519,8 @@ public class Controlador implements VideosListener, IBuscadorVideos{
 
     @Override
     public void buscarVideos(String rutaxml) {
-        buscarVideos(rutaxml);
+        //buscarVideos(rutaxml);
+        this.buscadorVideos.setArchivoVideo(rutaxml);
     }
 
 
@@ -546,8 +549,40 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         // 2 - Almacenamos en la base de datos
 
         registrarVideo(video1);
+    }
 
+    public LinkedList<String> getVideoUrls() {
+        LinkedList<Video> listaVideos = new LinkedList<Video>(this.catalogoVideos.getVideos());
+        return new LinkedList<>(listaVideos.stream().map(v -> v.getRutaFichero())
+                            .collect(Collectors.toList()));
+    }
 
+    public LinkedList<String> getVideoUrls(VideoList videoList) {
+        return new LinkedList<>(videoList.getVideos().stream().map(v -> v.getRutaFichero()).collect(Collectors.toList()));
+    }
+
+    public LinkedList<String> getVideosRecientesUrls() {
+        return new LinkedList<>(usuarioActual.getVideosRecientes().stream().map(v -> v.getRutaFichero()).collect(Collectors.toList()));
+    }
+
+    public void addImageAndUrl(String url, ImageView img) {
+        thumbMap.put(url, img);
+    }
+
+    public ImageView getImageFromUrl(String url) {
+        return thumbMap.get(url);
+    }
+
+    public void removeImageAndUrl(String url, ImageView img) {
+        thumbMap.remove(url, img);
+    }
+
+    private void cargarImagenes() {
+        VideoWeb videoWeb = VideoWeb.getUnicaInstancia();
+        for (Video video : catalogoVideos.getVideos()) {
+            String url = video.getRutaFichero();
+            addImageAndUrl(url, videoWeb.getThumb(url));
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 package controlador;
 
 import javafx.scene.control.Alert;
+import modelo.dominio.Etiqueta;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
 import modelo.dominio.persistencia.*;
@@ -8,16 +9,17 @@ import catalogos.CatalogoVideos;
 import catalogos.CatalogoUsuarios;
 import modelo.dominio.Usuario;
 import javafx.scene.media.MediaPlayer;
+import umu.tds.videos.ArchivoVideosEvent;
+import umu.tds.videos.IBuscadorVideos;
+import umu.tds.videos.Videos;
+import umu.tds.videos.VideosListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
-public class Controlador {
+public class Controlador implements VideosListener, IBuscadorVideos{
 
     private static Controlador instanciaUnica;
 
@@ -280,7 +282,8 @@ public class Controlador {
             if (!existeVideo(c)) {
                 adaptadorVideo.registrarVideo(c);
                 catalogoVideos.addVideo(c);
-                System.out.println("Video " + c.getTitulo() + " Insertada con Exito");
+                if (catalogoVideos.existeVideo(c))
+                     System.out.println("Video " + c.getTitulo() + " Insertada con Exito");
             } else {
                 System.err.println("la Video (" + c.getTitulo() + ") ya existe");
             }
@@ -512,7 +515,40 @@ public class Controlador {
     }
 
 
+    @Override
+    public void buscarVideos(String rutaxml) {
+        buscarVideos(rutaxml);
+    }
 
+
+    @Override
+    public void nuevosVideos(ArchivoVideosEvent event) {
+        String titulo = "", url = "";
+        List<String> nombreEtiquetas = new LinkedList<String>();
+        Videos video = event.getNuevoVideo();
+        for (umu.tds.videos.Video vid : video.getVideo()) {
+            url = vid.getUrl();
+            titulo = vid.getTitulo();
+            for (umu.tds.videos.Etiqueta label : vid.getEtiqueta()) {
+                nombreEtiquetas.add(label.getNombre());
+            }
+        }
+
+        // 1º Creamos Video
+
+        Video video1 = new Video(titulo, url);
+        List<Etiqueta> listaEtiquetas = new LinkedList<>();
+        for (String label : nombreEtiquetas) {
+            Etiqueta etiqueta = new Etiqueta(label);
+            video1.addEtiqueta(etiqueta);
+        }
+
+        // 2 - Almacenamos en la base de datos
+
+        registrarVideo(video1);
+
+
+    }
 }
 
 

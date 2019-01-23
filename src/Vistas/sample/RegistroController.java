@@ -56,13 +56,13 @@ public class RegistroController implements Initializable {
         controlador = Controlador.getInstanciaUnica();
     }
 
-    public void volverAlInicio(ActionEvent actionEvent) throws IOException {
+    private void volverAlInicio(ActionEvent actionEvent) throws IOException {
         Parent inicio = FXMLLoader.load(getClass().getResource("login.fxml"));
         BorderPane bp = (BorderPane) idflowpaneregister.getParent();
         bp.setCenter(inicio);
     }
 
-    public void registrarUsuario(ActionEvent mouseEvent) throws IOException {
+    private void registrarUsuario(ActionEvent mouseEvent) throws IOException {
         boolean registrado = false;
         String user = idTxtFldUsuario.getText();
         String passwd = idPasswdField.getText();
@@ -102,7 +102,6 @@ public class RegistroController implements Initializable {
                 System.out.println("Las contrasenas no coinciden");
                 return false;
             }
-
         } else {
             return  false;
         }
@@ -120,7 +119,7 @@ public class RegistroController implements Initializable {
     }
 
 
-    public void gotoUserWindow(ActionEvent event, Usuario usuario) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
+    private void gotoUserWindow(ActionEvent event, Usuario usuario) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane UView = loader.load();

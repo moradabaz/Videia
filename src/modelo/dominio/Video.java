@@ -20,6 +20,11 @@ public class Video {
 
 
     public Video(String titulo, String rutaFichero) {
+        if (titulo == null || titulo.equals(""))
+            throw new IllegalArgumentException("El titulo del video no esta inicializado");
+        if (rutaFichero == null || rutaFichero.equals(""))
+            throw new IllegalArgumentException("La ruta del video no esta inicializada");
+
         this.codigo = -1111;
         this.titulo = titulo;
         this.rutaFichero = rutaFichero;
@@ -66,7 +71,7 @@ public class Video {
     }
 
     public void addEtiqueta(Etiqueta etiqueta) {
-        if (etiquetas.contains(etiqueta)) {
+        if (!etiquetas.contains(etiqueta)) {
             etiquetas.add(etiqueta);
             poolEtiqueta.addEtiqueta(etiqueta);
         }

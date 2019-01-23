@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -17,7 +16,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
+<?import javafx.scene.control.Label?>
+<BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
     <left>
         <VBox fx:id="profileBox">
             <VBox prefHeight="17.0" prefWidth="115.0" BorderPane.alignment="CENTER">
@@ -118,7 +118,7 @@
 
                             </children>
                         </HBox>
-                        <Label fx:id="userLabel" prefHeight="22.0" prefWidth="225.0" text="Username" textAlignment="CENTER" alignment="TOP_CENTER">
+                        <Label fx:id="userLabel" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="225.0" text="Username" textAlignment="CENTER">
                             <font>
                                 <Font name="Menlo Regular" size="13.0" />
                             </font>
@@ -137,7 +137,7 @@
     <bottom>
         <VBox prefHeight="80.0" prefWidth="595.0" BorderPane.alignment="CENTER">
             <children>
-                <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
+                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
                     <children>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="97.0">
                             <children>
@@ -155,6 +155,9 @@
                             </children>
                         </HBox>
                     </children>
+                </HBox>
+                <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="40.0" prefWidth="600.0" >
+                    <Button fx:id="botonCargarVideos" text="Cargar Videos" textAlignment="CENTER" onMouseClicked="#cargarVideos"> </Button>
                 </HBox>
             </children>
         </VBox>

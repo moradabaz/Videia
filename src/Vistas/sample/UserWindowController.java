@@ -1,6 +1,7 @@
 package Vistas.sample;
 
 
+import com.sun.glass.ui.CommonDialogs;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,20 +11,24 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
+import umu.tds.videos.IBuscadorVideos;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
 
-public class UserWindowController {
+public class UserWindowController implements IBuscadorVideos {
 
     public VBox listasBox;
     public VBox userListsVox;
@@ -35,6 +40,8 @@ public class UserWindowController {
     public FlowPane flowPaneCenter;
     public HBox birthdayBox1;
     public HBox birthdayBox2;
+    public HBox bottomBox;
+    public Button botonCargarVideos;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -136,6 +143,8 @@ public class UserWindowController {
 
         thumbGridController.insertImages(new LinkedList<String>(Arrays.asList(urls))); */
 
+        
+
     }
 
     private void setEditMode(boolean editMode) {
@@ -180,31 +189,18 @@ public class UserWindowController {
     }
 
     public void gotoProfileWindow(MouseEvent mouseEvent) throws IOException {
-
-
-
         Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-
-
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileWindow.fxml"));
         VBox profilePane = loader.load();
         ProfileWindowController profileController = loader.getController();
         profileController.inicializar(controlador);
-
-
         Scene profileScene = new Scene(profilePane);
         Stage window = new Stage();
         window.setResizable(true);
         window.setScene(profileScene);
         window.show();
-
         currentStage.close();
-        //profilePane.resize(currentScene.getWindow().getWidth(), currentWindow.getHeight());
-        //currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));
-
-        //((Node) mouseEvent.getSource()).getScene().getWindow().hide();
     }
 
 
@@ -236,4 +232,28 @@ public class UserWindowController {
         System.exit(0);
     }
 
+    public void cargarVideos(MouseEvent mouseEvent) throws FileNotFoundException {
+
+        Path pathQuit = Paths.get("xml");
+        System.out.println(pathQuit.toAbsolutePath().toString());
+       // Image imgQuitar = new Image("file:" + pathQuit.toAbsolutePath().toString());
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(pathQuit.toAbsolutePath().toString()));
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("XML", "*.xml")
+        );
+
+  //      VBox vBox = new VBox();
+      File fichero = fileChooser.showOpenDialog(mainBorderPane.getCenter().getScene().getWindow());
+      if (fichero != null) {
+            // BUSCAR VIDEOS CON LA RUTA DEL FICHERO XD
+      }
+    }
+
+
+    @Override
+    public void buscarVideos(String rutaxml) {
+
+    }
 }

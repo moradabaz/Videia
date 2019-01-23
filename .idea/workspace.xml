@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec5dab78-fbc8-46c4-88fa-55794f730637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iconos/birthday.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Controller.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Controller.class" />
+    <list default="true" id="ec5dab78-fbc8-46c4-88fa-55794f730637" name="Default" comment="Cambiosxd">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xml/Fichero.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/LoginController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/LoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Usuario.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Usuario.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorUsuarioDAO.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorUsuarioDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Video.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Video.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppVideo.iml" afterPath="$PROJECT_DIR$/AppVideo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Vistas/sample/login.fxml" afterPath="$PROJECT_DIR$/bin/Vistas/sample/login.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindow.fxml" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/inicio.fxml" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/inicio.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/registro.fxml" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/registro.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/Controller.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/login.fxml" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/login.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/Main.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" afterPath="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/inicio.fxml" afterPath="$PROJECT_DIR$/src/Vistas/sample/inicio.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/registro.fxml" afterPath="$PROJECT_DIR$/src/Vistas/sample/registro.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/login.fxml" afterPath="$PROJECT_DIR$/src/Vistas/sample/login.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlador/Controlador.java" afterPath="$PROJECT_DIR$/src/controlador/Controlador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" afterPath="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorUsuarioDAO.java" afterPath="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorUsuarioDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modelo/dominio/Video.java" afterPath="$PROJECT_DIR$/src/modelo/dominio/Video.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,116 +46,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserWindowController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="249" column="55" lean-forward="false" selection-start-line="249" selection-start-column="55" selection-end-line="249" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inicio.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/inicio.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="34" column="88" lean-forward="false" selection-start-line="34" selection-start-column="88" selection-end-line="34" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="154" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
-              <folding>
-                <element signature="e#2141#2142#0" expanded="true" />
-                <element signature="e#2171#2172#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistroController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/RegistroController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registro.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/registro.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="137" column="38" lean-forward="true" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileWindowController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2309">
-              <caret line="300" column="60" lean-forward="false" selection-start-line="300" selection-start-column="60" selection-end-line="300" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/login.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Usuario.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="168" column="16" lean-forward="false" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
-              <folding>
-                <element signature="e#3351#3352#0" expanded="true" />
-                <element signature="e#3382#3383#0" expanded="true" />
-                <element signature="e#3927#3928#0" expanded="true" />
-                <element signature="e#3963#3964#0" expanded="true" />
-                <element signature="e#4101#4102#0" expanded="true" />
-                <element signature="e#4141#4142#0" expanded="true" />
-                <element signature="e#4611#4612#0" expanded="true" />
-                <element signature="e#4649#4650#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,12 +61,90 @@
       <file leaf-file-name="Controlador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="252" column="27" lean-forward="true" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
+            <state relative-caret-position="8224">
+              <caret line="548" column="0" lean-forward="false" selection-start-line="548" selection-start-column="0" selection-end-line="548" selection-end-column="0" />
               <folding>
-                <element signature="e#2192#2193#0" expanded="true" />
-                <element signature="e#2228#2229#0" expanded="true" />
+                <element signature="e#16945#16946#0" expanded="true" />
+                <element signature="e#16982#16983#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CatalogoVideos.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1600">
+              <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+              <folding>
+                <element signature="e#3389#3390#0" expanded="true" />
+                <element signature="e#3441#3442#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Video.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Video.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VisorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThumbGridController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileWindowController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8992">
+              <caret line="566" column="0" lean-forward="false" selection-start-line="566" selection-start-column="0" selection-end-line="568" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserWindow.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2544">
+              <caret line="159" column="120" lean-forward="false" selection-start-line="159" selection-start-column="120" selection-end-line="159" selection-end-column="120" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nuevaListaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -180,13 +157,12 @@
         <option value="FxmlFile" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="Tag Library Descriptor" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>profile</find>
-      <find>refrescar</find>
       <find>modificardatos</find>
       <find>gotoUserW</find>
       <find>prof</find>
@@ -196,7 +172,6 @@
       <find>logou</find>
       <find>login</find>
       <find>contratar</find>
-      <find>refrescarInfo</find>
       <find>modificar</find>
       <find>rec</find>
       <find>recuperar</find>
@@ -215,12 +190,19 @@
       <find>registrar</find>
       <find>registrado</find>
       <find>Fe</find>
+      <find>out</find>
+      <find>refrescarInfo</find>
+      <find>path</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="FORCE_PUSH_ALLOWED" value="false" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -244,22 +226,25 @@
         <option value="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/VisorWindow.fxml" />
         <option value="$PROJECT_DIR$/src/VideoWeb/VideoWeb.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/login.fxml" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/CentralPanel.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml" />
         <option value="$PROJECT_DIR$/src/catalogos/CatalogoUsuarios.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorUsuarioDAO.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" />
-        <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/inicio.fxml" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/Controller.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/registro.fxml" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/inicio.fxml" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/login.fxml" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/modelo/dominio/Video.java" />
+        <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
+        <option value="$PROJECT_DIR$/xml/Fichero.xml" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
       </list>
     </option>
   </component>
@@ -277,10 +262,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1280" />
-    <option name="y" value="-108" />
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -523,35 +506,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controlador" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dominio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
@@ -562,13 +525,10 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -754,7 +714,13 @@
       <workItem from="1548071492970" duration="868000" />
       <workItem from="1548088552264" duration="5525000" />
       <workItem from="1548111117066" duration="568000" />
-      <workItem from="1548161176515" duration="17738000" />
+      <workItem from="1548161176515" duration="22998000" />
+      <workItem from="1548199187161" duration="16000" />
+      <workItem from="1548205184943" duration="1000" />
+      <workItem from="1548205652453" duration="892000" />
+      <workItem from="1548240063179" duration="4837000" />
+      <workItem from="1548253217893" duration="655000" />
+      <workItem from="1548258445740" duration="21000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios">
       <created>1548111406304</created>
@@ -763,11 +729,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548111406304</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cambios">
+      <created>1548190658866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1548190658867</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98169000" />
+    <option name="totallyTimeSpent" value="109851000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -779,25 +752,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-108" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.497558" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26326743" sideWeight="0.502442" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26326743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.49676898" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26326743" sideWeight="0.497558" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32778355" sideWeight="0.4920635" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14896215" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15831988" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -807,8 +779,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -843,6 +816,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -855,7 +854,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controlador/Controlador.java</url>
-          <line>421</line>
+          <line>424</line>
           <properties class="controlador.Controlador" method="contratarPremium">
             <option name="EMULATED" value="true" />
           </properties>
@@ -863,7 +862,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java</url>
-          <line>395</line>
+          <line>400</line>
           <properties class="Vistas.sample.ProfileWindowController" method="eliminarCuenta">
             <option name="EMULATED" value="true" />
           </properties>
@@ -887,61 +886,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/inicio.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#VBox#0;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#1;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2592">
-          <caret line="162" column="33" lean-forward="false" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../YoutubeComponent.jar!/VideoWeb.class" />
-    <entry file="jar://$PROJECT_DIR$/../../../YoutubeComponent.jar!/VideoWeb.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/scene/layout/GridPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="962" column="16" lean-forward="false" selection-start-line="962" selection-start-column="16" selection-end-line="962" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/Vistas/sample/UserWindow.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -973,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -984,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -995,33 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="31" column="60" lean-forward="false" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,21 +958,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/panels/parteIzquierda.fxml">
@@ -1074,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1085,7 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,17 +1009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="e#4968#4975#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,25 +1024,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="125" column="31" lean-forward="true" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="n#VBox#0;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#1;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1162,9 +1038,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
-          <folding>
-            <element signature="e#8056#8057#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1172,9 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="674" column="0" lean-forward="false" selection-start-line="674" selection-start-column="0" selection-end-line="674" selection-end-column="0" />
-          <folding>
-            <element signature="e#26527#26528#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1182,9 +1052,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="1657" column="0" lean-forward="false" selection-start-line="1657" selection-start-column="0" selection-end-line="1657" selection-end-column="0" />
-          <folding>
-            <element signature="e#66921#66922#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1192,7 +1059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="140" column="16" lean-forward="false" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1200,7 +1066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-437">
           <caret line="99" column="46" lean-forward="false" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,7 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="347" column="35" lean-forward="false" selection-start-line="347" selection-start-column="35" selection-end-line="347" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1216,7 +1080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1224,10 +1087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="2505" column="88" lean-forward="false" selection-start-line="2505" selection-start-column="87" selection-end-line="2505" selection-end-column="88" />
-          <folding>
-            <element signature="e#66572#66573#0" expanded="false" />
-            <element signature="e#66618#66619#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1248,95 +1107,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="252" column="27" lean-forward="true" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
-          <folding>
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2228#2229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/inicio.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="34" column="88" lean-forward="false" selection-start-line="34" selection-start-column="88" selection-end-line="34" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
+        <state relative-caret-position="752">
           <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
-          <folding>
-            <element signature="e#2141#2142#0" expanded="true" />
-            <element signature="e#2171#2172#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2309">
-          <caret line="300" column="60" lean-forward="false" selection-start-line="300" selection-start-column="60" selection-end-line="300" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/login.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="154" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/RegistroController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="576">
+          <caret line="58" column="11" lean-forward="false" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/inicio.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/registro.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="137" column="38" lean-forward="true" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/scene/layout/BackgroundImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="110" column="11" lean-forward="false" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/login.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Notificacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2544">
+          <caret line="159" column="120" lean-forward="false" selection-start-line="159" selection-start-column="120" selection-end-line="159" selection-end-column="120" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../BuscadorComponente.jar!/umu/tds/videos/Video.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="73" column="26" lean-forward="false" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Video.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1600">
+          <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+          <folding>
+            <element signature="e#3389#3390#0" expanded="true" />
+            <element signature="e#3441#3442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8224">
+          <caret line="548" column="0" lean-forward="false" selection-start-line="548" selection-start-column="0" selection-end-line="548" selection-end-column="0" />
+          <folding>
+            <element signature="e#16945#16946#0" expanded="true" />
+            <element signature="e#16982#16983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xml/fichero.tld" />
+    <entry file="file://$PROJECT_DIR$/xml/Fichero.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/stage/FileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="229" column="22" lean-forward="false" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8992">
+          <caret line="566" column="0" lean-forward="false" selection-start-line="566" selection-start-column="0" selection-end-line="568" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="249" column="55" lean-forward="false" selection-start-line="249" selection-start-column="55" selection-end-line="249" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

@@ -26,9 +26,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
 
 
@@ -81,7 +78,7 @@ public class ProfileWindowController {
             System.err.println(" > El usuario es nulo");
         } else {
             System.out.println("Premium: " + controlador.getUsuarioActual().isPremium());
-            this.nombreText = new Text();
+            this.nombreText = new Text(user.getNombre());
             nombreBox.getChildren().add(nombreText);
             this.apellidosText = new Text(user.getApellidos());
             ApellidosBox.getChildren().add(apellidosText);
@@ -91,12 +88,14 @@ public class ProfileWindowController {
             emailBox.getChildren().add(emailText);
             this.premiumText = new Text("");
             cajaSuperior.getChildren().add(premiumText);
-            refrescarInfo(user);
+           if (user.isPremium()) {
+               premiumText.setText("Eres Premium");
+           }
         }
+
         onEdit = false;
         modeEditList = false;
         mostrarListasDisponibles();
-
 
     }
 
@@ -108,15 +107,27 @@ public class ProfileWindowController {
     }
 
     private void refrescarInfo(Usuario user) {
-        this.nombreUserName.setText(user.getUsername());
+        nombreBox.getChildren().remove(nombreText);
+        ApellidosBox.getChildren().remove(apellidosText);
+        birthdayBox.getChildren().remove(birtdayText);
+        emailBox.getChildren().remove(emailText);
+
+        //this.nombreUserName.setText(user.getUsername());
+
         this.nombreText.setText(user.getNombre());
+        nombreBox.getChildren().add(nombreText);
         this.apellidosText.setText(user.getApellidos());
+        ApellidosBox.getChildren().add(apellidosText);
         this.birtdayText.setText(user.getFechaNacString());
+        birthdayBox.getChildren().add(birtdayText);
         this.emailText.setText(user.getEmail());
+        emailBox.getChildren().add(emailText);
 
         if (user.isPremium()) {
            premiumText.setText("Eres Premium :D");
         }
+
+        panelPrincipal.requestLayout();
     }
 
     public void cambiarPassword(MouseEvent mouseEvent) {
@@ -300,12 +311,6 @@ public class ProfileWindowController {
                 if (birthDate.getValue() != null) {
                     fecha = birthDate.getValue().toString();
                 }
-                /*try {
-                    fecha = birthDate.getValue();       // TODO: Aqui hay algofƒ
-                    System.out.println("Nueva Fecha nacimiento: " + fecha);
-                } catch (NullPointerException n) {
-                    fecha = user.getFechaNacString();
-                }*/
                 String email = emailTextField.getText();
                 actualizarCampos(nombre, apellidos, fecha, email);
                 vboxInfo.getChildren().remove(vboxAccept);
@@ -599,7 +604,6 @@ public class ProfileWindowController {
         controlador.eliminarVideoList(nombreLista);
         panelPrincipal.requestLayout();
     }
-
 
 
     private void editarLista(String nombreLista) {

@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 
 public class UserWindowController implements IBuscadorVideos {
@@ -48,16 +47,28 @@ public class UserWindowController implements IBuscadorVideos {
     public HBox topHBox;
     public HashMap<String, VideoList> listasUsuario;
     public HashMap<Boolean, VideoList> listasVisibles;
-
+    public ThumbGridController thumbGridController;
+    public VBox visorBox;
+    public static UserWindowController unicaInstancia;
     private boolean editMode;
 
-    public void inicializar(Controlador controlador) {
+
+    public static UserWindowController getUnicaInstancia() {
+        if (unicaInstancia == null) {
+            unicaInstancia = new UserWindowController();
+        }
+        return unicaInstancia;
+    }
+
+    public void inicializar() {
 
         this.editMode = false;
-        this.controlador = controlador;                     // TODO: Cambio efectuado :S
+        this.controlador = Controlador.getInstanciaUnica();                     // TODO: Cambio efectuado :S
         usuarioActual = controlador.getUsuarioActual();
         listasUsuario = new HashMap<String, VideoList>();
         listasVisibles = new HashMap<Boolean, VideoList>();
+
+//        controlador.eliminarTodoslosVideos();
 
         boolean login = controlador.login(usuarioActual.getUsername(), usuarioActual.getPassword());
 
@@ -86,8 +97,6 @@ public class UserWindowController implements IBuscadorVideos {
             userListsVox.getChildren().add(masVistos);
             
             // Cumpleaños
-
-
 
             if (usuarioActual.isBirthday()) {
                 Path pathQuit = Paths.get("iconos/birthday.png");
@@ -127,7 +136,7 @@ public class UserWindowController implements IBuscadorVideos {
             gridPane = loader.load();
         } catch (IOException e) {}
 
-        ThumbGridController thumbGridController = loader.getController();
+        thumbGridController = loader.getController();
         thumbGridController.inicializar(this.mainBorderPane);
 
         if (gridPane != null) {
@@ -139,7 +148,7 @@ public class UserWindowController implements IBuscadorVideos {
             mainBorderPane.setCenter(scrollPane);
         }
 
-        thumbGridController.insertImages(controlador.getVideoUrls());
+        thumbGridController.insertImages();
     }
 
     private void setEditMode(boolean editMode) {
@@ -243,7 +252,7 @@ public class UserWindowController implements IBuscadorVideos {
       File fichero = fileChooser.showOpenDialog(mainBorderPane.getCenter().getScene().getWindow());
       if (fichero != null) {
             // BUSCAR VIDEOS CON LA RUTA DEL FICHERO XD
-            buscarVideos(fichero.getAbsolutePath());
+          buscarVideos(fichero.getAbsolutePath());
           System.out.println(fichero.getAbsolutePath());
       }
     }
@@ -253,5 +262,11 @@ public class UserWindowController implements IBuscadorVideos {
     public void buscarVideos(String rutaxml) {
         // TODO: Implementar la busqueda de videos xD
         controlador.buscarVideos(rutaxml);
+        /*thumbGridController.inicializar(mainBorderPane);
+        thumbGridController.insertImages();*/
+        thumbGridController.refreshThumbGrid();
+        //thumbGridController.refreshThumbGrid();
+        //thumbGridController.insertImages();
+       // this.getMainBorderPane().requestLayout();
     }
 }

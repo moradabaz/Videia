@@ -36,7 +36,6 @@ public class Controlador implements VideosListener, IBuscadorVideos{
 
     // atributos de reproducci?n
     private boolean playing;
-    private Map<String, ImageView> thumbMap;
 
     /**
      * Constructor del Controlador
@@ -48,7 +47,6 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         usuarioActual = null;
         playing = false;
         try {
-            thumbMap = new HashMap<>();
             factoriaDAO = FactoriaDAO.getUnicaInstancia();
             adaptadorVideoList = (AdaptadorVideoListDAO) factoriaDAO.getVideoListDAO();
             adaptadorUsuario = (AdaptadorUsuarioDAO) factoriaDAO.getUsuarioDAO();
@@ -56,7 +54,6 @@ public class Controlador implements VideosListener, IBuscadorVideos{
             this.buscadorVideos = new BuscadorVideos();
             this.buscadorVideos.anadirVideoListener(this);
             inicializarCatalogos();
-            cargarImagenes();
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -71,7 +68,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
      */
     public static Controlador getInstanciaUnica() {
         if (instanciaUnica == null) {
-            return new Controlador();
+            return instanciaUnica = new Controlador(); //TODO: Arreglar
         }
         return instanciaUnica;
     }
@@ -358,7 +355,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     /**
      * @return Retorna una lista con todos los videos del catalogo de videos
      */
-    public List<Video> getVideoes() {
+    public LinkedList<Video> getVideoes() {
         return catalogoVideos.getVideos();
     }
 
@@ -529,26 +526,28 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         String titulo = "", url = "";
         List<String> nombreEtiquetas = new LinkedList<String>();
         Videos video = event.getNuevoVideo();
-        for (umu.tds.videos.Video vid : video.getVideo()) {
-            url = vid.getUrl();
-            titulo = vid.getTitulo();
-            for (umu.tds.videos.Etiqueta label : vid.getEtiqueta()) {
-                nombreEtiquetas.add(label.getNombre());
+        if (video != null) {
+            for (umu.tds.videos.Video vid : video.getVideo()) {
+                url = vid.getUrl();
+                titulo = vid.getTitulo();
+                for (umu.tds.videos.Etiqueta label : vid.getEtiqueta()) {
+                    nombreEtiquetas.add(label.getNombre());
+                }
+                if (!existeUrl(url)) {
+                    Video video1 = new Video(titulo, url);
+                    List<Etiqueta> listaEtiquetas = new LinkedList<>();
+                    for (String label : nombreEtiquetas) {
+                        Etiqueta etiqueta = new Etiqueta(label);
+                        video1.addEtiqueta(etiqueta);
+                    }
+                    // 2 - Almacenamos en la base de datos
+                    registrarVideo(video1);
+                }
             }
         }
 
         // 1º Creamos Video
 
-        Video video1 = new Video(titulo, url);
-        List<Etiqueta> listaEtiquetas = new LinkedList<>();
-        for (String label : nombreEtiquetas) {
-            Etiqueta etiqueta = new Etiqueta(label);
-            video1.addEtiqueta(etiqueta);
-        }
-
-        // 2 - Almacenamos en la base de datos
-
-        registrarVideo(video1);
     }
 
     public LinkedList<String> getVideoUrls() {
@@ -565,23 +564,16 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         return new LinkedList<>(usuarioActual.getVideosRecientes().stream().map(v -> v.getRutaFichero()).collect(Collectors.toList()));
     }
 
-    public void addImageAndUrl(String url, ImageView img) {
-        thumbMap.put(url, img);
+    private boolean existeUrl(String url) {
+       return catalogoVideos.getVideos().stream().map(v -> v.getRutaFichero()).collect(Collectors.toList()).contains(url);
     }
 
-    public ImageView getImageFromUrl(String url) {
-        return thumbMap.get(url);
-    }
-
-    public void removeImageAndUrl(String url, ImageView img) {
-        thumbMap.remove(url, img);
-    }
-
-    private void cargarImagenes() {
-        VideoWeb videoWeb = VideoWeb.getUnicaInstancia();
-        for (Video video : catalogoVideos.getVideos()) {
-            String url = video.getRutaFichero();
-            addImageAndUrl(url, videoWeb.getThumb(url));
+    public void eliminarTodoslosVideos() {
+        LinkedList<Video> lista = (LinkedList<Video>) adaptadorVideo.recuperarTodosVideos();
+        Iterator<Video> it = lista.iterator();
+        while (it.hasNext()) {
+            Video video = it.next();
+            adaptadorVideo.borrarVideo(video);
         }
     }
 }

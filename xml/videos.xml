@@ -5,17 +5,20 @@
 		<etiqueta nombre="games"/>
 		<etiqueta nombre="indie"/>
 	</video>
-	<video titulo="The Dø I A Take Away Show" url="https://www.youtube.com/watch?v=qu577tNp1hA" >
-		<etiqueta nombre="music"/>
-		<etiqueta nombre="blogotheque"/>
-		<etiqueta nombre="solo"/>
-	</video>
-	<video titulo="Pay Attention - 'Dangerous Business' Preview | Star Wars Resistance" url="https://youtu.be/R5NyB_bAZI8" >
-		<etiqueta nombre="cartoon"/>
-		<etiqueta nombre="StarWars"/>
-	</video>
-	<video titulo="Star Wars The Clone Wars -- Master Yoda Vs Droid Battalion [1080p]" url="https://youtu.be/qTktSFh1UJA" >
-		<etiqueta nombre="cartoon"/>
-		<etiqueta nombre="StarWars"/>
-	</video>
-</videos>
+    <video titulo="The Dø I A Take Away Show" url="https://www.youtube.com/watch?v=qu577tNp1hA" >
+        <etiqueta nombre="music"/>
+        <etiqueta nombre="blogotheque"/>
+        <etiqueta nombre="solo"/>
+    </video>
+    <video titulo="Pay Attention - 'Dangerous Business' Preview | Star Wars Resistance" url="https://www.youtube.com/watch?v=R5NyB_bAZI8" >
+        <etiqueta nombre="cartoon"/>
+        <etiqueta nombre="StarWars"/>
+    </video>
+    <video titulo="Star Wars The Clone Wars - Master Yoda Vs Droid Battalion [1080p]" url="https://www.youtube.com/watch?v=qTktSFh1UJA" >
+        <etiqueta nombre="cartoon"/>
+        <etiqueta nombre="StarWars"/>
+    </video>
+    <video titulo="Gandalf 10 hours" url="https://www.youtube.com/watch?v=G1IbRujko-A">
+        <etiqueta nombre="Chilling"/>
+    </video>
+ </videos>

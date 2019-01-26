@@ -1,0 +1,7 @@
+<videos xmlns="http://www.videos.es/tds" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+        xs:schemaLocation="http://www.videos.es/tds videos.xsd">
+    <video titulo="Luis Fonsi - Sola" url="https://www.youtube.com/watch?v=sKlA0A3ufpc" >
+        <etiqueta nombre="Reggaeton"/>
+        <etiqueta nombre="Music"/>
+    </video>
+</videos>

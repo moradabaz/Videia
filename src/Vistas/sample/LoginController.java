@@ -81,7 +81,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void gotoRegistro(ActionEvent actionEvent) throws IOException {
+    public void gotoRegistro(ActionEvent actionEvent) throws IOException {
         BorderPane bp = (BorderPane) idFlowPaneLogin.getParent();
         FlowPane registro = FXMLLoader.load(getClass().getResource("registro.fxml"));
         bp.setCenter(registro);

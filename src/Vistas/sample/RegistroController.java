@@ -56,12 +56,14 @@ public class RegistroController implements Initializable {
         controlador = Controlador.getInstanciaUnica();
     }
 
+    @FXML
     private void volverAlInicio(ActionEvent actionEvent) throws IOException {
         Parent inicio = FXMLLoader.load(getClass().getResource("login.fxml"));
         BorderPane bp = (BorderPane) idflowpaneregister.getParent();
         bp.setCenter(inicio);
     }
 
+    @FXML
     private void registrarUsuario(ActionEvent mouseEvent) throws IOException {
         boolean registrado = false;
         String user = idTxtFldUsuario.getText();

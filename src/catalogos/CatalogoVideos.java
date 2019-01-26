@@ -73,10 +73,10 @@ public class CatalogoVideos {
      *
      * @return Devuelve una lista con todos los videos en el mapa
      */
-    public List<Video> getVideos() {
-        ArrayList<Video> lista = new ArrayList<Video>();
+    public LinkedList<Video> getVideos() {
+        LinkedList<Video> lista = new LinkedList<>();
         for (Video v : videos.values()) {
-            lista.add(v);
+            lista.addLast(v);
         }
         return lista;
     }
@@ -108,7 +108,8 @@ public class CatalogoVideos {
      * @param video
      */
     public void addVideo(Video video) {
-        videos.put(video.getCodigo(), video);
+        if (video != null)
+            videos.put(video.getCodigo(), video);
     }
 
     /**
@@ -116,8 +117,9 @@ public class CatalogoVideos {
      * @param video
      */
     public void removeVideo(Video video) {
-        if (videos.containsKey(video.getTitulo()))
-                videos.remove(video.getTitulo());
+        if (video != null)
+            if (videos.containsKey(video.getTitulo()))
+                   videos.remove(video.getTitulo());
     }
 
     /**

@@ -49,14 +49,17 @@ public class ThumbGridController {
     private int posColumna;
     private int filas;
     private int contadorImagenes;
+    private UserWindowController userWindowController;
     LinkedList<String> listaUrl;
 
-    public void inicializar(BorderPane borderPane) {
+
+    public void inicializar(UserWindowController userWindowController) {
         this.controlador = Controlador.getInstanciaUnica();
         this.posColumna = 0;
         this.filas = 0;
         this.contadorImagenes = 0;
-        this.borderPane = borderPane;
+        this.userWindowController = userWindowController;
+        this.borderPane = userWindowController.getMainBorderPane();
         videoWeb = VideoWeb.getUnicaInstancia();
         int n = gridPane.getColumnConstraints().size();
         this.listaVideos = controlador.getVideoes();
@@ -104,10 +107,10 @@ public class ThumbGridController {
                 if (!listaUrl.contains(url)) {
                     gridPane.add(box, posColumna, filas);
                     box.setStyle("-fx-cursor: hand");
-                    ContextMenu contextMenu = createContextMenu(box);
+                    ContextMenu contextMenu = createContextMenu();
                     box.setOnMouseClicked(MouseEvent -> {
                         if (MouseEvent.getButton() == MouseButton.SECONDARY) {
-                            contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getY());
+                            contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
                         } else {
                             try {
                                 visualizar(url);
@@ -130,22 +133,14 @@ public class ThumbGridController {
     }
 
     private void visualizar(String url) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("VisorWindow.fxml"));
-        VBox visor = loader.load();
-        VisorController visorController = loader.getController();
-        borderPane.setCenter(visor);
-        visorController.inicializar(url);
+        userWindowController.visualizar(url);
     }
 
-    private ContextMenu createContextMenu(VBox vBox) {
-        ContextMenu contextMenu= new ContextMenu();
+    private ContextMenu createContextMenu() {
+        ContextMenu contextMenu = new ContextMenu();
         MenuItem item2 = new MenuItem("Anadir a lista");
         MenuItem item3 = new MenuItem("Detalles");
-
-
         contextMenu.getItems().addAll(item2, item3);
-
         return contextMenu;
     }
 
@@ -179,11 +174,11 @@ public class ThumbGridController {
 
             box.setStyle("-fx-cursor: hand");
 
-            ContextMenu contextMenu = createContextMenu(box);
+            ContextMenu contextMenu = createContextMenu();
 
             box.setOnMouseClicked(MouseEvent -> {
                 if (MouseEvent.getButton() == MouseButton.SECONDARY) {
-                    contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getY());
+                    contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
                 } else {
                     try {
                         visualizar(url);
@@ -194,6 +189,10 @@ public class ThumbGridController {
             });
         }
         return box;
+    }
+
+    public GridPane getGridPane() {
+        return gridPane;
     }
 }
 

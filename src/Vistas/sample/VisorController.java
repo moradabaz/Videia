@@ -12,13 +12,12 @@ public class VisorController {
     public HBox hBoxButtons;
     public VBox visorBox;
     public VBox mainBox;
-    public BorderPane borderPane;
+    private UserWindowController userWindowController;
 
-    public void inicializar(String url) {
-
+    public void inicializar(UserWindowController userWindowController, String url) {
+        this.userWindowController = userWindowController;
         hBoxButtons.setAlignment(Pos.CENTER_LEFT);
         anadirBotones();
-        borderPane = (BorderPane) mainBox.getParent();
         videoWeb = VideoWeb.getUnicaInstancia();
         videoWeb.setPanel(visorBox);
         videoWeb.playVideo(url);
@@ -37,8 +36,10 @@ public class VisorController {
 
     private void gotoInicio() {
         videoWeb.cancel();
-        FlowPane flowPane = new FlowPane();
-        borderPane.setCenter(flowPane);
+        this.userWindowController.setGridPaneToCenter();
+        //userWindowController.setCenter();
+        //      borderPane.setCenter();
+
     }
 
 

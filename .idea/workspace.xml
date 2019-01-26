@@ -3,20 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ec5dab78-fbc8-46c4-88fa-55794f730637" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/LoginController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/LoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ThumbGridController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ThumbGridController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/catalogos/CatalogoVideos.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/catalogos/CatalogoVideos.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/catalogos/CatalogoVideos.java" afterPath="$PROJECT_DIR$/src/catalogos/CatalogoVideos.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlador/Controlador.java" afterPath="$PROJECT_DIR$/src/controlador/Controlador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/Fichero.xml" afterPath="$PROJECT_DIR$/xml/Fichero.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/videos.xml" afterPath="$PROJECT_DIR$/xml/videos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,43 +34,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserWindowController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserWindowController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="57" column="12" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+            <state relative-caret-position="442">
+              <caret line="270" column="53" lean-forward="false" selection-start-line="270" selection-start-column="53" selection-end-line="270" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#9178#9179#0" expanded="true" />
+                <element signature="e#9263#9264#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="videos.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml/videos.xml">
+      <file leaf-file-name="ThumbGridController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="329">
+              <caret line="112" column="98" lean-forward="false" selection-start-line="112" selection-start-column="98" selection-end-line="112" selection-end-column="98" />
+              <folding>
+                <element signature="e#6403#6404#0" expanded="true" />
+                <element signature="e#6434#6435#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileWindowController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
+      <file leaf-file-name="VisorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="395" column="53" lean-forward="false" selection-start-line="395" selection-start-column="53" selection-end-line="395" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CatalogoVideos.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="734">
-              <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+            <state relative-caret-position="437">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,46 +80,6 @@
                 <element signature="e#11521#11522#0" expanded="true" />
                 <element signature="e#11570#11571#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdaptadorVideoDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorVideoDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThumbGridController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VisorController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fichero.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml/Fichero.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -152,7 +104,6 @@
       <find>Fe</find>
       <find>out</find>
       <find>refrescarInfo</find>
-      <find>path</find>
       <find>addVideo</find>
       <find>video</find>
       <find>registrarVideo</find>
@@ -174,8 +125,9 @@
       <find>borrar</find>
       <find>getVide</find>
       <find>eliminar</find>
-      <find>visual</find>
       <find>getImage</find>
+      <find>path</find>
+      <find>visual</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,20 +168,20 @@
         <option value="$PROJECT_DIR$/src/Vistas/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/registro.fxml" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/inicio.fxml" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/login.fxml" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/Video.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" />
         <option value="$PROJECT_DIR$/src/catalogos/CatalogoVideos.java" />
         <option value="$PROJECT_DIR$/xml/videos.xml" />
         <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
         <option value="$PROJECT_DIR$/xml/Fichero.xml" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/LoginController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" />
       </list>
     </option>
   </component>
@@ -509,12 +461,6 @@
             <path>
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
               <item name="xml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -730,7 +676,7 @@
       <workItem from="1548346492518" duration="7473000" />
       <workItem from="1548423238950" duration="12016000" />
       <workItem from="1548445640105" duration="85000" />
-      <workItem from="1548448181272" duration="9077000" />
+      <workItem from="1548448181272" duration="14318000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios">
       <created>1548111406304</created>
@@ -760,11 +706,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548274176373</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cambiosxd">
+      <created>1548461005241</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1548461005242</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147225000" />
+    <option name="totallyTimeSpent" value="152466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -792,7 +745,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32049948" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11111111" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15995117" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -821,17 +774,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27367327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27367327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.497558" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32674298" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26118627" sideWeight="0.497558" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26118627" sideWeight="0.497558" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32778355" sideWeight="0.4920635" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32049948" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22344323" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15995117" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23565324" sideWeight="0.503642" order="6" side_tool="true" content_ui="tabs" />
@@ -884,12 +837,6 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java</url>
-          <line>263</line>
-          <properties />
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="32" />
@@ -1013,13 +960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="752">
           <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/RegistroController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="58" column="11" lean-forward="false" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1157,14 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1209,14 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="1768" column="0" lean-forward="false" selection-start-line="1768" selection-start-column="0" selection-end-line="1768" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xml/videos.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1241,14 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="395" column="53" lean-forward="false" selection-start-line="395" selection-start-column="53" selection-end-line="395" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xml/Fichero.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1257,18 +1173,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/RegistroController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+        <state relative-caret-position="624">
+          <caret line="129" column="31" lean-forward="false" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        <state relative-caret-position="114">
+          <caret line="385" column="8" lean-forward="false" selection-start-line="385" selection-start-column="8" selection-end-line="385" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1284,12 +1200,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="2156" column="16" lean-forward="false" selection-start-line="2156" selection-start-column="16" selection-end-line="2156" selection-end-column="16" />
+          <folding>
+            <element signature="e#81787#81788#0" expanded="false" />
+            <element signature="e#81827#81828#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="57" column="12" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+        <state relative-caret-position="442">
+          <caret line="270" column="53" lean-forward="false" selection-start-line="270" selection-start-column="53" selection-end-line="270" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#9178#9179#0" expanded="true" />
+            <element signature="e#9263#9264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="112" column="98" lean-forward="false" selection-start-line="112" selection-start-column="98" selection-end-line="112" selection-end-column="98" />
+          <folding>
+            <element signature="e#6403#6404#0" expanded="true" />
+            <element signature="e#6434#6435#0" expanded="true" />
           </folding>
         </state>
       </provider>

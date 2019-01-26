@@ -127,7 +127,7 @@ public class RegistroController implements Initializable {
         BorderPane UView = loader.load();
         Scene UViewScene = new Scene(UView);
         UserWindowController uControler = loader.getController();
-        uControler.inicializar(controlador);
+        uControler.inicializar();
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(UViewScene);
         window.setFullScreen(true);

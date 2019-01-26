@@ -2,6 +2,7 @@ package Vistas.sample;
 
 
 import controlador.Controlador;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ import umu.tds.videos.IBuscadorVideos;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -45,20 +47,13 @@ public class UserWindowController implements IBuscadorVideos {
     public Label userLabel;
     public MenuBar topMenuBar;
     public HBox topHBox;
-    public HashMap<String, VideoList> listasUsuario;
-    public HashMap<Boolean, VideoList> listasVisibles;
-    public ThumbGridController thumbGridController;
-    public VBox visorBox;
-    public static UserWindowController unicaInstancia;
+    private HashMap<String, VideoList> listasUsuario;
+    private HashMap<Boolean, VideoList> listasVisibles;
+    private ThumbGridController thumbGridController;
+    private VBox visorBox;
     private boolean editMode;
+    private  URL location = UserWindowController.class.getResource("UserWindowController.java");
 
-
-    public static UserWindowController getUnicaInstancia() {
-        if (unicaInstancia == null) {
-            unicaInstancia = new UserWindowController();
-        }
-        return unicaInstancia;
-    }
 
     public void inicializar() {
 
@@ -137,7 +132,7 @@ public class UserWindowController implements IBuscadorVideos {
         } catch (IOException e) {}
 
         thumbGridController = loader.getController();
-        thumbGridController.inicializar(this.mainBorderPane);
+        thumbGridController.inicializar(this);
 
         if (gridPane != null) {
             ScrollPane scrollPane = new ScrollPane(gridPane);
@@ -240,7 +235,6 @@ public class UserWindowController implements IBuscadorVideos {
 
         Path pathQuit = Paths.get("xml");
         System.out.println(pathQuit.toAbsolutePath().toString());
-       // Image imgQuitar = new Image("file:" + pathQuit.toAbsolutePath().toString());
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(pathQuit.toAbsolutePath().toString()));
@@ -248,13 +242,12 @@ public class UserWindowController implements IBuscadorVideos {
                 new FileChooser.ExtensionFilter("XML", "*.xml")
         );
 
-  //      VBox vBox = new VBox();
-      File fichero = fileChooser.showOpenDialog(mainBorderPane.getCenter().getScene().getWindow());
-      if (fichero != null) {
+        File fichero = fileChooser.showOpenDialog(mainBorderPane.getCenter().getScene().getWindow());
+        if (fichero != null) {
             // BUSCAR VIDEOS CON LA RUTA DEL FICHERO XD
           buscarVideos(fichero.getAbsolutePath());
           System.out.println(fichero.getAbsolutePath());
-      }
+        }
     }
 
 
@@ -262,11 +255,21 @@ public class UserWindowController implements IBuscadorVideos {
     public void buscarVideos(String rutaxml) {
         // TODO: Implementar la busqueda de videos xD
         controlador.buscarVideos(rutaxml);
-        /*thumbGridController.inicializar(mainBorderPane);
-        thumbGridController.insertImages();*/
         thumbGridController.refreshThumbGrid();
-        //thumbGridController.refreshThumbGrid();
-        //thumbGridController.insertImages();
-       // this.getMainBorderPane().requestLayout();
+    }
+
+
+    public void setGridPaneToCenter() {
+        this.mainBorderPane.setCenter(this.thumbGridController.getGridPane());
+    }
+
+
+    public void visualizar(String url) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("VisorWindow.fxml"));
+        VBox visor = loader.load();
+        VisorController visorController = loader.getController();
+        mainBorderPane.setCenter(visor);
+        visorController.inicializar(this, url);
     }
 }

@@ -383,12 +383,12 @@ public class ProfileWindowController {
         BorderPane bpUserView = loader.load();
         Scene userScene = new Scene(bpUserView);
 
-       // ((Node) mouseEvent.getSource()).getScene().getWindow().hide();
-        //.fireEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST));
+        // ((Node) mouseEvent.getSource()).getScene().getWindow().hide();
+        // .fireEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST));
 
 
         UserWindowController userController = loader.getController();
-        userController.inicializar(this.controlador);
+        userController.inicializar();
         Stage window = new Stage();
         window.setScene(userScene);
         window.setResizable(true);

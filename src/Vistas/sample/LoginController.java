@@ -49,6 +49,7 @@ public class LoginController implements Initializable {
         controlador = Controlador.getInstanciaUnica();
         parteIzquierda = new VBox();
         parteSuperior = new VBox();
+
         /*Path path = Paths.get("../iconos/loginBackground.jpg");
         Image image = new Image("file:" + path.toAbsolutePath().toString());
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
@@ -88,12 +89,12 @@ public class LoginController implements Initializable {
     }
 
     private void gotoUserWindow(ActionEvent event, Controlador controlador) throws IOException {      // TODO: Funcionq que lleva a la ventana USer
-        FXMLLoader loader = new FXMLLoader();
+     FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane UserView = loader.load();
         Scene userViewScene = new Scene(UserView);
         UserWindowController userWindowController = loader.getController();
-        userWindowController.inicializar(controlador);
+        userWindowController.inicializar();
         Stage window =  new Stage();
         window.setScene(userViewScene);
         window.setFullScreen(true);

@@ -32,7 +32,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     private Usuario usuarioActual;
     private boolean logeado;
     private BuscadorVideos buscadorVideos;
-
+    PoolEtiqueta poolEtiqueta;
 
     // atributos de reproducci?n
     private boolean playing;
@@ -54,6 +54,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
             this.buscadorVideos = new BuscadorVideos();
             this.buscadorVideos.anadirVideoListener(this);
             inicializarCatalogos();
+            poolEtiqueta = PoolEtiqueta.getUnicaInstancia();
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -575,6 +576,14 @@ public class Controlador implements VideosListener, IBuscadorVideos{
             Video video = it.next();
             adaptadorVideo.borrarVideo(video);
         }
+    }
+
+    public void addEtiqueta(Etiqueta etiqueta) {
+        poolEtiqueta.addEtiqueta(etiqueta);
+    }
+
+    public HashSet<Etiqueta> getEtiquetas() {
+        return poolEtiqueta.getEtiquetas();
     }
 }
 

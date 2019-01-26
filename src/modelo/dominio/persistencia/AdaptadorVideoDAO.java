@@ -2,6 +2,7 @@ package modelo.dominio.persistencia;
 
 import beans.Entidad;
 import beans.Propiedad;
+import modelo.dominio.Etiqueta;
 import modelo.dominio.Video;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
@@ -69,7 +70,7 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
     }
 
 
-    public void registrarVideoes(Video ... Videoes) {
+    public void registrarVideoes(Video... Videoes) {
         for (Video c : Videoes) {
             registrarVideo(c);
         }
@@ -97,7 +98,7 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
     }
 
     @Override
-    public Video recuperarVideo(int codigo) {			// Fallo al recuperar el numero de reproducciones :(
+    public Video recuperarVideo(int codigo) {            // Fallo al recuperar el numero de reproducciones :(
         Entidad eVideo;
         String titulo;
         String rutaFichero;
@@ -106,7 +107,7 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
         int numReproducciones = 0;
         try {
             eVideo = servPersistencia.recuperarEntidad(codigo);
-        }catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             return null;
         }
         titulo = servPersistencia.recuperarPropiedadEntidad(eVideo, TITULO);
@@ -150,4 +151,5 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
         return lista;
     }
+
 }

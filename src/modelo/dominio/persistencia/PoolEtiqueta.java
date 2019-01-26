@@ -2,7 +2,10 @@ package modelo.dominio.persistencia;
 
 import modelo.dominio.Etiqueta;
 
+import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PoolEtiqueta {
 
@@ -34,6 +37,10 @@ public class PoolEtiqueta {
 
     public boolean contiene(String nombre) {
         return pool.containsKey(nombre);
+    }
+
+    public HashSet<Etiqueta> getEtiquetas() {
+        return new HashSet<>(pool.values());
     }
 
 }

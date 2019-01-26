@@ -53,6 +53,7 @@ public class ProfileWindowController {
     public HBox cajon;
     private boolean isOnEdit;
     private boolean modeEditList;
+    private UserWindowController userWindowController;
 
     Text nombreText;
     Text apellidosText;
@@ -60,9 +61,10 @@ public class ProfileWindowController {
     Text emailText;
     Text premiumText;
 
-    public void inicializar(Controlador controlador) {
+    public void inicializar(UserWindowController userWindowController) {
         auxiliar = new VBox();
-        this.controlador = controlador;
+        this.controlador = Controlador.getInstanciaUnica();
+        this.userWindowController = userWindowController;
         Usuario user = controlador.getUsuarioActual();
 
        // cajon.resize(panelPrincipal.getWidth(), panelPrincipal.getHeight());
@@ -378,15 +380,10 @@ public class ProfileWindowController {
     }
 
     public void volveraUserView(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+     /*   FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane bpUserView = loader.load();
         Scene userScene = new Scene(bpUserView);
-
-        // ((Node) mouseEvent.getSource()).getScene().getWindow().hide();
-        // .fireEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST));
-
-
         UserWindowController userController = loader.getController();
         userController.inicializar();
         Stage window = new Stage();
@@ -394,7 +391,9 @@ public class ProfileWindowController {
         window.setResizable(true);
         window.show();
         Window currentWindow =  ((Node)mouseEvent.getTarget()).getScene().getWindow();
-        currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));
+        currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));*/
+        userWindowController.setGridPaneToCenter();
+
 
     }
 

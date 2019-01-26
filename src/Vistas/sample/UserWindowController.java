@@ -15,9 +15,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import modelo.dominio.Etiqueta;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
 import umu.tds.videos.IBuscadorVideos;
+
+import javax.xml.soap.Text;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,6 +44,10 @@ public class UserWindowController implements IBuscadorVideos {
     public HBox birthdayBox2;
     public HBox bottomBox;
     public Button botonCargarVideos;
+    public VBox lowerBox;
+    public VBox topBox;
+    public VBox leftBox;
+    public VBox rightBox;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -188,18 +195,23 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void gotoProfileWindow(MouseEvent mouseEvent) throws IOException {
-        Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileWindow.fxml"));
         VBox profilePane = loader.load();
         ProfileWindowController profileController = loader.getController();
-        profileController.inicializar(controlador);
-        Scene profileScene = new Scene(profilePane);
+        profileController.inicializar(this);
+        mainBorderPane.setCenter(profilePane);
+        leftBox.setVisible(false);
+        lowerBox.setVisible(false);
+        rightBox.setVisible(false);
+        topBox.setVisible(false);
+
+     /*   Scene profileScene = new Scene(profilePane);
         Stage window = new Stage();
         window.setResizable(true);
         window.setScene(profileScene);
         window.show();
-        currentStage.close();
+        currentStage.close();*/
     }
 
 
@@ -261,6 +273,10 @@ public class UserWindowController implements IBuscadorVideos {
 
     public void setGridPaneToCenter() {
         this.mainBorderPane.setCenter(this.thumbGridController.getGridPane());
+        leftBox.setVisible(true);
+        lowerBox.setVisible(true);
+        rightBox.setVisible(true);
+        topBox.setVisible(true);
     }
 
 
@@ -271,5 +287,11 @@ public class UserWindowController implements IBuscadorVideos {
         VisorController visorController = loader.getController();
         mainBorderPane.setCenter(visor);
         visorController.inicializar(this, url);
+    }
+
+    public void cargarEtiquetas() {
+        for (Etiqueta label : controlador.getEtiquetas()) {
+
+        }
     }
 }

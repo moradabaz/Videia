@@ -127,6 +127,7 @@ public class ThumbGridController {
             if (contadorImagenes % 4 == 0) {
                 filas++;
             }
+
             gridPane.requestLayout();
             borderPane.requestLayout();
         }
@@ -150,45 +151,6 @@ public class ThumbGridController {
 
         gridPane.requestLayout();
         borderPane.requestLayout();
-    }
-
-    private VBox createImgBox(Video video) {
-        VBox box = new VBox();
-
-        String url = video.getRutaFichero();
-        ImageView img = null;
-
-        img = videoWeb.getThumb(url);
-
-
-        if (img != null) {
-            box.setAlignment(Pos.CENTER);
-            box.getChildren().add(img);
-
-            Text tituloText = new Text(video.getTitulo());
-            tituloText.maxWidth(img.getFitWidth());
-            tituloText.setStyle("-fx-font-size: 11px");
-            tituloText.setTextAlignment(TextAlignment.CENTER);
-            box.getChildren().add(tituloText);
-            System.out.println(url);
-
-            box.setStyle("-fx-cursor: hand");
-
-            ContextMenu contextMenu = createContextMenu();
-
-            box.setOnMouseClicked(MouseEvent -> {
-                if (MouseEvent.getButton() == MouseButton.SECONDARY) {
-                    contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
-                } else {
-                    try {
-                        visualizar(url);
-                    } catch (IOException e) {
-
-                    }
-                }
-            });
-        }
-        return box;
     }
 
     public GridPane getGridPane() {

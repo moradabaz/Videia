@@ -17,9 +17,10 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
     <left>
-        <VBox fx:id="profileBox">
+        <VBox fx:id="leftBox">
             <VBox prefHeight="17.0" prefWidth="115.0" BorderPane.alignment="CENTER">
                 <children>
                     <HBox alignment="CENTER" prefHeight="0.0" prefWidth="132.0">
@@ -88,7 +89,7 @@
         </VBox>
     </left>
     <top>
-        <VBox prefHeight="75.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="topBox" prefHeight="75.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
                 <MenuBar fx:id="topMenuBar" prefHeight="79.0" prefWidth="600.0">
                     <menus>
@@ -135,7 +136,7 @@
         </VBox>
     </top>
     <bottom>
-        <VBox prefHeight="80.0" prefWidth="595.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="lowerBox" prefHeight="80.0" prefWidth="595.0" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
                     <children>
@@ -163,14 +164,30 @@
         </VBox>
     </bottom>
     <right>
-        <VBox prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="rightBox" prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER">
             <children>
                 <HBox prefHeight="23.0" prefWidth="133.0">
                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas disponibles" textAlignment="CENTER" wrappingWidth="153.90756225585938" />
                     </children>
                 </HBox>
-                <VBox fx:id="cajaEtiquetas" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
+                <ScrollPane>
+                    <VBox fx:id="cajaEtiquetas" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
+                </ScrollPane>
+                <Separator orientation="HORIZONTAL" />
+
+                <HBox prefHeight="23.0" prefWidth="133.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas de busqueda" textAlignment="CENTER" wrappingWidth="153.90756225585938" />
+                    </children>
+                </HBox>
+                <ScrollPane>
+                    <VBox fx:id="cajaEtiquetasBusqueda" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
+                </ScrollPane>
+                <HBox>
+                    <Button alignment="CENTER" textAlignment="CENTER" text="Buscar" onMouseClicked="#buscarPorEtiqueta"/>
+                    <Button alignment="CENTER" text="Clear" onMouseClicked="#eliminarLabelsBusqueda" />
+                </HBox>
             </children>
         </VBox>
     </right>

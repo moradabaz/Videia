@@ -78,4 +78,7 @@ public class VideoList {
         //  Collections.addAll(Arrays.asList(lista));
     }
 
+    public boolean contains(Video video) {
+        return videos.contains(video);
+    }
 }

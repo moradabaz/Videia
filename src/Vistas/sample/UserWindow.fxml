@@ -17,6 +17,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
     <left>
         <VBox fx:id="leftBox">
@@ -170,7 +171,23 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas disponibles" textAlignment="CENTER" wrappingWidth="153.90756225585938" />
                     </children>
                 </HBox>
-                <VBox fx:id="cajaEtiquetas" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
+                <ScrollPane>
+                    <VBox fx:id="cajaEtiquetas" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
+                </ScrollPane>
+                <Separator orientation="HORIZONTAL" />
+
+                <HBox prefHeight="23.0" prefWidth="133.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas de busqueda" textAlignment="CENTER" wrappingWidth="153.90756225585938" />
+                    </children>
+                </HBox>
+                <ScrollPane>
+                    <VBox fx:id="cajaEtiquetasBusqueda" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
+                </ScrollPane>
+                <HBox>
+                    <Button alignment="CENTER" textAlignment="CENTER" text="Buscar" onMouseClicked="#buscarPorEtiqueta"/>
+                    <Button alignment="CENTER" text="Clear" onMouseClicked="#eliminarLabelsBusqueda" />
+                </HBox>
             </children>
         </VBox>
     </right>

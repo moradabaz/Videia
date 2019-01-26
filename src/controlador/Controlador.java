@@ -55,6 +55,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
             this.buscadorVideos.anadirVideoListener(this);
             inicializarCatalogos();
             poolEtiqueta = PoolEtiqueta.getUnicaInstancia();
+            cargarEtiquetas();
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -268,20 +269,30 @@ public class Controlador implements VideosListener, IBuscadorVideos{
 
     public void registrarVideo(String titulo, String rutaFichero) {
         // No se controla que existan dnis duplicados
-        Video Video = new Video(titulo, rutaFichero);
-        if (!existeVideo(Video)) {
-            adaptadorVideo.registrarVideo(Video);
-            catalogoVideos.addVideo(Video);
+        Video video = new Video(titulo, rutaFichero);
+        if (!existeVideo(video)) {
+            adaptadorVideo.registrarVideo(video);
+            catalogoVideos.addVideo(video);
+            poolEtiqueta.addEtiquetas(video);
         } else {
-            System.err.println("La Video (" + Video.getTitulo() + ") ya existe");
+            System.err.println("La Video (" + video.getTitulo() + ") ya existe");
+        }
+    }
+
+    public void registrarVideo(Video video1) {
+        if (!existeVideo(video1)) {
+            adaptadorVideo.registrarVideo(video1);
+            catalogoVideos.addVideo(video1);
+            poolEtiqueta.addEtiquetas(video1);
+        } else {
+            System.err.println("La Video (" + video1.getTitulo() + ") ya existe");
         }
     }
 
     public void registrarVideo(Video... Videos) {
         for (Video c : Videos) {
             if (!existeVideo(c)) {
-                adaptadorVideo.registrarVideo(c);
-                catalogoVideos.addVideo(c);
+                registrarVideo(c);
                 if (catalogoVideos.existeVideo(c))
                      System.out.println("Video " + c.getTitulo() + " Insertada con Exito");
             } else {
@@ -540,11 +551,13 @@ public class Controlador implements VideosListener, IBuscadorVideos{
                     for (String label : nombreEtiquetas) {
                         Etiqueta etiqueta = new Etiqueta(label);
                         video1.addEtiqueta(etiqueta);
+                        addEtiqueta(etiqueta);
                     }
                     // 2 - Almacenamos en la base de datos
                     registrarVideo(video1);
                 }
             }
+            cargarEtiquetas();
         }
 
         // 1º Creamos Video
@@ -584,6 +597,22 @@ public class Controlador implements VideosListener, IBuscadorVideos{
 
     public HashSet<Etiqueta> getEtiquetas() {
         return poolEtiqueta.getEtiquetas();
+    }
+
+    private void cargarEtiquetas() {
+        for (Video video : adaptadorVideo.recuperarTodosVideos()) {
+            poolEtiqueta.addEtiquetas(video);
+        }
+    }
+
+    public LinkedList<VideoList> getUserVideoLists() {
+        return usuarioActual.getMyVideoLists();
+    }
+
+    public void addVideoToVideoList(Video video, VideoList vdlist) {
+        usuarioActual.anadirVideoALista(video, vdlist);
+        adaptadorUsuario.modificarUsuario(usuarioActual);
+        adaptadorVideoList.modificarVideoList(vdlist);
     }
 }
 

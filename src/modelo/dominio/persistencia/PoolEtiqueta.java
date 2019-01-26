@@ -1,6 +1,7 @@
 package modelo.dominio.persistencia;
 
 import modelo.dominio.Etiqueta;
+import modelo.dominio.Video;
 
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -26,8 +27,18 @@ public class PoolEtiqueta {
     }
 
     public void addEtiqueta(String nombre, Etiqueta etiqueta) {
-        if (!pool.contains(etiqueta)) {
+        if (!pool.contains(nombre)) {
             pool.put(nombre, etiqueta);
+        }
+    }
+
+    public void addEtiqueta(String nombre) {
+        addEtiqueta(nombre, new Etiqueta(nombre));
+    }
+
+    public void addEtiquetas(Video video) {
+        for (Etiqueta etiqueta : video.getEtiquetas()) {
+            addEtiqueta(etiqueta.getEtiqueta(), etiqueta);
         }
     }
 

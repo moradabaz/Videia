@@ -71,7 +71,7 @@ public class LoginController implements Initializable {
                 try {
                     gotoUserWindow(event, this.controlador);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                   // e.printStackTrace();
                 }
             }
         } else {

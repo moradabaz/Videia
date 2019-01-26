@@ -84,14 +84,14 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
 
     @Override
     public void modificarVideoList(VideoList VideoList) {
-        Entidad eVideoList;
-
+        Entidad eVideoList = null;
         eVideoList = servPersistencia.recuperarEntidad(VideoList.getCodigo());
-
-        servPersistencia.eliminarPropiedadEntidad(eVideoList, VIDEOS);
-        servPersistencia.anadirPropiedadEntidad(eVideoList, VIDEOS, VideoList.getIDVideosString());
-        servPersistencia.eliminarPropiedadEntidad(eVideoList, NOMBRE);
-        servPersistencia.anadirPropiedadEntidad(eVideoList, NOMBRE, VideoList.getNombre());
+        if (eVideoList != null) {
+            servPersistencia.eliminarPropiedadEntidad(eVideoList, VIDEOS);
+            servPersistencia.anadirPropiedadEntidad(eVideoList, VIDEOS, VideoList.getIDVideosString());
+            servPersistencia.eliminarPropiedadEntidad(eVideoList, NOMBRE);
+            servPersistencia.anadirPropiedadEntidad(eVideoList, NOMBRE, VideoList.getNombre());
+        }
     }
 
     // registrar primero los atributos que son objetos

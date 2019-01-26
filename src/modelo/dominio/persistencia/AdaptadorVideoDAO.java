@@ -26,6 +26,7 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
     private static ServicioPersistencia servPersistencia;
     private static AdaptadorVideoDAO unicaInstancia = null;
+    private static PoolEtiqueta poolEtiqueta;
 
     public static AdaptadorVideoDAO getUnicaInstancia() {
         if (unicaInstancia == null) {
@@ -38,15 +39,16 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
     private AdaptadorVideoDAO() {
         servPersistencia = FactoriaServicioPersistencia.getInstance().getServicioPersistencia();
+        poolEtiqueta = PoolEtiqueta.getUnicaInstancia();
     }
 
     @Override
-    public void registrarVideo(Video Video) {
+    public void registrarVideo(Video video) {
         Entidad eVideo = null;
         // Si la entidad esta registrada no la registra de nuevo
         boolean existe = true;
         try {
-            eVideo = servPersistencia.recuperarEntidad(Video.getCodigo());
+            eVideo = servPersistencia.recuperarEntidad(video.getCodigo());
         } catch (NullPointerException e) {
             existe = false;
         }
@@ -56,17 +58,18 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
         eVideo = new Entidad();
         eVideo.setNombre("Video"); // TODO:   O bien "Video" o Bien Video.getTitulo()
         eVideo.setPropiedades(new ArrayList<Propiedad>(Arrays.asList(
-                new Propiedad("titulo", Video.getTitulo()),
-                new Propiedad("etiquetas", Video.getEtiquetasString()),
-                new Propiedad("rutaFichero", Video.getRutaFichero()),
-                new Propiedad("numReproducciones", String.valueOf(Video.getNumReproducciones())))
+                new Propiedad("titulo", video.getTitulo()),
+                new Propiedad("etiquetas", video.getEtiquetasString()),
+                new Propiedad("rutaFichero", video.getRutaFichero()),
+                new Propiedad("numReproducciones", String.valueOf(video.getNumReproducciones())))
         ));
 
         // registrar entidad Video
         eVideo = servPersistencia.registrarEntidad(eVideo);
         // asignar identificador unico
         // Se aprovecha el que genera el servicio de modelo.dominio.persistencia
-        Video.setCodigo(eVideo.getId());
+        video.setCodigo(eVideo.getId());
+
     }
 
 
@@ -114,13 +117,15 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
         rutaFichero = servPersistencia.recuperarPropiedadEntidad(eVideo, RUTA_FICHERO);
         reproString = servPersistencia.recuperarPropiedadEntidad(eVideo, NUM_REPRODUCCIONES); // Error
         etiquetasString = servPersistencia.recuperarPropiedadEntidad(eVideo, ETIQUETAS);
-        Video Video = new Video(titulo, rutaFichero);
+        Video video = new Video(titulo, rutaFichero);
         //System.out.println(reproString);
         numReproducciones = Integer.parseInt(reproString);
-        Video.setNumReproducciones(numReproducciones);
-        Video.setCodigo(codigo);
-        PoolDAO.getUnicaInstancia().addObjeto(codigo, Video);
-        return Video;
+        video.setNumReproducciones(numReproducciones);
+        video.setCodigo(codigo);
+        for (String etiqueta : etiquetasString.split(":"))  video.addEtiqueta(new Etiqueta(etiqueta));
+        poolEtiqueta.addEtiquetas(video);
+        PoolDAO.getUnicaInstancia().addObjeto(codigo, video);
+        return video;
     }
 
     @Override

@@ -2,15 +2,17 @@ package Vistas.sample;
 
 
 import controlador.Controlador;
-import javafx.fxml.FXML;
+import javafx.beans.Observable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -19,8 +21,6 @@ import modelo.dominio.Etiqueta;
 import modelo.dominio.Usuario;
 import modelo.dominio.VideoList;
 import umu.tds.videos.IBuscadorVideos;
-
-import javax.xml.soap.Text;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,6 +28,7 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Iterator;
 
 
 public class UserWindowController implements IBuscadorVideos {
@@ -48,6 +49,8 @@ public class UserWindowController implements IBuscadorVideos {
     public VBox topBox;
     public VBox leftBox;
     public VBox rightBox;
+    public VBox cajaEtiquetas;
+    public VBox cajaEtiquetasBusqueda;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -70,7 +73,8 @@ public class UserWindowController implements IBuscadorVideos {
         listasUsuario = new HashMap<String, VideoList>();
         listasVisibles = new HashMap<Boolean, VideoList>();
 
-//        controlador.eliminarTodoslosVideos();
+
+       // controlador.eliminarTodoslosVideos();
 
         boolean login = controlador.login(usuarioActual.getUsername(), usuarioActual.getPassword());
 
@@ -95,6 +99,7 @@ public class UserWindowController implements IBuscadorVideos {
             masVistos.setStyle("-fx-cursor: hand");
             masVistos.setOnMouseClicked(ActionEvent -> {
                 //mostrarLista(masVistos.getText());
+
             });
             userListsVox.getChildren().add(masVistos);
             
@@ -151,6 +156,7 @@ public class UserWindowController implements IBuscadorVideos {
         }
 
         thumbGridController.insertImages();
+        cargarEtiquetas();
     }
 
     private void setEditMode(boolean editMode) {
@@ -267,7 +273,9 @@ public class UserWindowController implements IBuscadorVideos {
     public void buscarVideos(String rutaxml) {
         // TODO: Implementar la busqueda de videos xD
         controlador.buscarVideos(rutaxml);
+        cargarEtiquetas();
         thumbGridController.refreshThumbGrid();
+
     }
 
 
@@ -291,7 +299,52 @@ public class UserWindowController implements IBuscadorVideos {
 
     public void cargarEtiquetas() {
         for (Etiqueta label : controlador.getEtiquetas()) {
+            Text textoEtiqueta = new Text(label.getEtiqueta());
+            textoEtiqueta.setOnMouseClicked(MouseEvent -> {
+                if (MouseEvent.getButton() == MouseButton.SECONDARY) {
+                    ContextMenu contextMenu = new ContextMenu();
+                    MenuItem item1 = new MenuItem(label.getEtiqueta());
+                    item1.disableProperty();
+                    MenuItem item2 = new MenuItem("Añadir a Filtro de Etiquetas");
+                    contextMenu.getItems().addAll(item1, item2);
+                    contextMenu.show(textoEtiqueta, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+                    item2.setOnAction(Event -> {
 
+                        if (!cajaEtiquetasBusqueda.getChildren().contains(textoEtiqueta)) {
+                            cajaEtiquetasBusqueda.getChildren().add(textoEtiqueta);
+                        }
+
+                        /*
+                        if (cajaEtiquetasBusqueda.getChildren().isEmpty()) {
+                            Text etiq1 = new Text(textoEtiqueta.getText());
+                            cajaEtiquetasBusqueda.getChildren().add(etiq1);
+                        } else {
+                            Iterator<Node> it = cajaEtiquetasBusqueda.getChildren().iterator();
+                            while (it.hasNext()) {
+                                Node node = it.next();
+                                if (node instanceof Text) {
+                                    if (!((Text) node).getText().equals(textoEtiqueta.getText())) {
+                                        Text etiq1 = new Text(textoEtiqueta.getText());
+                                        cajaEtiquetasBusqueda.getChildren().add(etiq1);
+                                    }
+                                }
+                            }
+                        }
+                        */
+
+                    });
+                }
+            });
+            cajaEtiquetas.getChildren().add(textoEtiqueta);
         }
     }
+
+    public void buscarPorEtiqueta(MouseEvent mouseEvent) {
+    }
+
+    public void eliminarLabelsBusqueda(MouseEvent mouseEvent) {
+        cajaEtiquetas.getChildren().addAll(cajaEtiquetasBusqueda.getChildren());
+        cajaEtiquetasBusqueda.getChildren().clear();
+    }
+
 }

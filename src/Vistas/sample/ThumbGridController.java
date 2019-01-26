@@ -16,11 +16,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import modelo.dominio.Video;
+import modelo.dominio.VideoList;
 
 
 import java.awt.*;
@@ -107,7 +109,7 @@ public class ThumbGridController {
                 if (!listaUrl.contains(url)) {
                     gridPane.add(box, posColumna, filas);
                     box.setStyle("-fx-cursor: hand");
-                    ContextMenu contextMenu = createContextMenu();
+                    ContextMenu contextMenu = createContextMenu(video);
                     box.setOnMouseClicked(MouseEvent -> {
                         if (MouseEvent.getButton() == MouseButton.SECONDARY) {
                             contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
@@ -137,10 +139,32 @@ public class ThumbGridController {
         userWindowController.visualizar(url);
     }
 
-    private ContextMenu createContextMenu() {
+    private ContextMenu createContextMenu(  Video video) {
         ContextMenu contextMenu = new ContextMenu();
         MenuItem item2 = new MenuItem("Anadir a lista");
         MenuItem item3 = new MenuItem("Detalles");
+
+        item2.setOnAction(event -> {
+            ContextMenu listmenu = new ContextMenu();
+               //for (VideoList vdlist : controlador.videli)
+            if (controlador.getUserVideoLists().isEmpty()) {
+                MenuItem item = new MenuItem("No List");
+                listmenu.getItems().add(item);
+            } else {
+                for (VideoList vdlist : controlador.getUserVideoLists()) {
+                    MenuItem menuItem = new MenuItem(vdlist.getNombre());
+                    menuItem.setOnAction(event1 -> {
+                        // TODO: Añadir Video a la lista :P
+                        controlador.addVideoToVideoList(video, vdlist);
+                        if (vdlist.contains(video))
+                            System.out.println("Video anadido con existo");
+                    });
+                    listmenu.getItems().add(menuItem);
+                }
+            }
+            listmenu.show(gridPane, contextMenu.getX(), contextMenu.getY());
+        });
+
         contextMenu.getItems().addAll(item2, item3);
         return contextMenu;
     }

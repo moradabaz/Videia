@@ -33,7 +33,7 @@ public class CatalogoVideos {
      */
     public static CatalogoVideos getUnicaInstancia() {
         if (unicaInstancia == null) {
-            return new CatalogoVideos();
+            unicaInstancia = new CatalogoVideos();
         }
         return unicaInstancia;
     }

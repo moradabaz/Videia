@@ -225,7 +225,9 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         List<VideoList> playlists = new LinkedList<VideoList>();
         StringTokenizer strTok = new StringTokenizer(lineas, ":");
         while (strTok.hasMoreTokens()) {
-            playlists.add(adaptadorVideoList.recuperarVideoList(Integer.valueOf((String) strTok.nextElement())));
+            String element =  strTok.nextToken();
+            if (element != null && !element.equals(""))
+                playlists.add(adaptadorVideoList.recuperarVideoList(Integer.valueOf(element)));
         }
         return playlists;
     }

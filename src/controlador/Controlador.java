@@ -644,6 +644,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     }
 
     public void play(Video video) {
+        playing = true;
         incrementarReproduccion(video);
         usuarioActual.anadirVideoReciente(video);
     }

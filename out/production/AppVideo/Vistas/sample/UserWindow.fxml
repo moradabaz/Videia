@@ -68,6 +68,7 @@
                     <ScrollPane>
                     <VBox fx:id="userListsVox" alignment="CENTER">
                         <children>
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Inicio" onMouseClicked="#mostrarInicio"/>
                             <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" onMouseClicked="#mostrarVideosRecientes"/>
                         </children>
                     </VBox>
@@ -165,7 +166,7 @@
         </VBox>
     </bottom>
     <right>
-        <VBox fx:id="rightBox" prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="rightBox" prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER" alignment="CENTER">
             <children>
                 <HBox prefHeight="23.0" prefWidth="133.0">
                     <children>
@@ -176,7 +177,12 @@
                     <VBox fx:id="cajaEtiquetas" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
                 </ScrollPane>
                 <Separator orientation="HORIZONTAL" />
-
+                <ImageView  fitHeight="18.0" fitWidth="25.0" onMouseClicked="#anadirEtiqueta" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand; -fx-alignment: center">
+                    <image >
+                        <Image url="@../../../../../../AppVideo/iconos/anadir.png" />
+                    </image>
+                </ImageView>
+                <Separator orientation="HORIZONTAL" />
                 <HBox prefHeight="23.0" prefWidth="133.0">
                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etiquetas de busqueda" textAlignment="CENTER" wrappingWidth="153.90756225585938" />

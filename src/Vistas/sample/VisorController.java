@@ -4,6 +4,7 @@ import VideoWeb.VideoWeb;
 import controlador.Controlador;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -37,5 +38,9 @@ public class VisorController {
 
     public void volverInicio(MouseEvent event) {
         gotoInicio();
+    }
+
+    public void anadirEtiqueta(MouseEvent event) {
+        ContextMenu contextMenu = new ContextMenu();
     }
 }

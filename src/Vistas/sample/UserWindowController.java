@@ -21,6 +21,7 @@ import modelo.dominio.Etiqueta;
 import modelo.dominio.Usuario;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
+import modelo.dominio.persistencia.PoolEtiqueta;
 import umu.tds.videos.IBuscadorVideos;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -68,10 +69,10 @@ public class UserWindowController implements IBuscadorVideos {
     private VBox visorBox;
     private boolean editMode;
     private  URL location = UserWindowController.class.getResource("UserWindowController.java");
-
+    private boolean isCreatingLabel;
 
     public void inicializar() {
-
+        this.isCreatingLabel = false;
         this.editMode = false;
         this.controlador = Controlador.getInstanciaUnica();                     // TODO: Cambio efectuado :S
         usuarioActual = controlador.getUsuarioActual();
@@ -301,12 +302,18 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void visualizar(Video video) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("VisorWindow.fxml"));
-        VBox visor = loader.load();
-        VisorController visorController = loader.getController();
-        mainBorderPane.setCenter(visor);
-        visorController.inicializar(this, video);
+        if (!controlador.isPlaying()) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("VisorWindow.fxml"));
+            VBox visor = loader.load();
+            VisorController visorController = loader.getController();
+            mainBorderPane.setCenter(visor);
+            visorController.inicializar(this, video);
+            leftBox.setVisible(false);
+            lowerBox.setVisible(false);
+            rightBox.setVisible(false);
+            topBox.setVisible(false);
+        }
     }
 
     public void cargarEtiquetas() {
@@ -325,24 +332,6 @@ public class UserWindowController implements IBuscadorVideos {
                         if (!cajaEtiquetasBusqueda.getChildren().contains(textoEtiqueta)) {
                             cajaEtiquetasBusqueda.getChildren().add(textoEtiqueta);
                         }
-
-                        /*
-                        if (cajaEtiquetasBusqueda.getChildren().isEmpty()) {
-                            Text etiq1 = new Text(textoEtiqueta.getText());
-                            cajaEtiquetasBusqueda.getChildren().add(etiq1);
-                        } else {
-                            Iterator<Node> it = cajaEtiquetasBusqueda.getChildren().iterator();
-                            while (it.hasNext()) {
-                                Node node = it.next();
-                                if (node instanceof Text) {
-                                    if (!((Text) node).getText().equals(textoEtiqueta.getText())) {
-                                        Text etiq1 = new Text(textoEtiqueta.getText());
-                                        cajaEtiquetasBusqueda.getChildren().add(etiq1);
-                                    }
-                                }
-                            }
-                        }
-                        */
 
                     });
                 }
@@ -424,5 +413,57 @@ public class UserWindowController implements IBuscadorVideos {
         LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
         if (!listaVideo.isEmpty())
              thumbGridController.displayImages(listaVideo);
+    }
+
+    public void mostrarInicio(MouseEvent event) {
+        thumbGridController.restoreImages();
+        thumbGridController.getGridPane().requestLayout();
+    }
+
+    public void anadirEtiqueta(MouseEvent event) {
+        if (!isCreatingLabel) {
+            VBox box = new VBox();
+            Text text = new Text("Nombre");
+            TextField textField = new TextField();
+            box.getChildren().addAll(text, textField);
+            isCreatingLabel = true;
+            Dialog dialog = new Dialog();
+            ButtonType acceptDelete = new ButtonType("Aceptar", ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(acceptDelete, ButtonType.CANCEL);
+            dialog.getDialogPane().setContent(box);
+            dialog.setResultConverter(dialogButton -> {
+                if (dialogButton == acceptDelete) {
+                    dialog.close();
+                    System.out.println(textField.getText());
+                    String nombreEtiqueta = textField.getText();
+                    Text textoEtiqueta = new Text(nombreEtiqueta);
+                    textoEtiqueta.setOnMouseClicked(MouseEvent -> {
+                        if (MouseEvent.getButton() == MouseButton.SECONDARY) {
+                            ContextMenu contextMenu = new ContextMenu();
+                            MenuItem item1 = new MenuItem(nombreEtiqueta);
+                            item1.disableProperty();
+                            MenuItem item2 = new MenuItem("Añadir a Filtro de Etiquetas");
+                            contextMenu.getItems().addAll(item1, item2);
+                            contextMenu.show(textoEtiqueta, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+                            item2.setOnAction(Event -> {
+                                if (!cajaEtiquetasBusqueda.getChildren().contains(textoEtiqueta)) {
+                                    cajaEtiquetasBusqueda.getChildren().add(textoEtiqueta);
+                                }
+
+                            });
+                        }
+                    });
+                    cajaEtiquetas.getChildren().add(textoEtiqueta);
+                    PoolEtiqueta.getUnicaInstancia().addEtiqueta(nombreEtiqueta);
+                    return true;
+                }
+                return false;
+            });
+            dialog.show();
+            if (dialog.getResult() != null) {
+                dialog.close();
+                isCreatingLabel = false;
+            }
+        }
     }
 }

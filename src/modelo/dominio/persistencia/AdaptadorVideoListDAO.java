@@ -6,11 +6,7 @@ import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
 
@@ -140,9 +136,14 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
         List<Video> list = new LinkedList<Video>();
         StringTokenizer strTok = new StringTokenizer(lineasVideoes, ":");
         while (strTok.hasMoreTokens()) {
-            String nombreVideo = strTok.nextToken();
-            System.out.println(nombreVideo);
-            list.add(adaptadorVideoTDS.recuperarVideo(Integer.valueOf((String) strTok.nextElement())));
+            try {
+                String videoId = strTok.nextToken();
+                System.out.println(videoId);
+                list.add(adaptadorVideoTDS.recuperarVideo(Integer.valueOf(videoId)));
+            } catch (NoSuchElementException e) {
+
+            }
+
         }
         return list;
     }

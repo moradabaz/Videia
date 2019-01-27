@@ -21,7 +21,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
             BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
-            FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
+            FlowPane login =  FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
 
          /*    Path path = Paths.get("/iconos/loginBackground.jpg");
              Image image = new Image("file:" + path.toAbsolutePath().toString());

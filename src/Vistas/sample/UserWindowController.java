@@ -57,6 +57,7 @@ public class UserWindowController implements IBuscadorVideos {
     public VBox cajaEtiquetasBusqueda;
     public Button botonBuscar;
     public TextField tituloBusqueda;
+    public Button botonRecientes;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -105,7 +106,12 @@ public class UserWindowController implements IBuscadorVideos {
             masVistos.setStyle("-fx-cursor: hand");
             masVistos.setOnMouseClicked(ActionEvent -> {
                 //mostrarLista(masVistos.getText());
-                mostrarListasMasVistas();
+                if (ActionEvent.getButton() == MouseButton.SECONDARY) {
+                    ContextMenu contextMenu = opcionRepMultiple();
+                    contextMenu.show(masVistos, ActionEvent.getScreenX(), ActionEvent.getScreenY());
+                } else {
+                    mostrarListasMasVistas();
+                }
             });
             userListsVox.getChildren().add(masVistos);
             
@@ -131,7 +137,12 @@ public class UserWindowController implements IBuscadorVideos {
                 botonLista.setPrefWidth(115);
                 botonLista.setStyle("-fx-cursor: hand");
                 botonLista.setOnMouseClicked(ActionEvent -> {
-                    mostrarLista(botonLista.getText());
+                    if (ActionEvent.getButton() == MouseButton.SECONDARY) {
+                        ContextMenu menu = opcionRepMultiple();
+                        menu.show(botonRecientes, ActionEvent.getScreenX(), ActionEvent.getScreenY());
+                    } else {
+                        mostrarLista(botonLista.getText());
+                    }
                 });
                 userListsVox.getChildren().add(botonLista);
             }
@@ -410,9 +421,15 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void mostrarVideosRecientes(MouseEvent event) {
-        LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
-        if (!listaVideo.isEmpty())
-             thumbGridController.displayImages(listaVideo);
+
+        if (event.getButton() == MouseButton.SECONDARY) {
+            ContextMenu menu = opcionRepMultiple();
+            menu.show(botonRecientes, event.getScreenX(), event.getScreenY());
+        } else {
+            LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
+            if (!listaVideo.isEmpty())
+                thumbGridController.displayImages(listaVideo);
+        }
     }
 
     public void mostrarInicio(MouseEvent event) {
@@ -449,7 +466,6 @@ public class UserWindowController implements IBuscadorVideos {
                                 if (!cajaEtiquetasBusqueda.getChildren().contains(textoEtiqueta)) {
                                     cajaEtiquetasBusqueda.getChildren().add(textoEtiqueta);
                                 }
-
                             });
                         }
                     });
@@ -465,5 +481,16 @@ public class UserWindowController implements IBuscadorVideos {
                 isCreatingLabel = false;
             }
         }
+    }
+
+    public ContextMenu opcionRepMultiple() {
+        ContextMenu menu = new ContextMenu();
+        MenuItem item = new MenuItem("Reproducir Lista");
+        menu.getItems().add(item);
+        item.setOnAction(event -> {
+            //for (Video video : controlador.getVideosFromVideoList())
+        });
+
+        return menu;
     }
 }

@@ -608,6 +608,10 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         poolEtiqueta.addEtiqueta(etiqueta);
     }
 
+    public void actualizarVideo(Video video) {
+        adaptadorVideo.modificarVideo(video);
+    }
+
     public HashSet<Etiqueta> getEtiquetas() {
         return poolEtiqueta.getEtiquetas();
     }

@@ -128,8 +128,13 @@ public class CatalogoVideos {
      * @param etiquetas
      * @return
      */
+    private LinkedList<Video> searchForLabel(LinkedList<String> etiquetas) {
+        Predicate<Video> predicate = v -> v.contieneAlgunaEtiqueta(etiquetas);
+        return videos.values().stream().filter(predicate).collect(Collectors.toCollection(LinkedList::new));
+    }
+
     private LinkedList<Video> searchForLabel(String ... etiquetas) {
-        Predicate<Video> predicate = v -> v.contieneTodasEtiquetas(etiquetas);
+        Predicate<Video> predicate = v -> v.contieneAlgunaEtiqueta(new LinkedList<>(Arrays.asList(etiquetas)));
         return videos.values().stream().filter(predicate).collect(Collectors.toCollection(LinkedList::new));
     }
 
@@ -140,7 +145,7 @@ public class CatalogoVideos {
      * @return
      */
     private LinkedList<Video> searchForTitle(String titulo) {
-        Predicate<Video> predicate = v -> v.getTitulo().equals(titulo);
+        Predicate<Video> predicate = v -> v.getTitulo().contains(titulo);
         return videos.values().stream().filter(predicate).collect(Collectors.toCollection(LinkedList::new));
     }
 
@@ -156,20 +161,21 @@ public class CatalogoVideos {
     private int tipoBusqueda(String titulo, String ... etiquetas) {
         if (!esCadenaVacia(titulo) && etiquetas.length > 0) {
             return TITLE_AND_LABEL_SEARCH;
-        } else if (esCadenaVacia(titulo) && etiquetas.length == 0) {
+        } else if (!esCadenaVacia(titulo) && (etiquetas.length == 0 || etiquetas == null)) {
             return TITLE_SEARCH;
-        } else if (esCadenaVacia(titulo) && etiquetas.length == 0) {
+        } else if (esCadenaVacia(titulo) && etiquetas.length > 0) {
             return LABEL_SEARCH;
         }
         return NO_FILTER_SEARCH;
     }
 
-    private List<Video> busquedaMultiple(List<Video> ... lista) {
+    private List<Video> busquedaMultiple(LinkedList<Video> lista1, LinkedList<Video> lista2) {
         Set<Video> conjunto = new HashSet<Video>();
-        for (List<Video> l : lista) {
-            conjunto.addAll(l);
+        for (Video video : lista2) {
+            if (lista1.contains(video))
+                conjunto.add(video);
         }
-        return new LinkedList<Video>(conjunto);
+        return new LinkedList<>(conjunto);
     }
 
     public LinkedList<Video> buscarVideoPorFiltros(String titulo, String ... etiqueta) {

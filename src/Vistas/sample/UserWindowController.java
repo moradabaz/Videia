@@ -19,6 +19,7 @@ import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import modelo.dominio.Etiqueta;
 import modelo.dominio.Usuario;
+import modelo.dominio.Video;
 import modelo.dominio.VideoList;
 import umu.tds.videos.IBuscadorVideos;
 import java.io.File;
@@ -28,7 +29,9 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 
 public class UserWindowController implements IBuscadorVideos {
@@ -51,6 +54,8 @@ public class UserWindowController implements IBuscadorVideos {
     public VBox rightBox;
     public VBox cajaEtiquetas;
     public VBox cajaEtiquetasBusqueda;
+    public Button botonBuscar;
+    public TextField tituloBusqueda;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -287,14 +292,17 @@ public class UserWindowController implements IBuscadorVideos {
         topBox.setVisible(true);
     }
 
+    public void restoreImages() {
+        this.thumbGridController.restoreImages();
+    }
 
-    public void visualizar(String url) throws IOException {
+    public void visualizar(Video video) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("VisorWindow.fxml"));
         VBox visor = loader.load();
         VisorController visorController = loader.getController();
         mainBorderPane.setCenter(visor);
-        visorController.inicializar(this, url);
+        visorController.inicializar(this, video);
     }
 
     public void cargarEtiquetas() {
@@ -340,11 +348,73 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void buscarPorEtiqueta(MouseEvent mouseEvent) {
+        LinkedList<String> listaEtiquetas = new LinkedList<>();
+        if (!cajaEtiquetasBusqueda.getChildren().isEmpty()) {
+            for (Node n : cajaEtiquetasBusqueda.getChildren()) {
+                if (n instanceof Text) {
+                    listaEtiquetas.addLast(((Text) n).getText());
+                }
+            }
+            LinkedList<Video> listaVideos = controlador.buscarPorEtiquetas(listaEtiquetas);
+            if (listaVideos.isEmpty()) {
+                System.out.println("La busqueda etiqueta es vacia xD");
+            } else
+                thumbGridController.displayImages(listaVideos);
+        } else {
+            thumbGridController.restoreImages();
+        }
     }
 
     public void eliminarLabelsBusqueda(MouseEvent mouseEvent) {
         cajaEtiquetas.getChildren().addAll(cajaEtiquetasBusqueda.getChildren());
         cajaEtiquetasBusqueda.getChildren().clear();
+
     }
 
+    public void buscarPorTitulo(MouseEvent event) {
+        String searchTitle = tituloBusqueda.getText();
+        if (searchTitle.equals("")) {
+            thumbGridController.restoreImages();
+        } else {
+            LinkedList<Video> lista = controlador.buscarPorTitulo(searchTitle);
+            if (lista.isEmpty())
+                System.out.println("La busqueda por titulo es vacia xD");
+            else
+                thumbGridController.displayImages(lista);
+        }
+    }
+
+
+    public void busquedaMultiple(MouseEvent event) {
+        String serchTitle = tituloBusqueda.getText();
+        LinkedList<String> listaEtiquetas = new LinkedList<>();
+        if (!cajaEtiquetasBusqueda.getChildren().isEmpty()) {
+            for (Node n : cajaEtiquetasBusqueda.getChildren()) {
+                if (n instanceof Text) {
+                    listaEtiquetas.addLast(((Text) n).getText());
+                }
+            }
+            LinkedList<Video> listaVideos = controlador.busquedaMultiple(serchTitle, listaEtiquetas);
+            if (listaVideos.isEmpty())
+                System.out.println("La busqueda multiple es vacia xD");
+            else
+                thumbGridController.displayImages(listaVideos);
+        } else {
+            buscarPorTitulo(event);
+        }
+
+    }
+
+    private void mostrarVideosRecientes() {
+        LinkedList<Video> lista = controlador.getVideoesRecientesUser();
+        thumbGridController.displayImages(lista);
+    }
+
+    private void mostrarListasMasVistas() {
+
+    }
+
+    private void mostarLista() {
+
+    }
 }

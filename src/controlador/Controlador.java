@@ -432,6 +432,9 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         return (LinkedList<Video>) recientes;
     }
 
+    public LinkedList<Video> getVideosMasVistos() {
+        return null;
+    }
 
     public void contratarPremium() {
         if (logeado) {
@@ -613,6 +616,21 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         usuarioActual.anadirVideoALista(video, vdlist);
         adaptadorUsuario.modificarUsuario(usuarioActual);
         adaptadorVideoList.modificarVideoList(vdlist);
+    }
+
+    public LinkedList<Video> buscarPorTitulo(String nombre) {
+        return catalogoVideos.buscarVideoPorFiltros(nombre);
+    }
+
+    public LinkedList<Video> busquedaMultiple(String nombre, LinkedList<String> etiquetas) {
+        String[] labels = new String[etiquetas.size()];
+        etiquetas.toArray(labels);
+        return catalogoVideos.buscarVideoPorFiltros(nombre, labels);
+    }
+
+    public LinkedList<Video> buscarPorEtiquetas(LinkedList<String> listaEtiquetas) {
+
+        return busquedaMultiple("", listaEtiquetas);
     }
 }
 

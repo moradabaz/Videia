@@ -2,6 +2,7 @@ package modelo.dominio;
 
 import modelo.dominio.persistencia.PoolEtiqueta;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -98,20 +99,44 @@ public class Video {
     }
 
     public boolean contieneTodasEtiquetas(String ... labels) {
-      /*  for (String l : labels) {
+        for (String l : labels) {
             if (!etiquetas.contains(l)) {
                 return false;
             }
         }
-        return false;*/
-      Predicate<Etiqueta> predicate = l -> etiquetas.contains(l);
-      return etiquetas.stream().allMatch(predicate);
+        return true;
+     // Predicate<Etiqueta> predicate = l -> etiquetas.contains(l);
+     // return etiquetas.stream().allMatch(predicate);
 
+    }
+
+    public boolean contieneTodasEtiquetas(LinkedList<String> labels) {
+        //Predicate<Etiqueta> predicate = labels::contains;
+        //return etiquetas.stream().allMatch(predicate);
+        for (String l : labels) {
+            if (!etiquetas.contains(l)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean contieneAlgunaEtiqueta(String ... labels) {
         Predicate<Etiqueta> predicate = l -> etiquetas.contains(l);
         return etiquetas.stream().anyMatch(predicate);
+    }
+
+
+    public boolean contieneAlgunaEtiqueta(LinkedList<String> labels) {
+        Iterator<Etiqueta> it = etiquetas.iterator();
+        while(it.hasNext()) {
+            Etiqueta etiq = it.next();
+            for (String l : labels) {
+                if (etiq.getEtiqueta().equals(l))   return true;
+            }
+        }
+
+        return false;
     }
 
 

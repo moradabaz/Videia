@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
-
+import java.util.LinkedList;
 
 
 public class ProfileWindowController {
@@ -392,7 +392,7 @@ public class ProfileWindowController {
         window.show();
         Window currentWindow =  ((Node)mouseEvent.getTarget()).getScene().getWindow();
         currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));*/
-        userWindowController.setGridPaneToCenter();
+        userWindowController.restoreImages();
 
 
     }
@@ -622,4 +622,6 @@ public class ProfileWindowController {
         controlador.contratarPremium();
         refrescarInfo(controlador.getUsuarioActual());
     }
+
+
 }

@@ -27,9 +27,7 @@ import modelo.dominio.VideoList;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
 
 public class ThumbGridController {
@@ -52,7 +50,8 @@ public class ThumbGridController {
     private int filas;
     private int contadorImagenes;
     private UserWindowController userWindowController;
-    LinkedList<String> listaUrl;
+    private HashSet<String> listaUrl;
+    private HashMap<Video, ImageView> mapaImagenes;
 
 
     public void inicializar(UserWindowController userWindowController) {
@@ -68,10 +67,133 @@ public class ThumbGridController {
         this.gridPane.setAlignment(Pos.CENTER);
         this.gridPane.setStyle("-fx-background-color: white");
         System.out.println(n);
-        listaUrl = new LinkedList<>();
+        listaUrl = new HashSet<>();
+        mapaImagenes = new HashMap<>();
     }
-    
+
+
     public void anadirMiniatura(ImageView imageView) {
+
+
+    }
+
+    public void restoreImages() {
+        userWindowController.setGridPaneToCenter();
+        posColumna = 0;
+        filas = 0;
+        contadorImagenes = 0;
+        listaVideos = controlador.getVideoes();
+        int tamLista = listaVideos.size();
+        System.out.println(tamLista);
+        Iterator<Video> it = listaVideos.iterator();
+        while (contadorImagenes < tamLista) {
+            posColumna = contadorImagenes % MAX_COLUMN;
+
+            VBox box = new VBox();
+            Video video = null;
+            if (it.hasNext()) video = it.next();
+            String url = video.getRutaFichero();
+            ImageView img = mapaImagenes.get(video);
+            if (img == null) {
+                videoWeb.getThumb(url);
+                mapaImagenes.put(video, img);
+            }
+
+            box.setAlignment(Pos.CENTER);
+            box.getChildren().add(img);
+            String titulo = video.getTitulo();
+            Text tituloText;
+            if (titulo.length() > 20)
+                tituloText = new Text(video.getTitulo().substring(0, 20) + "...");
+            else
+                tituloText = new Text(video.getTitulo());
+
+            tituloText.setStyle("-fx-font-size: 11px");
+            tituloText.setTextAlignment(TextAlignment.CENTER);
+            box.getChildren().add(tituloText);
+            System.out.println(url);
+            //if (!listaUrl.contains(url)) {
+                    gridPane.add(box, posColumna, filas);
+                    box.setStyle("-fx-cursor: hand");
+                    ContextMenu contextMenu = createContextMenu(video);
+            Video finalVideo = video;
+            box.setOnMouseClicked(MouseEvent -> {
+                        if (MouseEvent.getButton() == MouseButton.SECONDARY) {
+                            contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+                        } else {
+                            try {
+                                visualizar(finalVideo);
+                            } catch (IOException e) {
+
+                            }
+                        }
+                    });
+                    listaUrl.add(url);
+                    contadorImagenes++;
+           // }
+            if (contadorImagenes % 4 == 0) {
+                filas++;
+            }
+        }
+        borderPane.setCenter(gridPane);
+        gridPane.requestLayout();
+        borderPane.requestLayout();
+    }
+
+
+    public void displayImages(LinkedList<Video>  lista) {
+        userWindowController.setGridPaneToCenter();
+        int tamLista = lista.size();
+        Iterator<Video> it = lista.iterator();
+        int posColumna = 0;
+        int filas = 0;
+        int contadorImagenes = 0;
+        gridPane.getChildren().clear();
+        while (contadorImagenes < tamLista) {
+            posColumna = contadorImagenes % MAX_COLUMN;
+            VBox box = new VBox();
+            Video video = null;
+            if (it.hasNext()) video = it.next();
+            assert video != null;
+            String url = video.getRutaFichero();
+            ImageView img = mapaImagenes.get(video);
+            if (img == null) img = videoWeb.getThumb(url);
+            box.setAlignment(Pos.CENTER);
+            box.getChildren().add(img);
+            String titulo = video.getTitulo();
+            Text tituloText;
+            if (titulo.length() > 20)
+                tituloText = new Text(video.getTitulo().substring(0, 20) + "...");
+            else
+                tituloText = new Text(video.getTitulo());
+
+            tituloText.setStyle("-fx-font-size: 11px");
+            tituloText.setTextAlignment(TextAlignment.CENTER);
+            box.getChildren().add(tituloText);
+            System.out.println(url);
+
+            gridPane.add(box, posColumna, filas);
+            box.setStyle("-fx-cursor: hand");
+            ContextMenu contextMenu = createContextMenu(video);
+            Video finalVideo = video;
+            box.setOnMouseClicked(MouseEvent -> {
+                if (MouseEvent.getButton() == MouseButton.SECONDARY) {
+                    contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+                } else {
+                    try {
+                        visualizar(finalVideo);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            //listaUrl.addLast(url);
+            contadorImagenes++;
+            if (contadorImagenes % 4 == 0) {
+                filas++;
+            }
+        }
+
 
     }
 
@@ -110,20 +232,22 @@ public class ThumbGridController {
                     gridPane.add(box, posColumna, filas);
                     box.setStyle("-fx-cursor: hand");
                     ContextMenu contextMenu = createContextMenu(video);
+                    Video finalVideo = video;
                     box.setOnMouseClicked(MouseEvent -> {
                         if (MouseEvent.getButton() == MouseButton.SECONDARY) {
                             contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
                         } else {
                             try {
-                                visualizar(url);
+                                visualizar(finalVideo);
                             } catch (IOException e) {
 
                             }
                         }
                     });
-                    listaUrl.addLast(url);
+                    listaUrl.add(url);
                     contadorImagenes++;
                 }
+                mapaImagenes.put(video, img);
             }
 
             if (contadorImagenes % 4 == 0) {
@@ -135,8 +259,8 @@ public class ThumbGridController {
         }
     }
 
-    private void visualizar(String url) throws IOException {
-        userWindowController.visualizar(url);
+    private void visualizar(Video video) throws IOException {
+        userWindowController.visualizar(video);
     }
 
     private ContextMenu createContextMenu(  Video video) {

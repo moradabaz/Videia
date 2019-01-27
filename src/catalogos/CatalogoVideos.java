@@ -233,4 +233,9 @@ public class CatalogoVideos {
         }
         return null;
     }
+
+
+    public void replaceVideo(Video video){
+        videos.put(video.getCodigo(), video);
+    }
 }

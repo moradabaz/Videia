@@ -104,7 +104,7 @@ public class UserWindowController implements IBuscadorVideos {
             masVistos.setStyle("-fx-cursor: hand");
             masVistos.setOnMouseClicked(ActionEvent -> {
                 //mostrarLista(masVistos.getText());
-
+                mostrarListasMasVistas();
             });
             userListsVox.getChildren().add(masVistos);
             
@@ -180,7 +180,11 @@ public class UserWindowController implements IBuscadorVideos {
         if (!usuarioActual.contieneVideoList(videoListNombre)) {
             Notificacion.listNotFoundError(videoListNombre);
         } else {
-
+            LinkedList<Video> lista = controlador.getVideosFromVideoList(videoListNombre);
+            if (lista != null) {
+                if (!lista.isEmpty())
+                    thumbGridController.displayImages(lista);
+            }
         }
     }
 
@@ -405,16 +409,20 @@ public class UserWindowController implements IBuscadorVideos {
 
     }
 
-    private void mostrarVideosRecientes() {
-        LinkedList<Video> lista = controlador.getVideoesRecientesUser();
-        thumbGridController.displayImages(lista);
-    }
 
     private void mostrarListasMasVistas() {
-
+        LinkedList<Video> listaVideo = controlador.getVideosMasVistos();
+        if (!listaVideo.isEmpty())
+             thumbGridController.displayImages(listaVideo);
     }
 
     private void mostarLista() {
 
+    }
+
+    public void mostrarVideosRecientes(MouseEvent event) {
+        LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
+        if (!listaVideo.isEmpty())
+             thumbGridController.displayImages(listaVideo);
     }
 }

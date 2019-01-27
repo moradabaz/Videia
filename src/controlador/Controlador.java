@@ -432,8 +432,17 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         return (LinkedList<Video>) recientes;
     }
 
+
     public LinkedList<Video> getVideosMasVistos() {
-        return null;
+        return catalogoVideos.getVideos().stream().sorted((o1, o2) -> {
+            int n1 = o1.getNumReproducciones();
+            int n2 = o2.getNumReproducciones();
+            if (n1 > n2)
+                return 1;
+            else if (n1 < n2)
+                return -1;
+            return 0;
+        }).limit(10).collect(Collectors.toCollection(LinkedList::new));
     }
 
     public void contratarPremium() {
@@ -456,9 +465,10 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         }
     }
 
-    public void incrementarReproduccion(Video Video) {
-        Video.incrementarReproducciones();
-        adaptadorVideo.modificarVideo(Video);
+    public void incrementarReproduccion(Video video) {
+        video.incrementarReproducciones();
+        adaptadorVideo.modificarVideo(video);
+        catalogoVideos.replaceVideo(video);
     }
 
 
@@ -631,6 +641,17 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     public LinkedList<Video> buscarPorEtiquetas(LinkedList<String> listaEtiquetas) {
 
         return busquedaMultiple("", listaEtiquetas);
+    }
+
+    public void play(Video video) {
+        incrementarReproduccion(video);
+        usuarioActual.anadirVideoReciente(video);
+    }
+
+    public LinkedList<Video> getVideosFromVideoList(String videoListNombre) {
+        if (usuarioActual.contieneVideoList(videoListNombre))
+            return usuarioActual.getListaVideo(videoListNombre).getVideos();
+        return null;
     }
 }
 

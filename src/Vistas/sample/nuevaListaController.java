@@ -69,7 +69,7 @@ public class nuevaListaController {
 
     private void volver() {
         if (borderPaneParent != null) {
-            borderPaneParent.setCenter(new FlowPane());
+            userWindowController.restoreImages();
         } else {
             System.err.println("BorderPane es nulo");
         }

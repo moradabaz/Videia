@@ -26,16 +26,13 @@ public class VisorController {
         videoWeb.setPanel(visorBox);
         videoWeb.playVideo(video.getRutaFichero());
         controlador = controlador.getInstanciaUnica();
-        controlador.incrementarReproduccion(video);
+        controlador.play(video);
         numReproduccionesLabel.setText(String.valueOf(video.getNumReproducciones()));
     }
 
     private void gotoInicio() {
         videoWeb.cancel();
         this.userWindowController.setGridPaneToCenter();
-        //userWindowController.setCenter();
-        //      borderPane.setCenter();
-
     }
 
     public void volverInicio(MouseEvent event) {

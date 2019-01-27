@@ -68,7 +68,7 @@
                     <ScrollPane>
                     <VBox fx:id="userListsVox" alignment="CENTER">
                         <children>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" />
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" onMouseClicked="#mostrarVideosRecientes"/>
                         </children>
                     </VBox>
                     </ScrollPane>
@@ -135,7 +135,7 @@
             </children>
         </VBox>
     </top>
-    <bottom>
+    <bottom >
         <VBox fx:id="lowerBox" prefHeight="80.0" prefWidth="595.0" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
@@ -147,17 +147,18 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="19.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="tituloBusqueda" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" />
                      </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="114.0">
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="114.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Buscar" />
+                                <Button fx:id="botonBuscar" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Buscar" onMouseClicked="#buscarPorTitulo"/>
+                                <Button fx:id="botonNuevaBusqueda" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Nueva Busqueda" onMouseClicked="#busquedaMultiple" />
                             </children>
                         </HBox>
                     </children>
                 </HBox>
-                <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="40.0" prefWidth="600.0" >
+                <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="40.0" prefWidth="600.0">
                     <Button fx:id="botonCargarVideos" text="Cargar Videos" textAlignment="CENTER" onMouseClicked="#cargarVideos"> </Button>
                 </HBox>
             </children>

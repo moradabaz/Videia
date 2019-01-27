@@ -68,7 +68,7 @@
                     <ScrollPane>
                     <VBox fx:id="userListsVox" alignment="CENTER">
                         <children>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" />
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" onMouseClicked="#mostrarVideosRecientes"/>
                         </children>
                     </VBox>
                     </ScrollPane>

@@ -2,6 +2,11 @@ package Vistas.sample;
 
 import VideoWeb.VideoWeb;
 import controlador.Controlador;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
@@ -9,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.util.Duration;
 import modelo.dominio.Etiqueta;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
@@ -16,6 +22,8 @@ import modelo.dominio.persistencia.PoolEtiqueta;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class VisorController {
@@ -51,12 +59,14 @@ public class VisorController {
 
     public void playVideoList(Video video) {
         this.video = video;
-        videoWeb.playVideoOnBackGround(video.getRutaFichero());
+        videoWeb.playVideo(video.getRutaFichero());
         controlador.play(video);
         numReproduccionesLabel.setText(String.valueOf(video.getNumReproducciones()));
     }
 
     public void playVideo(LinkedList<Video> lista) {
+        Timeline fiveSecondsWonder = null;
+
         botonSiguiente.setVisible(true);
         Iterator<Video> it = lista.iterator();
      /*   botonSiguiente.setOnMouseClicked(event -> {
@@ -70,12 +80,22 @@ public class VisorController {
                 videoWeb.cancel();
             }
         });*/
-        while (it.hasNext()) {
+        if (it.hasNext()) {
             Video video1 = it.next();
             long ahora = System.currentTimeMillis();
-            playVideoList(video1);
-          //  while ((System.currentTimeMillis() - ahora) < tiempoEspera) {}
-            videoWeb.cancel();
+            playVideo(video1);
+            fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    videoWeb.cancel();
+                    if (it.hasNext())
+                        playVideo(it.next());
+                }
+
+            }));
+            fiveSecondsWonder.setCycleCount(lista.size());
+            fiveSecondsWonder.play();
+
         }
         botonSiguiente.setVisible(false);
     }

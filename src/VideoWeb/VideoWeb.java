@@ -21,10 +21,20 @@ public class VideoWeb {
 
     private static final String cabeceraURLYoutube = "https://www.youtube.com/watch?v=";
     private static VideoWeb unicaInstancia;
+    private static TimerTask timerTask = new TimerTask() {
+        @Override
+        public void run() {
+            VideoWeb.timer.cancel();
+            VideoWeb.timer.purge();
+            VideoWeb.activo = true;
+        }
+    };;
     private String reproducir;
     private Pane panel;
-    private boolean activo;
+    private static boolean activo;
     private static WebView webView;
+    private static Timer timer = new Timer();
+    private boolean iniciadoVideo;
 
     public static VideoWeb getUnicaInstancia() {
         if (unicaInstancia == null) {
@@ -34,6 +44,7 @@ public class VideoWeb {
     }
 
     private VideoWeb() {
+        this.iniciadoVideo = false;
         this.panel = new VBox();
         this.activo = false;
     }
@@ -72,9 +83,32 @@ public class VideoWeb {
                     "</iframe>";
 
             webView.getEngine().loadContent(reproducir);
-
             activo = true;
         }
+    }
+
+
+    public void playVideoOnBackGround(String url) {
+
+        playVideo(url);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                VideoWeb.this.iniciadoVideo = true;
+                VideoWeb.webView.getEngine().loadContent(VideoWeb.this.reproducir);
+                VideoWeb.activo = false;
+                VideoWeb.timerTask = new TimerTask() {
+                    public void run() {
+                        VideoWeb.timer.cancel();
+                        VideoWeb.timer.purge();
+                        VideoWeb.activo = true;
+                    }
+                };
+                VideoWeb.timer = new Timer();
+                VideoWeb.timer.schedule(VideoWeb.timerTask, 5000L);
+            }
+        });
     }
 
     public void cancel() {

@@ -11,7 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import modelo.dominio.Etiqueta;
 import modelo.dominio.Video;
+import modelo.dominio.VideoList;
 import modelo.dominio.persistencia.PoolEtiqueta;
+
+import java.util.Iterator;
+import java.util.LinkedList;
 
 
 public class VisorController {
@@ -22,24 +26,63 @@ public class VisorController {
     public VBox mainBox;
     public Label numReproduccionesLabel;
     public Button botonEtiqueta;
+    public Button botonSiguiente;
     private UserWindowController userWindowController;
     private Controlador controlador;
     private Video video;
+    private static long tiempoEspera = 50000;
 
-    public void inicializar(UserWindowController userWindowController, Video video) {
-        this.video = video;
+    public void inicializar(UserWindowController userWindowController) {
+       // this.video = video;
         this.userWindowController = userWindowController;
         hBoxButtons.setAlignment(Pos.CENTER_LEFT);
         videoWeb = VideoWeb.getUnicaInstancia();
         videoWeb.setPanel(visorBox);
-        videoWeb.playVideo(video.getRutaFichero());
         controlador = controlador.getInstanciaUnica();
+       // playVideo(this.video);
+    }
+
+    public void playVideo(Video video) {
+        this.video = video;
+        videoWeb.playVideo(video.getRutaFichero());
         controlador.play(video);
         numReproduccionesLabel.setText(String.valueOf(video.getNumReproducciones()));
     }
 
+    public void playVideoList(Video video) {
+        this.video = video;
+        videoWeb.playVideoOnBackGround(video.getRutaFichero());
+        controlador.play(video);
+        numReproduccionesLabel.setText(String.valueOf(video.getNumReproducciones()));
+    }
+
+    public void playVideo(LinkedList<Video> lista) {
+        botonSiguiente.setVisible(true);
+        Iterator<Video> it = lista.iterator();
+     /*   botonSiguiente.setOnMouseClicked(event -> {
+            Video video2 = null;
+            while (it.hasNext()) {
+                video2 = it.next();
+                videoWeb.cancel();
+                long ahora = System.currentTimeMillis();
+                playVideo(video2);
+                while ((System.currentTimeMillis() - ahora) < tiempoEspera) {}
+                videoWeb.cancel();
+            }
+        });*/
+        while (it.hasNext()) {
+            Video video1 = it.next();
+            long ahora = System.currentTimeMillis();
+            playVideoList(video1);
+          //  while ((System.currentTimeMillis() - ahora) < tiempoEspera) {}
+            videoWeb.cancel();
+        }
+        botonSiguiente.setVisible(false);
+    }
+
     private void gotoInicio() {
         videoWeb.cancel();
+        controlador.setPlaying(false);
         this.userWindowController.setGridPaneToCenter();
     }
 
@@ -60,5 +103,13 @@ public class VisorController {
             contextMenu.getItems().add(item);
         }
         contextMenu.show(botonEtiqueta, event.getScreenX(), event.getScreenY());
+    }
+
+    public static void setTiempoEspera(long tiempo) {
+        tiempoEspera = tiempo;
+    }
+
+    public void playNextVideo(MouseEvent mouseEvent) {
+
     }
 }

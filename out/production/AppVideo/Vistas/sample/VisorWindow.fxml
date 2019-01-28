@@ -37,6 +37,7 @@
              <Separator orientation="VERTICAL"/>
              <HBox alignment="CENTER_RIGHT">
                  <Button fx:id="botonEtiqueta" text="Anadir Etiqueta" onMouseClicked="#anadirEtiqueta"/>
+                 <Button fx:id="botonSiguiente" visible="false" text="Siguiente" onMouseClicked="#playNextVideo" />
              </HBox>
          </children>
       </HBox>

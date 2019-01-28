@@ -107,7 +107,7 @@ public class UserWindowController implements IBuscadorVideos {
             masVistos.setOnMouseClicked(ActionEvent -> {
                 //mostrarLista(masVistos.getText());
                 if (ActionEvent.getButton() == MouseButton.SECONDARY) {
-                    ContextMenu contextMenu = opcionRepMultiple();
+                    ContextMenu contextMenu = opcionRepMultiple(controlador.getVideosMasVistos());
                     contextMenu.show(masVistos, ActionEvent.getScreenX(), ActionEvent.getScreenY());
                 } else {
                     mostrarListasMasVistas();
@@ -138,7 +138,7 @@ public class UserWindowController implements IBuscadorVideos {
                 botonLista.setStyle("-fx-cursor: hand");
                 botonLista.setOnMouseClicked(ActionEvent -> {
                     if (ActionEvent.getButton() == MouseButton.SECONDARY) {
-                        ContextMenu menu = opcionRepMultiple();
+                        ContextMenu menu = opcionRepMultiple(lista.getVideos());
                         menu.show(botonRecientes, ActionEvent.getScreenX(), ActionEvent.getScreenY());
                     } else {
                         mostrarLista(botonLista.getText());
@@ -319,7 +319,24 @@ public class UserWindowController implements IBuscadorVideos {
             VBox visor = loader.load();
             VisorController visorController = loader.getController();
             mainBorderPane.setCenter(visor);
-            visorController.inicializar(this, video);
+            visorController.inicializar(this);
+            visorController.playVideo(video);
+            leftBox.setVisible(false);
+            lowerBox.setVisible(false);
+            rightBox.setVisible(false);
+            topBox.setVisible(false);
+        }
+    }
+
+    public void visualizar(LinkedList<Video> lista) throws IOException {
+        if (!controlador.isPlaying()) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("VisorWindow.fxml"));
+            VBox visor = loader.load();
+            VisorController visorController = loader.getController();
+            mainBorderPane.setCenter(visor);
+            visorController.inicializar(this);
+            visorController.playVideo(lista);
             leftBox.setVisible(false);
             lowerBox.setVisible(false);
             rightBox.setVisible(false);
@@ -421,9 +438,8 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void mostrarVideosRecientes(MouseEvent event) {
-
         if (event.getButton() == MouseButton.SECONDARY) {
-            ContextMenu menu = opcionRepMultiple();
+            ContextMenu menu = opcionRepMultiple(controlador.getVideoesRecientesUser());
             menu.show(botonRecientes, event.getScreenX(), event.getScreenY());
         } else {
             LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
@@ -483,12 +499,16 @@ public class UserWindowController implements IBuscadorVideos {
         }
     }
 
-    public ContextMenu opcionRepMultiple() {
+    public ContextMenu opcionRepMultiple(LinkedList<Video> lista) {
         ContextMenu menu = new ContextMenu();
         MenuItem item = new MenuItem("Reproducir Lista");
         menu.getItems().add(item);
         item.setOnAction(event -> {
-            //for (Video video : controlador.getVideosFromVideoList())
+            try {
+                visualizar(lista);
+            } catch (IOException e) {
+
+            }
         });
 
         return menu;

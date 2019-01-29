@@ -1,5 +1,9 @@
 package Vistas.sample;
 
+
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -14,17 +18,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.dominio.Usuario;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 
 public class ProfileWindowController {
@@ -67,14 +72,6 @@ public class ProfileWindowController {
         this.controlador = Controlador.getInstanciaUnica();
         this.userWindowController = userWindowController;
         Usuario user = controlador.getUsuarioActual();
-       // cajon.resize(panelPrincipal.getWidth(), panelPrincipal.getHeight());
-       /* cajon.prefWidthProperty().bind(panelPrincipal.prefWidthProperty());
-        cajon.minWidthProperty().bind(panelPrincipal.minWidthProperty());
-        cajon.maxWidthProperty().bind(panelPrincipal.maxWidthProperty());
-        */
-
-
-
 
         if (user == null) {
             System.err.println(" > El usuario es nulo");
@@ -406,6 +403,7 @@ public class ProfileWindowController {
         window.show();
         Window currentWindow =  ((Node)mouseEvent.getTarget()).getScene().getWindow();
         currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));*/
+        userWindowController.setInterval(spinner.getValue());
         userWindowController.restoreImages();
 
 
@@ -637,6 +635,40 @@ public class ProfileWindowController {
         refrescarInfo(controlador.getUsuarioActual());
     }
 
+    public void generarPDF(MouseEvent mouseEvent) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File directorio = directoryChooser.showDialog(panelPrincipal.getScene().getWindow());
+        File file = new File(directorio + "/listasCanciones.pdf");
+        System.out.println(file);
+        try {
 
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(file));
 
+            document.open();
+
+            Paragraph paragraph = new Paragraph("Listas de Usuario");
+            document.add(paragraph);
+
+            for (VideoList vdList : controlador.getUserVideoLists()) {
+                Paragraph paragraph1 = new Paragraph(vdList.getNombre());
+                List unorderedList = new List(List.UNORDERED);
+                for (Video video : vdList.getVideos()) {
+                    unorderedList.add(new ListItem(video.getTitulo()));
+                }
+                paragraph1.add(unorderedList);
+                document.add(paragraph1);
+            }
+
+            document.close();
+            
+        }catch (DocumentException d) {
+
+        }catch (NullPointerException e) {
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Directorio Erroneo");
+        }
+
+    }
 }

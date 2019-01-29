@@ -87,6 +87,10 @@
                     </HBox>
                 </children>
             </VBox>
+            <Separator orientation="HORIZONTAL" opacity="-NaN"  />
+            <VBox fx:id="cajaFiltro">
+
+            </VBox>
         </VBox>
     </left>
     <top>

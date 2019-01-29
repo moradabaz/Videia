@@ -72,7 +72,7 @@ public class VisorController {
         if (it.hasNext()) {
             Video video1 = it.next();
             playVideo(video1);
-            fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+            fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(userWindowController.getIntervalo()), new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     videoWeb.cancel();

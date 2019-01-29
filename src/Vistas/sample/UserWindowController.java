@@ -81,6 +81,7 @@ public class UserWindowController implements IBuscadorVideos {
     private boolean editMode;
     private  URL location = UserWindowController.class.getResource("UserWindowController.java");
     private boolean isCreatingLabel;
+    private int intervalo;
 
     public void inicializar() {
         this.isCreatingLabel = false;
@@ -90,6 +91,7 @@ public class UserWindowController implements IBuscadorVideos {
         listasUsuario = new HashMap<String, VideoList>();
         listasVisibles = new HashMap<Boolean, VideoList>();
 
+        this.intervalo = 5;
 
        // controlador.eliminarTodoslosVideos();
 
@@ -527,5 +529,13 @@ public class UserWindowController implements IBuscadorVideos {
         });
 
         return menu;
+    }
+
+    public void setInterval(int interval) {
+        this.intervalo = interval;
+    }
+
+    public int getIntervalo() {
+        return intervalo;
     }
 }

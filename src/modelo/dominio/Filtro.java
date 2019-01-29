@@ -1,5 +1,12 @@
 package modelo.dominio;
 
+
+
 public interface Filtro {
-    public void filtrarVideo(String filtro);
+
+
+    public String getNombre();
+    public Filtro getFiltro(String nombre);
+    public boolean filtrarVideo(Video video);
+
 }

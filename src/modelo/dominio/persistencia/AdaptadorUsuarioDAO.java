@@ -1,5 +1,6 @@
 package modelo.dominio.persistencia;
 
+import modelo.dominio.Filtro;
 import modelo.dominio.VideoList;
 import modelo.dominio.Usuario;
 import beans.Entidad;
@@ -28,6 +29,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
     private static final String LISTA_VIDEOS = "listaVideos";
     private static final String VIDEOS_RECIENTES = "videosRecientes";
     private static final String DESCUENTO = "descuento";
+    private static final String FILTRO = "filtro";
 
     private static ServicioPersistencia servPersistencia;
     public static AdaptadorUsuarioDAO unicaInstancia;           //Atributo de la misma clase
@@ -86,7 +88,8 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
                         new Propiedad(PREMIUM, String.valueOf(usuario.isPremium())),
                         new Propiedad(LISTA_VIDEOS, usuario.getStringCodigosVideoList()),
                         new Propiedad(VIDEOS_RECIENTES, usuario.getStringCodigosVideoesRecientesString()),
-                        new Propiedad(DESCUENTO, String.valueOf(usuario.getDescuento()))
+                        new Propiedad(DESCUENTO, String.valueOf(usuario.getDescuento())),
+                        new Propiedad(FILTRO, usuario.getFiltro().getNombre())
                 )
         ));
         eUsuario = servPersistencia.registrarEntidad(eUsuario);
@@ -119,6 +122,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
             servPersistencia.eliminarPropiedadEntidad(eUsuario, LISTA_VIDEOS);
             servPersistencia.eliminarPropiedadEntidad(eUsuario, VIDEOS_RECIENTES);
             servPersistencia.eliminarPropiedadEntidad(eUsuario, DESCUENTO);
+            servPersistencia.eliminarPropiedadEntidad(eUsuario, FILTRO);
 
             // TODO: APLICAR DESCUENTOS
 
@@ -132,6 +136,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
             servPersistencia.anadirPropiedadEntidad(eUsuario, LISTA_VIDEOS, usuario.getStringCodigosVideoList());
             servPersistencia.anadirPropiedadEntidad(eUsuario, VIDEOS_RECIENTES, usuario.getStringCodigosVideoesRecientesString());
             servPersistencia.anadirPropiedadEntidad(eUsuario, DESCUENTO, String.valueOf(usuario.getDescuento()));
+            servPersistencia.anadirPropiedadEntidad(eUsuario, FILTRO, usuario.getFiltro().getNombre());
         }
 
     }
@@ -166,14 +171,13 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         boolean premium;
         String listasCancionesString;
         String recientesString;
-
+        String nombreFiltro;
 
         username = servPersistencia.recuperarPropiedadEntidad(eUsuario, USERNAME);
         password = servPersistencia.recuperarPropiedadEntidad(eUsuario, PASSWORD);
         nombre = servPersistencia.recuperarPropiedadEntidad(eUsuario, NOMBRE);
         apellidos = servPersistencia.recuperarPropiedadEntidad(eUsuario, APELLIDOS);
         fechaString = servPersistencia.recuperarPropiedadEntidad(eUsuario, FECHA);
-
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date fecha = new Date();
@@ -195,14 +199,17 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
         recientesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, VIDEOS_RECIENTES);
         recientes = (LinkedList<Video>) getVideosByIds(recientesString);
-
         premium = Boolean.parseBoolean(servPersistencia.recuperarPropiedadEntidad(eUsuario, PREMIUM));
+        nombreFiltro = servPersistencia.recuperarPropiedadEntidad(eUsuario, FILTRO);
+
         Usuario usuario = new Usuario(username, password, nombre, apellidos, fecha, email);
         usuario.setCodigo(codigo);
         usuario.setPremium(premium);
         PoolDAO.getUnicaInstancia().addObjeto(codigo, usuario);
         usuario.anadirVideoList(listasCancionesRecuperada); // TODO -> AQUI SE ROMPE
         usuario.setVideoesRecientes(recientes);
+        usuario.setFiltro(nombreFiltro);
+
         return usuario;
 
     }

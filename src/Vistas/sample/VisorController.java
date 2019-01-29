@@ -69,20 +69,8 @@ public class VisorController {
 
         botonSiguiente.setVisible(true);
         Iterator<Video> it = lista.iterator();
-     /*   botonSiguiente.setOnMouseClicked(event -> {
-            Video video2 = null;
-            while (it.hasNext()) {
-                video2 = it.next();
-                videoWeb.cancel();
-                long ahora = System.currentTimeMillis();
-                playVideo(video2);
-                while ((System.currentTimeMillis() - ahora) < tiempoEspera) {}
-                videoWeb.cancel();
-            }
-        });*/
         if (it.hasNext()) {
             Video video1 = it.next();
-            long ahora = System.currentTimeMillis();
             playVideo(video1);
             fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
                 @Override

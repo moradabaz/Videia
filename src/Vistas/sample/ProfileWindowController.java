@@ -15,8 +15,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 import modelo.dominio.Usuario;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
@@ -27,7 +25,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 
 public class ProfileWindowController {
@@ -51,7 +48,11 @@ public class ProfileWindowController {
     public VBox vboxEditLista;
     public HBox cajaSuperior;
     public HBox cajon;
-    private boolean isOnEdit;
+    public ChoiceBox<String> choiceBox;
+    public Button buttonPDF;
+    public Spinner<Integer> spinner;
+    public RadioButton premiumButton;
+    public Text NombreUserName;
     private boolean modeEditList;
     private UserWindowController userWindowController;
 
@@ -66,7 +67,6 @@ public class ProfileWindowController {
         this.controlador = Controlador.getInstanciaUnica();
         this.userWindowController = userWindowController;
         Usuario user = controlador.getUsuarioActual();
-
        // cajon.resize(panelPrincipal.getWidth(), panelPrincipal.getHeight());
        /* cajon.prefWidthProperty().bind(panelPrincipal.prefWidthProperty());
         cajon.minWidthProperty().bind(panelPrincipal.minWidthProperty());
@@ -79,7 +79,15 @@ public class ProfileWindowController {
         if (user == null) {
             System.err.println(" > El usuario es nulo");
         } else {
+
+            NombreUserName.setText(user.getUsername());
             System.out.println("Premium: " + controlador.getUsuarioActual().isPremium());
+
+            SpinnerValueFactory<Integer> valueFactory = //
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(4, 400, 5);
+            spinner.setValueFactory(valueFactory);
+            spinner.setVisible(true);
+            spinner.setEditable(true);
             this.nombreText = new Text(user.getNombre());
             nombreBox.getChildren().add(nombreText);
             this.apellidosText = new Text(user.getApellidos());
@@ -91,7 +99,13 @@ public class ProfileWindowController {
             this.premiumText = new Text("");
             cajaSuperior.getChildren().add(premiumText);
            if (user.isPremium()) {
-               premiumText.setText("Eres Premium");
+               premiumButton.fire();
+               String filtroActual = controlador.getFiltroActual();
+               choiceBox.setValue(filtroActual);
+               choiceBox.getItems().addAll("No Filtro", "Impopulares", "Menores", "Mis Listas", "Nombres Largos");
+           } else {
+               buttonPDF.setVisible(false);
+               choiceBox.setValue("No Filtro");
            }
         }
 
@@ -114,7 +128,7 @@ public class ProfileWindowController {
         birthdayBox.getChildren().remove(birtdayText);
         emailBox.getChildren().remove(emailText);
 
-        //this.nombreUserName.setText(user.getUsername());
+        this.nombreUserName.setText(user.getUsername());
 
         this.nombreText.setText(user.getNombre());
         nombreBox.getChildren().add(nombreText);
@@ -622,6 +636,7 @@ public class ProfileWindowController {
         controlador.contratarPremium();
         refrescarInfo(controlador.getUsuarioActual());
     }
+
 
 
 }

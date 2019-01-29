@@ -7,6 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -23,6 +30,8 @@ import modelo.dominio.Video;
 import modelo.dominio.VideoList;
 import modelo.dominio.persistencia.PoolEtiqueta;
 import umu.tds.videos.IBuscadorVideos;
+
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -58,6 +67,7 @@ public class UserWindowController implements IBuscadorVideos {
     public Button botonBuscar;
     public TextField tituloBusqueda;
     public Button botonRecientes;
+    public VBox cajaFiltro;
 
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
@@ -127,6 +137,11 @@ public class UserWindowController implements IBuscadorVideos {
                 birthdayBox2.getChildren().add(imgBirthday2);
                 userLabel.setText("Feliz Cumpleaños " + usuarioActual.getNombre());
             }
+
+            Text text = new Text("Filtro");
+            Label label = new Label(controlador.getFiltroActual());
+            cajaFiltro.getChildren().addAll(text, label);
+
         }
 
         if (!usuarioActual.getMyVideoLists().isEmpty()) {

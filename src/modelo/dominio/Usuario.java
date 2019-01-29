@@ -23,8 +23,8 @@ public class Usuario {
     private boolean premium;
     private List<VideoList> myVideoLists;
     private List<Video> videosRecientes;
-
-
+    private Filtro filtro;
+    private HashMap<String, Filtro> filtrosDisponibles;
 
     public Usuario(String username, String password, String nombre, String apellidos, Date fechaNac, String email) {
         this.username = username;
@@ -36,6 +36,8 @@ public class Usuario {
         myVideoLists = new LinkedList<VideoList>();
         videosRecientes = new LinkedList<Video>();
         this.codigo = -1111;
+        this.filtro = NoFiltro.getUnicaInstancia();
+        this.filtrosDisponibles = inicizalizarFiltros();
     }
 
     public Usuario(int codigo, String username, String password, String nombre, String apellidos, String fechaNac, String email) {
@@ -59,6 +61,8 @@ public class Usuario {
         this.codigo = -111;
         myVideoLists = new LinkedList<VideoList>();
         videosRecientes = new LinkedList<Video>();
+        this.filtro = NoFiltro.getUnicaInstancia();
+        this.filtrosDisponibles = inicizalizarFiltros();
     }
 
     /**
@@ -370,4 +374,41 @@ public class Usuario {
         int day = localDate.getDayOfMonth();
         return day + "-" + month + "-" + year;
     }
+
+    public Filtro getFiltro(String filtro) {
+        return null;
+    }
+
+    public boolean contieneEsteVideo(Video video) {
+        for (VideoList vdList: getMyVideoLists()) {
+           if (vdList.contains(video))
+                return true;
+        }
+        return false;
+    }
+
+    public Filtro getFiltro() {
+        return filtro;
+    }
+
+    public String getFiltroNombre() {
+        if (filtro == null)
+            filtro = NoFiltro.getUnicaInstancia();
+        return filtro.getNombre();
+    }
+
+    public void setFiltro(String nombreFiltro) {
+        if (premium)    this.filtro = filtrosDisponibles.get(nombreFiltro);
+    }
+
+    private HashMap<String, Filtro> inicizalizarFiltros() {
+        HashMap<String, Filtro> filtros = new HashMap<>();
+        filtros.put(NoFiltro.getUnicaInstancia().getNombre(), NoFiltro.getUnicaInstancia());
+        filtros.put(MisListasFiltro.getUnicaInstancia().getNombre(), MisListasFiltro.getUnicaInstancia());
+        filtros.put(NombresLargosFiltro.getUnicaInstancia().getNombre(), NombresLargosFiltro.getUnicaInstancia());
+        filtros.put(MenoresFiltro.getUnicaInstancia().getNombre(), MenoresFiltro.getUnicaInstancia());
+        filtros.put(ImpopularesFiltro.getUnicaInstancia().getNombre(), ImpopularesFiltro.getUnicaInstancia());
+        return filtros;
+    }
+
 }

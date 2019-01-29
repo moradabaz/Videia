@@ -662,6 +662,10 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     public void setPlaying(boolean playing) {
         this.playing = playing;
     }
+
+    public String getFiltroActual() {
+        return usuarioActual.getFiltroNombre();
+    }
 }
 
 

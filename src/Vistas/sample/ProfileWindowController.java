@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
@@ -484,11 +485,10 @@ public class ProfileWindowController {
         hbox.prefHeight(30);
         hbox.prefWidth(30);
         Text listName = new Text(nombreLista);
-        listName.setWrappingWidth(124.21875);
+        listName.setWrappingWidth(237);
         Separator separator1 = new Separator();
         separator1.setOpacity(0);
         separator1.setOrientation(Orientation.VERTICAL);
-
         ImageView imgViewEdit = null;
         try {
             imgViewEdit = new ImageView(new Image(new FileInputStream("/Users/morad/Desktop/TDS/workspace/AppVideo/iconos/editar.png")));
@@ -524,6 +524,7 @@ public class ProfileWindowController {
             if (confimacion)
                 eliminarLista(listName.getText());
         });
+
         hbox.getChildren().addAll(listName, separator1, imgViewEdit, separator2, imgViewDelete);
         hbox.setPadding(new Insets(3, 10, 10, 3));
         return hbox;
@@ -532,11 +533,10 @@ public class ProfileWindowController {
     private VBox ventanaEdicionLista(String nombreLista) {
 
         Usuario user = controlador.getUsuarioActual();
-
         VideoList videoList = user.getListaVideo(nombreLista);
+        String textoSeleccionado = "";
 
         VBox vox = new VBox();
-
         HBox hboxNombre = new HBox();
         hboxNombre.setAlignment(Pos.CENTER);
         hboxNombre.setPrefHeight(47);
@@ -548,7 +548,20 @@ public class ProfileWindowController {
         separador.setPrefWidth(8);
         separador.setOpacity(0);
         TextField textFieldNombre = new TextField(nombreLista);
-        hboxNombre.getChildren().addAll(textoNombre, separador, textFieldNombre);
+
+        Path pathQuit = Paths.get("iconos/guardar.png");
+        System.out.println(pathQuit.toAbsolutePath().toString());
+        Image imgGuardar = new Image("file:" + pathQuit.toAbsolutePath().toString());
+        ImageView imgViewGuardar = new ImageView(imgGuardar);
+        imgViewGuardar.setStyle("-fx-cursor: hand");
+        imgViewGuardar.setOnMouseClicked(event -> {
+            if (!textFieldNombre.getText().equals(""))
+                videoList.setNombre(textFieldNombre.getText());
+
+            controlador.actualizarVideoList(videoList);
+        });
+
+        hboxNombre.getChildren().addAll(textoNombre, separador, textFieldNombre, imgViewGuardar);
         hboxNombre.setPadding(new Insets(0, 10, 0, 0));
 
         HBox hboxVideos = new HBox();                   // TODO: Debe añadir
@@ -566,6 +579,21 @@ public class ProfileWindowController {
         if (videoList != null) {
             for (Video v : videoList.getVideos()) {
                 Text textoVideo = new Text(v.getTitulo());
+                textoVideo.setOnMouseClicked(event -> {
+                    if (event.getButton() == MouseButton.SECONDARY) {
+                        ContextMenu contextMenu =  new ContextMenu();
+                        MenuItem item = new MenuItem("Eliminar");
+                        MenuItem itemNombre = new MenuItem(v.getTitulo());
+                        itemNombre.setDisable(true);
+                        item.setOnAction(e -> {
+                            videoList.removeVideo(v);
+                            vboxVideos.getChildren().remove(textoVideo);
+                        });
+                        contextMenu.getItems().addAll(itemNombre, item);
+                        contextMenu.show(textoVideo, event.getScreenX(), event.getScreenY());
+                    }
+                });
+
                 textoVideo.setWrappingWidth(246);
                 vboxVideos.getChildren().add(textoVideo);
             }
@@ -577,13 +605,6 @@ public class ProfileWindowController {
         iconosBox.setPrefHeight(145);
         iconosBox.setPrefWidth(56);
 
-        Path pathQuit = Paths.get("iconos/quitar.png");
-        System.out.println(pathQuit.toAbsolutePath().toString());
-        Image imgQuitar = new Image("file:" + pathQuit.toAbsolutePath().toString());
-        ImageView imgViewQuitar = new ImageView(imgQuitar);
-        imgViewQuitar.setFitHeight(33);
-        imgViewQuitar.setFitWidth(28);
-
         Separator separador1 = new Separator();
         separador1.setOrientation(Orientation.HORIZONTAL);
         separador1.setPrefHeight(17);
@@ -594,9 +615,12 @@ public class ProfileWindowController {
         System.out.println(pathEdit.toAbsolutePath().toString());
         Image imgEdit = new Image("file:" + pathEdit.toAbsolutePath().toString());
         ImageView imgViewEdit = new ImageView(imgEdit);
+        imgViewEdit.setStyle("-fx-cursor: hand");
         imgViewEdit.setFitHeight(33);
         imgViewEdit.setFitWidth(28);
-        iconosBox.getChildren().addAll(imgViewQuitar, separador1, imgViewEdit);
+        imgViewEdit.setOnMouseClicked(mouseEvent -> {
+                controlador.actualizarVideoList(videoList);
+        });
         hboxVideos.getChildren().addAll(scrollPane, iconosBox);
 
         vox.getChildren().addAll(hboxNombre, hboxVideos);

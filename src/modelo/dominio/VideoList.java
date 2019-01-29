@@ -19,6 +19,10 @@ public class VideoList {
         videos = new LinkedList<Video>(lista);
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -81,4 +85,10 @@ public class VideoList {
     public boolean contains(Video video) {
         return videos.contains(video);
     }
+
+    public void removeVideo(Video video) {
+        if (videos.contains(video))
+            this.videos.remove(video);
+    }
+
 }

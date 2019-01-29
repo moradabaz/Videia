@@ -612,6 +612,10 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         adaptadorVideo.modificarVideo(video);
     }
 
+    public void actualizarVideoList(VideoList videoList) {
+        adaptadorVideoList.modificarVideoList(videoList);
+    }
+
     public HashSet<Etiqueta> getEtiquetas() {
         return poolEtiqueta.getEtiquetas();
     }
@@ -656,6 +660,12 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     public LinkedList<Video> getVideosFromVideoList(String videoListNombre) {
         if (usuarioActual.contieneVideoList(videoListNombre))
             return usuarioActual.getListaVideo(videoListNombre).getVideos();
+        return null;
+    }
+
+    public VideoList getVideoList(String nombreVideoLista) {
+        if (usuarioActual.contieneVideoList(nombreVideoLista))
+            return usuarioActual.getListaVideo(nombreVideoLista);
         return null;
     }
 

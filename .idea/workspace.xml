@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec5dab78-fbc8-46c4-88fa-55794f730637" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlador/Controlador.java" afterPath="$PROJECT_DIR$/src/controlador/Controlador.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modelo/dominio/VideoList.java" afterPath="$PROJECT_DIR$/src/modelo/dominio/VideoList.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +62,9 @@
             <file leaf-file-name="UserWindowController.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="421">
+                  <state relative-caret-position="517">
                     <caret line="538" column="25" lean-forward="false" selection-start-line="538" selection-start-column="25" selection-end-line="538" selection-end-column="25" />
                     <folding>
-                      <element signature="e#20080#20081#0" expanded="true" />
-                      <element signature="e#20121#20122#0" expanded="true" />
                       <element signature="e#20154#20155#0" expanded="true" />
                       <element signature="e#20186#20187#0" expanded="true" />
                     </folding>
@@ -74,7 +75,7 @@
             <file leaf-file-name="UserWindow.fxml" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="191">
+                  <state relative-caret-position="1584">
                     <caret line="99" column="26" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="26" />
                     <folding />
                   </state>
@@ -103,7 +104,7 @@
       <file leaf-file-name="VisorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
+            <state relative-caret-position="16">
               <caret line="74" column="110" lean-forward="false" selection-start-line="74" selection-start-column="110" selection-end-line="74" selection-end-column="110" />
               <folding />
             </state>
@@ -113,11 +114,60 @@
       <file leaf-file-name="ProfileWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="652" column="57" lean-forward="true" selection-start-line="652" selection-start-column="57" selection-end-line="652" selection-end-column="57" />
+            <state relative-caret-position="296">
+              <caret line="589" column="70" lean-forward="false" selection-start-line="589" selection-start-column="70" selection-end-line="589" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3956#3957#0" expanded="true" />
+                <element signature="e#3998#3999#0" expanded="true" />
+                <element signature="e#24294#24295#0" expanded="true" />
+                <element signature="e#24375#24376#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VideoList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/VideoList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <folding>
+                <element signature="e#462#463#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guardar.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iconos/guardar.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controlador.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="611" column="45" lean-forward="true" selection-start-line="611" selection-start-column="45" selection-end-line="611" selection-end-column="45" />
+              <folding>
+                <element signature="e#20496#20497#0" expanded="true" />
+                <element signature="e#20548#20549#0" expanded="true" />
+                <element signature="e#20608#20609#0" expanded="true" />
+                <element signature="e#20672#20673#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Usuario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="204" column="34" lean-forward="false" selection-start-line="204" selection-start-column="21" selection-end-line="204" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,7 +175,7 @@
       <file leaf-file-name="ProfileWindow.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="899">
+            <state relative-caret-position="365">
               <caret line="59" column="83" lean-forward="false" selection-start-line="59" selection-start-column="83" selection-end-line="59" selection-end-column="83" />
               <folding />
             </state>
@@ -216,7 +266,6 @@
         <option value="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorVideoDAO.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/persistencia/PoolEtiqueta.java" />
-        <option value="$PROJECT_DIR$/src/modelo/dominio/VideoList.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/Video.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java" />
@@ -238,12 +287,13 @@
         <option value="$PROJECT_DIR$/src/modelo/dominio/MisListasFiltro.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/NoFiltro.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorUsuarioDAO.java" />
-        <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
+        <option value="$PROJECT_DIR$/src/modelo/dominio/VideoList.java" />
         <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
       </list>
     </option>
@@ -509,6 +559,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -520,6 +571,11 @@
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
               <item name="dependencias" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="iconos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
@@ -536,7 +592,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
@@ -764,7 +819,8 @@
       <workItem from="1548693167497" duration="706000" />
       <workItem from="1548695587304" duration="2779000" />
       <workItem from="1548707695246" duration="13259000" />
-      <workItem from="1548749380421" duration="7121000" />
+      <workItem from="1548749380421" duration="7731000" />
+      <workItem from="1548757831161" duration="3712000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios">
       <created>1548111406304</created>
@@ -878,11 +934,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548756328272</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="pdf generado">
+      <created>1548756758185</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1548756758185</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234276000" />
+    <option name="totallyTimeSpent" value="238598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -994,7 +1057,8 @@
     <MESSAGE value="Cambiosxd" />
     <MESSAGE value="falta: mostrar los videos al pulsar una lista xdd" />
     <MESSAGE value="Hay un fallo FXML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hay un fallo FXML" />
+    <MESSAGE value="pdf generado" />
+    <option name="LAST_COMMIT_MESSAGE" value="pdf generado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1023,13 +1087,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Etiqueta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../BuscadorComponente.jar!/umu/tds/videos/BuscadorVideos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -1048,13 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1280">
           <caret line="84" column="26" lean-forward="false" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/VideoList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1249,7 +1299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,30 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="666" column="47" lean-forward="false" selection-start-line="666" selection-start-column="47" selection-end-line="666" selection-end-column="47" />
-          <folding>
-            <element signature="e#22230#22231#0" expanded="true" />
-            <element signature="e#22284#22285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="395" column="50" lean-forward="false" selection-start-line="395" selection-start-column="50" selection-end-line="395" selection-end-column="50" />
-          <folding>
-            <element signature="e#10822#10823#0" expanded="true" />
-            <element signature="e#10851#10852#0" expanded="true" />
-            <element signature="e#11060#11061#0" expanded="true" />
-            <element signature="e#11142#11143#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/Vistas/sample/ProfileWindow.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -1332,6 +1357,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/NombresLargosFiltro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="e#446#447#0" expanded="false" />
+            <element signature="e#492#493#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/dependencias/itext-5.0.5.jar!/com/itextpdf/text/List.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-860">
+          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/MenoresFiltro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="24" column="66" lean-forward="false" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/modelo/dominio/ImpopularesFiltro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -1351,28 +1402,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/NombresLargosFiltro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="e#446#447#0" expanded="false" />
-            <element signature="e#492#493#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/MenoresFiltro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="24" column="66" lean-forward="false" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
+        <state relative-caret-position="1584">
           <caret line="99" column="26" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="26" />
           <folding />
         </state>
@@ -1383,11 +1415,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
+        <state relative-caret-position="517">
           <caret line="538" column="25" lean-forward="false" selection-start-line="538" selection-start-column="25" selection-end-line="538" selection-end-column="25" />
           <folding>
-            <element signature="e#20080#20081#0" expanded="true" />
-            <element signature="e#20121#20122#0" expanded="true" />
             <element signature="e#20154#20155#0" expanded="true" />
             <element signature="e#20186#20187#0" expanded="true" />
           </folding>
@@ -1396,15 +1426,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
+        <state relative-caret-position="16">
           <caret line="74" column="110" lean-forward="false" selection-start-line="74" selection-start-column="110" selection-end-line="74" selection-end-column="110" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/iconos/guardar.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
+        <state relative-caret-position="365">
           <caret line="59" column="83" lean-forward="false" selection-start-line="59" selection-start-column="83" selection-end-line="59" selection-end-column="83" />
           <folding />
         </state>
@@ -1413,23 +1448,48 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/dependencias/itext-5.0.5.jar!/com/itextpdf/text/List.class">
+    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-860">
-          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+        <state relative-caret-position="160">
+          <caret line="204" column="34" lean-forward="false" selection-start-line="204" selection-start-column="21" selection-end-line="204" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="611" column="45" lean-forward="true" selection-start-line="611" selection-start-column="45" selection-end-line="611" selection-end-column="45" />
           <folding>
-            <element signature="e#1639#1640#0" expanded="true" />
-            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#20496#20497#0" expanded="true" />
+            <element signature="e#20548#20549#0" expanded="true" />
+            <element signature="e#20608#20609#0" expanded="true" />
+            <element signature="e#20672#20673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/VideoList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="652" column="57" lean-forward="true" selection-start-line="652" selection-start-column="57" selection-end-line="652" selection-end-column="57" />
+        <state relative-caret-position="296">
+          <caret line="589" column="70" lean-forward="false" selection-start-line="589" selection-start-column="70" selection-end-line="589" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3956#3957#0" expanded="true" />
+            <element signature="e#3998#3999#0" expanded="true" />
+            <element signature="e#24294#24295#0" expanded="true" />
+            <element signature="e#24375#24376#0" expanded="true" />
           </folding>
         </state>
       </provider>

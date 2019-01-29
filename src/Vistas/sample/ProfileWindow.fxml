@@ -97,10 +97,6 @@
                                  </HBox.margin>
                               </ImageView>
                               <Separator opacity="0.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="16.0" />
-                                      <ImageView fitHeight="23.0" fitWidth="26.0" onMouseClicked="#convertirEnPremium" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand">
-                                        <Image fx:id="imagenPremium" url="@../../../../../../AppVideo/iconos/premium.png" />
-                                      </ImageView>
-                                      <ImageView fitHeight="38.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" />
                                   </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="284.0" prefWidth="296.0">

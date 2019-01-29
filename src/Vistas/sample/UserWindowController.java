@@ -527,7 +527,6 @@ public class UserWindowController implements IBuscadorVideos {
 
             }
         });
-
         return menu;
     }
 
@@ -538,4 +537,6 @@ public class UserWindowController implements IBuscadorVideos {
     public int getIntervalo() {
         return intervalo;
     }
+
+
 }

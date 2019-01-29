@@ -2,7 +2,6 @@ package Vistas.sample;
 
 
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfWriter;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +19,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.dominio.Usuario;
 import modelo.dominio.Video;
@@ -30,9 +28,6 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
-import java.util.LinkedList;
-
-import static com.itextpdf.text.Font.*;
 
 
 public class ProfileWindowController {
@@ -98,12 +93,27 @@ public class ProfileWindowController {
             emailBox.getChildren().add(emailText);
             this.premiumText = new Text("");
             cajaSuperior.getChildren().add(premiumText);
+
+            premiumButton.setOnMouseClicked(event -> {
+                if (!user.isPremium()) {
+                    boolean confirmacion = Notificacion.confirmationQuestion("¿Estas seguro de que quieres hacerte premium?");
+                    if (confirmacion)
+                        controlador.contratarPremium();
+                } else {
+                    boolean confirmacion = Notificacion.confirmationQuestion("¿Estas seguro de que quieres cancelar premium?");
+                    if (confirmacion)
+                        controlador.cancelarPremium();
+                }
+            });
+
            if (user.isPremium()) {
                premiumButton.fire();
                String filtroActual = controlador.getFiltroActual();
                choiceBox.setValue(filtroActual);
                choiceBox.getItems().addAll("No Filtro", "Impopulares", "Menores", "Mis Listas", "Nombres Largos");
+
            } else {
+
                buttonPDF.setVisible(false);
                choiceBox.setValue("No Filtro");
            }
@@ -500,10 +510,10 @@ public class ProfileWindowController {
         imgViewEdit.setFitWidth(22);
         imgViewEdit.setStyle("-fx-cursor: hand");
         imgViewEdit.setOnMouseClicked(MouseEvent -> {
-            if (!modeEditList) {
+         //   if (!modeEditList) {
                 editarLista(listName.getText());
                 setEditList(true);
-            }
+           // }
         });
 
         Separator separator2 = new Separator();
@@ -557,14 +567,14 @@ public class ProfileWindowController {
         imgViewGuardar.setOnMouseClicked(event -> {
             if (!textFieldNombre.getText().equals(""))
                 videoList.setNombre(textFieldNombre.getText());
-
             controlador.actualizarVideoList(videoList);
+            setEditList(false);
         });
 
         hboxNombre.getChildren().addAll(textoNombre, separador, textFieldNombre, imgViewGuardar);
         hboxNombre.setPadding(new Insets(0, 10, 0, 0));
 
-        HBox hboxVideos = new HBox();                   // TODO: Debe añadir
+        HBox hboxVideos = new HBox();                   // TODO: Caja para añadir los videos XD
         hboxVideos.setPrefHeight(146);
         hboxVideos.setPrefWidth(305);
 
@@ -624,7 +634,7 @@ public class ProfileWindowController {
         hboxVideos.getChildren().addAll(scrollPane, iconosBox);
 
         vox.getChildren().addAll(hboxNombre, hboxVideos);
-        // TODO: NOS QUEDAMOS POR AQUÍ
+        // TODO: POR LA PATRIA
         return vox;
     }
 
@@ -644,6 +654,7 @@ public class ProfileWindowController {
 
 
     private void editarLista(String nombreLista) {
+        vboxEditLista.getChildren().clear();
         vboxEditLista.getChildren().add(ventanaEdicionLista(nombreLista));
     }
 

@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import modelo.dominio.Filtro;
 import modelo.dominio.Usuario;
 import modelo.dominio.Video;
 import modelo.dominio.VideoList;
@@ -58,7 +59,7 @@ public class ProfileWindowController {
     public Text NombreUserName;
     private boolean modeEditList;
     private UserWindowController userWindowController;
-
+    private String filtroActual;
     Text nombreText;
     Text apellidosText;
     Text birtdayText;
@@ -66,8 +67,10 @@ public class ProfileWindowController {
     Text premiumText;
 
     public void inicializar(UserWindowController userWindowController) {
+
         auxiliar = new VBox();
         this.controlador = Controlador.getInstanciaUnica();
+        filtroActual = controlador.getFiltroActual();
         this.userWindowController = userWindowController;
         Usuario user = controlador.getUsuarioActual();
 
@@ -104,6 +107,7 @@ public class ProfileWindowController {
                     if (confirmacion)
                         controlador.cancelarPremium();
                 }
+                refrescarOpcionesPremium();
             });
 
            if (user.isPremium()) {
@@ -416,6 +420,8 @@ public class ProfileWindowController {
         window.show();
         Window currentWindow =  ((Node)mouseEvent.getTarget()).getScene().getWindow();
         currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));*/
+        userWindowController.refrescarFiltro(choiceBox.getValue());
+        userWindowController.refrescarOpcionesPremium();
         userWindowController.setInterval(spinner.getValue());
         userWindowController.restoreImages();
 
@@ -565,8 +571,11 @@ public class ProfileWindowController {
         ImageView imgViewGuardar = new ImageView(imgGuardar);
         imgViewGuardar.setStyle("-fx-cursor: hand");
         imgViewGuardar.setOnMouseClicked(event -> {
-            if (!textFieldNombre.getText().equals(""))
-                videoList.setNombre(textFieldNombre.getText());
+            if (!textFieldNombre.getText().equals("")) {
+                String listaNombreNuevo = textFieldNombre.getText();
+                userWindowController.actualizarNombresDeListas(nombreLista, listaNombreNuevo);
+                videoList.setNombre(listaNombreNuevo);
+            }
             controlador.actualizarVideoList(videoList);
             setEditList(false);
         });
@@ -709,5 +718,21 @@ public class ProfileWindowController {
             System.out.println("Directorio Erroneo");
         }
 
+    }
+
+    private void refrescarOpcionesPremium() {
+        Usuario user = controlador.getUsuarioActual();
+
+        choiceBox.getItems().clear();
+        if (user.isPremium()) {
+            buttonPDF.setVisible(true);
+            choiceBox.setValue(user.getFiltroNombre());
+            choiceBox.getItems().addAll("No Filtro", "Impopulares", "Menores", "Mis Listas", "Nombres Largos");
+            if (!premiumButton.isArmed()) premiumButton.fire();
+        } else {
+            buttonPDF.setVisible(false);
+            choiceBox.setValue(user.getFiltroNombre());
+            if (premiumButton.isArmed())  premiumButton.fire();
+        }
     }
 }

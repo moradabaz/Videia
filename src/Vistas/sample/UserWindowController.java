@@ -82,6 +82,7 @@ public class UserWindowController implements IBuscadorVideos {
     private  URL location = UserWindowController.class.getResource("UserWindowController.java");
     private boolean isCreatingLabel;
     private int intervalo;
+    private Button masVistos;
 
     public void inicializar() {
         this.isCreatingLabel = false;
@@ -90,7 +91,8 @@ public class UserWindowController implements IBuscadorVideos {
         usuarioActual = controlador.getUsuarioActual();
         listasUsuario = new HashMap<String, VideoList>();
         listasVisibles = new HashMap<Boolean, VideoList>();
-
+        masVistos = new Button("Mas Vistos");
+        inicializarMasVistos();
         this.intervalo = 5;
 
        // controlador.eliminarTodoslosVideos();
@@ -113,18 +115,6 @@ public class UserWindowController implements IBuscadorVideos {
         });
 
         if (usuarioActual.isPremium()) {
-            Button masVistos = new Button("Mas Vistos");
-            masVistos.setPrefWidth(115);
-            masVistos.setStyle("-fx-cursor: hand");
-            masVistos.setOnMouseClicked(ActionEvent -> {
-                //mostrarLista(masVistos.getText());
-                if (ActionEvent.getButton() == MouseButton.SECONDARY) {
-                    ContextMenu contextMenu = opcionRepMultiple(controlador.getVideosMasVistos());
-                    contextMenu.show(masVistos, ActionEvent.getScreenX(), ActionEvent.getScreenY());
-                } else {
-                    mostrarListasMasVistas();
-                }
-            });
             userListsVox.getChildren().add(masVistos);
             
             // Cumpleaños
@@ -191,6 +181,29 @@ public class UserWindowController implements IBuscadorVideos {
 
         thumbGridController.insertImages();
         cargarEtiquetas();
+    }
+
+    private void inicializarMasVistos() {
+        masVistos.setVisible(true);
+        masVistos.setPrefWidth(115);
+        masVistos.setStyle("-fx-cursor: hand");
+        masVistos.setOnMouseClicked(ActionEvent -> {
+            //mostrarLista(masVistos.getText());
+            if (ActionEvent.getButton() == MouseButton.SECONDARY) {
+                ContextMenu contextMenu = opcionRepMultiple(controlador.getVideosMasVistos());
+                contextMenu.show(masVistos, ActionEvent.getScreenX(), ActionEvent.getScreenY());
+            } else {
+                mostrarListasMasVistas();
+            }
+        });
+    }
+
+    public void refrescarFiltro(String filtro) {
+        cajaFiltro.getChildren().clear();
+        usuarioActual.setFiltro(filtro);
+        Text text = new Text("Filtro");
+        Label label = new Label(controlador.getFiltroActual());
+        cajaFiltro.getChildren().addAll(text, label);
     }
 
     private void setEditMode(boolean editMode) {
@@ -538,5 +551,29 @@ public class UserWindowController implements IBuscadorVideos {
         return intervalo;
     }
 
+
+    public void refrescarOpcionesPremium() {
+        //TODO:
+        if (!usuarioActual.isPremium()) {
+          if (masVistos.isVisible())
+              if (userListsVox.getChildren().contains(masVistos))
+                  userListsVox.getChildren().remove(masVistos);
+        } else {
+            if (!userListsVox.getChildren().contains(masVistos))
+                userListsVox.getChildren().add(masVistos);
+            masVistos.setVisible(true);
+        }
+    }
+
+    public void actualizarNombresDeListas(String nombreLista, String listaNombreNuevo) {
+        Iterator<Node> it = userListsVox.getChildren().iterator();
+        while (it.hasNext()) {
+            Node node = it.next();
+            if (node instanceof Button){
+                if (((Button) node).getText().equals(nombreLista))
+                    ((Button) node).setText(listaNombreNuevo);
+            }
+        }
+    }
 
 }

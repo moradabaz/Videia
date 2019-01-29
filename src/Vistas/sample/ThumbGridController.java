@@ -51,7 +51,7 @@ public class ThumbGridController {
     private int contadorImagenes;
     private UserWindowController userWindowController;
     private HashSet<String> listaUrl;
-    private HashMap<Video, ImageView> mapaImagenes;
+    private HashMap<String, ImageView> mapaImagenes;
 
 
     public void inicializar(UserWindowController userWindowController) {
@@ -93,10 +93,10 @@ public class ThumbGridController {
             Video video = null;
             if (it.hasNext()) video = it.next();
             String url = video.getRutaFichero();
-            ImageView img = mapaImagenes.get(video);
+            ImageView img = mapaImagenes.get(url);
             if (img == null) {
-                videoWeb.getThumb(url);
-                mapaImagenes.put(video, img);
+                img = videoWeb.getThumb(url);
+                mapaImagenes.put(url, img);
             }
 
             box.setAlignment(Pos.CENTER);
@@ -156,8 +156,11 @@ public class ThumbGridController {
             if (it.hasNext()) video = it.next();
             assert video != null;
             String url = video.getRutaFichero();
-            ImageView img = mapaImagenes.get(video);
-            if (img == null) img = videoWeb.getThumb(url);
+            ImageView img = mapaImagenes.get(url);
+            if (img == null)  {
+                img = videoWeb.getThumb(url);
+                mapaImagenes.put(url, img);
+            }
             box.setAlignment(Pos.CENTER);
             box.getChildren().add(img);
             String titulo = video.getTitulo();
@@ -247,7 +250,7 @@ public class ThumbGridController {
                     listaUrl.add(url);
                     contadorImagenes++;
                 }
-                mapaImagenes.put(video, img);
+                mapaImagenes.put(url, img);
             }
 
             if (contadorImagenes % 4 == 0) {

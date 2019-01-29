@@ -39,12 +39,14 @@ public class LoginWindowController {
         textoPassword.setText("");
         boolean logeado = controlador.login(user, passwd);
         if (logeado) {
+            textoPassword.setText("Cargando...");
             System.out.println("El usuario " + user + "esta logeado");
             Usuario usuarioActual = controlador.getUsuarioActual();
             if (usuarioActual == null) {
                 System.err.println("El usuario " +  user + " ha podido ser recogido");
             } else {
                 try {
+
                     gotoUserWindow(event, this.controlador);
                 } catch (IOException e) {
                     // e.printStackTrace();

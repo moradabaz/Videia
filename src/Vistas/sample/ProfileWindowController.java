@@ -102,6 +102,7 @@ public class ProfileWindowController {
                     boolean confirmacion = Notificacion.confirmationQuestion("¿Estas seguro de que quieres hacerte premium?");
                     if (confirmacion)
                         controlador.contratarPremium();
+
                 } else {
                     boolean confirmacion = Notificacion.confirmationQuestion("¿Estas seguro de que quieres cancelar premium?");
                     if (confirmacion)
@@ -136,13 +137,14 @@ public class ProfileWindowController {
         this.modeEditList = status;
     }
 
-    private void refrescarInfo(Usuario user) {
+    private void refrescarInfo() {
+        Usuario user = controlador.getUsuarioActual();
         nombreBox.getChildren().remove(nombreText);
         ApellidosBox.getChildren().remove(apellidosText);
         birthdayBox.getChildren().remove(birtdayText);
         emailBox.getChildren().remove(emailText);
 
-        this.nombreUserName.setText(user.getUsername());
+        System.out.println(user.getUsername());
 
         this.nombreText.setText(user.getNombre());
         nombreBox.getChildren().add(nombreText);
@@ -350,7 +352,7 @@ public class ProfileWindowController {
                 birthdayBox.getChildren().clear();
                 emailBox.getChildren().clear();
                 setEditStatus(false);
-                refrescarInfo(user);
+                refrescarInfo();
             });
 
             vboxAccept.getChildren().add(acceptButton);
@@ -368,6 +370,7 @@ public class ProfileWindowController {
                 ApellidosBox.getChildren().clear();
                 birthdayBox.getChildren().clear();
                 emailBox.getChildren().clear();
+                refrescarInfo();
                 setEditStatus(false);
             });
             vboxCancel.getChildren().add(cancelButton);
@@ -551,10 +554,10 @@ public class ProfileWindowController {
         Usuario user = controlador.getUsuarioActual();
         VideoList videoList = user.getListaVideo(nombreLista);
         String textoSeleccionado = "";
-
         VBox vox = new VBox();
         HBox hboxNombre = new HBox();
-        hboxNombre.setAlignment(Pos.CENTER);
+
+        hboxNombre.setAlignment(Pos.CENTER_LEFT);
         hboxNombre.setPrefHeight(47);
         hboxNombre.setPrefWidth(305);
         Text textoNombre = new Text("Nombre");
@@ -564,11 +567,12 @@ public class ProfileWindowController {
         separador.setPrefWidth(8);
         separador.setOpacity(0);
         TextField textFieldNombre = new TextField(nombreLista);
-
         Path pathQuit = Paths.get("iconos/guardar.png");
         System.out.println(pathQuit.toAbsolutePath().toString());
         Image imgGuardar = new Image("file:" + pathQuit.toAbsolutePath().toString());
         ImageView imgViewGuardar = new ImageView(imgGuardar);
+        imgViewGuardar.setScaleX(0.5);
+        imgViewGuardar.setScaleY(0.5);
         imgViewGuardar.setStyle("-fx-cursor: hand");
         imgViewGuardar.setOnMouseClicked(event -> {
             if (!textFieldNombre.getText().equals("")) {
@@ -587,13 +591,9 @@ public class ProfileWindowController {
         hboxVideos.setPrefHeight(146);
         hboxVideos.setPrefWidth(305);
 
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setPrefHeight(145);
-        scrollPane.setPrefWidth(248);
-
         VBox vboxVideos = new VBox();
-        vboxVideos.setPrefWidth(246);
-        vboxVideos.setPrefHeight(246);
+        vboxVideos.setPrefWidth(305);
+        vboxVideos.setPrefHeight(305);
         // TODO: Dentro del Vbox pondremos cada uno de los textos
         if (videoList != null) {
             for (Video v : videoList.getVideos()) {
@@ -612,17 +612,10 @@ public class ProfileWindowController {
                         contextMenu.show(textoVideo, event.getScreenX(), event.getScreenY());
                     }
                 });
-
-                textoVideo.setWrappingWidth(246);
+                //textoVideo.setWrappingWidth(246);
                 vboxVideos.getChildren().add(textoVideo);
             }
         }
-        scrollPane.setContent(vboxVideos);
-
-        VBox iconosBox = new VBox();
-        iconosBox.setAlignment(Pos.TOP_CENTER);
-        iconosBox.setPrefHeight(145);
-        iconosBox.setPrefWidth(56);
 
         Separator separador1 = new Separator();
         separador1.setOrientation(Orientation.HORIZONTAL);
@@ -640,8 +633,7 @@ public class ProfileWindowController {
         imgViewEdit.setOnMouseClicked(mouseEvent -> {
                 controlador.actualizarVideoList(videoList);
         });
-        hboxVideos.getChildren().addAll(scrollPane, iconosBox);
-
+        hboxVideos.getChildren().addAll(vboxVideos);
         vox.getChildren().addAll(hboxNombre, hboxVideos);
         // TODO: POR LA PATRIA
         return vox;
@@ -678,7 +670,7 @@ public class ProfileWindowController {
 
     public void convertirEnPremium(MouseEvent mouseEvent) {
         controlador.contratarPremium();
-        refrescarInfo(controlador.getUsuarioActual());
+        refrescarInfo();
     }
 
     public void generarPDF(MouseEvent mouseEvent) {
@@ -710,9 +702,7 @@ public class ProfileWindowController {
 
             document.close();
 
-        }catch (DocumentException d) {
-
-        }catch (NullPointerException e) {
+        }catch (DocumentException | NullPointerException d) {
 
         } catch (FileNotFoundException e) {
             System.out.println("Directorio Erroneo");
@@ -725,6 +715,7 @@ public class ProfileWindowController {
 
         choiceBox.getItems().clear();
         if (user.isPremium()) {
+            if (!premiumButton.isArmed())   premiumButton.fire();
             buttonPDF.setVisible(true);
             choiceBox.setValue(user.getFiltroNombre());
             choiceBox.getItems().addAll("No Filtro", "Impopulares", "Menores", "Mis Listas", "Nombres Largos");

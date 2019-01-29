@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec5dab78-fbc8-46c4-88fa-55794f730637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dependencias/itext-5.0.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorController.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Filtro.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Filtro.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Usuario.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Usuario.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorUsuarioDAO.class" afterPath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorUsuarioDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppVideo.iml" afterPath="$PROJECT_DIR$/AppVideo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindow.fxml" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindow.fxml" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml" afterPath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" afterPath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -127,8 +113,8 @@
       <file leaf-file-name="ProfileWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="663" column="12" lean-forward="false" selection-start-line="663" selection-start-column="12" selection-end-line="663" selection-end-column="12" />
+            <state relative-caret-position="383">
+              <caret line="652" column="57" lean-forward="true" selection-start-line="652" selection-start-column="57" selection-end-line="652" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -778,7 +764,7 @@
       <workItem from="1548693167497" duration="706000" />
       <workItem from="1548695587304" duration="2779000" />
       <workItem from="1548707695246" duration="13259000" />
-      <workItem from="1548749380421" duration="6691000" />
+      <workItem from="1548749380421" duration="7121000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios">
       <created>1548111406304</created>
@@ -885,11 +871,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548724234316</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Hay un fallo FXML">
+      <created>1548756328272</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1548756328272</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233846000" />
+    <option name="totallyTimeSpent" value="234276000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1433,8 +1426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="663" column="12" lean-forward="false" selection-start-line="663" selection-start-column="12" selection-end-line="663" selection-end-column="12" />
+        <state relative-caret-position="383">
+          <caret line="652" column="57" lean-forward="true" selection-start-line="652" selection-start-column="57" selection-end-line="652" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

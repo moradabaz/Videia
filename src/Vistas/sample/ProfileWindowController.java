@@ -31,6 +31,8 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import static com.itextpdf.text.Font.*;
+
 
 public class ProfileWindowController {
 
@@ -648,6 +650,8 @@ public class ProfileWindowController {
             document.open();
 
             Paragraph paragraph = new Paragraph("Listas de Usuario");
+            paragraph.setAlignment(Element.ALIGN_CENTER);
+            paragraph.setExtraParagraphSpace((float) 11.5);
             document.add(paragraph);
 
             for (VideoList vdList : controlador.getUserVideoLists()) {
@@ -661,7 +665,7 @@ public class ProfileWindowController {
             }
 
             document.close();
-            
+
         }catch (DocumentException d) {
 
         }catch (NullPointerException e) {

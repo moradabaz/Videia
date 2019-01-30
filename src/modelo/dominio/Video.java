@@ -105,27 +105,7 @@ public class Video {
             }
         }
         return true;
-     // Predicate<Etiqueta> predicate = l -> etiquetas.contains(l);
-     // return etiquetas.stream().allMatch(predicate);
-
     }
-
-    public boolean contieneTodasEtiquetas(LinkedList<String> labels) {
-        //Predicate<Etiqueta> predicate = labels::contains;
-        //return etiquetas.stream().allMatch(predicate);
-        for (String l : labels) {
-            if (!etiquetas.contains(l)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean contieneAlgunaEtiqueta(String ... labels) {
-        Predicate<Etiqueta> predicate = l -> etiquetas.contains(l);
-        return etiquetas.stream().anyMatch(predicate);
-    }
-
 
     public boolean contieneAlgunaEtiqueta(LinkedList<String> labels) {
         Iterator<Etiqueta> it = etiquetas.iterator();

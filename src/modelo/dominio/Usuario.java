@@ -265,15 +265,6 @@ public class Usuario {
         return age;
     }
 
- /*   public Descuento getDescuento() {
-        return descuento;
-    }
-
-    public String getDescuentoString() {
-        if (descuento instanceof DescuentoFijo) return "descuentoFijo";
-        if (descuento instanceof DescuentoJovenes) return "descuentoJoven";
-        return "noDescuento";
-    }*/
 
     public void mostrarListas() {
         for (VideoList l : myVideoLists) {
@@ -367,8 +358,6 @@ public class Usuario {
     }
 
     public String getFechaNacString() { // TODO: Aqui esta el poblema con las fecha xD
-        /*DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-        return df.format(fechaNac);*/
         LocalDate localDate = fechaNac.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         int year = localDate.getYear();
         int month = localDate.getMonthValue();
@@ -377,7 +366,7 @@ public class Usuario {
     }
 
     public Filtro getFiltro(String filtro) {
-        return null;
+        return filtrosDisponibles.get(filtro);
     }
 
     public boolean contieneEsteVideo(Video video) {
@@ -413,3 +402,5 @@ public class Usuario {
     }
 
 }
+
+

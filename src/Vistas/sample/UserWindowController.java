@@ -274,7 +274,6 @@ public class UserWindowController implements IBuscadorVideos {
 
     public void logout() {
         controlador.logout();
-
         try {
             volverALogin();
         } catch (IOException e) {
@@ -283,16 +282,14 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     private void volverALogin() throws IOException {
-
-
         BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
-        FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
+        FlowPane login =  FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
         root.setCenter(login);
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Registration Form FXML Application");
         Scene scene = new Scene(root);
-        primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
@@ -381,7 +378,7 @@ public class UserWindowController implements IBuscadorVideos {
                 if (MouseEvent.getButton() == MouseButton.SECONDARY) {
                     ContextMenu contextMenu = new ContextMenu();
                     MenuItem item1 = new MenuItem(label.getEtiqueta());
-                    item1.disableProperty();
+                    item1.setDisable(true);
                     MenuItem item2 = new MenuItem("Añadir a Filtro de Etiquetas");
                     contextMenu.getItems().addAll(item1, item2);
                     contextMenu.show(textoEtiqueta, MouseEvent.getScreenX(), MouseEvent.getScreenY());

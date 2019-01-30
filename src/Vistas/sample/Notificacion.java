@@ -1,10 +1,12 @@
 package Vistas.sample;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.*;
+import modelo.dominio.Etiqueta;
+import modelo.dominio.Video;
 
 public class Notificacion {
 
@@ -123,6 +125,28 @@ public class Notificacion {
         alert.showAndWait();
         if (alert.getResult() == ButtonType.OK) {
             alert.close();
+        }
+    }
+
+    public static void showVideoDetails(Video video) {
+        Dialog dialog = new Dialog();
+
+        VBox vBox = new VBox();
+        vBox.setAlignment(Pos.TOP_LEFT);
+        Text nombre = new Text("Nombre: " + video.getTitulo());
+        Text numReproducciones = new Text("Numero reproducciones: " + video.getReproducciones());
+        Text etiquetasText = new Text("Etiquetas:");
+        VBox vBoxLabel = new VBox();
+        for (Etiqueta etiqueta: video.getEtiquetas()) {
+           vBoxLabel.getChildren().add(new Label(" - " + etiqueta.getEtiqueta()));
+        }
+        vBox.getChildren().addAll(nombre, numReproducciones, etiquetasText, vBoxLabel);
+
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        dialog.getDialogPane().setContent(vBox);
+        dialog.showAndWait();
+        if (dialog.getResult() == ButtonType.OK) {
+            dialog.close();
         }
     }
 }

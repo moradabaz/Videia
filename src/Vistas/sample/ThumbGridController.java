@@ -266,7 +266,7 @@ public class ThumbGridController {
         userWindowController.visualizar(video);
     }
 
-    private ContextMenu createContextMenu(  Video video) {
+    private ContextMenu createContextMenu(Video video) {
         ContextMenu contextMenu = new ContextMenu();
         MenuItem item2 = new MenuItem("Anadir a lista");
         MenuItem item3 = new MenuItem("Detalles");
@@ -281,15 +281,19 @@ public class ThumbGridController {
                 for (VideoList vdlist : controlador.getUserVideoLists()) {
                     MenuItem menuItem = new MenuItem(vdlist.getNombre());
                     menuItem.setOnAction(event1 -> {
-                        // TODO: Añadir Video a la lista :P
                         controlador.addVideoToVideoList(video, vdlist);
                         if (vdlist.contains(video))
                             System.out.println("Video anadido con existo");
+
                     });
                     listmenu.getItems().add(menuItem);
                 }
             }
             listmenu.show(gridPane, contextMenu.getX(), contextMenu.getY());
+        });
+
+        item3.setOnAction(e -> {
+            Notificacion.showVideoDetails(video);
         });
 
         contextMenu.getItems().addAll(item2, item3);

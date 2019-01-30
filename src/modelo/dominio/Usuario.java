@@ -310,7 +310,8 @@ public class Usuario {
 
     public void anadirVideoALista(Video Video, VideoList PL) {
         if (myVideoLists.contains(PL)) {
-            PL.addVideo(Video);
+            if (!PL.contains(Video))
+                 PL.addVideo(Video);
         }
     }
 

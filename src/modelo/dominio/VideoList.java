@@ -83,7 +83,11 @@ public class VideoList {
     }
 
     public boolean contains(Video video) {
-        return videos.contains(video);
+        boolean existe = false;
+        for (Video vd : videos) {
+            if (vd.getRutaFichero().equals(video.getRutaFichero())) existe = true;
+        }
+        return existe;
     }
 
     public void removeVideo(Video video) {

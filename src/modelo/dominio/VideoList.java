@@ -68,18 +68,12 @@ public class VideoList {
         lista.stream().filter(v -> !videos.contains(v))
                       .forEach(v -> videos.add(v));
 
-      //  for (Video v : lista) {
-      //      if (!videos.contains(v)) {
-      //          videos.add(v);
-      //      }
-      //  }
     }
 
     public void addVideos(Video ... lista) {
 
         Arrays.stream(lista).filter(v -> !videos.contains(v))
                             .forEach(v -> videos.add(v));
-        //  Collections.addAll(Arrays.asList(lista));
     }
 
     public boolean contains(Video video) {

@@ -95,14 +95,11 @@ public class UserWindowController implements IBuscadorVideos {
         inicializarMasVistos();
         this.intervalo = 5;
 
-       // controlador.eliminarTodoslosVideos();
-
         boolean login = controlador.login(usuarioActual.getUsername(), usuarioActual.getPassword());
 
         if (login) {
             userLabel.setText(usuarioActual.getUsername());
         }
-
 
         logoutItem.setOnAction(event -> {
             logout();
@@ -116,8 +113,6 @@ public class UserWindowController implements IBuscadorVideos {
 
         if (usuarioActual.isPremium()) {
             userListsVox.getChildren().add(masVistos);
-            
-            // Cumpleaños
 
             if (usuarioActual.isBirthday()) {
                 Path pathQuit = Paths.get("iconos/birthday.png");
@@ -155,16 +150,13 @@ public class UserWindowController implements IBuscadorVideos {
             }
         }
 
-    //    String urls[] = {"https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk",
-     //           "https://www.youtube.com/watch?v=i-Xn9zWJTvk", "https://www.youtube.com/watch?v=i-Xn9zWJTvk"};
-
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ThumGridWindow.fxml"));
         GridPane gridPane = null;
 
         try {
             gridPane = loader.load();
+            gridPane.getStylesheets().add(mainBorderPane.getStyle());
         } catch (IOException e) {}
 
         thumbGridController = loader.getController();
@@ -204,14 +196,6 @@ public class UserWindowController implements IBuscadorVideos {
         Text text = new Text("Filtro");
         Label label = new Label(controlador.getFiltroActual());
         cajaFiltro.getChildren().addAll(text, label);
-    }
-
-    private void setEditMode(boolean editMode) {
-        this.editMode = editMode;
-    }
-
-    private boolean isEditMode() {
-        return editMode;
     }
 
     public BorderPane getMainBorderPane() {
@@ -262,13 +246,6 @@ public class UserWindowController implements IBuscadorVideos {
         lowerBox.setVisible(false);
         rightBox.setVisible(false);
         topBox.setVisible(false);
-
-     /*   Scene profileScene = new Scene(profilePane);
-        Stage window = new Stage();
-        window.setResizable(true);
-        window.setScene(profileScene);
-        window.show();
-        currentStage.close();*/
     }
 
 
@@ -326,7 +303,6 @@ public class UserWindowController implements IBuscadorVideos {
 
     }
 
-
     public void setGridPaneToCenter() {
         this.mainBorderPane.setCenter(this.thumbGridController.getGridPane());
         leftBox.setVisible(true);
@@ -383,11 +359,9 @@ public class UserWindowController implements IBuscadorVideos {
                     contextMenu.getItems().addAll(item1, item2);
                     contextMenu.show(textoEtiqueta, MouseEvent.getScreenX(), MouseEvent.getScreenY());
                     item2.setOnAction(Event -> {
-
                         if (!cajaEtiquetasBusqueda.getChildren().contains(textoEtiqueta)) {
                             cajaEtiquetasBusqueda.getChildren().add(textoEtiqueta);
                         }
-
                     });
                 }
             });
@@ -413,7 +387,7 @@ public class UserWindowController implements IBuscadorVideos {
         }
     }
 
-    public void eliminarLabelsBusqueda(MouseEvent mouseEvent) {
+    public void eliminarEtiquetasDeBusqueda(MouseEvent mouseEvent) {
         cajaEtiquetas.getChildren().addAll(cajaEtiquetasBusqueda.getChildren());
         cajaEtiquetasBusqueda.getChildren().clear();
 

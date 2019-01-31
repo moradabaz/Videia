@@ -7,7 +7,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollBar?>
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+<GridPane fx:id="gridPane" stylesheets="@materialFX.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
           prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="Vistas.sample.ThumbGridController"
           xmlns:fx="http://javafx.com/fxml/1">
 

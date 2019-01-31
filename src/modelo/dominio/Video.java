@@ -34,7 +34,6 @@ public class Video {
 
     }
 
-
     public int getCodigo() {
         return codigo;
     }
@@ -96,15 +95,6 @@ public class Video {
             linea += etiqueta.getEtiqueta() + ":";
         }
         return linea.trim();
-    }
-
-    public boolean contieneTodasEtiquetas(String ... labels) {
-        for (String l : labels) {
-            if (!etiquetas.contains(l)) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public boolean contieneAlgunaEtiqueta(LinkedList<String> labels) {

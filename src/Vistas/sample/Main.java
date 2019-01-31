@@ -23,15 +23,10 @@ public class Main extends Application {
             BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
             FlowPane login =  FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
 
-         /*    Path path = Paths.get("/iconos/loginBackground.jpg");
-             Image image = new Image("file:" + path.toAbsolutePath().toString());
-             BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-             root.setBackground(new Background(backgroundImage));
-             login.setBackground(new Background(backgroundImage));*/
-
             root.setCenter(login);
             primaryStage.setTitle("Registration Form FXML Application");
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("materialFX.css").toExternalForm());
             primaryStage.setFullScreen(true);
             primaryStage.setScene(scene);
             primaryStage.show();

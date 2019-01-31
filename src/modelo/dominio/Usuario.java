@@ -11,7 +11,6 @@ import java.util.*;
 public class Usuario {
 
     public static final int TAM_RECIENTES = 10;
-    private static final int EDAD_JOVEN_MAX = 25;
 
     private int codigo;
     private String username;
@@ -56,8 +55,6 @@ public class Usuario {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-      //  this.VideoesRecientes = new LinkedList<Video>();
-      //  this.descuento = new NoDescuento();
         this.codigo = -111;
         myVideoLists = new LinkedList<VideoList>();
         videosRecientes = new LinkedList<Video>();
@@ -145,7 +142,6 @@ public class Usuario {
         return premium;
     }
 
-
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -198,7 +194,6 @@ public class Usuario {
 
 
     /**
-     *
      * @param nombre
      * @return Retorna la videolist dado el nombre. Si no existe, retorna NULL
      */
@@ -231,13 +226,6 @@ public class Usuario {
         return linea.trim();
     }
 
-    /*public String getStringFecha() {
-        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        return formatter.format(fechaNac);
-    }*/
-
-
-
     /**
      * @return Retorna la edad
      */
@@ -265,7 +253,6 @@ public class Usuario {
         return age;
     }
 
-
     public void mostrarListas() {
         for (VideoList l : myVideoLists) {
             System.out.println(l.getNombre());
@@ -280,11 +267,6 @@ public class Usuario {
     }
 
     public void anadirVideoList(List<VideoList> list) {
-        /*for (VideoList vL : list) {
-            if (!myVideoLists.contains(vL)) {
-                myVideoLists.add(vL);
-            }
-        }*/
         list.stream().filter(VideoList -> !myVideoLists.contains(VideoList))
                       .forEach(myVideoLists::add);
     }
@@ -306,18 +288,9 @@ public class Usuario {
         }
     }
 
-
     public void eliminarVideoList(VideoList videoList) {
         if (myVideoLists.contains(videoList)) {
             this.myVideoLists.remove(videoList);
-        }
-    }
-
-    public void eliminarVideoDeLista(Video Video, VideoList videoList) {
-        if (myVideoLists.contains(videoList)) {
-            if (myVideoLists.contains(Video)) {
-                myVideoLists.remove(Video);
-            }
         }
     }
 

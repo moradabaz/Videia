@@ -65,6 +65,7 @@ public class LoginWindowController {
         loader.setLocation(getClass().getResource("UserWindow.fxml"));
         BorderPane UserView = loader.load();
         Scene userViewScene = new Scene(UserView);
+        userViewScene.getStylesheets().add(UserView.getStyle());
         UserWindowController userWindowController = loader.getController();
         userWindowController.inicializar();
         Stage window =  new Stage();

@@ -66,18 +66,15 @@ public class ProfileWindowController {
     Text emailText;
     Text premiumText;
 
-    public void inicializar(UserWindowController userWindowController) {
-
+    public void inicializar() {
         auxiliar = new VBox();
         this.controlador = Controlador.getInstanciaUnica();
         filtroActual = controlador.getFiltroActual();
-        this.userWindowController = userWindowController;
+        this.userWindowController = UserWindowController.getInstancia();
         Usuario user = controlador.getUsuarioActual();
-
         if (user == null) {
             System.err.println(" > El usuario es nulo");
         } else {
-
             NombreUserName.setText(user.getUsername());
             System.out.println("Premium: " + controlador.getUsuarioActual().isPremium());
 
@@ -411,24 +408,10 @@ public class ProfileWindowController {
     }
 
     public void volveraUserView(MouseEvent mouseEvent) throws IOException {
-     /*   FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("UserWindow.fxml"));
-        BorderPane bpUserView = loader.load();
-        Scene userScene = new Scene(bpUserView);
-        UserWindowController userController = loader.getController();
-        userController.inicializar();
-        Stage window = new Stage();
-        window.setScene(userScene);
-        window.setResizable(true);
-        window.show();
-        Window currentWindow =  ((Node)mouseEvent.getTarget()).getScene().getWindow();
-        currentWindow.fireEvent(new WindowEvent(currentWindow, WindowEvent.WINDOW_CLOSE_REQUEST));*/
         userWindowController.refrescarFiltro(choiceBox.getValue());
         userWindowController.refrescarOpcionesPremium();
         userWindowController.setInterval(spinner.getValue());
         userWindowController.restoreImages();
-
-
     }
 
     public void eliminarCuenta(MouseEvent mouseEvent) {

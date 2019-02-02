@@ -83,6 +83,7 @@ public class UserWindowController implements IBuscadorVideos {
     private boolean isCreatingLabel;
     private int intervalo;
     private Button masVistos;
+    private static UserWindowController unicaInstancia;
 
     public void inicializar() {
         this.isCreatingLabel = false;
@@ -150,17 +151,20 @@ public class UserWindowController implements IBuscadorVideos {
             }
         }
 
+        unicaInstancia = this;
+
+        // INICIALIZAMOS LA PARTE CENTRAL XD
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ThumGridWindow.fxml"));
         GridPane gridPane = null;
 
         try {
             gridPane = loader.load();
-            gridPane.getStylesheets().add(mainBorderPane.getStyle());
         } catch (IOException e) {}
 
         thumbGridController = loader.getController();
-        thumbGridController.inicializar(this);
+        thumbGridController.inicializar();
 
         if (gridPane != null) {
             ScrollPane scrollPane = new ScrollPane(gridPane);
@@ -170,9 +174,9 @@ public class UserWindowController implements IBuscadorVideos {
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             mainBorderPane.setCenter(scrollPane);
         }
-
         thumbGridController.insertImages();
         cargarEtiquetas();
+
     }
 
     private void inicializarMasVistos() {
@@ -180,7 +184,6 @@ public class UserWindowController implements IBuscadorVideos {
         masVistos.setPrefWidth(115);
         masVistos.setStyle("-fx-cursor: hand");
         masVistos.setOnMouseClicked(ActionEvent -> {
-            //mostrarLista(masVistos.getText());
             if (ActionEvent.getButton() == MouseButton.SECONDARY) {
                 ContextMenu contextMenu = opcionRepMultiple(controlador.getVideosMasVistos());
                 contextMenu.show(masVistos, ActionEvent.getScreenX(), ActionEvent.getScreenY());
@@ -219,7 +222,7 @@ public class UserWindowController implements IBuscadorVideos {
         loader.setLocation(getClass().getResource("nuevaLista.fxml"));
         FlowPane nuevaLista = loader.load();
         nuevaListaController nuevaListaController = loader.getController();
-        nuevaListaController.inicializar(controlador, this);
+        nuevaListaController.inicializar();
         mainBorderPane.setCenter(nuevaLista);
         mainBorderPane.requestLayout();
     }
@@ -240,7 +243,7 @@ public class UserWindowController implements IBuscadorVideos {
         loader.setLocation(getClass().getResource("ProfileWindow.fxml"));
         VBox profilePane = loader.load();
         ProfileWindowController profileController = loader.getController();
-        profileController.inicializar(this);
+        profileController.inicializar();
         mainBorderPane.setCenter(profilePane);
         leftBox.setVisible(false);
         lowerBox.setVisible(false);
@@ -322,7 +325,7 @@ public class UserWindowController implements IBuscadorVideos {
             VBox visor = loader.load();
             VisorController visorController = loader.getController();
             mainBorderPane.setCenter(visor);
-            visorController.inicializar(this);
+            visorController.inicializar();
             visorController.playVideo(video);
             leftBox.setVisible(false);
             lowerBox.setVisible(false);
@@ -338,7 +341,7 @@ public class UserWindowController implements IBuscadorVideos {
             VBox visor = loader.load();
             VisorController visorController = loader.getController();
             mainBorderPane.setCenter(visor);
-            visorController.inicializar(this);
+            visorController.inicializar();
             visorController.playVideo(lista);
             leftBox.setVisible(false);
             lowerBox.setVisible(false);
@@ -545,6 +548,14 @@ public class UserWindowController implements IBuscadorVideos {
                     ((Button) node).setText(listaNombreNuevo);
             }
         }
+    }
+
+    public static UserWindowController getInstancia() {
+        if (unicaInstancia == null) {
+            unicaInstancia = new UserWindowController();
+            unicaInstancia.inicializar();
+        }
+        return unicaInstancia;
     }
 
 }

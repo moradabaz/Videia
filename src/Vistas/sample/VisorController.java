@@ -40,9 +40,10 @@ public class VisorController {
     private Video video;
     private static long tiempoEspera = 50000;
 
-    public void inicializar(UserWindowController userWindowController) {
+    public void inicializar() {
        // this.video = video;
-        this.userWindowController = userWindowController;
+        //this.userWindowController = userWindowController;
+        this.userWindowController = UserWindowController.getInstancia();
         hBoxButtons.setAlignment(Pos.CENTER_LEFT);
         videoWeb = VideoWeb.getUnicaInstancia();
         videoWeb.setPanel(visorBox);
@@ -51,13 +52,6 @@ public class VisorController {
     }
 
     public void playVideo(Video video) {
-        this.video = video;
-        videoWeb.playVideo(video.getRutaFichero());
-        controlador.play(video);
-        numReproduccionesLabel.setText(String.valueOf(video.getNumReproducciones()));
-    }
-
-    public void playVideoList(Video video) {
         this.video = video;
         videoWeb.playVideo(video.getRutaFichero());
         controlador.play(video);

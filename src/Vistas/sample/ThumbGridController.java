@@ -6,6 +6,7 @@ import controlador.Controlador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -27,6 +28,7 @@ import modelo.dominio.VideoList;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.util.*;
 import java.util.List;
 
@@ -54,12 +56,12 @@ public class ThumbGridController {
     private HashMap<String, ImageView> mapaImagenes;
 
 
-    public void inicializar(UserWindowController userWindowController) {
+    public void inicializar() {
         this.controlador = Controlador.getInstanciaUnica();
         this.posColumna = 0;
         this.filas = 0;
         this.contadorImagenes = 0;
-        this.userWindowController = userWindowController;
+        this.userWindowController = UserWindowController.getInstancia();
         this.borderPane = userWindowController.getMainBorderPane();
         videoWeb = VideoWeb.getUnicaInstancia();
         int n = gridPane.getColumnConstraints().size();
@@ -113,24 +115,24 @@ public class ThumbGridController {
             box.getChildren().add(tituloText);
             System.out.println(url);
             //if (!listaUrl.contains(url)) {
-                    gridPane.add(box, posColumna, filas);
-                    box.setStyle("-fx-cursor: hand");
-                    ContextMenu contextMenu = createContextMenu(video);
+            gridPane.add(box, posColumna, filas);
+            box.setStyle("-fx-cursor: hand");
+            ContextMenu contextMenu = createContextMenu(video);
             Video finalVideo = video;
             box.setOnMouseClicked(MouseEvent -> {
-                        if (MouseEvent.getButton() == MouseButton.SECONDARY) {
-                            contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
-                        } else {
-                            try {
-                                visualizar(finalVideo);
-                            } catch (IOException e) {
+                if (MouseEvent.getButton() == MouseButton.SECONDARY) {
+                    contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+                } else {
+                    try {
+                        visualizar(finalVideo);
+                    } catch (IOException e) {
 
-                            }
-                        }
-                    });
-                    listaUrl.add(url);
-                    contadorImagenes++;
-           // }
+                    }
+                }
+            });
+            listaUrl.add(url);
+            contadorImagenes++;
+            // }
             if (contadorImagenes % 4 == 0) {
                 filas++;
             }
@@ -141,7 +143,7 @@ public class ThumbGridController {
     }
 
 
-    public void displayImages(LinkedList<Video>  lista) {
+    public void displayImages(LinkedList<Video> lista) {
         userWindowController.setGridPaneToCenter();
         int tamLista = lista.size();
         Iterator<Video> it = lista.iterator();
@@ -157,7 +159,7 @@ public class ThumbGridController {
             assert video != null;
             String url = video.getRutaFichero();
             ImageView img = mapaImagenes.get(url);
-            if (img == null)  {
+            if (img == null) {
                 img = videoWeb.getThumb(url);
                 mapaImagenes.put(url, img);
             }
@@ -223,7 +225,7 @@ public class ThumbGridController {
                 String titulo = video.getTitulo();
                 Text tituloText;
                 if (titulo.length() > 20)
-                     tituloText = new Text(video.getTitulo().substring(0, 20) + "...");
+                    tituloText = new Text(video.getTitulo().substring(0, 20) + "...");
                 else
                     tituloText = new Text(video.getTitulo());
 
@@ -273,7 +275,7 @@ public class ThumbGridController {
 
         item2.setOnAction(event -> {
             ContextMenu listmenu = new ContextMenu();
-               //for (VideoList vdlist : controlador.videli)
+            //for (VideoList vdlist : controlador.videli)
             if (controlador.getUserVideoLists().isEmpty()) {
                 MenuItem item = new MenuItem("No List");
                 listmenu.getItems().add(item);
@@ -312,4 +314,6 @@ public class ThumbGridController {
         return gridPane;
     }
 }
+
+
 

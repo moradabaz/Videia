@@ -26,12 +26,12 @@ public class nuevaListaController {
     public BorderPane borderPaneParent;
     public UserWindowController userWindowController;
 
-    public void inicializar(Controlador controlador, UserWindowController userWindowController) {
-        this.controlador = controlador;
-        if (userWindowController.getMainBorderPane() != null)
+    public void inicializar() {
+        this.controlador = Controlador.getInstanciaUnica();
+       /* if (userWindowController.getMainBorderPane() != null)
             setBorderPaneParent(userWindowController.getMainBorderPane());
-        else System.err.println("FlowNuevaLista no tiene padre");
-        this.userWindowController = userWindowController;
+        else System.err.println("FlowNuevaLista no tiene padre");*/
+        this.userWindowController = UserWindowController.getInstancia();
     }
 
     public void crearLista(ActionEvent actionEvent) {

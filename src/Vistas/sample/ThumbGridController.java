@@ -61,7 +61,9 @@ public class ThumbGridController {
         this.posColumna = 0;
         this.filas = 0;
         this.contadorImagenes = 0;
-        this.userWindowController = UserWindowController.getInstancia();
+
+         this.userWindowController = UserWindowController.getInstancia();
+        //this.userWindowController = userWindowController;
         this.borderPane = userWindowController.getMainBorderPane();
         videoWeb = VideoWeb.getUnicaInstancia();
         int n = gridPane.getColumnConstraints().size();
@@ -281,12 +283,10 @@ public class ThumbGridController {
                 listmenu.getItems().add(item);
             } else {
                 for (VideoList vdlist : controlador.getUserVideoLists()) {
+                    String nombreVideoList = vdlist.getNombre();
                     MenuItem menuItem = new MenuItem(vdlist.getNombre());
                     menuItem.setOnAction(event1 -> {
-                        controlador.addVideoToVideoList(video, vdlist);
-                        if (vdlist.contains(video))
-                            System.out.println("Video anadido con existo");
-
+                        controlador.actualizarVideoesEnLista(video.getTitulo(), nombreVideoList);
                     });
                     listmenu.getItems().add(menuItem);
                 }

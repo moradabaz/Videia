@@ -3,6 +3,7 @@ package Vistas.sample;
 
 import controlador.Controlador;
 import javafx.beans.Observable;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -51,22 +52,39 @@ public class UserWindowController implements IBuscadorVideos {
     public BorderPane mainBorderPane;
     public Button comboBoxProfile;
 
+    @FXML
     public MenuItem logoutItem;
+    @FXML
     public MenuItem closeItem;
+    @FXML
     public FlowPane flowPaneCenter;
+    @FXML
     public HBox birthdayBox1;
+    @FXML
     public HBox birthdayBox2;
+    @FXML
     public HBox bottomBox;
+    @FXML
     public Button botonCargarVideos;
+    @FXML
     public VBox lowerBox;
+    @FXML
     public VBox topBox;
+    @FXML
     public VBox leftBox;
+    @FXML
     public VBox rightBox;
+    @FXML
     public VBox cajaEtiquetas;
+    @FXML
     public VBox cajaEtiquetasBusqueda;
+    @FXML
     public Button botonBuscar;
+    @FXML
     public TextField tituloBusqueda;
+    @FXML
     public Button botonRecientes;
+    @FXML
     public VBox cajaFiltro;
 
     private Usuario usuarioActual;

@@ -361,7 +361,8 @@ public class Usuario {
     }
 
     public void setFiltro(String nombreFiltro) {
-        if (premium)    this.filtro = filtrosDisponibles.get(nombreFiltro);
+        if (premium)
+            this.filtro = filtrosDisponibles.get(nombreFiltro);
     }
 
     private HashMap<String, Filtro> inicizalizarFiltros() {

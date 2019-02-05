@@ -2,13 +2,12 @@ package controlador;
 
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
+import modelo.dominio.*;
 import modelo.dominio.Etiqueta;
 import modelo.dominio.Video;
-import modelo.dominio.VideoList;
 import modelo.dominio.persistencia.*;
 import catalogos.CatalogoVideos;
 import catalogos.CatalogoUsuarios;
-import modelo.dominio.Usuario;
 import javafx.scene.media.MediaPlayer;
 import umu.tds.videos.*;
 
@@ -18,7 +17,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-public class Controlador implements VideosListener, IBuscadorVideos{
+public class Controlador implements VideosListener, IBuscadorVideos {
 
     private static Controlador instanciaUnica;
 
@@ -56,6 +55,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
             inicializarCatalogos();
             poolEtiqueta = PoolEtiqueta.getUnicaInstancia();
             cargarEtiquetas();
+            catalogoVideos.setFiltro(NoFiltro.getUnicaInstancia());
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -117,6 +117,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
                     if (id >= 0) {
                         usuarioActual.setCodigo(id);
                     }
+                    catalogoVideos.setFiltro(usuarioActual.getFiltro());
                     System.out.println("Usuario logeado con exito");
                     return true;
                 } else {
@@ -294,7 +295,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
             if (!existeVideo(c)) {
                 registrarVideo(c);
                 if (catalogoVideos.existeVideo(c))
-                     System.out.println("Video " + c.getTitulo() + " Insertada con Exito");
+                    System.out.println("Video " + c.getTitulo() + " Insertada con Exito");
             } else {
                 System.err.println("la Video (" + c.getTitulo() + ") ya existe");
             }
@@ -400,19 +401,6 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         return (LinkedList<VideoList>) usuarioActual.getMyVideoLists();
     }
 
-    public void actualizarVideoesEnLista(String nombre, LinkedList<String> titulosVideo) {
-        if (usuarioActual.contieneVideoList(nombre)) {
-            VideoList lc = usuarioActual.getListaVideo(nombre);
-            if (lc != null) {
-                for (String titulo : titulosVideo) {
-                    Video c = catalogoVideos.getVideo(titulo);
-                    usuarioActual.anadirVideoALista(c, lc);
-                    adaptadorVideoList.modificarVideoList(lc);
-                    adaptadorUsuario.modificarUsuario(this.usuarioActual);
-                }
-            }
-        }
-    }
 
     public void anadirVideoAReciente(Video Video) {
         usuarioActual.anadirVideoReciente(Video);
@@ -470,7 +458,6 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         adaptadorVideo.modificarVideo(video);
         catalogoVideos.replaceVideo(video);
     }
-
 
 
     //TODO: PRUEBAS
@@ -581,7 +568,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     public LinkedList<String> getVideoUrls() {
         LinkedList<Video> listaVideos = new LinkedList<Video>(this.catalogoVideos.getVideos());
         return new LinkedList<>(listaVideos.stream().map(v -> v.getRutaFichero())
-                            .collect(Collectors.toList()));
+                .collect(Collectors.toList()));
     }
 
     public LinkedList<String> getVideoUrls(VideoList videoList) {
@@ -593,7 +580,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     }
 
     private boolean existeUrl(String url) {
-       return catalogoVideos.getVideos().stream().map(v -> v.getRutaFichero()).collect(Collectors.toList()).contains(url);
+        return catalogoVideos.getVideos().stream().map(v -> v.getRutaFichero()).collect(Collectors.toList()).contains(url);
     }
 
     public void eliminarTodoslosVideos() {
@@ -637,7 +624,21 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         adaptadorVideoList.modificarVideoList(vdlist);
     }
 
+    public void actualizarVideoesEnLista(String tituloVideo, String videoListNombre) {
+        if (usuarioActual.contieneVideoList(videoListNombre)) {
+            VideoList videoList = usuarioActual.getListaVideo(videoListNombre);
+            if (videoList != null) {
+                Video video = catalogoVideos.getVideo(tituloVideo);
+                usuarioActual.anadirVideoALista(video, videoList);
+                adaptadorUsuario.modificarUsuario(usuarioActual);
+                adaptadorVideoList.modificarVideoList(videoList);
+            }
+        }
+    }
+
+
     public LinkedList<Video> buscarPorTitulo(String nombre) {
+       // return catalogoVideos.buscarVideoPorFiltros(nombre);
         return catalogoVideos.buscarVideoPorFiltros(nombre);
     }
 
@@ -646,6 +647,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
         etiquetas.toArray(labels);
         return catalogoVideos.buscarVideoPorFiltros(nombre, labels);
     }
+
 
     public LinkedList<Video> buscarPorEtiquetas(LinkedList<String> listaEtiquetas) {
 
@@ -677,6 +679,7 @@ public class Controlador implements VideosListener, IBuscadorVideos{
     public String getFiltroActual() {
         return usuarioActual.getFiltroNombre();
     }
+
 }
 
 

@@ -1,5 +1,7 @@
 package catalogos;
 
+import modelo.dominio.Filtro;
+import modelo.dominio.NoFiltro;
 import modelo.dominio.Video;
 import modelo.dominio.persistencia.DAOException;
 import modelo.dominio.persistencia.FactoriaDAO;
@@ -26,6 +28,8 @@ public class CatalogoVideos {
 
     private FactoriaDAO dao;                                      // Factoria DAO para la persistencia de datos
     private IAdaptadorVideoDAO adaptadorVideo;                    // Interfaz del Adaptador DAO para persistencia de Video
+    private Filtro filtro;
+
 
     /**
      * Metodo para devolver la unica instancia del catalgo
@@ -50,6 +54,7 @@ public class CatalogoVideos {
             adaptadorVideo = dao.getVideoDAO(); //AdaptadorVideoTDS.getUnicaInstancia();
             videos = new HashMap<Integer, Video>();
             cargarCatalogo();
+            filtro = NoFiltro.getUnicaInstancia();
         } catch (DAOException eDAO) {
             eDAO.printStackTrace();
         }
@@ -192,8 +197,11 @@ public class CatalogoVideos {
                 lista.addAll(busquedaMultiple(searchForTitle(titulo), searchForLabel(etiqueta)));
                 break;
         }
-        return lista;
+      //  return lista;
+        return (LinkedList<Video>) lista.stream().filter(filtro::filtrarVideo).collect(Collectors.toCollection(LinkedList::new));
     }
+
+
 
     /**
      * Comprueba que un String es cadena vacía
@@ -203,6 +211,8 @@ public class CatalogoVideos {
     private boolean esCadenaVacia(String cadena) {
         return cadena.equals("");
     }
+
+
 
     /**
      * Funcion EQUALS pero refinada
@@ -234,8 +244,11 @@ public class CatalogoVideos {
         return null;
     }
 
-
     public void replaceVideo(Video video){
         videos.put(video.getCodigo(), video);
+    }
+
+    public void setFiltro(Filtro filtroActual) {
+        this.filtro = filtroActual;
     }
 }

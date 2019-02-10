@@ -9,18 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import modelo.dominio.Usuario;
+import modelo.Usuario;
 
 public class RegistroController implements Initializable {
 
@@ -58,7 +54,7 @@ public class RegistroController implements Initializable {
 
     @FXML
     private void volverAlInicio(ActionEvent actionEvent) throws IOException {
-        Parent inicio = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent inicio = FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
         BorderPane bp = (BorderPane) idflowpaneregister.getParent();
         bp.setCenter(inicio);
     }

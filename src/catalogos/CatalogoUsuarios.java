@@ -1,9 +1,9 @@
 package catalogos;
 
-import modelo.dominio.Usuario;
-import modelo.dominio.persistencia.DAOException;
-import modelo.dominio.persistencia.FactoriaDAO;
-import modelo.dominio.persistencia.IAdaptadorUsuarioDAO;
+import modelo.Usuario;
+import persistencia.DAOException;
+import persistencia.FactoriaDAO;
+import persistencia.IAdaptadorUsuarioDAO;
 
 import java.util.*;
 

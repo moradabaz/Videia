@@ -1,14 +1,11 @@
 package controlador;
 
-import javafx.scene.control.Alert;
-import javafx.scene.image.ImageView;
-import modelo.dominio.*;
-import modelo.dominio.Etiqueta;
-import modelo.dominio.Video;
-import modelo.dominio.persistencia.*;
+import modelo.*;
+import modelo.Etiqueta;
+import modelo.Video;
+import persistencia.*;
 import catalogos.CatalogoVideos;
 import catalogos.CatalogoUsuarios;
-import javafx.scene.media.MediaPlayer;
 import umu.tds.videos.*;
 
 import java.text.ParseException;
@@ -336,18 +333,27 @@ public class Controlador implements VideosListener, IBuscadorVideos {
             } else {
                 List<Video> Videoes = new LinkedList<Video>();
                 for (String titulo : listaTitulos) {
-                    Video c = new Video("video", "");
+                    Video video = catalogoVideos.getVideo(titulo);
+                    if (video != null) {
+                        Videoes.add(video);
+                    } else {
+                        System.err.println("Mensaje Controlador: La Video no existe");
+                    }
+                  /*  Video c = new Video("video", "");
                     if (c != null) {
                         Videoes.add(c);
                     } else {
                         System.err.println("Mensaje Controlador: La Video no existe");
-                    }
+                    }*/
                 }
-                VideoList l = new VideoList(nombre, Videoes);
-                usuarioActual.anadirVideoList(l);
-                adaptadorVideoList.registrarVideoList(l);
+                VideoList videoList = new VideoList(nombre, Videoes);
+                usuarioActual.addVideoList(videoList);
+               // usuarioActual.anadirVideoList(videoList);
+                adaptadorVideoList.registrarVideoList(videoList);
                 adaptadorUsuario.modificarUsuario(usuarioActual);
                 catalogoUsuarios.actualizarUsuario(usuarioActual);
+                System.out.println("Tamano de lista Adaptador: " + adaptadorVideoList.recuperarTodasVideoList().size());
+
             }
         } else {
             System.err.println("El usuario debe estar logeado");
@@ -680,6 +686,27 @@ public class Controlador implements VideosListener, IBuscadorVideos {
         return usuarioActual.getFiltroNombre();
     }
 
+    public Video getVideo(String nombre) {
+        Video video = catalogoVideos.getVideo(nombre);
+        return video;
+    }
+
+    public void crearVideoList(String text) {
+        VideoList videoList = new VideoList(text);
+        usuarioActual.addVideoList(videoList);
+       // registrarVideoList(text, );
+    }
+
+
+    public void addVideoToList(String videoNombre, String vdListNombre) {
+        Video video = catalogoVideos.getVideo(videoNombre);
+        VideoList vdList = usuarioActual.getListaVideo(vdListNombre);
+        usuarioActual.anadirVideoALista(video, vdList);
+    }
+
+    public void setFiltroEnCatalogoVideos() {
+        catalogoVideos.setFiltro(usuarioActual.getFiltro());
+    }
 }
 
 

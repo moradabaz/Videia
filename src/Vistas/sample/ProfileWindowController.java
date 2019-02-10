@@ -20,10 +20,9 @@ import javafx.scene.text.Text;
 
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import modelo.dominio.Filtro;
-import modelo.dominio.Usuario;
-import modelo.dominio.Video;
-import modelo.dominio.VideoList;
+import modelo.Usuario;
+import modelo.Video;
+import modelo.VideoList;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -695,7 +694,6 @@ public class ProfileWindowController {
 
     private void refrescarOpcionesPremium() {
         Usuario user = controlador.getUsuarioActual();
-
         choiceBox.getItems().clear();
         if (user.isPremium()) {
             if (!premiumButton.isArmed())   premiumButton.fire();

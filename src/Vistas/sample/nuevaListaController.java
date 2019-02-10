@@ -2,36 +2,52 @@ package Vistas.sample;
 
 import controlador.Controlador;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.stage.Stage;
-import modelo.dominio.Usuario;
-import modelo.dominio.VideoList;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import modelo.Usuario;
+import modelo.Video;
+import modelo.VideoList;
 
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class nuevaListaController {
 
     public FlowPane flowpaneNuevaLista;
+    public VBox cajaSeleccionVideos;
+    public VBox panelLista;
+    public ImageView buscarVideoNombres;
+    public Button botonBuscar;
+    public TextField busquedaField;
     Controlador controlador = Controlador.getInstanciaUnica();
     public TextField nombreField;
     public Button acceptButton;
-    public BorderPane borderPaneParent;
     public UserWindowController userWindowController;
+    private LinkedList<CheckBox> listaCheckBox;
 
     public void inicializar() {
+        listaCheckBox = new LinkedList<CheckBox>();
         this.controlador = Controlador.getInstanciaUnica();
        /* if (userWindowController.getMainBorderPane() != null)
             setBorderPaneParent(userWindowController.getMainBorderPane());
         else System.err.println("FlowNuevaLista no tiene padre");*/
         this.userWindowController = UserWindowController.getInstancia();
+        for (Video video : controlador.getVideoes()) {
+            CheckBox checkBox = new CheckBox();
+            checkBox.setText(video.getTitulo());
+            panelLista.getChildren().add(checkBox);
+            listaCheckBox.add(checkBox);
+        }
     }
 
     public void crearLista(ActionEvent actionEvent) {
@@ -44,23 +60,37 @@ public class nuevaListaController {
             if (usuario.contieneVideoList(nombreLista)) {
                 Notificacion.nameExistWarning();
             } else {
-                VideoList videoList = new VideoList(nombreField.getText());
-                usuario.addVideoList(videoList);
-                controlador.registrarVideoList(videoList.getNombre(), new LinkedList<>());
+                LinkedList<String> listaTitulos = new LinkedList<>();
+                for (Node node : panelLista.getChildren()) {
+                    if (node instanceof CheckBox) {
+                        if (((CheckBox) node).isSelected()) {
+                           String nombreVideo = ((CheckBox) node).getText();
+                           listaTitulos.add(nombreVideo);
+                        }
+                    }
+                }
+                controlador.registrarVideoList(nombreLista, listaTitulos);
                 System.out.println("Exito");
-                userWindowController.actualizarVistaListas(videoList);  //TODO FALLO
+                userWindowController.actualizarVistaListas(nombreLista);  //TODO FALLO
 
             }
+
         }
         volver();
     }
 
-    public BorderPane getBorderPaneParent() {
-        return borderPaneParent;
-    }
+    private void buscarVideo(String nombre) {
+        if (!nombre.equals("")) {
+            Iterator<Node> it = panelLista.getChildren().iterator();
+            while (it.hasNext()) {
+                Node node = it.next();
+                String texto = ((CheckBox) node).getText();
+                if (!texto.contains(nombre)) {
+                   it.remove();
+                }
+            }
 
-    public void setBorderPaneParent(BorderPane borderPaneParent) {
-        this.borderPaneParent = borderPaneParent;
+        }
     }
 
     public void cancelar(ActionEvent mouseEvent) throws IOException {
@@ -68,10 +98,21 @@ public class nuevaListaController {
     }
 
     private void volver() {
-        if (borderPaneParent != null) {
-            userWindowController.restoreImages();
+        userWindowController.restoreImages();
+    }
+
+    public void buscar(MouseEvent mouseEvent) {
+        if (!busquedaField.getText().equals(""))  {
+            buscarVideo(busquedaField.getText());
         } else {
-            System.err.println("BorderPane es nulo");
+            //refrescarVisibilidades();
+        }
+    }
+
+    public void restablecer(MouseEvent mouseEvent) {
+        panelLista.getChildren().clear();
+        for (Node node : listaCheckBox) {
+            panelLista.getChildren().add(node);
         }
     }
 }

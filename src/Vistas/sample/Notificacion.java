@@ -2,11 +2,10 @@ package Vistas.sample;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.*;
-import modelo.dominio.Etiqueta;
-import modelo.dominio.Video;
+import modelo.Etiqueta;
+import modelo.Video;
 
 public class Notificacion {
 

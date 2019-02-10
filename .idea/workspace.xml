@@ -2,33 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba74e24f-ac71-45f3-ab6e-f0ebecdcae54" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/gradle-appvideo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pruebas/UsuarioTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pruebas/VideoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppVideo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AppVideo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Notificacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Notificacion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ThumbGridController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ThumbGridController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VideoWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VideoWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/nuevaLista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/nuevaLista.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/nuevaListaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/nuevaListaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/passwordPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/passwordPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/panels/ParteIzquierda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/panels/parteIzquierda.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/catalogos/CatalogoUsuarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/catalogos/CatalogoUsuarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/catalogos/CatalogoVideos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/catalogos/CatalogoVideos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Etiqueta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Filtro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/Video.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/VideoList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorUsuarioDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorVideoDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/AdaptadorVideoListDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/DAOException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/FactoriaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/IAdaptadorDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/IAdaptadorUsuarioDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/IAdaptadorVideoDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/IAdaptadorVideoListDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/IFactoriaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/PoolDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/modelo/dominio/persistencia/PoolEtiqueta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/LoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/LoginWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/Notificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/Notificacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/nuevaLista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/nuevaLista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/panels/ParteIzquierda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/panels/parteIzquierda.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/catalogos/CatalogoUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/catalogos/CatalogoUsuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/catalogos/CatalogoVideos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/catalogos/CatalogoVideos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/Filtro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/dominio/Filtro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/Etiqueta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Etiqueta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/Filtro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Filtro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/ImpopularesFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ImpopularesFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/MenoresFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/MenoresFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/MisListasFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/MisListasFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/NoFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/NoFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/NombresLargosFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/NombresLargosFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/VideoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/VideoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorUsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/AdaptadorUsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorVideoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/AdaptadorVideoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorVideoListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/AdaptadorVideoListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/DAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/FactoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/FactoriaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/IAdaptadorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/IAdaptadorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/IAdaptadorUsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/IAdaptadorUsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/IAdaptadorVideoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/IAdaptadorVideoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/IAdaptadorVideoListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/IAdaptadorVideoListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/IFactoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/IFactoriaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/PoolDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/PoolDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/dominio/persistencia/PoolEtiqueta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/PoolEtiqueta.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,55 +84,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Usuario.java">
+        <entry file="file://$PROJECT_DIR$/src/persistencia/AdaptadorUsuarioDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/ImpopularesFiltro.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="394">
+              <caret line="134" column="109" selection-start-line="134" selection-start-column="84" selection-end-line="134" selection-end-column="109" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Filtro.java">
+        <entry file="file://$PROJECT_DIR$/src/modelo/VideoList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="281">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
+              <folding>
+                <element signature="e#582#583#0" expanded="true" />
+                <element signature="e#611#612#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/modelo/MenoresFiltro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorVideoDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-192">
-              <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+            <state relative-caret-position="392">
+              <caret line="32" column="54" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -96,11 +117,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1581">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="336">
+              <caret line="706" column="42" selection-start-line="706" selection-start-column="42" selection-end-line="706" selection-end-column="42" />
               <folding>
-                <element signature="e#22526#22527#0" expanded="true" />
-                <element signature="e#22580#22581#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#23737#23738#0" expanded="true" />
+                <element signature="e#23785#23786#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,35 +131,140 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="200" column="129" selection-start-line="200" selection-start-column="129" selection-end-line="200" selection-end-column="129" />
+            <state relative-caret-position="373">
+              <caret line="200" column="62" selection-start-line="200" selection-start-column="62" selection-end-line="200" selection-end-column="62" />
               <folding>
-                <element signature="e#6623#6624#0" expanded="true" />
-                <element signature="e#6663#6664#0" expanded="true" />
-                <element signature="e#7879#7880#0" expanded="true" />
-                <element signature="e#7909#7910#0" expanded="true" />
+                <element signature="e#6026#6033#0" expanded="true" />
+                <element signature="e#6829#6830#0" expanded="true" />
+                <element signature="e#6869#6870#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="105" column="41" lean-forward="true" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
+            <state relative-caret-position="168">
+              <caret line="409" column="36" lean-forward="true" selection-start-line="409" selection-start-column="36" selection-end-line="409" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="27" column="71" lean-forward="true" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modelo/NoFiltro.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#673#674#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="205" column="74" selection-start-line="205" selection-start-column="74" selection-end-line="205" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modelo/Usuario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1134">
+              <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+              <folding>
+                <element signature="e#2841#2842#0" expanded="true" />
+                <element signature="e#2870#2871#0" expanded="true" />
+                <element signature="e#2965#2966#0" expanded="true" />
+                <element signature="e#2996#2997#0" expanded="true" />
+                <element signature="e#3096#3097#0" expanded="true" />
+                <element signature="e#3127#3128#0" expanded="true" />
+                <element signature="e#3221#3222#0" expanded="true" />
+                <element signature="e#3250#3251#0" expanded="true" />
+                <element signature="e#3351#3352#0" expanded="true" />
+                <element signature="e#3383#3384#0" expanded="true" />
+                <element signature="e#3492#3493#0" expanded="true" />
+                <element signature="e#3523#3524#0" expanded="true" />
+                <element signature="e#3603#3604#0" expanded="true" />
+                <element signature="e#3631#3632#0" expanded="true" />
+                <element signature="e#3740#3741#0" expanded="true" />
+                <element signature="e#3770#3771#0" expanded="true" />
+                <element signature="e#3811#3812#0" expanded="true" />
+                <element signature="e#3847#3848#0" expanded="true" />
+                <element signature="e#3895#3896#0" expanded="true" />
+                <element signature="e#3935#3936#0" expanded="true" />
+                <element signature="e#3983#3984#0" expanded="true" />
+                <element signature="e#4023#4024#0" expanded="true" />
+                <element signature="e#4067#4068#0" expanded="true" />
+                <element signature="e#4103#4104#0" expanded="true" />
+                <element signature="e#4153#4154#0" expanded="true" />
+                <element signature="e#4195#4196#0" expanded="true" />
+                <element signature="e#4241#4242#0" expanded="true" />
+                <element signature="e#4281#4282#0" expanded="true" />
+                <element signature="e#4670#4671#0" expanded="true" />
+                <element signature="e#4704#4705#0" expanded="true" />
+                <element signature="e#4751#4752#0" expanded="true" />
+                <element signature="e#4789#4790#0" expanded="true" />
+                <element signature="e#4854#4855#0" expanded="true" />
+                <element signature="e#4902#4903#0" expanded="true" />
+                <element signature="e#4969#4970#0" expanded="true" />
+                <element signature="e#5023#5024#0" expanded="true" />
+                <element signature="e#7053#7054#0" expanded="true" />
+                <element signature="e#7114#7115#0" expanded="true" />
+                <element signature="e#8565#8566#0" expanded="true" />
+                <element signature="e#8589#8590#0" expanded="true" />
+                <element signature="e#9547#9548#0" expanded="true" />
+                <element signature="e#9600#9601#0" expanded="true" />
+                <element signature="e#9844#9845#0" expanded="true" />
+                <element signature="e#9873#9874#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>busqueda</find>
       <find>busquedam</find>
       <find>login</find>
       <find>Filtro</find>
+      <find>new</find>
+      <find>anadirVideoA</find>
+      <find>aceptar</find>
+      <find>registrarVideoList</find>
+      <find>videoList</find>
+      <find>myl</find>
+      <find>buscarV</find>
+      <find>busqueda</find>
+      <find>filtro</find>
+      <find>volver</find>
+      <find>volvera</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,9 +276,22 @@
         <option value="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/Usuario.java" />
         <option value="$PROJECT_DIR$/src/modelo/dominio/Filtro.java" />
-        <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
-        <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
         <option value="$PROJECT_DIR$/src/catalogos/CatalogoVideos.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" />
+        <option value="$PROJECT_DIR$/src/VideoWeb/VideoWeb.java" />
+        <option value="$PROJECT_DIR$/src/persistencia/AdaptadorVideoListDAO.java" />
+        <option value="$PROJECT_DIR$/src/pruebas/VideoTest.java" />
+        <option value="$PROJECT_DIR$/src/modelo/Video.java" />
+        <option value="$PROJECT_DIR$/src/pruebas/UsuarioTest.java" />
+        <option value="$PROJECT_DIR$/src/pruebas/AdaptadorUsuarioDAOTest.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/nuevaLista.fxml" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java" />
+        <option value="$PROJECT_DIR$/src/modelo/Usuario.java" />
+        <option value="$PROJECT_DIR$/src/persistencia/AdaptadorUsuarioDAO.java" />
+        <option value="$PROJECT_DIR$/src/modelo/VideoList.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" />
+        <option value="$PROJECT_DIR$/src/controlador/Controlador.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" />
       </list>
     </option>
   </component>
@@ -161,16 +301,19 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1280" />
+    <option name="y" value="22" />
     <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,7 +330,25 @@
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dominio" type="462c0819:PsiDirectoryNode" />
+              <item name="catalogos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controlador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modelo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="persistencia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
@@ -199,20 +360,34 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549408037086" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549803645674" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="pruebas" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -226,7 +401,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Vistas.sample.Main" />
       <module name="AppVideo" />
@@ -234,6 +409,93 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AdaptadorUsuarioDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppVideo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pruebas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pruebas" />
+      <option name="MAIN_CLASS_NAME" value="pruebas.AdaptadorUsuarioDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppVideo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pruebas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pruebas" />
+      <option name="MAIN_CLASS_NAME" value="pruebas.UsuarioTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioTest.cambiarFiltroConPremium" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppVideo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pruebas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pruebas" />
+      <option name="MAIN_CLASS_NAME" value="pruebas.UsuarioTest" />
+      <option name="METHOD_NAME" value="cambiarFiltroConPremium" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioTest.cambiarFiltroImpopulares" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppVideo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pruebas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pruebas" />
+      <option name="MAIN_CLASS_NAME" value="pruebas.UsuarioTest" />
+      <option name="METHOD_NAME" value="cambiarFiltroImpopulares" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioTest.cambiarFiltroImpopularesSinPremium" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppVideo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pruebas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pruebas" />
+      <option name="MAIN_CLASS_NAME" value="pruebas.UsuarioTest" />
+      <option name="METHOD_NAME" value="cambiarFiltroImpopularesSinPremium" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AdaptadorUsuarioDAOTest" />
+        <item itemvalue="JUnit.UsuarioTest" />
+        <item itemvalue="JUnit.UsuarioTest.cambiarFiltroConPremium" />
+        <item itemvalue="JUnit.UsuarioTest.cambiarFiltroImpopularesSinPremium" />
+        <item itemvalue="JUnit.UsuarioTest.cambiarFiltroImpopulares" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -248,18 +510,66 @@
       <workItem from="1549294246091" duration="161000" />
       <workItem from="1549351139594" duration="81000" />
       <workItem from="1549373686573" duration="438000" />
-      <workItem from="1549406193233" duration="1840000" />
+      <workItem from="1549406193233" duration="1902000" />
+      <workItem from="1549443558541" duration="283000" />
+      <workItem from="1549452851578" duration="479000" />
+      <workItem from="1549461299833" duration="961000" />
+      <workItem from="1549462652449" duration="306000" />
+      <workItem from="1549464695584" duration="505000" />
+      <workItem from="1549568400475" duration="20000" />
+      <workItem from="1549575847883" duration="8235000" />
+      <workItem from="1549627638552" duration="14972000" />
+      <workItem from="1549801280633" duration="2204000" />
     </task>
+    <task id="LOCAL-00001" summary="Cambios xd">
+      <created>1549408074171</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549408074171</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="UsuarioTest - 2019.02.08 at 13h 16m 33s.xml">
+      <configuration name="UsuarioTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioTest - 2019.02.08 at 13h 19m 06s.xml">
+      <configuration name="UsuarioTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioTest - 2019.02.08 at 13h 21m 49s.xml">
+      <configuration name="UsuarioTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioTest_cambiarFiltroImpopulares - 2019.02.08 at 13h 24m 04s.xml">
+      <configuration name="UsuarioTest.cambiarFiltroImpopulares" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioTest_cambiarFiltroImpopularesSinPremium - 2019.02.08 at 13h 24m 30s.xml">
+      <configuration name="UsuarioTest.cambiarFiltroImpopularesSinPremium" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioTest_cambiarFiltroConPremium - 2019.02.08 at 13h 28m 12s.xml">
+      <configuration name="UsuarioTest.cambiarFiltroConPremium" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioTest - 2019.02.08 at 13h 28m 19s.xml">
+      <configuration name="UsuarioTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdaptadorUsuarioDAOTest - 2019.02.08 at 13h 44m 05s.xml">
+      <configuration name="AdaptadorUsuarioDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdaptadorUsuarioDAOTest - 2019.02.08 at 13h 44m 35s.xml">
+      <configuration name="AdaptadorUsuarioDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdaptadorUsuarioDAOTest - 2019.02.08 at 13h 44m 51s.xml">
+      <configuration name="AdaptadorUsuarioDAOTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2520000" />
+    <option name="totallyTimeSpent" value="30547000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="1280" y="22" width="1680" height="1023" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12576313" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16117217" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -267,18 +577,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32987553" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32979977" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4568306" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32913166" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32987553" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32934782" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32987553" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32896176" />
+      <window_info anchor="bottom" id="CheckStyle" order="13" weight="0.9493522" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -293,92 +604,27 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cambios xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios xd" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java</url>
+          <line>421</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoUsuarios.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2080">
           <caret line="141" column="17" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/persistencia/FactoriaDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Etiqueta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/MenoresFiltro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/NoFiltro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/persistencia/AdaptadorVideoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="105" column="41" lean-forward="true" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Filtro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1581">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#22526#22527#0" expanded="true" />
-            <element signature="e#22580#22581#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -389,23 +635,438 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/RegistroController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="200" column="129" selection-start-line="200" selection-start-column="129" selection-end-line="200" selection-end-column="129" />
+        <state relative-caret-position="532">
+          <caret line="60" column="75" selection-start-line="60" selection-start-column="75" selection-end-line="60" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VideoWeb/VideoWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/Filtro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/VisorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-488">
+          <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/panels/parteIzquierda.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/TestCancion.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/LoginWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="60" column="31" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xml/Fichero.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/NombresLargosFiltro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/FactoriaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
-            <element signature="e#6623#6624#0" expanded="true" />
-            <element signature="e#6663#6664#0" expanded="true" />
-            <element signature="e#7879#7880#0" expanded="true" />
-            <element signature="e#7909#7910#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/dominio/ImpopularesFiltro.java">
+    <entry file="file://$PROJECT_DIR$/src/persistencia/PoolEtiqueta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
+        <state relative-caret-position="56">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/IFactoriaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/IAdaptadorVideoListDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/IAdaptadorVideoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/DAOException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">beans</node>
+            <node x="" y="">servidor</node>
+            <node x="" y="">controlador</node>
+            <node x="" y="">modelo</node>
+            <node x="" y="">catalogos</node>
+            <node x="" y="">persistencia</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8698517298187809" x="248.0" y="295.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/morad/Desktop/TDS/workspace/AppVideo/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="652.0" y="264.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/AppMusic/src/modelo/Cancion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="124" selection-start-line="124" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/AppMusic/src/modelo/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/TestUsuario.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/AdaptadorVideoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/ImpopularesFiltro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/Etiqueta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pruebas/AdaptadorUsuarioDAOTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/pruebas/UsuarioTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1730#1731#0" expanded="true" />
+            <element signature="e#1763#1764#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/nuevaLista.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="57" column="85" lean-forward="true" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pruebas/VideoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="8411" selection-start-line="8411" selection-end-line="8411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="1657" selection-start-line="1657" selection-end-line="1657" />
+          <folding>
+            <element signature="e#66921#66922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../H2/DriverPersistencia.jar!/tds/driver/JPARMI/ServicioPersistenciaProxyJPARMI.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/Video.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/AdaptadorVideoListDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+          <folding>
+            <element signature="e#2841#2842#0" expanded="true" />
+            <element signature="e#2870#2871#0" expanded="true" />
+            <element signature="e#2965#2966#0" expanded="true" />
+            <element signature="e#2996#2997#0" expanded="true" />
+            <element signature="e#3096#3097#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
+            <element signature="e#3221#3222#0" expanded="true" />
+            <element signature="e#3250#3251#0" expanded="true" />
+            <element signature="e#3351#3352#0" expanded="true" />
+            <element signature="e#3383#3384#0" expanded="true" />
+            <element signature="e#3492#3493#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3603#3604#0" expanded="true" />
+            <element signature="e#3631#3632#0" expanded="true" />
+            <element signature="e#3740#3741#0" expanded="true" />
+            <element signature="e#3770#3771#0" expanded="true" />
+            <element signature="e#3811#3812#0" expanded="true" />
+            <element signature="e#3847#3848#0" expanded="true" />
+            <element signature="e#3895#3896#0" expanded="true" />
+            <element signature="e#3935#3936#0" expanded="true" />
+            <element signature="e#3983#3984#0" expanded="true" />
+            <element signature="e#4023#4024#0" expanded="true" />
+            <element signature="e#4067#4068#0" expanded="true" />
+            <element signature="e#4103#4104#0" expanded="true" />
+            <element signature="e#4153#4154#0" expanded="true" />
+            <element signature="e#4195#4196#0" expanded="true" />
+            <element signature="e#4241#4242#0" expanded="true" />
+            <element signature="e#4281#4282#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
+            <element signature="e#4704#4705#0" expanded="true" />
+            <element signature="e#4751#4752#0" expanded="true" />
+            <element signature="e#4789#4790#0" expanded="true" />
+            <element signature="e#4854#4855#0" expanded="true" />
+            <element signature="e#4902#4903#0" expanded="true" />
+            <element signature="e#4969#4970#0" expanded="true" />
+            <element signature="e#5023#5024#0" expanded="true" />
+            <element signature="e#7053#7054#0" expanded="true" />
+            <element signature="e#7114#7115#0" expanded="true" />
+            <element signature="e#8565#8566#0" expanded="true" />
+            <element signature="e#8589#8590#0" expanded="true" />
+            <element signature="e#9547#9548#0" expanded="true" />
+            <element signature="e#9600#9601#0" expanded="true" />
+            <element signature="e#9844#9845#0" expanded="true" />
+            <element signature="e#9873#9874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/VideoList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/MenoresFiltro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="32" column="54" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+          <folding>
+            <element signature="e#3507#3508#0" expanded="true" />
+            <element signature="e#3559#3560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistencia/AdaptadorUsuarioDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="134" column="109" selection-start-line="134" selection-start-column="84" selection-end-line="134" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/NoFiltro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#673#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalogos/CatalogoVideos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="200" column="62" selection-start-line="200" selection-start-column="62" selection-end-line="200" selection-end-column="62" />
+          <folding>
+            <element signature="e#6026#6033#0" expanded="true" />
+            <element signature="e#6829#6830#0" expanded="true" />
+            <element signature="e#6869#6870#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="27" column="71" lean-forward="true" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlador/Controlador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="706" column="42" selection-start-line="706" selection-start-column="42" selection-end-line="706" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#23737#23738#0" expanded="true" />
+            <element signature="e#23785#23786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="409" column="36" lean-forward="true" selection-start-line="409" selection-start-column="36" selection-end-line="409" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="205" column="74" selection-start-line="205" selection-start-column="74" selection-end-line="205" selection-end-column="74" />
         </state>
       </provider>
     </entry>

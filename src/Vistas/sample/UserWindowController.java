@@ -2,7 +2,6 @@ package Vistas.sample;
 
 
 import controlador.Controlador;
-import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,14 +24,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
-import modelo.dominio.Etiqueta;
-import modelo.dominio.Usuario;
-import modelo.dominio.Video;
-import modelo.dominio.VideoList;
-import modelo.dominio.persistencia.PoolEtiqueta;
+import modelo.Etiqueta;
+import modelo.Usuario;
+import modelo.Video;
+import modelo.VideoList;
+import persistencia.PoolEtiqueta;
 import umu.tds.videos.IBuscadorVideos;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -40,7 +38,6 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -150,6 +147,8 @@ public class UserWindowController implements IBuscadorVideos {
 
         }
 
+        System.out.println("Tamano de lista: " + usuarioActual.getMyVideoLists().size());
+
         if (!usuarioActual.getMyVideoLists().isEmpty()) {
             ListView<String> listView = new ListView<>();
             for (VideoList lista : usuarioActual.getMyVideoLists()) {
@@ -214,6 +213,7 @@ public class UserWindowController implements IBuscadorVideos {
     public void refrescarFiltro(String filtro) {
         cajaFiltro.getChildren().clear();
         usuarioActual.setFiltro(filtro);
+        controlador.setFiltroEnCatalogoVideos();
         Text text = new Text("Filtro");
         Label label = new Label(controlador.getFiltroActual());
         cajaFiltro.getChildren().addAll(text, label);
@@ -245,8 +245,8 @@ public class UserWindowController implements IBuscadorVideos {
         mainBorderPane.requestLayout();
     }
 
-    public void actualizarVistaListas(VideoList videoList) {
-        Button botonLista = new Button(videoList.getNombre());
+    public void actualizarVistaListas(String nombreLista) {
+        Button botonLista = new Button(nombreLista);
         botonLista.setStyle("-fx-cursor: hand");
         botonLista.setPrefWidth(115);
         botonLista.setOnMouseClicked(ActionEvent -> {

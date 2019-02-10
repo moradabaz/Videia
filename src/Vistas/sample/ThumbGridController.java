@@ -1,36 +1,21 @@
 package Vistas.sample;
 
 import VideoWeb.VideoWeb;
-import com.sun.javafx.scene.control.skin.ScrollPaneSkin;
 import controlador.Controlador;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
-import modelo.dominio.Video;
-import modelo.dominio.VideoList;
+import modelo.Video;
+import modelo.VideoList;
 
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
 import java.util.*;
-import java.util.List;
 
 public class ThumbGridController {
 

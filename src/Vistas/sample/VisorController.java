@@ -3,7 +3,6 @@ package Vistas.sample;
 import VideoWeb.VideoWeb;
 import controlador.Controlador;
 import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,15 +14,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
-import modelo.dominio.Etiqueta;
-import modelo.dominio.Video;
-import modelo.dominio.VideoList;
-import modelo.dominio.persistencia.PoolEtiqueta;
+import modelo.Etiqueta;
+import modelo.Video;
+import persistencia.PoolEtiqueta;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class VisorController {

@@ -2,17 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<?import javafx.scene.image.Image?>
 <FlowPane fx:id="flowpaneNuevaLista" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.nuevaListaController">
    <children>
       <VBox prefHeight="401.0" prefWidth="601.0">
@@ -34,16 +32,12 @@
                         <TextField fx:id="nombreField" />
                         <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="23.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar Video" wrappingWidth="90.0595703125" />
-                        <TextField  prefHeight="48.0" prefWidth="157.0">
+                        <TextField fx:id="busquedaField" prefHeight="48.0" prefWidth="157.0">
                            <padding>
                               <Insets right="12.0" />
                            </padding>
                         </TextField>
-                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" style="-fx-cursor: hand" preserveRatio="true">
-                              <image>
-                                 <Image url="@../../../iconos/buscar.png" />
-                              </image>
-                        </ImageView>
+                        <Button fx:id="botonBuscar" onMouseClicked="#buscar" prefHeight="27.0" prefWidth="72.0" text="Buscar" />
                      </children>
                      <padding>
                         <Insets left="12.0" right="12.0" />
@@ -51,12 +45,25 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="283.0" prefWidth="601.0" />
+            <VBox fx:id="cajaSeleccionVideos" prefHeight="283.0" prefWidth="601.0">
+               <children>
+                  <ScrollPane prefHeight="294.0" prefWidth="601.0">
+                     <content>
+                        <VBox fx:id="panelLista" prefHeight="281.0" prefWidth="601.0" />
+                     </content>
+                  </ScrollPane>
+               </children></VBox>
             <HBox alignment="CENTER" prefHeight="37.0" prefWidth="601.0">
                <children>
-                  <Button fx:id="acceptButton" mnemonicParsing="false" text="Aceptar" onAction="#crearLista"/>
+                  <Button fx:id="acceptButton" mnemonicParsing="false" onAction="#crearLista" text="Aceptar" />
                   <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-                  <Button mnemonicParsing="false" text="Volver" onAction="#cancelar" />
+                  <Button mnemonicParsing="false" onAction="#cancelar" text="Volver" />
+                  <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
+                  <Button onMouseClicked="#restablecer" mnemonicParsing="false" prefHeight="28.0" prefWidth="78.0" text="Restablecer">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>

@@ -1,11 +1,11 @@
 package catalogos;
 
-import modelo.dominio.Filtro;
-import modelo.dominio.NoFiltro;
-import modelo.dominio.Video;
-import modelo.dominio.persistencia.DAOException;
-import modelo.dominio.persistencia.FactoriaDAO;
-import modelo.dominio.persistencia.IAdaptadorVideoDAO;
+import modelo.Filtro;
+import modelo.NoFiltro;
+import modelo.Video;
+import persistencia.DAOException;
+import persistencia.FactoriaDAO;
+import persistencia.IAdaptadorVideoDAO;
 
 import java.util.*;
 import java.util.function.Predicate;

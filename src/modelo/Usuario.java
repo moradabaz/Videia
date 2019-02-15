@@ -272,13 +272,13 @@ public class Usuario {
     }
 
     public void anadirVideoReciente(Video Video) {
-        if (videosRecientes.size() >= TAM_RECIENTES) {
+        if (videosRecientes.size() >= TAM_RECIENTES) {          //TODO: Esto debería ser un WHILE
             ((LinkedList) videosRecientes).removeFirst();
         }
         if (videosRecientes.contains(Video)) {
             videosRecientes.remove(Video);
         }
-        ((LinkedList) videosRecientes).addLast(Video);
+        ((LinkedList) videosRecientes).addFirst(Video);
     }
 
     public void anadirVideoALista(Video Video, VideoList PL) {

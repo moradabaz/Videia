@@ -4,6 +4,7 @@ package Vistas.sample;
 import controlador.Controlador;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -43,6 +44,10 @@ import java.util.LinkedList;
 
 
 public class UserWindowController implements IBuscadorVideos {
+
+    private static final int EN_RECIENTES = 1;
+    private static final int EN_MAS_VISTOS = 2;
+    private static final int EN_GENERAL = 0;
 
     public VBox listasBox;
     public VBox userListsVox;
@@ -99,6 +104,7 @@ public class UserWindowController implements IBuscadorVideos {
     private int intervalo;
     private Button masVistos;
     private static UserWindowController unicaInstancia;
+    private int tipoListaActual = EN_GENERAL;
 
     public void inicializar() {
         this.isCreatingLabel = false;
@@ -161,6 +167,7 @@ public class UserWindowController implements IBuscadorVideos {
                         ContextMenu menu = opcionRepMultiple(lista.getVideos());
                         menu.show(botonRecientes, ActionEvent.getScreenX(), ActionEvent.getScreenY());
                     } else {
+                        setTipoDeListaActual(EN_GENERAL);
                         mostrarLista(botonLista.getText());
                     }
                 });
@@ -205,6 +212,7 @@ public class UserWindowController implements IBuscadorVideos {
                 ContextMenu contextMenu = opcionRepMultiple(controlador.getVideosMasVistos());
                 contextMenu.show(masVistos, ActionEvent.getScreenX(), ActionEvent.getScreenY());
             } else {
+                setTipoDeListaActual(EN_MAS_VISTOS);
                 mostrarListasMasVistas();
             }
         });
@@ -250,6 +258,7 @@ public class UserWindowController implements IBuscadorVideos {
         botonLista.setStyle("-fx-cursor: hand");
         botonLista.setPrefWidth(115);
         botonLista.setOnMouseClicked(ActionEvent -> {
+            setTipoDeListaActual(EN_GENERAL);
             mostrarLista(botonLista.getText());
         });
         userListsVox.getChildren().add(botonLista);
@@ -325,7 +334,9 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void setGridPaneToCenter() {
+
         this.mainBorderPane.setCenter(this.thumbGridController.getGridPane());
+
         leftBox.setVisible(true);
         lowerBox.setVisible(true);
         rightBox.setVisible(true);
@@ -333,7 +344,23 @@ public class UserWindowController implements IBuscadorVideos {
     }
 
     public void restoreImages() {
-        this.thumbGridController.restoreImages();
+        switch (tipoListaActual) {
+            case EN_RECIENTES:
+                LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
+                if (!listaVideo.isEmpty()) {
+                    thumbGridController.displayImages(listaVideo);
+                    setTipoDeListaActual(EN_RECIENTES);
+                } else {
+                    this.mainBorderPane.setCenter(panelListaVacia("No hay videos en esta lista"));
+                }
+                break;
+            case EN_MAS_VISTOS:
+                this.mostrarListasMasVistas();
+                break;
+            default:
+                this.thumbGridController.restoreImages();
+        }
+
     }
 
     public void visualizar(Video video) throws IOException {
@@ -344,7 +371,8 @@ public class UserWindowController implements IBuscadorVideos {
             VisorController visorController = loader.getController();
             mainBorderPane.setCenter(visor);
             visorController.inicializar();
-            visorController.playVideo(video);
+            visorController.startVideo(video);
+            //visorController.playVideo(video);
             leftBox.setVisible(false);
             lowerBox.setVisible(false);
             rightBox.setVisible(false);
@@ -420,9 +448,10 @@ public class UserWindowController implements IBuscadorVideos {
             thumbGridController.restoreImages();
         } else {
             LinkedList<Video> lista = controlador.buscarPorTitulo(searchTitle);
-            if (lista.isEmpty())
+            if (lista.isEmpty()) {
                 System.out.println("La busqueda por titulo es vacia xD");
-            else
+                mainBorderPane.setCenter(panelListaVacia("No se han encontrado videos"));
+            } else
                 thumbGridController.displayImages(lista);
         }
     }
@@ -438,10 +467,12 @@ public class UserWindowController implements IBuscadorVideos {
                 }
             }
             LinkedList<Video> listaVideos = controlador.busquedaMultiple(serchTitle, listaEtiquetas);
-            if (listaVideos.isEmpty())
+            if (listaVideos.isEmpty()) {
                 System.out.println("La busqueda multiple es vacia xD");
-            else
+                mainBorderPane.setCenter(panelListaVacia("No se han encontrado videos"));
+            } else {
                 thumbGridController.displayImages(listaVideos);
+            }
         } else {
             buscarPorTitulo(event);
         }
@@ -465,8 +496,12 @@ public class UserWindowController implements IBuscadorVideos {
             menu.show(botonRecientes, event.getScreenX(), event.getScreenY());
         } else {
             LinkedList<Video> listaVideo = controlador.getVideoesRecientesUser();
-            if (!listaVideo.isEmpty())
+            if (!listaVideo.isEmpty()) {
                 thumbGridController.displayImages(listaVideo);
+                setTipoDeListaActual(EN_RECIENTES);
+            } else {
+                this.mainBorderPane.setCenter(panelListaVacia("No hay videos en esta lista"));
+            }
         }
     }
 
@@ -576,4 +611,15 @@ public class UserWindowController implements IBuscadorVideos {
         return unicaInstancia;
     }
 
+    private VBox panelListaVacia(String mensaje) {
+        VBox vBox = new VBox();
+        Text text = new Text(mensaje);
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().add(text);
+        return vBox;
+    }
+
+    private void setTipoDeListaActual(int tipo) {
+        this.tipoListaActual = tipo;
+    }
 }

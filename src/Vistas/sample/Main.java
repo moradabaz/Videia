@@ -27,7 +27,7 @@ public class Main extends Application {
             primaryStage.setTitle("Registration Form FXML Application");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("materialFX.css").toExternalForm());
-            primaryStage.setFullScreen(true);
+           // primaryStage.setFullScreen(true);
             primaryStage.setScene(scene);
             primaryStage.show();
     }

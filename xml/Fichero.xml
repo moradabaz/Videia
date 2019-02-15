@@ -4,4 +4,9 @@
         <etiqueta nombre="Reggaeton"/>
         <etiqueta nombre="Music"/>
     </video>
+    <video titulo="Adverticement2" url="https://www.youtube.com/watch?v=utUPth77L_o" >
+        <etiqueta nombre="Apple"/>
+        <etiqueta nombre="Commercial"/>
+    </video>
+
 </videos>

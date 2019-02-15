@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,10 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 
-<BorderPane stylesheets="@materialFX.css" styleClass="root" fx:id="mainBorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
+<?import javafx.scene.control.Label?>
+<BorderPane fx:id="mainBorderPane" maxHeight="600" minHeight="400" prefHeight="1920.0" prefWidth="1080.0" styleClass="root" stylesheets="@materialFX.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.UserWindowController">
     <left>
         <VBox fx:id="leftBox">
             <VBox prefHeight="17.0" prefWidth="115.0" BorderPane.alignment="CENTER">
@@ -68,8 +68,8 @@
                     <ScrollPane>
                     <VBox fx:id="userListsVox" alignment="CENTER">
                         <children>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Inicio" onMouseClicked="#mostrarInicio"/>
-                            <Button fx:id="botonRecientes" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Recientes" onMouseClicked="#mostrarVideosRecientes"/>
+                            <Button mnemonicParsing="false" onMouseClicked="#mostrarInicio" prefHeight="30.0" prefWidth="115.0" text="Inicio" />
+                            <Button fx:id="botonRecientes" mnemonicParsing="false" onMouseClicked="#mostrarVideosRecientes" prefHeight="30.0" prefWidth="115.0" text="Recientes" />
                         </children>
                     </VBox>
                     </ScrollPane>
@@ -87,7 +87,7 @@
                     </HBox>
                 </children>
             </VBox>
-            <Separator orientation="HORIZONTAL" opacity="-NaN"  />
+            <Separator opacity="-NaN" orientation="HORIZONTAL" />
             <VBox fx:id="cajaFiltro">
 
             </VBox>
@@ -140,37 +140,40 @@
             </children>
         </VBox>
     </top>
-    <bottom >
+    <bottom>
         <VBox fx:id="lowerBox" prefHeight="80.0" prefWidth="595.0" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
                     <children>
-                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="97.0">
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="78.0">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar título" wrappingWidth="85.98306465148926" />
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="171.0">
                      <children>
-                        <TextField fx:id="tituloBusqueda" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="tituloBusqueda" alignment="CENTER" prefHeight="33.0" prefWidth="222.0" />
                      </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="114.0">
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="208.0">
                             <children>
-                                <Button fx:id="botonBuscar" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Buscar" onMouseClicked="#buscarPorTitulo"/>
-                                <Button fx:id="botonNuevaBusqueda" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Nueva Busqueda" onMouseClicked="#busquedaMultiple" />
+                                <Button fx:id="botonBuscar" mnemonicParsing="false" onMouseClicked="#buscarPorTitulo" prefHeight="37.0" prefWidth="84.0" text="Buscar" />
+                                <Button fx:id="botonNuevaBusqueda" mnemonicParsing="false" onMouseClicked="#busquedaMultiple" prefHeight="0.0" prefWidth="160.0" text="Nueva Busqueda" />
                             </children>
                         </HBox>
                     </children>
                 </HBox>
                 <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="40.0" prefWidth="600.0">
-                    <Button fx:id="botonCargarVideos" text="Cargar Videos" textAlignment="CENTER" onMouseClicked="#cargarVideos"> </Button>
+                    <Button fx:id="botonCargarVideos" onMouseClicked="#cargarVideos" text="Cargar Videos" textAlignment="CENTER"> </Button>
                 </HBox>
             </children>
         </VBox>
     </bottom>
     <right>
-        <VBox fx:id="rightBox" prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER" alignment="CENTER">
+        <VBox fx:id="rightBox" alignment="CENTER" prefHeight="245.0" prefWidth="157.0" BorderPane.alignment="CENTER">
             <children>
                 <HBox prefHeight="23.0" prefWidth="133.0">
                     <children>
@@ -181,8 +184,8 @@
                     <VBox fx:id="cajaEtiquetas" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
                 </ScrollPane>
                 <Separator orientation="HORIZONTAL" />
-                <ImageView  fitHeight="18.0" fitWidth="25.0" onMouseClicked="#anadirEtiqueta" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand; -fx-alignment: center">
-                    <image >
+                <ImageView fitHeight="18.0" fitWidth="25.0" onMouseClicked="#anadirEtiqueta" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand; -fx-alignment: center">
+                    <image>
                         <Image url="@../../../../../../AppVideo/iconos/anadir.png" />
                     </image>
                 </ImageView>
@@ -195,9 +198,9 @@
                 <ScrollPane>
                     <VBox fx:id="cajaEtiquetasBusqueda" prefHeight="161.0" prefWidth="142.0" style="-fx-background-color: gainsboro" />
                 </ScrollPane>
-                <HBox>
-                    <Button alignment="CENTER" textAlignment="CENTER" text="Buscar" onMouseClicked="#buscarPorEtiqueta"/>
-                    <Button alignment="CENTER" text="Clear" onMouseClicked="#eliminarEtiquetasDeBusqueda" />
+                <HBox alignment="CENTER">
+                    <Button alignment="CENTER" onMouseClicked="#buscarPorEtiqueta" text="Buscar" textAlignment="CENTER" />
+                    <Button alignment="CENTER" onMouseClicked="#eliminarEtiquetasDeBusqueda" text="Clear" />
                 </HBox>
             </children>
         </VBox>

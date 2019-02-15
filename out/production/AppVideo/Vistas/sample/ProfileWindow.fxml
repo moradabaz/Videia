@@ -57,7 +57,7 @@
                                  <children>
                                      <Text fx:id="NombreUserName" layoutX="102.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERNAME;" textAlignment="CENTER" />
                                      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="14.0" prefHeight="28.0" prefWidth="102.0" />
-                                     <Button fx:id="buttonPDF" onMouseClicked="#generarPDF" layoutX="15.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Generar PDF">
+                                     <Button fx:id="buttonPDF" layoutX="15.0" layoutY="94.0" mnemonicParsing="false" onMouseClicked="#generarPDF" prefHeight="26.0" prefWidth="106.0" text="Generar PDF">
                                      <font>
                                          <Font size="10.0" />
                                      </font>
@@ -77,7 +77,7 @@
                       </VBox>
                       <VBox fx:id="cajaInfoPrincipal" prefHeight="373.0" prefWidth="293.0">
                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="293.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="293.0">
                                   <children>
                                       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                           <children>
@@ -99,45 +99,45 @@
                               <Separator opacity="0.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="16.0" />
                                   </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="284.0" prefWidth="296.0">
+                              <HBox alignment="CENTER" prefHeight="191.0" prefWidth="293.0">
                                   <children>
-                                      <VBox prefHeight="161.0" prefWidth="116.0">
+                                      <VBox prefHeight="190.0" prefWidth="130.0">
                                           <children>
-                                              <VBox fx:id="vboxInfo" alignment="TOP_RIGHT" prefHeight="157.0" prefWidth="130.0">
+                                              <VBox fx:id="vboxInfo" alignment="TOP_RIGHT" prefHeight="193.0" prefWidth="130.0">
                                                   <children>
-                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="130.0">
                                                           <children>
                                                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
                                                           </children>
                                                       </VBox>
-                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="130.0">
                                                           <children>
                                                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos" />
                                                           </children>
                                                       </VBox>
-                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
-                                                          <children>
-                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento" />
-                                                          </children>
-                                                      </VBox>
-                                                      <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="145.0">
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="130.0">
                                                           <children>
                                                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                                                          </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="130.0">
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento" />
                                                           </children>
                                                       </VBox>
                                                   </children>
                                               </VBox>
                                           </children>
                                       </VBox>
-                                      <VBox fx:id="vboxEdit" alignment="TOP_CENTER" prefHeight="195.0" prefWidth="146.0">
+                                      <VBox fx:id="vboxEdit" alignment="TOP_CENTER" prefHeight="145.0" prefWidth="146.0">
                                           <padding>
                                               <Insets left="10" />
                                           </padding>
                                           <children>
-                                              <VBox fx:id="nombreBox" alignment="CENTER" prefHeight="29.0" prefWidth="146.0" />
-                                              <VBox fx:id="ApellidosBox" alignment="CENTER" prefHeight="25.0" prefWidth="197.0" />
-                                              <VBox fx:id="birthdayBox" alignment="CENTER" prefHeight="25.0" prefWidth="197.0" />
-                                              <VBox fx:id="emailBox" alignment="CENTER" prefHeight="25.0" prefWidth="197.0" />
+                                              <VBox fx:id="nombreBox" alignment="CENTER" prefHeight="29.0" prefWidth="136.0" />
+                                              <VBox fx:id="ApellidosBox" alignment="CENTER" prefHeight="29.0" prefWidth="136.0" />
+                                              <VBox fx:id="emailBox" alignment="CENTER" prefHeight="39.0" prefWidth="136.0" />
+                                              <VBox fx:id="birthdayBox" alignment="CENTER" prefHeight="43.0" prefWidth="136.0" />
                                           </children>
                                       </VBox>
                                   </children>

@@ -5,6 +5,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import controlador.Controlador;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -92,6 +93,12 @@ public class ProfileWindowController {
             emailBox.getChildren().add(emailText);
             this.premiumText = new Text("");
             cajaSuperior.getChildren().add(premiumText);
+
+            if (user.isPremium()) {
+                premiumButton.setSelected(true);
+            } else {
+                premiumButton.setSelected(false);
+            }
 
             premiumButton.setOnMouseClicked(event -> {
                 if (!user.isPremium()) {
@@ -311,25 +318,22 @@ public class ProfileWindowController {
             emailBox.getChildren().clear();
             Usuario user = controlador.getUsuarioActual();
 
-            TextField nombreTextField = new TextField();
+            TextField nombreTextField = new TextField(user.getNombre());
             nombreBox.getChildren().add(nombreTextField);
 
-            TextField apellidosTextField = new TextField();
+            TextField apellidosTextField = new TextField(user.getApellidos());
             ApellidosBox.getChildren().add(apellidosTextField);
 
             DatePicker birthDate = new DatePicker();
             birthdayBox.getChildren().add(birthDate);
 
-            TextField emailTextField = new TextField();
+            TextField emailTextField = new TextField(user.getEmail());
             emailBox.getChildren().add(emailTextField);
 
+            HBox hBoxAccept = new HBox();
+            hBoxAccept.setAlignment(Pos.CENTER);
+            hBoxAccept.setPadding(new Insets(10, 0 , 0, 0));
 
-            VBox vboxAccept = new VBox();
-            VBox vboxCancel = new VBox();
-            vboxAccept.setAlignment(Pos.CENTER_RIGHT);
-            vboxAccept.setPrefHeight(40);
-            vboxAccept.setPrefWidth(157);
-            vboxAccept.setPadding(new Insets(10, 0, 0, 0));
             Button acceptButton = new Button("Aceptar");
             acceptButton.setAlignment(Pos.CENTER);
             acceptButton.setOnMouseClicked(ActioEvent -> {
@@ -341,8 +345,10 @@ public class ProfileWindowController {
                 }
                 String email = emailTextField.getText();
                 actualizarCampos(nombre, apellidos, fecha, email);
-                vboxInfo.getChildren().remove(vboxAccept);
-                vboxEdit.getChildren().remove(vboxCancel);
+          //      vboxInfo.getChildren().remove(acceptButton);
+          //      vboxEdit.getChildren().remove(acceptButton);
+                cajaInfoPrincipal.getChildren().remove(hBoxAccept);
+
                 nombreBox.getChildren().clear();
                 ApellidosBox.getChildren().clear();
                 birthdayBox.getChildren().clear();
@@ -351,17 +357,15 @@ public class ProfileWindowController {
                 refrescarInfo();
             });
 
-            vboxAccept.getChildren().add(acceptButton);
+         //   vboxAccept.getChildren().add(acceptButton);
 
 
-            vboxCancel.setAlignment(Pos.CENTER);
-            vboxCancel.setPrefHeight(40);
-            vboxCancel.setPrefWidth(157);
             Button cancelButton = new Button("Cancel");
             cancelButton.setAlignment(Pos.CENTER);
             cancelButton.setOnMouseClicked(ActionEvent -> {
-                vboxInfo.getChildren().remove(vboxAccept);
-                vboxEdit.getChildren().remove(vboxCancel);
+           //     vboxInfo.getChildren().remove(vboxAccept);
+           //     vboxEdit.getChildren().remove(vboxCancel);
+                cajaInfoPrincipal.getChildren().remove(hBoxAccept);
                 nombreBox.getChildren().clear();
                 ApellidosBox.getChildren().clear();
                 birthdayBox.getChildren().clear();
@@ -369,11 +373,19 @@ public class ProfileWindowController {
                 refrescarInfo();
                 setEditStatus(false);
             });
-            vboxCancel.getChildren().add(cancelButton);
+           /* vboxCancel.getChildren().add(cancelButton);
             vboxCancel.setPadding(new Insets(0, 12, 0, 0));
 
             vboxInfo.getChildren().add(vboxAccept);
-            vboxEdit.getChildren().add(vboxCancel);
+            vboxEdit.getChildren().add(vboxCancel);*/
+
+            Separator separator = new Separator();
+            separator.setOrientation(Orientation.VERTICAL);
+            separator.setOpacity(0);
+            hBoxAccept.getChildren().addAll(acceptButton, separator, cancelButton);
+            separator.setPrefWidth(22);
+            separator.setHalignment(HPos.CENTER);
+            cajaInfoPrincipal.getChildren().add(hBoxAccept);
         }
     }
 
@@ -461,7 +473,7 @@ public class ProfileWindowController {
 
     private void volverALogin(MouseEvent mouseEvent) throws IOException {
         BorderPane root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
-        FlowPane login =  FXMLLoader.load(getClass().getResource("login.fxml"));
+        FlowPane login =  FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
         root.setCenter(login);
         Stage primaryStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         primaryStage.setTitle("Registration Form FXML Application");
@@ -548,6 +560,7 @@ public class ProfileWindowController {
         separador.setPrefHeight(44);
         separador.setPrefWidth(8);
         separador.setOpacity(0);
+
         TextField textFieldNombre = new TextField(nombreLista);
         Path pathQuit = Paths.get("iconos/guardar.png");
         System.out.println(pathQuit.toAbsolutePath().toString());
@@ -563,6 +576,8 @@ public class ProfileWindowController {
                 videoList.setNombre(listaNombreNuevo);
             }
             controlador.actualizarVideoList(videoList);
+            Notificacion.changeSuccess(Notificacion.FIELDS);
+            mostrarListasDisponibles();
             setEditList(false);
         });
 
@@ -642,6 +657,7 @@ public class ProfileWindowController {
     }
 
     private void mostrarListasDisponibles() {
+        vboxListas.getChildren().clear();
         Usuario user = controlador.getUsuarioActual();
         for (VideoList vl : user.getMyVideoLists()) {
             String nombreLista = vl.getNombre();

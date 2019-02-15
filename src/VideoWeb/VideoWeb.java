@@ -106,6 +106,24 @@ public class VideoWeb {
         return imgView;
     }
 
+    public ImageView getImage(String urlYoutube) {
+        URL urlThumb = null;
+        Image imgThumb = null;
+        ImageView imgView = new ImageView();
+        if (urlYoutube.startsWith(cabeceraURLYoutube) && urlYoutube.length() == 43) {
+            String idVideo = urlYoutube.substring(urlYoutube.indexOf(61)+ 1);
+            try {
+                String url = "http://img.youtube.com/vi/" + idVideo + "/hqdefault.jpg";
+                imgThumb = new Image(url);
+            }catch (Exception e) {
+                ;
+            }
+        }
+        imgView.setImage(imgThumb);
+        return imgView;
+    }
+
+
     public List<ImageView> getUrlImages(List<String> listaUrls) {
         List<ImageView> lista = new LinkedList<ImageView>();
         for (String url : listaUrls) {
@@ -115,5 +133,8 @@ public class VideoWeb {
         }
         return lista;
     }
+
+
+
 
 }

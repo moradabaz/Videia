@@ -252,6 +252,7 @@ public class ThumbGridController {
     }
 
     private void visualizar(Video video) throws IOException {
+        controlador.anadirVideoAReciente(video);
         userWindowController.visualizar(video);
     }
 

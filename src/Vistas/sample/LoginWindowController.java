@@ -31,12 +31,12 @@ public class LoginWindowController {
 
     @FXML
     private void login(ActionEvent event) {
+        textoPassword.setText("Cargando...");
         String user = userField.getText();
         String passwd = passwdField.getText();
         textoPassword.setText("");
         boolean logeado = controlador.login(user, passwd);
         if (logeado) {
-            textoPassword.setText("Cargando...");
             System.out.println("El usuario " + user + "esta logeado");
             Usuario usuarioActual = controlador.getUsuarioActual();
             if (usuarioActual == null) {
@@ -67,7 +67,7 @@ public class LoginWindowController {
         userWindowController.inicializar();
         Stage window =  new Stage();
         window.setScene(userViewScene);
-        window.setFullScreen(true);
+        window.setFullScreen(false);
         window.show();
         ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
 

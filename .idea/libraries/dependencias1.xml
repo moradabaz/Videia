@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="dependencias1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dependencias/itext-5.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dependencias/BuscadorComponente.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

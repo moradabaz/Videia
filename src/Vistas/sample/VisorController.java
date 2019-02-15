@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
@@ -48,10 +49,22 @@ public class VisorController {
     }
 
     public void playVideo(Video video) {
-        this.video = video;
+        //this.video = video;
         videoWeb.playVideo(video.getRutaFichero());
         controlador.play(video);
         numReproduccionesLabel.setText(String.valueOf(video.getNumReproducciones()));
+    }
+
+
+    public void startVideo(Video video) {
+        this.video = video;
+        ImageView imgView = videoWeb.getImage(video.getRutaFichero());
+        visorBox.getChildren().add(imgView);
+        imgView.setStyle("-fx-cursor: hand");
+        imgView.setOnMouseClicked(MouseEvent -> {
+            visorBox.getChildren().remove(imgView);
+            playVideo(video);
+        });
     }
 
     public void playVideo(LinkedList<Video> lista) {
@@ -81,7 +94,7 @@ public class VisorController {
     private void gotoInicio() {
         videoWeb.cancel();
         controlador.setPlaying(false);
-        this.userWindowController.setGridPaneToCenter();
+        this.userWindowController.restoreImages();
     }
 
     public void volverInicio(MouseEvent event) {

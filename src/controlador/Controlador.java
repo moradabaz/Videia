@@ -410,6 +410,7 @@ public class Controlador implements VideosListener, IBuscadorVideos {
 
     public void anadirVideoAReciente(Video Video) {
         usuarioActual.anadirVideoReciente(Video);
+        adaptadorUsuario.modificarUsuario(usuarioActual);
     }
 
     public LinkedList<Video> getVideoesRecientesUser() {
@@ -432,9 +433,9 @@ public class Controlador implements VideosListener, IBuscadorVideos {
             int n1 = o1.getNumReproducciones();
             int n2 = o2.getNumReproducciones();
             if (n1 > n2)
-                return 1;
-            else if (n1 < n2)
                 return -1;
+            else if (n1 < n2)
+                return 1;
             return 0;
         }).limit(10).collect(Collectors.toCollection(LinkedList::new));
     }

@@ -38,9 +38,6 @@ public class nuevaListaController {
     public void inicializar() {
         listaCheckBox = new LinkedList<CheckBox>();
         this.controlador = Controlador.getInstanciaUnica();
-       /* if (userWindowController.getMainBorderPane() != null)
-            setBorderPaneParent(userWindowController.getMainBorderPane());
-        else System.err.println("FlowNuevaLista no tiene padre");*/
         this.userWindowController = UserWindowController.getInstancia();
         for (Video video : controlador.getVideoes()) {
             CheckBox checkBox = new CheckBox();

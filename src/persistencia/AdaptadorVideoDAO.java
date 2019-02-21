@@ -30,10 +30,10 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
     public static AdaptadorVideoDAO getUnicaInstancia() {
         if (unicaInstancia == null) {
-            return new AdaptadorVideoDAO();
-        } else {
-            return unicaInstancia;
+            unicaInstancia = new AdaptadorVideoDAO();
         }
+            return unicaInstancia;
+
     }
 
 

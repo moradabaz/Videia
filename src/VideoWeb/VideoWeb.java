@@ -16,8 +16,6 @@ import java.util.TimerTask;
 
 public class VideoWeb {
 
-    public static final double ESCALA_IMG_X = 0.30;
-    public static final double ESCALA_IMG_Y = 0.30;
 
     private static final String cabeceraURLYoutube = "https://www.youtube.com/watch?v=";
     private static VideoWeb unicaInstancia;
@@ -107,7 +105,6 @@ public class VideoWeb {
     }
 
     public ImageView getImage(String urlYoutube) {
-        URL urlThumb = null;
         Image imgThumb = null;
         ImageView imgView = new ImageView();
         if (urlYoutube.startsWith(cabeceraURLYoutube) && urlYoutube.length() == 43) {

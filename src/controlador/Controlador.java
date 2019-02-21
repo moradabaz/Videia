@@ -16,9 +16,8 @@ import java.util.stream.Collectors;
 
 public class Controlador implements VideosListener, IBuscadorVideos {
 
+
     private static Controlador instanciaUnica;
-
-
     private FactoriaDAO factoriaDAO;
     private CatalogoUsuarios catalogoUsuarios;
     private CatalogoVideos catalogoVideos;

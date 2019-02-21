@@ -26,10 +26,9 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
     public static AdaptadorVideoListDAO getUnicaInstancia() {
 
         if (unicaInstancia == null) {
-            return new AdaptadorVideoListDAO();
-        } else {
-            return unicaInstancia;
+            unicaInstancia = new AdaptadorVideoListDAO();
         }
+            return unicaInstancia;
     }
 
     private AdaptadorVideoListDAO() {

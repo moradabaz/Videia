@@ -159,18 +159,7 @@ public class UserWindowController implements IBuscadorVideos {
             ListView<String> listView = new ListView<>();
             for (VideoList lista : usuarioActual.getMyVideoLists()) {
                 listasUsuario.put(lista.getNombre(), lista);
-                Button botonLista = new Button(lista.getNombre());
-                botonLista.setPrefWidth(115);
-                botonLista.setStyle("-fx-cursor: hand");
-                botonLista.setOnMouseClicked(ActionEvent -> {
-                    if (ActionEvent.getButton() == MouseButton.SECONDARY) {
-                        ContextMenu menu = opcionRepMultiple(lista.getVideos());
-                        menu.show(botonRecientes, ActionEvent.getScreenX(), ActionEvent.getScreenY());
-                    } else {
-                        setTipoDeListaActual(EN_GENERAL);
-                        mostrarLista(botonLista.getText());
-                    }
-                });
+                Button botonLista = crearBotonLista(lista);
                 userListsVox.getChildren().add(botonLista);
             }
         }
@@ -253,14 +242,9 @@ public class UserWindowController implements IBuscadorVideos {
         mainBorderPane.requestLayout();
     }
 
-    public void actualizarVistaListas(String nombreLista) {
-        Button botonLista = new Button(nombreLista);
-        botonLista.setStyle("-fx-cursor: hand");
-        botonLista.setPrefWidth(115);
-        botonLista.setOnMouseClicked(ActionEvent -> {
-            setTipoDeListaActual(EN_GENERAL);
-            mostrarLista(botonLista.getText());
-        });
+    public void actualizarVistaListas(String listaNombre) {
+        VideoList lista = controlador.getVideoList(listaNombre);
+        Button botonLista = crearBotonLista(lista);
         userListsVox.getChildren().add(botonLista);
         mainBorderPane.requestLayout();
     }
@@ -621,5 +605,22 @@ public class UserWindowController implements IBuscadorVideos {
 
     private void setTipoDeListaActual(int tipo) {
         this.tipoListaActual = tipo;
+    }
+
+
+    public Button crearBotonLista(VideoList lista) {
+        Button botonLista = new Button(lista.getNombre());
+        botonLista.setPrefWidth(115);
+        botonLista.setStyle("-fx-cursor: hand");
+        botonLista.setOnMouseClicked(ActionEvent -> {
+            if (ActionEvent.getButton() == MouseButton.SECONDARY) {
+                ContextMenu menu = opcionRepMultiple(lista.getVideos());
+                menu.show(botonRecientes, ActionEvent.getScreenX(), ActionEvent.getScreenY());
+            } else {
+                setTipoDeListaActual(EN_GENERAL);
+                mostrarLista(botonLista.getText());
+            }
+        });
+        return botonLista;
     }
 }

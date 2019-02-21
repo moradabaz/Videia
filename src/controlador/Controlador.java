@@ -338,21 +338,13 @@ public class Controlador implements VideosListener, IBuscadorVideos {
                     } else {
                         System.err.println("Mensaje Controlador: La Video no existe");
                     }
-                  /*  Video c = new Video("video", "");
-                    if (c != null) {
-                        Videoes.add(c);
-                    } else {
-                        System.err.println("Mensaje Controlador: La Video no existe");
-                    }*/
                 }
                 VideoList videoList = new VideoList(nombre, Videoes);
                 usuarioActual.addVideoList(videoList);
-               // usuarioActual.anadirVideoList(videoList);
                 adaptadorVideoList.registrarVideoList(videoList);
                 adaptadorUsuario.modificarUsuario(usuarioActual);
                 catalogoUsuarios.actualizarUsuario(usuarioActual);
                 System.out.println("Tamano de lista Adaptador: " + adaptadorVideoList.recuperarTodasVideoList().size());
-
             }
         } else {
             System.err.println("El usuario debe estar logeado");

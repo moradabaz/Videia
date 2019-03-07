@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 public interface CentralPanel {
 

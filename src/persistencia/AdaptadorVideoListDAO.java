@@ -14,7 +14,7 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
 
     // TODO: Aplicar patron GRASP en Usuario para acceder a las Videoes de las listas de Videoes
 
-    private static final String VIDEOS= "Videoes";
+    private static final String VIDEOS = "Videoes";
     private static final String NOMBRE = "nombre";
 
     private static ServicioPersistencia servPersistencia;
@@ -38,14 +38,14 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
     /**
      * Cuando se registr una linea de vente se le asigna un identificador unico
      *
-     * @param VideoList
+     * @param videolist
      */
     @Override
-    public void registrarVideoList(VideoList VideoList) {
+    public void registrarVideoList(VideoList videolist) {
         Entidad eVideoList;
         boolean existe = true;
         try {
-            eVideoList = servPersistencia.recuperarEntidad(VideoList.getCodigo());
+            eVideoList = servPersistencia.recuperarEntidad(videolist.getCodigo());
         } catch (NullPointerException e) {
             existe = false;
         }
@@ -58,8 +58,8 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
         eVideoList.setPropiedades(
                 new ArrayList<Propiedad>(
                         Arrays.asList(
-                                new Propiedad(VIDEOS, VideoList.getIDVideosString()),
-                                new Propiedad(NOMBRE, VideoList.getNombre())
+                                new Propiedad(VIDEOS, videolist.getIDVideosString()),
+                                new Propiedad(NOMBRE, videolist.getNombre())
                         )
                 ));
 
@@ -67,27 +67,27 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
         eVideoList = servPersistencia.registrarEntidad(eVideoList);
         // asignar identificador unico.
         //Se aprovecha el que genera el servicio de persistencia
-        VideoList.setCodigo(eVideoList.getId());
+        videolist.setCodigo(eVideoList.getId());
 
 
     }
 
     @Override
-    public void borrarVideoList(VideoList VideoList) {
+    public void borrarVideoList(VideoList videoList) {
         // No se comprueba integridad con venta
-        Entidad eVideoList = servPersistencia.recuperarEntidad(VideoList.getCodigo());
+        Entidad eVideoList = servPersistencia.recuperarEntidad(videoList.getCodigo());
         servPersistencia.borrarEntidad(eVideoList);
     }
 
     @Override
-    public void modificarVideoList(VideoList VideoList) {
+    public void modificarVideoList(VideoList videoList) {
         Entidad eVideoList = null;
-        eVideoList = servPersistencia.recuperarEntidad(VideoList.getCodigo());
+        eVideoList = servPersistencia.recuperarEntidad(videoList.getCodigo());
         if (eVideoList != null) {
             servPersistencia.eliminarPropiedadEntidad(eVideoList, VIDEOS);
-            servPersistencia.anadirPropiedadEntidad(eVideoList, VIDEOS, VideoList.getIDVideosString());
+            servPersistencia.anadirPropiedadEntidad(eVideoList, VIDEOS, videoList.getIDVideosString());
             servPersistencia.eliminarPropiedadEntidad(eVideoList, NOMBRE);
-            servPersistencia.anadirPropiedadEntidad(eVideoList, NOMBRE, VideoList.getNombre());
+            servPersistencia.anadirPropiedadEntidad(eVideoList, NOMBRE, videoList.getNombre());
         }
     }
 
@@ -107,18 +107,18 @@ public class AdaptadorVideoListDAO implements IAdaptadorVideoListDAO {
 
         nombre = servPersistencia.recuperarPropiedadEntidad(eVideoList, NOMBRE);
         lineaVideoes = servPersistencia.recuperarPropiedadEntidad(eVideoList, VIDEOS);	// revisar
-        VideoList LC = new VideoList(nombre);
-        LC.setCodigo(codigo);
+        VideoList videoList = new VideoList(nombre);
+        videoList.setCodigo(codigo);
 
-        pool.addObjeto(codigo, LC);
+        pool.addObjeto(codigo, videoList);
 
-        List<Video> Videoes = getVideoesByIds(lineaVideoes);
+        List<Video> videoes = getVideoesByIds(lineaVideoes);
 
-        for (Video Video : Videoes) {
-            LC.addVideo(Video);
+        for (Video video : videoes) {
+            videoList.addVideo(video);
         }
 
-        return LC;
+        return videoList;
     }
 
     @Override

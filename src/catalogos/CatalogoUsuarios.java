@@ -35,7 +35,7 @@ public class CatalogoUsuarios {
      * - Inicializa los mapas y las factorias
      */
     public CatalogoUsuarios() {
-        try{
+        try {
             dao = FactoriaDAO.getUnicaInstancia(FactoriaDAO.DAO_TDS);
             adaptadorUsuario = dao.getUsuarioDAO();
             usuarios = new HashMap<String, Usuario>();
@@ -91,7 +91,7 @@ public class CatalogoUsuarios {
 
     /**
      *
-     * @param userName
+     * @param userName Nombre de usuario
      * @return Comprueba que el usuario que se le pasa como parametro existe y en tal caso lo retorna
      * En caso de no existir retorna NULL
      */

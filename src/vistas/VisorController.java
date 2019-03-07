@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import VideoWeb.VideoWeb;
 import controlador.Controlador;
@@ -123,7 +123,4 @@ public class VisorController {
         tiempoEspera = tiempo;
     }
 
-    public void playNextVideo(MouseEvent mouseEvent) {
-
-    }
 }

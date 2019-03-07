@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

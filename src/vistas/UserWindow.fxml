@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.Label?>
-<BorderPane fx:id="mainBorderPane" maxHeight="600" minHeight="400" prefHeight="1920.0" prefWidth="1080.0" styleClass="root" stylesheets="@materialFX.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.UserWindowController">
+<BorderPane fx:id="mainBorderPane" maxHeight="600" minHeight="400" prefHeight="1920.0" prefWidth="1080.0" styleClass="root" stylesheets="@materialFX.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.UserWindowController">
     <left>
         <VBox fx:id="leftBox">
             <VBox prefHeight="17.0" prefWidth="115.0" BorderPane.alignment="CENTER">
@@ -205,6 +205,7 @@
         </VBox>
     </right>
     <center>
+
         <FlowPane fx:id="flowPaneCenter">
 
         </FlowPane>

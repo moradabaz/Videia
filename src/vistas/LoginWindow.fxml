@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
 <FlowPane stylesheets="@materialFX.css" fx:id="idFlowPaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="Vistas.LoginWindowController" >
+          fx:controller="vistas.LoginWindowController" >
 
     <VBox fx:id="idVboxPrincipal" alignment="CENTER" layoutX="147.0" layoutY="95.0" prefHeight="399.0" prefWidth="601.0">
         <children>

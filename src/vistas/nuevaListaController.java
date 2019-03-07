@@ -1,12 +1,12 @@
-package Vistas;
+package vistas;
 
 import controlador.Controlador;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -19,14 +19,20 @@ import java.util.LinkedList;
 
 public class nuevaListaController {
 
+    @FXML
     public FlowPane flowpaneNuevaLista;
+    @FXML
     public VBox cajaSeleccionVideos;
+    @FXML
     public VBox panelLista;
-    public ImageView buscarVideoNombres;
+    @FXML
     public Button botonBuscar;
+    @FXML
     public TextField busquedaField;
     Controlador controlador = Controlador.getInstanciaUnica();
+    @FXML
     public TextField nombreField;
+    @FXML
     public Button acceptButton;
     public UserWindowController userWindowController;
     private LinkedList<CheckBox> listaCheckBox;
@@ -92,7 +98,8 @@ public class nuevaListaController {
         }
     }
 
-    public void cancelar(ActionEvent mouseEvent) throws IOException {
+    @FXML
+    private void cancelar(ActionEvent mouseEvent) throws IOException {
         volver();
     }
 
@@ -100,6 +107,7 @@ public class nuevaListaController {
         userWindowController.restoreImages();
     }
 
+    @FXML
     public void buscar(MouseEvent mouseEvent) {
         if (!busquedaField.getText().equals(""))  {
             buscarVideo(busquedaField.getText());
@@ -108,6 +116,7 @@ public class nuevaListaController {
         }
     }
 
+    @FXML
     public void restablecer(MouseEvent mouseEvent) {
         panelLista.getChildren().clear();
         insertarVideosDisponibles();

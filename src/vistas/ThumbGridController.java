@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import VideoWeb.VideoWeb;
 import controlador.Controlador;
@@ -23,7 +23,9 @@ import java.util.*;
 
 public class ThumbGridController {
 
+    private static final String SUB_RUTA = "thumbs/";
     public static final int MAX_COLUMN = 4;
+
     public static int contador = 0;
     public VideoWeb videoWeb;
     public ColumnConstraints col1;
@@ -45,8 +47,10 @@ public class ThumbGridController {
     private HashSet<String> conjuntoURLs;
     private HashMap<String, ImageView> mapaImagenes;
     private HashMap<String, String> rutas;
-    private static final String subruta = "thumbs/";
 
+    /**
+     *
+     */
     public void inicializar() {
         this.controlador = Controlador.getInstanciaUnica();
         this.posColumna = 0;
@@ -243,7 +247,7 @@ public class ThumbGridController {
         URL url = null;
         String route = videoWeb.getUrlID(ruta);
         String rutaImagenEnLocal = "";
-        rutaImagenEnLocal = subruta + route + ".jpg";
+        rutaImagenEnLocal = SUB_RUTA + route + ".jpg";
         rutas.put(ruta, rutaImagenEnLocal);
 
         try {
@@ -256,7 +260,6 @@ public class ThumbGridController {
             for ( int i; (i = in.read()) != -1; ) {
                 out.write(i);
             }
-
             in.close();
             out.close();
 
@@ -281,7 +284,7 @@ public class ThumbGridController {
 
 
     private ImageView getImagen(String url) {
-        String rutaImagenFile = subruta + videoWeb.getUrlID(url) + ".jpg";
+        String rutaImagenFile = SUB_RUTA + videoWeb.getUrlID(url) + ".jpg";
         if (!rutas.isEmpty())
             if (rutas.get(url) == null) {
                 almacenarMiniatura(url);

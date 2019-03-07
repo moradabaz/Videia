@@ -1,7 +1,6 @@
-package Vistas;
+package vistas;
 
 
-import com.jfoenix.controls.JFXButton;
 import controlador.Controlador;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,14 +29,12 @@ import modelo.Etiqueta;
 import modelo.Usuario;
 import modelo.Video;
 import modelo.VideoList;
-import org.junit.Test;
 import persistencia.PoolEtiqueta;
 import umu.tds.videos.IBuscadorVideos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -60,29 +57,29 @@ public class UserWindowController implements IBuscadorVideos {
     public Button comboBoxProfile;
 
     @FXML
-    public MenuItem logoutItem;
+    private MenuItem logoutItem;
     @FXML
-    public MenuItem closeItem;
+    private MenuItem closeItem;
     @FXML
-    public FlowPane flowPaneCenter;
+    private FlowPane flowPaneCenter;
     @FXML
-    public HBox birthdayBox1;
+    private HBox birthdayBox1;
     @FXML
-    public HBox birthdayBox2;
+    private HBox birthdayBox2;
     @FXML
-    public HBox bottomBox;
+    private HBox bottomBox;
     @FXML
-    public Button botonCargarVideos;
+    private Button botonCargarVideos;
     @FXML
-    public VBox lowerBox;
+    private VBox lowerBox;
     @FXML
-    public VBox topBox;
+    private VBox topBox;
     @FXML
-    public VBox leftBox;
+    private VBox leftBox;
     @FXML
-    public VBox rightBox;
+    private VBox rightBox;
     @FXML
-    public VBox cajaEtiquetas;
+    private VBox cajaEtiquetas;
     @FXML
     public VBox cajaEtiquetasBusqueda;
     @FXML
@@ -101,11 +98,8 @@ public class UserWindowController implements IBuscadorVideos {
     public MenuBar topMenuBar;
     public HBox topHBox;
     private HashMap<String, VideoList> listasUsuario;
-    private HashMap<Boolean, VideoList> listasVisibles;
     private ThumbGridController thumbGridController;
-    private VBox visorBox;
     private boolean editMode;
-    private  URL location = UserWindowController.class.getResource("UserWindowController.java");
     private boolean isCreatingLabel;
     private int intervalo;
     private Button masVistos;
@@ -119,7 +113,6 @@ public class UserWindowController implements IBuscadorVideos {
         this.controlador = Controlador.getInstanciaUnica();                     // TODO: Cambio efectuado :S
         usuarioActual = controlador.getUsuarioActual();
         listasUsuario = new HashMap<String, VideoList>();
-        listasVisibles = new HashMap<Boolean, VideoList>();
         masVistos = new Button("Mas Vistos");
         inicializarMasVistos();
         this.intervalo = 5;
@@ -171,9 +164,6 @@ public class UserWindowController implements IBuscadorVideos {
         }
 
         unicaInstancia = this;
-
-        // INICIALIZAMOS LA PARTE CENTRAL XD
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ThumGridWindow.fxml"));
         GridPane gridPane = null;
@@ -195,7 +185,6 @@ public class UserWindowController implements IBuscadorVideos {
         }
         thumbGridController.insertImages();
         cargarEtiquetas();
-
     }
 
     private void inicializarMasVistos() {
@@ -262,10 +251,14 @@ public class UserWindowController implements IBuscadorVideos {
         ProfileWindowController profileController = loader.getController();
         profileController.inicializar();
         mainBorderPane.setCenter(profilePane);
-        leftBox.setVisible(false);
+        leftBox.setDisable(true);
+        lowerBox.setDisable(true);
+        rightBox.setDisable(true);
+        topBox.setDisable(true);
+        /*leftBox.setVisible(false);
         lowerBox.setVisible(false);
         rightBox.setVisible(false);
-        topBox.setVisible(false);
+        topBox.setVisible(false);*/
     }
 
 
@@ -333,6 +326,11 @@ public class UserWindowController implements IBuscadorVideos {
         lowerBox.setVisible(true);
         rightBox.setVisible(true);
         topBox.setVisible(true);
+
+        leftBox.setDisable(false);
+        lowerBox.setDisable(false);
+        rightBox.setDisable(false);
+        topBox.setDisable(false);
     }
 
     public void restoreImages() {
@@ -357,14 +355,8 @@ public class UserWindowController implements IBuscadorVideos {
 
     public void visualizar(Video video) throws IOException {
         if (!controlador.isPlaying()) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("VisorWindow.fxml"));
-            VBox visor = loader.load();
-            VisorController visorController = loader.getController();
-            mainBorderPane.setCenter(visor);
-            visorController.inicializar();
+            VisorController visorController = iniciarVisorWindow();
             visorController.startVideo(video);
-            //visorController.playVideo(video);
             leftBox.setVisible(false);
             lowerBox.setVisible(false);
             rightBox.setVisible(false);
@@ -374,18 +366,23 @@ public class UserWindowController implements IBuscadorVideos {
 
     public void visualizar(LinkedList<Video> lista) throws IOException {
         if (!controlador.isPlaying()) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("VisorWindow.fxml"));
-            VBox visor = loader.load();
-            VisorController visorController = loader.getController();
-            mainBorderPane.setCenter(visor);
-            visorController.inicializar();
+            VisorController visorController = iniciarVisorWindow();
             visorController.playVideo(lista);
             leftBox.setVisible(false);
             lowerBox.setVisible(false);
             rightBox.setVisible(false);
             topBox.setVisible(false);
         }
+    }
+
+    private VisorController iniciarVisorWindow() throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("VisorWindow.fxml"));
+        VBox visor = loader.load();
+        VisorController visorController = loader.getController();
+        mainBorderPane.setCenter(visor);
+        visorController.inicializar();
+        return visorController;
     }
 
     public void cargarEtiquetas() {

@@ -12,7 +12,7 @@
 <!--<GridPane fx:controller="Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 </GridPane> -->
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.Controller">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.Controller">
     <top>
         <VBox prefHeight="95.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>

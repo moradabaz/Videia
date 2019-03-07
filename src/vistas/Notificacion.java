@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.*;

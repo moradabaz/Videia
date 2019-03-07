@@ -73,31 +73,31 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
     }
 
 
-    public void registrarVideoes(Video... Videoes) {
-        for (Video c : Videoes) {
+    public void registrarVideoes(Video... videoes) {
+        for (Video c : videoes) {
             registrarVideo(c);
         }
     }
 
     @Override
-    public void borrarVideo(Video Video) {
-        Entidad eVideo = servPersistencia.recuperarEntidad(Video.getCodigo());
+    public void borrarVideo(Video video) {
+        Entidad eVideo = servPersistencia.recuperarEntidad(video.getCodigo());
         servPersistencia.borrarEntidad(eVideo);
     }
 
     @Override
-    public void modificarVideo(Video Video) {
-        Entidad eVideo = servPersistencia.recuperarEntidad(Video.getCodigo());
+    public void modificarVideo(Video video) {
+        Entidad eVideo = servPersistencia.recuperarEntidad(video.getCodigo());
         servPersistencia.eliminarPropiedadEntidad(eVideo, TITULO);
-        servPersistencia.anadirPropiedadEntidad(eVideo, TITULO, Video.getTitulo());
+        servPersistencia.anadirPropiedadEntidad(eVideo, TITULO, video.getTitulo());
         servPersistencia.eliminarPropiedadEntidad(eVideo, ETIQUETAS);
-        servPersistencia.anadirPropiedadEntidad(eVideo, ETIQUETAS, Video.getEtiquetasString());
+        servPersistencia.anadirPropiedadEntidad(eVideo, ETIQUETAS, video.getEtiquetasString());
         servPersistencia.eliminarPropiedadEntidad(eVideo, RUTA_FICHERO);
-        servPersistencia.anadirPropiedadEntidad(eVideo, RUTA_FICHERO, Video.getRutaFichero());
+        servPersistencia.anadirPropiedadEntidad(eVideo, RUTA_FICHERO, video.getRutaFichero());
         servPersistencia.eliminarPropiedadEntidad(eVideo, NUM_REPRODUCCIONES);
-        String numRep = String.valueOf(Video.getNumReproducciones());
+        String numRep = String.valueOf(video.getNumReproducciones());
         System.out.println("Numero de reproducciones " + numRep);
-        servPersistencia.anadirPropiedadEntidad(eVideo, NUM_REPRODUCCIONES, String.valueOf(Video.getNumReproducciones()));
+        servPersistencia.anadirPropiedadEntidad(eVideo, NUM_REPRODUCCIONES, String.valueOf(video.getNumReproducciones()));
     }
 
     @Override
@@ -130,31 +130,15 @@ public class AdaptadorVideoDAO implements IAdaptadorVideoDAO {
 
     @Override
     public List<Video> recuperarTodosVideos() {          // TODO: FALLO NO SE CARGAN LAS VideoES EN EL CATALOGO
-        List<Video> Videoes = new LinkedList<Video>();
+        List<Video> videoes = new LinkedList<Video>();
         List<Entidad> entidades = servPersistencia.recuperarEntidades("Video");
         if (entidades != null) {
             for (Entidad eVideo : entidades) {
-                Videoes.add(recuperarVideo(eVideo.getId()));
+                videoes.add(recuperarVideo(eVideo.getId()));
             }
         }
-        return Videoes;
+        return videoes;
     }
 
-
-    public LinkedList<Video> getVideoes(String lineaVideoes) {
-        LinkedList<Video> lista = new LinkedList<>();
-        String codigos[] = lineaVideoes.split(":");
-        if (codigos.length == 0 || lineaVideoes.equals("")) return lista;
-
-        for (String id : codigos) {
-            Video Video = (modelo.Video) pool.getObjeto(Integer.parseInt(id));
-            if (Video == null) {
-                Video = this.recuperarVideo(Integer.parseInt(id));
-            }
-            lista.add(Video);
-        }
-
-        return lista;
-    }
 
 }

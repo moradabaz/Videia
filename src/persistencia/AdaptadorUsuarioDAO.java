@@ -39,7 +39,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
     /**
      *
-     * @return
+     * @return Devuelve el adaptador de usuario
      */
     public static  AdaptadorUsuarioDAO getUnicaInstancia() {
         if (unicaInstancia == null) {
@@ -153,7 +153,7 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
 
     public Usuario recuperarUsuario(int codigo) {
 
-        if (PoolDAO.getUnicaInstancia().contiene(codigo)){
+        if (PoolDAO.getUnicaInstancia().contiene(codigo)) {
             return (Usuario) pool.getObjeto(codigo);
         }
 
@@ -193,7 +193,6 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
         LinkedList<VideoList> listasCancionesRecuperada = (LinkedList<VideoList>) getListasByIds(listasCancionesString); // ERROR
 
 
-        LinkedList<VideoList> VideoList = new LinkedList<VideoList>();
         LinkedList<Video> recientes = new LinkedList<Video>();
 
         recientesString = servPersistencia.recuperarPropiedadEntidad(eUsuario, VIDEOS_RECIENTES);

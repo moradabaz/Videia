@@ -4,9 +4,11 @@
         <etiqueta nombre="Reggaeton"/>
         <etiqueta nombre="Music"/>
     </video>
-    <video titulo="Adverticement2" url="https://www.youtube.com/watch?v=utUPth77L_o" >
-        <etiqueta nombre="Apple"/>
-        <etiqueta nombre="Commercial"/>
+    <video titulo="Daft Punk - Instant Crush" url="https://www.youtube.com/watch?v=a5uQMwRMHcs">
+        <etiqueta nombre="Music"/>
+        <etiqueta nombre="Electro"/>
     </video>
-
+    <video titulo="Daft Punk ft Pharrell Williams - Get Lucky" url="https://www.youtube.com/watch?v=5NV6Rdv1a3I" >
+        <etiqueta nombre="Electro" />
+    </video>
 </videos>

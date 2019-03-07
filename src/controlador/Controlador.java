@@ -624,7 +624,7 @@ public class Controlador implements VideosListener, IBuscadorVideos {
 
     public void actualizarVideoesEnLista(String tituloVideo, String videoListNombre) {
         if (usuarioActual.contieneVideoList(videoListNombre)) {
-            VideoList videoList = usuarioActual.getListaVideo(videoListNombre);
+            VideoList videoList = getVideoList(videoListNombre);    //usuarioActual.getListaVideo(videoListNombre);
             if (videoList != null) {
                 Video video = catalogoVideos.getVideo(tituloVideo);
                 usuarioActual.anadirVideoALista(video, videoList);
@@ -699,6 +699,7 @@ public class Controlador implements VideosListener, IBuscadorVideos {
     public void setFiltroEnCatalogoVideos() {
         catalogoVideos.setFiltro(usuarioActual.getFiltro());
     }
+
 }
 
 

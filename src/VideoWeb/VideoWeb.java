@@ -104,6 +104,8 @@ public class VideoWeb {
         return imgView;
     }
 
+
+
     public ImageView getImage(String urlYoutube) {
         Image imgThumb = null;
         ImageView imgView = new ImageView();
@@ -112,6 +114,7 @@ public class VideoWeb {
             try {
                 String url = "http://img.youtube.com/vi/" + idVideo + "/hqdefault.jpg";
                 imgThumb = new Image(url);
+
             }catch (Exception e) {
                 ;
             }
@@ -121,17 +124,18 @@ public class VideoWeb {
     }
 
 
-    public List<ImageView> getUrlImages(List<String> listaUrls) {
-        List<ImageView> lista = new LinkedList<ImageView>();
-        for (String url : listaUrls) {
-            ImageView img = getThumb(url);
-            img.setStyle("-fx-cursor: hand");
-            lista.add(img);
+    public String getImageUrl(String url) {
+        if (url.startsWith(cabeceraURLYoutube) && url.length() == 43) {
+            String idVideo = url.substring(url.indexOf(61) + 1);
+            return "http://img.youtube.com/vi/" + idVideo + "/1.jpg";
         }
-        return lista;
+        return null;
     }
 
+    public String getUrlID(String url) {
+        String idVideo = url.substring(url.indexOf(61) + 1);
+        return idVideo;
 
-
+    }
 
 }

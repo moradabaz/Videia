@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/dependencias/itext-5.0.5.jar!/" />
       <root url="jar://$PROJECT_DIR$/dependencias/BuscadorComponente.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jfoenix-8.0.8.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

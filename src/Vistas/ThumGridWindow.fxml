@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollBar?>
+
+<GridPane fx:id="gridPane" stylesheets="@materialFX.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+          prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="Vistas.ThumbGridController"
+          xmlns:fx="http://javafx.com/fxml/1">
+
+    <padding>
+        <Insets left="20.0" right="20.0" />
+    </padding>
+  <columnConstraints>
+    <ColumnConstraints fx:id="col1" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints fx:id="col2" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints fx:id="col3" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints fx:id="col4" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints fx:id="row1" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints fx:id="row2" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints fx:id="row3" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints fx:id="row4" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  style="-fx-background-color: #007AFF; -fx-font-family: cursive;"  -->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<FlowPane stylesheets="@materialFX.css" fx:id="idFlowPaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="Vistas.LoginWindowController" >
+
+    <VBox fx:id="idVboxPrincipal" alignment="CENTER" layoutX="147.0" layoutY="95.0" prefHeight="399.0" prefWidth="601.0">
+        <children>
+            <HBox prefHeight="112.0" prefWidth="601.0" />
+            <VBox prefHeight="368.0" prefWidth="601.0">
+                <children>
+                    <HBox alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="306.0">
+                        <children>
+                            <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="94.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario"  />
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="55.0" prefWidth="200.0">
+                                <children>
+                                    <TextField fx:id="userField" styleClass="text-field" />
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                    <HBox alignment="TOP_CENTER" prefHeight="77.0" prefWidth="306.0">
+                        <children>
+                            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="93.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <PasswordField fx:id="passwdField" />
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="95.0" prefWidth="306.0">
+                        <children>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <Button styleClass="button" mnemonicParsing="false" onAction="#login" text="Aceptar" />
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <Button styleClass="button" mnemonicParsing="false" onAction="#salir" text="Cancelar" />
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                    <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="400.0">
+                        <Text fx:id="textoPassword" textAlignment="CENTER" />
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="306.0">
+                        <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes usuario?">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Text>
+                            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="28.0" prefWidth="14.0" />
+                            <Button styleClass="button" fx:id="idButtonRegistro" mnemonicParsing="false" onAction="#gotoRegistro" text="Registrate" />
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </children>
+    </VBox>
+</FlowPane>

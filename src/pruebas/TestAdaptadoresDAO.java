@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import persistencia.*;
 
-import java.text.SimpleDateFormat;
+import java.util.Iterator;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -48,7 +48,9 @@ public class TestAdaptadoresDAO {
 
         adaptadorVideoListDAO.registrarVideoList(videoList);
 
-        adaptadorUsuarioDAO.registrarUsuario(usuario1);*/
+        adaptadorUsuarioDAO.registrarUsuario(usuario1);
+
+        */
 
     }
 
@@ -82,14 +84,18 @@ public class TestAdaptadoresDAO {
         }
 
         List<Video> videos = adaptadorVideoDAO.recuperarTodosVideos();
-        for (Video video: videos) {
-            imprimirVideo(video);
-        }
+        if (videos != null)
+            if (videos.isEmpty())
+                for (Video video: videos) {
+                 imprimirVideo(video);
+                 }
 
         List<VideoList> videoLists = adaptadorVideoListDAO.recuperarTodasVideoList();
-        for (VideoList videoList: videoLists) {
-            imprimirVideoList(videoList);
-        }
+        if (videoLists != null)
+            if (!videoLists.isEmpty())
+                for (VideoList videoList: videoLists) {
+                 //    imprimirVideoList(videoList);
+                }
 
     }
 
@@ -100,6 +106,16 @@ public class TestAdaptadoresDAO {
         assertEquals(usuario.getUsername(),"usuario1");
     }
 
+
+    @Test
+    public void eliminarTodosVideos() {
+        List<Video> videos = adaptadorVideoDAO.recuperarTodosVideos();
+        Iterator<Video> it = videos.iterator();
+        while (it.hasNext()) {
+            Video video = it.next();
+            adaptadorVideoDAO.borrarVideo(video);
+        }
+    }
 
 
 }

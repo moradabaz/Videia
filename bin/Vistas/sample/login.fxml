@@ -10,7 +10,7 @@
 
 <?import javafx.scene.layout.FlowPane?>
 
-<FlowPane fx:id="idFlowPaneLogin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="602.0" style="-fx-background-color: #007AFF; -fx-font-family: cursive;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.sample.LoginWindowController">
+<FlowPane fx:id="idFlowPaneLogin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="602.0" style="-fx-background-color: #007AFF; -fx-font-family: cursive;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.LoginWindowController">
       <VBox fx:id="idVboxPrincipal" alignment="CENTER" layoutX="147.0" layoutY="95.0" prefHeight="399.0" prefWidth="601.0">
          <children>
             <HBox prefHeight="112.0" prefWidth="601.0" />

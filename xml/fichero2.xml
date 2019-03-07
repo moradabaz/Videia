@@ -1,0 +1,7 @@
+<videos xmlns="http://www.videos.es/tds" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+        xs:schemaLocation="http://www.videos.es/tds videos.xsd">
+    <video titulo="Bruno Mars - Please Me" url="https://www.youtube.com/watch?v=3y-O-4IL-PU" >
+        <etiqueta nombre="Reggaeton"/>
+        <etiqueta nombre="Music"/>
+    </video>
+</videos>

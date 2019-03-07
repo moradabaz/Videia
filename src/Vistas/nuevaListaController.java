@@ -60,10 +60,11 @@ public class nuevaListaController {
                 controlador.registrarVideoList(nombreLista, listaTitulos);
                 System.out.println("Exito");
                 userWindowController.actualizarVistaListas(nombreLista);  //TODO FALLO
+                volver();
             }
 
         }
-        volver();
+
     }
 
     private void buscarVideo(String nombre) {
@@ -103,7 +104,7 @@ public class nuevaListaController {
         if (!busquedaField.getText().equals(""))  {
             buscarVideo(busquedaField.getText());
         } else {
-            //refrescarVisibilidades();
+
         }
     }
 

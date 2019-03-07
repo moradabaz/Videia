@@ -2,110 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba74e24f-ac71-45f3-ab6e-f0ebecdcae54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/artifactId/artifactId.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/artifactId/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/ProfileView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/aleatorio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/anadir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/birthday.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/buscar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/editar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/eliminar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/guardar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/listaRep.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/loginBackground.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/premium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/previous.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/profile-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconos/quitar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pruebas/TestImagen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pruebas/TestImagenesFXML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xml/fichero2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/dependencias1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/dependencias1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppVideo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AppVideo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/ProfileWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/ProfileWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/UserWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/UserWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/inicio.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/nuevaLista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/nuevaLista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Vistas/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Vistas/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/ProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/ProfileView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/aleatorio.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/aleatorio.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/anadir.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/anadir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/birthday.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/birthday.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/buscar.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/buscar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/editar.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/editar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/eliminar.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/eliminar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/guardar.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/guardar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/listaRep.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/listaRep.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/loginBackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/loginBackground.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/next.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/next.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/pause.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/premium.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/premium.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/previous.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/previous.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/profile-img.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/profile-img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/profile.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/profile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconos/quitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/iconos/quitar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/VideoWeb/VideoWeb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/VideoWeb/VideoWeb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/Notificacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ProfileWindowController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/RegistroController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/ThumbGridController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/UserWindowController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VideoWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/VisorWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/inicio.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/nuevaLista.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/nuevaListaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/passwordPane.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/registro.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/Vistas/sample/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AppVideo/controlador/Controlador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VideoWeb/VideoWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VideoWeb/VideoWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/CentralPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/CentralPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/LoginWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/LoginWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/LoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/LoginWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/Notificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/Notificacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/ProfileWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/ProfileWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/ProfileWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/ThumGridWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/ThumGridWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/ThumbGridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/ThumbGridController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/UserWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/UserWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/UserWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/VideoWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/VideoWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/VisorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/VisorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/VisorWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/VisorWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/inicio.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/materialFX.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/materialFX.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/materialfx-toggleswitch.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/materialfx-toggleswitch.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/nuevaLista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/nuevaLista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/nuevaListaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/nuevaListaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/passwordPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/passwordPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vistas/sample/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pruebas/TestAdaptadoresDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pruebas/TestAdaptadoresDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xml/Fichero.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/Fichero.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/ThumbGridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/ThumbGridController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/UserWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/UserWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vistas/nuevaListaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vistas/nuevaListaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pruebas/TestImagen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pruebas/TestImagen.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/artifactId/target/" />
@@ -130,73 +31,25 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/UserWindow.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$PROJECT_DIR$/src/Vistas/ThumbGridController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="69" column="79" lean-forward="true" selection-start-line="69" selection-start-column="79" selection-end-line="69" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/ProfileWindow.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
-              <folding>
-                <element signature="n#HBox#1;n#children#0;n#VBox#1;n#children#0;n#VBox#1;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/UserWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="365" column="32" selection-start-line="365" selection-start-column="32" selection-end-line="365" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/VisorWindow.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="129">
+              <caret line="250" column="15" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/VisorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vistas/nuevaLista.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="51" column="47" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vistas/nuevaListaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
+            <state relative-caret-position="266">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="21" />
+              <folding>
+                <element signature="e#3336#3337#0" expanded="true" />
+                <element signature="e#3388#3389#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -287,9 +140,7 @@
         <option value="$PROJECT_DIR$/src/Vistas/ProfileWindowController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/ThumGridWindow.fxml" />
         <option value="$PROJECT_DIR$/src/VideoWeb/VideoWeb.java" />
-        <option value="$PROJECT_DIR$/src/pruebas/TestImagen.java" />
         <option value="$PROJECT_DIR$/xml/Fichero.xml" />
-        <option value="$PROJECT_DIR$/src/Vistas/ThumbGridController.java" />
         <option value="$PROJECT_DIR$/xml/fichero2.xml" />
         <option value="$PROJECT_DIR$/src/Vistas/styles.css" />
         <option value="$PROJECT_DIR$/src/pruebas/TestAdaptadoresDAO.java" />
@@ -297,10 +148,12 @@
         <option value="$PROJECT_DIR$/src/pruebas/TestImagenesFXML.java" />
         <option value="$PROJECT_DIR$/src/Vistas/ProfileWindow.fxml" />
         <option value="$PROJECT_DIR$/src/Vistas/VisorWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/Vistas/UserWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/Vistas/nuevaListaController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/UserWindowController.java" />
         <option value="$PROJECT_DIR$/src/Vistas/VisorController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/UserWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/pruebas/TestImagen.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/ThumbGridController.java" />
+        <option value="$PROJECT_DIR$/src/Vistas/nuevaListaController.java" />
       </list>
     </option>
   </component>
@@ -349,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -366,13 +220,23 @@
               <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Vistas" type="462c0819:PsiDirectoryNode" />
+              <item name="controlador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pruebas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="thumbs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,7 +246,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551964777088" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551991290585" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -582,7 +446,10 @@
       <workItem from="1551798910071" duration="469000" />
       <workItem from="1551868654782" duration="2045000" />
       <workItem from="1551949075330" duration="4067000" />
-      <workItem from="1551955059298" duration="4687000" />
+      <workItem from="1551955059298" duration="5233000" />
+      <workItem from="1551972788051" duration="157000" />
+      <workItem from="1551973100079" duration="236000" />
+      <workItem from="1551987187089" duration="4080000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios xd">
       <created>1549408074171</created>
@@ -619,13 +486,17 @@
       <option name="project" value="LOCAL" />
       <updated>1550770649942</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ultimos cambios 2">
+      <created>1551964812806</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1551964812806</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestAdaptadoresDAO_eliminarTodosVideos - 2019.03.02 at 12h 55m 06s.xml">
-      <configuration name="TestAdaptadoresDAO.eliminarTodosVideos" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestAdaptadoresDAO_eliminarTodosVideos - 2019.03.02 at 13h 13m 28s.xml">
       <configuration name="TestAdaptadoresDAO.eliminarTodosVideos" configurationId="JUnit" />
     </history-entry>
@@ -653,23 +524,29 @@
     <history-entry file="TestAdaptadoresDAO_eliminarTodosVideos - 2019.03.07 at 12h 28m 22s.xml">
       <configuration name="TestAdaptadoresDAO.eliminarTodosVideos" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestAdaptadoresDAO_eliminarTodosVideos - 2019.03.07 at 21h 31m 24s.xml">
+      <configuration name="TestAdaptadoresDAO.eliminarTodosVideos" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110141000" />
+    <option name="totallyTimeSpent" value="115160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-228" width="1680" height="963" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16361417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12881564" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" weight="0.32982457" />
+      <window_info anchor="bottom" id="Extract Method" weight="0.9649123" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32748538" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47836256" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.47719297" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -677,10 +554,10 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32826087" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4526316" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4502924" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32467532" />
-      <window_info anchor="bottom" id="CheckStyle" order="13" weight="0.9493522" />
+      <window_info anchor="bottom" id="CheckStyle" order="13" weight="0.948538" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -840,12 +717,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/thumbs/imagen2.jpg" />
-    <entry file="file://$PROJECT_DIR$/imagen.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Image-Porkeri_001.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/imagen.jpg" />
+    <entry file="file://$PROJECT_DIR$/Image-Porkeri_001.jpg" />
     <entry file="file://$PROJECT_DIR$/thumbs/imagen3.jpg" />
     <entry file="file://$PROJECT_DIR$/thumbs/4uiaZhgren4.jpg" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/io/BufferedInputStream.java">
@@ -956,13 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/ThumbGridController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="228" column="23" selection-start-line="228" selection-start-column="23" selection-end-line="228" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/VideoWeb/VideoWeb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -983,30 +849,13 @@
     <entry file="file://$PROJECT_DIR$/artifactId/artifactId.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pruebas/TestImagenesFXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pruebas/TestImagen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" selection-start-line="2" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/materialfx-toggleswitch.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vistas/ProfileWindow.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
+        <state relative-caret-position="1386">
           <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
           <folding>
             <element signature="n#HBox#1;n#children#0;n#VBox#1;n#children#0;n#VBox#1;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#!!top" />
@@ -1014,29 +863,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/materialfx-toggleswitch.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/nuevaLista.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/Vistas/UserWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="51" column="47" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/nuevaListaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/UserWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="69" column="79" lean-forward="true" selection-start-line="69" selection-start-column="79" selection-end-line="69" selection-end-column="79" />
+        <state relative-caret-position="4480">
+          <caret line="365" column="32" selection-start-line="365" selection-start-column="32" selection-end-line="365" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1048,17 +878,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/UserWindowController.java">
+    <entry file="file://$PROJECT_DIR$/src/Vistas/VisorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="365" column="32" selection-start-line="365" selection-start-column="32" selection-end-line="365" selection-end-column="32" />
+        <state relative-caret-position="1064">
+          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vistas/VisorController.java">
+    <entry file="file://$PROJECT_DIR$/src/Vistas/nuevaLista.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        <state relative-caret-position="714">
+          <caret line="51" column="47" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pruebas/TestImagenesFXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pruebas/TestImagen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="140" column="4" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/UserWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="69" column="150" selection-start-line="69" selection-start-column="150" selection-end-line="69" selection-end-column="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/ThumbGridController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="250" column="15" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vistas/nuevaListaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="21" />
+          <folding>
+            <element signature="e#3336#3337#0" expanded="true" />
+            <element signature="e#3388#3389#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

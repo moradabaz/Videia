@@ -134,15 +134,10 @@ public class TestImagen {
     }
 
     @Test
-    public void uploadImgs() {
-        JFXPanel jfxPanel = new JFXPanel();
-        for (String str : mapaImagenes.keySet()) {
-            String rutaImg = mapaImagenes.get(str);
-            Path pathQuit = Paths.get(rutaImg);
-            Image image = new Image("file:" + pathQuit.toAbsolutePath().toString());
-            assertNotNull(image);
-            System.out.println(image.toString());
-        }
+    public void getImagen1() {
+
     }
+
+
 
 }

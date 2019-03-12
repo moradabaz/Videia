@@ -88,7 +88,6 @@ public class RegistroController implements Initializable {
         String fecha = FechaNac.getValue().toString();
         System.out.println("FECHA: " + fecha);
         if (checkFields(user, passwd, repassword, nombre)) {
-
             if (controlador.usuarioRegistrado(user)) {
                 textoError.setStyle("-fx-stroke: red;");
                 textoError.setText("El usuario " + user + " ya existe");

@@ -1,5 +1,6 @@
 package vistas;
 
+import com.sun.tools.corba.se.idl.constExpr.Not;
 import controlador.Controlador;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import modelo.Video;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.regex.Pattern;
 
 public class nuevaListaController {
 
@@ -53,6 +55,8 @@ public class nuevaListaController {
             Usuario usuario = controlador.getUsuarioActual();
             if (usuario.contieneVideoList(nombreLista)) {
                 Notificacion.nameExistWarning();
+            } else if (!validar(nombreLista)){
+                Notificacion.alertError("El nombre no cumple el patron correcto, revíselo");
             } else {
                 LinkedList<String> listaTitulos = new LinkedList<>();
                 for (Node node : panelLista.getChildren()) {
@@ -121,4 +125,12 @@ public class nuevaListaController {
         panelLista.getChildren().clear();
         insertarVideosDisponibles();
     }
+
+
+    private boolean validar(String nombre) {
+        String patron = "(\\d|\\w)+((\\s)?((\\d|\\w)+))*";
+        Pattern pattern = Pattern.compile(patron);
+        return pattern.matcher(nombre).matches();
+    }
+
 }

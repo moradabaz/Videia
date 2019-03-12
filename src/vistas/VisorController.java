@@ -123,4 +123,7 @@ public class VisorController {
         tiempoEspera = tiempo;
     }
 
+    public void playNextVideo(MouseEvent mouseEvent) {
+
+    }
 }

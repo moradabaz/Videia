@@ -22,7 +22,7 @@ public class LoginWindowController {
 
     public Button idButtonRegistro;
     public Text textoPassword;
-   public TextField userField;
+    public TextField userField;
     public VBox idVboxPrincipal;
     public PasswordField passwdField;
     public FlowPane idFlowPaneLogin;

@@ -62,4 +62,8 @@ public class Controller implements Initializable {
     public void close(ActionEvent actionEvent) {
         System.exit(0);
     }
+
+    public void showAbout(ActionEvent actionEvent) {
+        Notificacion.showAbout();
+    }
 }

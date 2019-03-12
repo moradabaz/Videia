@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import javafx.scene.text.TextAlignment;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import modelo.Usuario;
@@ -29,6 +30,7 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 
 public class ProfileWindowController {
@@ -36,7 +38,8 @@ public class ProfileWindowController {
 
     private static final String RUTA_IMG_EDIT = "iconos/editar.png";
     private static final String RUTA_IMG_ELIMINAR = "iconos/eliminar.png";
-    private static final String RUTA_IMG_GUARDAR = "iconos/guardar";
+    private static final String RUTA_IMG_GUARDAR = "iconos/guardar.png";
+    private static final String RUTA_IMG_QUITAR = "iconos/quitar.png";
 
     public Controlador controlador;
    // public FlowPane panelPrincipal;
@@ -65,14 +68,18 @@ public class ProfileWindowController {
     private boolean modeEditList;
     private UserWindowController userWindowController;
     private String filtroActual;
+    VBox vboxVideos;
     Text nombreText;
     Text apellidosText;
     Text birtdayText;
     Text emailText;
     Text premiumText;
+    private LinkedList<CheckBox> listaCheckBox;
 
     public void inicializar() {
+        listaCheckBox = new LinkedList<CheckBox>();
         auxiliar = new VBox();
+        vboxVideos = new VBox();
         this.controlador = Controlador.getInstanciaUnica();
         filtroActual = controlador.getFiltroActual();
         this.userWindowController = UserWindowController.getInstancia();
@@ -108,25 +115,24 @@ public class ProfileWindowController {
             premiumButton.setOnMouseClicked(event -> {
                 if (!user.isPremium()) {
                     boolean confirmacion = Notificacion.confirmationQuestion("¿Estas seguro de que quieres hacerte premium?");
-                    if (confirmacion)
+                    if (confirmacion) {
                         controlador.contratarPremium();
-
+                    }
                 } else {
                     boolean confirmacion = Notificacion.confirmationQuestion("¿Estas seguro de que quieres cancelar premium?");
-                    if (confirmacion)
+                    if (confirmacion) {
                         controlador.cancelarPremium();
+                    }
                 }
                 refrescarOpcionesPremium();
             });
 
            if (user.isPremium()) {
-               premiumButton.fire();
                String filtroActual = controlador.getFiltroActual();
                choiceBox.setValue(filtroActual);
                choiceBox.getItems().addAll("No Filtro", "Impopulares", "Menores", "Mis Listas", "Nombres Largos");
 
            } else {
-
                buttonPDF.setVisible(false);
                choiceBox.setValue("No Filtro");
            }
@@ -414,6 +420,7 @@ public class ProfileWindowController {
         userWindowController.refrescarFiltro(choiceBox.getValue());
         userWindowController.refrescarOpcionesPremium();
         userWindowController.setInterval(spinner.getValue());
+        //userWindowController.refrescarBotonesListas();
         userWindowController.restoreImages();
     }
 
@@ -495,16 +502,8 @@ public class ProfileWindowController {
         separator1.setOpacity(0);
         separator1.setOrientation(Orientation.VERTICAL);
         ImageView imgViewEdit = null;
-        /*
-
-          Path pathQuit = Paths.get(RUTA_IMG_BIRTHDAY);
-            System.out.println(pathQuit.toAbsolutePath().toString());
-            Image imgCumple = new Image("file:" + pathQuit.toAbsolutePath().toString());
-         */
         Path pathEdit = Paths.get(RUTA_IMG_EDIT);
         imgViewEdit =  new ImageView("file:" + pathEdit.toAbsolutePath().toString());
-        //new ImageView(new Image(new FileInputStream("/Users/morad/Desktop/TDS/workspace/AppVideo/iconos/editar.png")));
-
         imgViewEdit.setFitHeight(25);
         imgViewEdit.setFitWidth(22);
         imgViewEdit.setStyle("-fx-cursor: hand");
@@ -555,12 +554,11 @@ public class ProfileWindowController {
         separador.setOpacity(0);
 
         TextField textFieldNombre = new TextField(nombreLista);
-        Path pathQuit = Paths.get("iconos/guardar.png");
-        System.out.println(pathQuit.toAbsolutePath().toString());
-        Image imgGuardar = new Image("file:" + pathQuit.toAbsolutePath().toString());
+        Path pathGuardar = Paths.get("iconos/guardar.png");
+        Image imgGuardar = new Image("file:" + pathGuardar.toAbsolutePath().toString());
         ImageView imgViewGuardar = new ImageView(imgGuardar);
-        imgViewGuardar.setScaleX(0.5);
-        imgViewGuardar.setScaleY(0.5);
+        imgViewGuardar.setScaleX(0.4);
+        imgViewGuardar.setScaleY(0.4);
         imgViewGuardar.setStyle("-fx-cursor: hand");
         imgViewGuardar.setOnMouseClicked(event -> {
             if (!textFieldNombre.getText().equals("")) {
@@ -574,21 +572,30 @@ public class ProfileWindowController {
             setEditList(false);
         });
 
-        hboxNombre.getChildren().addAll(textoNombre, separador, textFieldNombre, imgViewGuardar);
+        Path pathQuitar = Paths.get(RUTA_IMG_QUITAR);
+        Image imgQuitar = new Image("file:" + pathQuitar.toAbsolutePath().toString());
+        ImageView imgViewQuitar = new ImageView(imgQuitar);
+        imgViewQuitar.setScaleX(0.4);
+        imgViewQuitar.setScaleY(0.4);
+        imgViewQuitar.setStyle("-fx-cursor: hand");
+
+        imgViewQuitar.setOnMouseClicked(event -> {
+            eliminarVideosSeleccionados(videoList);
+        });
+
+        hboxNombre.getChildren().addAll(textoNombre, separador, textFieldNombre, imgViewGuardar, imgViewQuitar);
         hboxNombre.setPadding(new Insets(0, 10, 0, 0));
 
         HBox hboxVideos = new HBox();                   // TODO: Caja para añadir los videos XD
         hboxVideos.setPrefHeight(146);
         hboxVideos.setPrefWidth(305);
 
-        VBox vboxVideos = new VBox();
         vboxVideos.setPrefWidth(305);
         vboxVideos.setPrefHeight(305);
         // TODO: Dentro del Vbox pondremos cada uno de los textos
         if (videoList != null) {
             for (Video v : videoList.getVideos()) {
-                Text textoVideo = new Text(v.getTitulo());
-                textoVideo.setOnMouseClicked(event -> {
+                /*textoVideo.setOnMouseClicked(event -> {
                     if (event.getButton() == MouseButton.SECONDARY) {
                         ContextMenu contextMenu =  new ContextMenu();
                         MenuItem item = new MenuItem("Eliminar");
@@ -601,9 +608,11 @@ public class ProfileWindowController {
                         contextMenu.getItems().addAll(itemNombre, item);
                         contextMenu.show(textoVideo, event.getScreenX(), event.getScreenY());
                     }
-                });
-                //textoVideo.setWrappingWidth(246);
-                vboxVideos.getChildren().add(textoVideo);
+                });*/
+                CheckBox checkBox = new CheckBox();
+                checkBox.setText(v.getTitulo());
+                listaCheckBox.add(checkBox);
+                vboxVideos.getChildren().add(checkBox);
             }
         }
 
@@ -629,6 +638,22 @@ public class ProfileWindowController {
         return vox;
     }
 
+    private void eliminarVideosSeleccionados(VideoList videoList) {
+        Iterator<CheckBox> it = listaCheckBox.iterator();
+        while (it.hasNext()) {
+            CheckBox checkBox = it.next();
+            if (checkBox instanceof CheckBox) {
+                if (((CheckBox) checkBox).isSelected()) {
+                    String nombreVideo = ((CheckBox) checkBox).getText();
+                    eliminarVideoPorNombre(nombreVideo, videoList);
+                    it.remove();
+                    vboxVideos.getChildren().remove(checkBox);
+                }
+            }
+        }
+
+    }
+
     private void eliminarLista(String nombreLista) {
         Iterator<Node> iter = vboxListas.getChildren().iterator();
         while (iter.hasNext()) {
@@ -639,6 +664,7 @@ public class ProfileWindowController {
                 }
             }
         }
+        userWindowController.eliminarBotonLista(nombreLista);
         controlador.eliminarVideoList(nombreLista);
         panelPrincipal.requestLayout();
     }
@@ -705,15 +731,31 @@ public class ProfileWindowController {
         Usuario user = controlador.getUsuarioActual();
         choiceBox.getItems().clear();
         if (user.isPremium()) {
-            if (!premiumButton.isArmed())   premiumButton.fire();
+            premiumButton.setSelected(true);
             buttonPDF.setVisible(true);
             choiceBox.setValue(user.getFiltroNombre());
             choiceBox.getItems().addAll("No Filtro", "Impopulares", "Menores", "Mis Listas", "Nombres Largos");
-            if (!premiumButton.isArmed()) premiumButton.fire();
         } else {
+            premiumButton.setSelected(false);
             buttonPDF.setVisible(false);
             choiceBox.setValue(user.getFiltroNombre());
-            if (premiumButton.isArmed())  premiumButton.fire();
         }
     }
+
+    private String acortarTitulo(String titulo) {
+        if (titulo.length() > 20)
+            return titulo.substring(0, 20) + "...";
+        else
+        return titulo;
+    }
+
+    private void eliminarVideoPorNombre(String nombre, VideoList videoList) {
+        Iterator<Video> it = videoList.getVideos().iterator();
+        while (it.hasNext()) {
+            Video v = it.next();
+            if (v.getTitulo().equals(nombre))
+                it.remove();
+        }
+    }
+
 }

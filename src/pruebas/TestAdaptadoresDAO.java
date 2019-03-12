@@ -117,5 +117,30 @@ public class TestAdaptadoresDAO {
         }
     }
 
+    @Test
+    public void mostrarUsuarios() {
+        List<Usuario> usuarios = adaptadorUsuarioDAO.recuperarTodosUsuarios();
+        for (Usuario usuario :  usuarios) {
+            imprimirUsuario(usuario);
+        }
+    }
 
+    @Test
+    public void eliminarTodosLosRecientes() {
+        List<Usuario> usuarios = adaptadorUsuarioDAO.recuperarTodosUsuarios();
+        for (Usuario usuario : usuarios) {
+            usuario.getVideosRecientes().clear();
+        }
+
+    }
+
+    @Test
+    public void eliminarTodosLosUusarios()  {
+        List<Usuario> usuarios = adaptadorUsuarioDAO.recuperarTodosUsuarios();
+        Iterator<Usuario> it = usuarios.iterator();
+        while (it.hasNext()) {
+            Usuario usuario = it.next();
+            adaptadorUsuarioDAO.borrarUsuario(usuario);
+        }
+    }
 }

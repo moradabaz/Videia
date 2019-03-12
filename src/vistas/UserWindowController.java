@@ -2,8 +2,11 @@ package vistas;
 
 
 import controlador.Controlador;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -20,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -91,7 +95,6 @@ public class UserWindowController implements IBuscadorVideos {
     @FXML
     public VBox cajaFiltro;
     public ImageView imgListaRep;
-
     private Usuario usuarioActual;
     private Controlador controlador = Controlador.getInstanciaUnica();
     public Label userLabel;
@@ -176,12 +179,16 @@ public class UserWindowController implements IBuscadorVideos {
         thumbGridController.inicializar();
 
         if (gridPane != null) {
-            ScrollPane scrollPane = new ScrollPane(gridPane);
+            /*ScrollPane scrollPane = new ScrollPane(gridPane);
             scrollPane.setMaxWidth(600);
             scrollPane.setMinHeight(400);
             scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-            mainBorderPane.setCenter(scrollPane);
+            scrollPane.setBackground(new Background(new BackgroundFill(Color.web("#FFFFFF"), CornerRadii.EMPTY, Insets.EMPTY)));
+            */
+            //ScrollPane scrollPane = crearScrollPane(gridPane);
+            mainBorderPane.setCenter(gridPane);
+
         }
         thumbGridController.insertImages();
         cargarEtiquetas();
@@ -223,6 +230,9 @@ public class UserWindowController implements IBuscadorVideos {
             if (lista != null) {
                 if (!lista.isEmpty())
                     thumbGridController.displayImages(lista);
+                else {
+                    this.mainBorderPane.setCenter(panelListaVacia("No hay videos en esta lista"));
+                }
             }
         }
     }
@@ -244,7 +254,7 @@ public class UserWindowController implements IBuscadorVideos {
         mainBorderPane.requestLayout();
     }
 
-    public void gotoProfileWindow(MouseEvent mouseEvent) throws IOException {
+    public void gotoProfileWindow(Event mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileWindow.fxml"));
         VBox profilePane = loader.load();
@@ -255,10 +265,6 @@ public class UserWindowController implements IBuscadorVideos {
         lowerBox.setDisable(true);
         rightBox.setDisable(true);
         topBox.setDisable(true);
-        /*leftBox.setVisible(false);
-        lowerBox.setVisible(false);
-        rightBox.setVisible(false);
-        topBox.setVisible(false);*/
     }
 
 
@@ -629,5 +635,40 @@ public class UserWindowController implements IBuscadorVideos {
         return botonLista;
     }
 
+    public void eliminarBotonLista(String nombreVideo) {
+        Iterator<Node> it = userListsVox.getChildren().iterator();
+        while (it.hasNext()) {
+            Node node = it.next();
+            if (node instanceof Button) {
+               if (((Button) node).getText().equals(nombreVideo)) {
+                   it.remove();
+               }
+            }
 
+        }
+    }
+
+
+    private ScrollPane crearScrollPane(Pane pane) {
+        ScrollPane scrollPane = new ScrollPane(pane);
+        scrollPane.setMaxWidth(600);
+        scrollPane.setMinHeight(400);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setBackground(new Background(new BackgroundFill(Color.web("#FFFFFF"), CornerRadii.EMPTY, Insets.EMPTY)));
+        return scrollPane;
+    }
+
+    @FXML
+    public void mostrarHelp(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    private void mostrarAbout(ActionEvent actionEvent) {
+        Notificacion.showAbout();
+    }
+
+    public void editarPerfil(ActionEvent actionEvent) {
+
+    }
 }

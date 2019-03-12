@@ -2,6 +2,7 @@ package vistas;
 
 import VideoWeb.VideoWeb;
 import controlador.Controlador;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import modelo.Video;
@@ -101,45 +103,50 @@ public class ThumbGridController {
             posColumna = contadorImagenes % MAX_COLUMN;
             VBox box = new VBox();
             Video video = null;
-            if (it.hasNext()) video = it.next();
-            assert video != null;
-            String url = video.getRutaFichero();
-            ImageView img = mapaImagenes.get(url);
+            if (it.hasNext()) {
+                video = it.next();
+                if (video != null) {
+                    String url = video.getRutaFichero();
+                    ImageView img = mapaImagenes.get(url);
 
-            if (img == null) {
-                img = videoWeb.getThumb(url);
-                mapaImagenes.put(url, img);
-            }
+                    if (img == null) {
+                        img = videoWeb.getThumb(url);
+                        mapaImagenes.put(url, img);
+                    }
 
-            box.setAlignment(Pos.CENTER);
-            box.getChildren().add(img);
-            Text tituloText = acortarTitulo(video.getTitulo());
+                    box.setAlignment(Pos.CENTER);
+                    anadirBackground(box);
 
-            tituloText.setStyle("-fx-font-size: 11px");
-            tituloText.setTextAlignment(TextAlignment.CENTER);
+                    box.getChildren().add(img);
+                    Text tituloText = acortarTitulo(video.getTitulo());
 
-            box.getChildren().add(tituloText);
-            gridPane.add(box, posColumna, filas);
-            box.setStyle("-fx-cursor: hand");
-            ContextMenu contextMenu = createContextMenu(video);
-            Video finalVideo = video;
+                    tituloText.setStyle("-fx-font-size: 11px");
+                    tituloText.setTextAlignment(TextAlignment.CENTER);
 
-            box.setOnMouseClicked(MouseEvent -> {
-                if (MouseEvent.getButton() == MouseButton.SECONDARY) {
-                    contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
-                } else {
-                    try {
-                        visualizar(finalVideo);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    box.getChildren().add(tituloText);
+                    gridPane.add(box, posColumna, filas);
+                    box.setStyle("-fx-cursor: hand");
+                    ContextMenu contextMenu = createContextMenu(video);
+                    Video finalVideo = video;
+
+                    box.setOnMouseClicked(MouseEvent -> {
+                        if (MouseEvent.getButton() == MouseButton.SECONDARY) {
+                            contextMenu.show(box, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+                        } else {
+                            try {
+                                visualizar(finalVideo);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                    conjuntoURLs.add(url);
+                    contadorImagenes++;
+                    if (contadorImagenes % 4 == 0) {
+                        filas++;
                     }
                 }
-            });
-
-            conjuntoURLs.add(url);
-            contadorImagenes++;
-            if (contadorImagenes % 4 == 0) {
-                filas++;
             }
         }
     }
@@ -181,6 +188,11 @@ public class ThumbGridController {
                             }
                         }
                     });
+
+                    anadirBackground(box);
+
+                   // box.setOnMouseEntered(event ->);
+
                     gridPane.add(box, posColumna, filas);
                     conjuntoURLs.add(url);
                     mapaImagenes.put(url, img);
@@ -313,6 +325,16 @@ public class ThumbGridController {
         return image;
     }
 
+
+    private void anadirBackground(VBox box) {
+        box.setOnMouseEntered(event -> {
+            box.setBackground(new Background(new BackgroundFill(Color.web("#42A5F5"), CornerRadii.EMPTY, Insets.EMPTY)));
+        });
+
+        box.setOnMouseExited(event -> {
+            box.setBackground(null);
+        });
+    }
 
 }
 

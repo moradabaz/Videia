@@ -655,7 +655,12 @@ public class Controlador implements VideosListener, IBuscadorVideos {
     public void play(Video video) {
         playing = true;
         incrementarReproduccion(video);
-        usuarioActual.anadirVideoReciente(video);
+        if (usuarioActual.getVideosRecientes().contains(video)) {
+            usuarioActual.getVideosRecientes().remove(video);
+            usuarioActual.anadirVideoReciente(video);
+        } else {
+            usuarioActual.anadirVideoReciente(video);
+        }
     }
 
     public LinkedList<Video> getVideosFromVideoList(String videoListNombre) {

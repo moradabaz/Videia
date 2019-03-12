@@ -71,9 +71,6 @@ public class AdaptadorUsuarioDAO implements IAdaptadorUsuarioDAO {
             }
         }
 
-        // TODO:             IMPORTANTE APLICAR LOS DESCUENTOS
-
-        // crear entidad
         eUsuario = new Entidad();
         eUsuario.setNombre("Usuario");
         eUsuario.setPropiedades(new ArrayList<Propiedad>(

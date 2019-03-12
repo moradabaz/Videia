@@ -141,7 +141,25 @@ public class Notificacion {
         }
         vBox.getChildren().addAll(nombre, numReproducciones, etiquetasText, vBoxLabel);
 
-        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK);
+        dialog.getDialogPane().setContent(vBox);
+        dialog.showAndWait();
+        if (dialog.getResult() == ButtonType.OK) {
+            dialog.close();
+        }
+    }
+
+    public static void showAbout() {
+        Dialog dialog = new Dialog();
+        VBox vBox = new VBox();
+        vBox.setAlignment(Pos.TOP_LEFT);
+        Text titulo = new Text("Nombre: App Video - TDS Caso Practico");
+        Text autores = new Text("Autores: Morad Abbou y Fran Lopez");
+        Text tutor = new Text("Tutor: Francisco J. Bermudez");
+        Text derechos = new Text("All Rights Reserved ®");
+        Text uso = new Text("Esta aplicación es de uso libre y didactico");
+        vBox.getChildren().addAll(titulo, autores, tutor, derechos, uso);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().setContent(vBox);
         dialog.showAndWait();
         if (dialog.getResult() == ButtonType.OK) {
